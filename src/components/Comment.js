@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-
+  
 
 function Comment({ posting, comments }) {
     const found = comments.filter( el => el.postLId ==posting.id )

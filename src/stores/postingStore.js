@@ -25,6 +25,9 @@ const postStore = {
         }];
     },
 
+    removePost(id) {
+        this._posts = this.posts.filter(el => el.id !== id)
+    }
 
 }
 
