@@ -1,15 +1,15 @@
 const commentStore = {
     _comments: [
-        {id: 'c1', postLId: 1, title: 'comment with postLId 1'},
-        {id: 'c2', postLId: 2, title: 'comment with postLId 2'},
-        {id: 'c3', postLId: 3, title: 'comment with postLId 3 A'},
-        {id: 'c4', postLId: 3, title: 'comment with postLId 3 B'},
-        {id: 'c5', postLId: 3, title: 'comment with postLId 3 C'},
-        {id: 'c6', postLId: 3, title: 'comment with postLId 3 D'},
-        {id: 'c7', postLId: 3, title: 'comment with postLId 3 E'},
-        {id: 'c8', postLId: 3, title: 'comment with postLId 3 F'},
-        {id: 'c9', postLId: 4, title: 'comment with postLId 4'},
-        {id: 'c10', postLId: 5, title: 'comment with postLId 5'},
+        {id: 1, postLId: 1, title: 'comment with postLId 1'},
+        {id: 2, postLId: 2, title: 'comment with postLId 2'},
+        {id: 3, postLId: 3, title: 'comment with postLId 3 A'},
+        {id: 4, postLId: 3, title: 'comment with postLId 3 B'},
+        {id: 5, postLId: 3, title: 'comment with postLId 3 C'},
+        {id: 6, postLId: 3, title: 'comment with postLId 3 D'},
+        {id: 7, postLId: 3, title: 'comment with postLId 3 E'},
+        {id: 8, postLId: 3, title: 'comment with postLId 3 F'},
+        {id: 9, postLId: 4, title: 'comment with postLId 4'},
+        {id: 10, postLId: 5, title: 'comment with postLId 5'},
     ],
 
     get comments() {

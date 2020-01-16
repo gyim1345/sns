@@ -26,6 +26,7 @@ const postStore = {
     },
 
     removePost(id) {
+        console.log('removed')
         this._posts = this.posts.filter(el => el.id !== id)
     }
 

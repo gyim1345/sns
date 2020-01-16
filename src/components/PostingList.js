@@ -4,12 +4,12 @@ import cStore from '../stores/commentStore';
 import Posting from './Posting';
 import Comment from './Comment';
 import Remove from './Remove';
+import Edit from './Edit';
 
 
 
 
-
-function PostingList({ stae }) {
+function PostingList({ state, setState }) {
   
   let postings = pStore.posts;
   let comments = cStore.comments;
@@ -17,7 +17,7 @@ function PostingList({ stae }) {
 
   const [ input, setInput ] = useState([]);
   const [ inputa, setInputa ] = useState('');
-  const [ state, setState ] = useState('');
+  // const [ state, setState ] = useState('');
   
     const onChangeComment = (e,id) => {
         
@@ -42,17 +42,31 @@ function PostingList({ stae }) {
       
       }
 
+
+      const addLineBreaks = string =>
+  string.split('\n').map((text, index) => (
+    <React.Fragment key={`${text}-${index}`}>
+      {text}
+      <br />
+    </React.Fragment>
+  ));
+
+
+
   return (
     <>
       <ul>
           {postings.map(posting => 
             <li key={posting.id}>
+              {addLineBreaks(posting.id.toString())}
               <Posting posting={posting}/>      
+              <Edit stateP={posting} state={state} setState={setState}/>
+              <Remove stateP={posting} state={state} setState={setState}/>         
+              <Comment posting={posting} comments={comments} state={state} setState={setState}/>
                  <input value={input[posting.id]} onChange={e => onChangeComment(e, posting.id)} />
                  <button onClick={e => addComment(e, posting.id)} id={'buttonAddComment'}>AddComment</button> 
-              <Remove state={posting}/>         
-              <Comment posting={posting} comments={comments}/>
             </li>
+          
           )}
       </ul>
     </>

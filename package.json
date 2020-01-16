@@ -1,7 +1,6 @@
 {
   "name": "sns",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -31,5 +30,14 @@
     "react-dom": "^16.9.0",
     "react-hook-form": "^4.4.3",
     "react-router-dom": "^5.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyim1345/sns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gyim1345/sns/issues"
+  },
+  "homepage": "https://github.com/gyim1345/sns#readme",
+  "description": ""
 }

@@ -23,7 +23,7 @@ function PostPage() {
         <div>
         <input value={input} onChange={onChange} />
         <button onClick={addPost} id={'buttonAdd'}>Add</button>
-        <PostingList state={state}/>
+        <PostingList state={state} setState={setState}/>
     </div>
         
     )}
