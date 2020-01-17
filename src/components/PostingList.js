@@ -17,7 +17,6 @@ function PostingList({ state, setState }) {
 
   const [ input, setInput ] = useState([]);
   const [ inputa, setInputa ] = useState('');
-  // const [ state, setState ] = useState('');
   
     const onChangeComment = (e,id) => {
         
@@ -28,16 +27,6 @@ function PostingList({ state, setState }) {
       let commentLength = cStore.commentsLength;
         
       cStore.createComment(postId, inputa)
-      // e.target.value = ' ';
-      // setInput(...input { postId: {title: ' '}})
-      // setInput(inputs=> ({
-      //   ...inputs, _comments: inputs[_comments].map( el => el.postLId == postId ? '' : el)
-      // })
-      // setInputa(' ')
-      // input[postId]=''
-      // setInput(' ')
-      // setInputa('')
-
       setState(commentLength)
       
       }

@@ -9,11 +9,12 @@ function Edit({stateP, state, setState, cid, indexC}) {
 
     const editThis = (e, Id) => {
      
-        if(pStore.getPost(stateP.id)===stateP)
+        if(pStore.getPost(stateP.id)===stateP){
         pStore.getPost(stateP.id).title = edit[stateP.id]
-
-        if(cStore.getComment(indexC+1)===stateP[cid])
+        }
+        else if(cStore.getComment(indexC+1)===stateP[cid]){
         cStore.getComment(indexC+1).title = edit[stateP.id]
+        }
         setState(Date.now())
     }
     
