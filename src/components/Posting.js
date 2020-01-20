@@ -7,6 +7,7 @@ import Comment from './Comment';
 import Remove from './Remove';
 import Edit from './Edit';
 
+
 function Posting({ 
   posting,  
   comments,
@@ -18,7 +19,6 @@ function Posting({
 }) {
   return (
     <div>
-      <Router>
         <Link to={`/posting${posting.id}`}>
         [Title]:
           {posting.title}
@@ -28,15 +28,13 @@ function Posting({
        
 
           <Route exact path={`/posting${posting.id}`}> 
-          <Edit stateP={posting} state={state} setState={setState} />
-          <Remove stateP={posting} state={state} setState={setState} />
-          <Comment posting={posting} comments={comments} state={state} setState={setState} />
-          <input value={input[posting.id]} onChange={(e) => onChangeComment(e, posting.id)} />
-          <button onClick={(e) => addComment(e, posting.id)} id="buttonAddComment">AddComment</button>
-          
-        </Route>
+            <Edit stateP={posting} state={state} setState={setState} />
+            <Remove stateP={posting} state={state} setState={setState} />
+            <Comment posting={posting} comments={comments} state={state} setState={setState} />
+            <input value={input[posting.id]} onChange={(e) => onChangeComment(e, posting.id)} />
+            <button onClick={(e) => addComment(e, posting.id)} id="buttonAddComment">AddComment</button>
+          </Route>
     
-      </Router>
     </div>
     
   );

@@ -3,6 +3,7 @@ import PostingList from '../components/PostingList'
 import store from '../stores/postingStore';
 
 
+
 function PostPage() {
   const [state, setState] = useState([]);
   const [ input, setInput ] = useState('');
