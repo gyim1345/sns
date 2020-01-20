@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable linebreak-style */
+import React from 'react';
 
 function Test() {
-    console.log('asdasd')
-    return (
-  <h1>hello link router</h1>
-    );
-  }
-  
+  return (
+    <h1>hello link router</h1>
+  );
+}
+
 export default Test;

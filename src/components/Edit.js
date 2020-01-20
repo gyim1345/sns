@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable linebreak-style */
 import React, { useState } from 'react';
-import PostingList from './PostingList';
 import pStore from '../stores/postingStore';
 import cStore from '../stores/commentStore';
 
@@ -9,7 +12,7 @@ function Edit({
   const [edit, setEdit] = useState(['']);
   const input = [];
 
-  const editThis = (e, Id) => {
+  const editThis = () => {
     if (pStore.getPost(stateP.id) === stateP) {
       pStore.getPost(stateP.id).title = edit[stateP.id];
     } else if (cStore.getComment(indexC + 1) === stateP[cid]) {
@@ -19,7 +22,6 @@ function Edit({
   };
 
   const onEdit = (e, Id) => {
-    // console.log(Id)
     edit[Id] = e.target.value;
     setEdit(edit);
   };
@@ -28,7 +30,7 @@ function Edit({
   return (
     <>
       <input type="text" value={input[stateP.id]} onChange={(e) => onEdit(e, stateP.id)} />
-      <button onClick={editThis} id="buttonEdit">Edit</button>
+      <button type="button" onClick={editThis} id="buttonEdit">Edit</button>
     </>
   );
 }

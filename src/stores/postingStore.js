@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable no-underscore-dangle */
 const postStore = {
   _posts: [
     { id: 1, title: 'posting with id 1' },
@@ -14,7 +16,7 @@ const postStore = {
   },
 
   getPost(id) {
-    return this.posts.find((post) => post.id == id);
+    return this.posts.find((post) => post.id === id);
   },
 
   createPost(title) {
@@ -25,7 +27,6 @@ const postStore = {
   },
 
   removePost(id) {
-    console.log('removed');
     this._posts = this.posts.filter((el) => el.id !== id);
   },
 };

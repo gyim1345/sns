@@ -1,20 +1,18 @@
-import React from 'react'
-import PostPage from './pages/PostPage'
+/* eslint-disable linebreak-style */
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
 import {
-    BrowserRouter as Router,
-    // Switch,
-    // Route,
-  } from 'react-router-dom';
+  BrowserRouter as Router,
+} from 'react-router-dom';
+import PostPage from './pages/PostPage';
 
 function App() {
-
-    return (
-        <Router>
-        <PostPage/>
-        <h1>hi</h1>
-        </Router>
-    )
-
+  return (
+    <Router>
+      <PostPage />
+      <h1>HELLO</h1>
+    </Router>
+  );
 }
 
 export default App;

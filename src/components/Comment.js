@@ -1,4 +1,6 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-filename-extension */
+/* eslint-disable linebreak-style */
 import React from 'react';
 import Edit from './Edit';
 // import { Link } from 'react-router-dom';
@@ -11,7 +13,7 @@ function Comment({
 }) {
   const found = comments.filter((el) => el.postLId === posting.id);
 
-  if (comments[posting.id-1] !== undefined) {
+  if (comments[posting.id - 1] !== undefined) {
     return (
       <>
         {found.map((postings, i) => (
@@ -33,7 +35,7 @@ function Comment({
         ))}
       </>
     );
-  } else return '';
+  } return '';
 }
 
 export default Comment;
