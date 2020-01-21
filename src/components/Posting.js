@@ -16,7 +16,6 @@ function Posting({
   setState,
   addComment,
   onChangeComment,
-  input1,
 }) {
   const [input, setInput] = useState([])
   return (

@@ -16,9 +16,13 @@ import cStore from '../stores/commentStore';
 import Posting from './Posting';
 import Test from './Test';
 
-function PostingList() {  
-  const postings = pStore.posts;
+function PostingList({ postingDetail }) {  
+  console.log(postingDetail )
+
+
+  const postings = (postingDetail  == undefined) ? pStore.posts : [postingDetail] ;
   const { comments } = cStore;
+ console.log(postings);
 
   // const [input, setInput] = useState([]);
   const [inputa, setInputa] = useState('');
@@ -83,7 +87,6 @@ function PostingList() {
                   setState={setState}
                   addComment={addComment}
                   onChangeComment={onChangeComment}
-                  input={input}
                 />
                 <Switch>
                   <Route exact path={`/posting/${posting.id}`}>

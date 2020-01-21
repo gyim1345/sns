@@ -7,18 +7,20 @@ import {
 import postStore from '../stores/postingStore';
 import commentStore from '../stores/commentStore';
 import PostingList from '../components/PostingList';
-
+import Test from '../components/Test';
 
 function PostPageDetail() {  
   const { postingId } = useParams();
   // const post = postStore.posts;
-  const posting = postStore.getPost(postingId); 
+  const postingDetail = postStore.getPost(postingId); 
   const commentsA = commentStore.getCommentFromPostId(postingId);// 안되네 모르겠다. 여기서 그냥 쓴다 ㅅㅂ
   const commentsThis = commentStore.comments.filter((el) => el.postLId == postingId);
-  
+  console.log(postingDetail)
+
   return (
     <div>
-      <PostingList />
+      <PostingList postingDetail={postingDetail}/>
+          {/* <Test />       */}
     </div>
   )
 

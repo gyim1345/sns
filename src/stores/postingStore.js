@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-underscore-dangle */
 
-const DEFAULT_IMAGE = './static/images/defaultnumber.png';
+const DEFAULT_IMAGE = '../static/images/defaultnumber.png';
 
 const postStore = {
   _posts: [
