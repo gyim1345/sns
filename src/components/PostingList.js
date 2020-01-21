@@ -29,20 +29,8 @@ function PostingList({ postingDetail }) {
   const [state, setState] = useState([]);
   const [input, setInput] = useState('');
   const [fileName, setFileName] = useState('이미지 파일 선택');
-  const [image, setImage] = useState();
 
-  const onChange = (e) => {
-    setInput(e.target.value);
-  };
 
-  const addPost = () => {
-    pStore.createPost(input);
-    setState({
-      id: pStore.postsLength + 1,
-      title: input,
-    });
-    pStore.getPost(1).imageUrl = image;
-  };
   const onChangeComment = (e) => {
     setInputa(e.target.value);
   };
@@ -67,8 +55,7 @@ function PostingList({ postingDetail }) {
   return (
     <>
      
-          <input value={input} onChange={onChange} />
-          <button type="button" onClick={addPost} id="buttonAdd">Add</button>
+        
           {/* <div className="file-box">
               <input className="upload-name" value={fileName} disabled />
 

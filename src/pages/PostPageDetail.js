@@ -9,7 +9,7 @@ import commentStore from '../stores/commentStore';
 import PostingList from '../components/PostingList';
 import Test from '../components/Test';
 
-function PostPageDetail() {  
+function PostPageDetail(state, setState) {  
   const { postingId } = useParams();
   // const post = postStore.posts;
   const postingDetail = postStore.getPost(postingId); 
