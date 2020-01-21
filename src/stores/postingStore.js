@@ -1,11 +1,14 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-underscore-dangle */
+
+const DEFAULT_IMAGE = './static/images/defaultnumber.png';
+
 const postStore = {
   _posts: [
-    { id: 1, title: 'posting with id 1' },
-    { id: 2, title: 'posting with id 2' },
-    { id: 3, title: 'posting with id 3' },
-    { id: 4, title: 'posting with id 4' },
+    { id: 1, title: 'posting with id 1', imageUrl: DEFAULT_IMAGE },
+    { id: 2, title: 'posting with id 2', imageUrl: DEFAULT_IMAGE },
+    { id: 3, title: 'posting with id 3', imageUrl: DEFAULT_IMAGE },
+    { id: 4, title: 'posting with id 4', imageUrl: DEFAULT_IMAGE },
   ],
   get posts() {
     return this._posts;
@@ -16,13 +19,14 @@ const postStore = {
   },
 
   getPost(id) {
-    return this.posts.find((post) => post.id === id);
+    return this.posts.find((post) => post.id == id);
   },
 
   createPost(title) {
     this._posts = [...this.posts, {
       title,
       id: this._posts.length + 1, // last index +1 로 나중에 수정 하도록.
+      imageUrl: DEFAULT_IMAGE,
     }];
   },
 

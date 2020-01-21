@@ -21,8 +21,12 @@ const commentStore = {
     return this._comments.length;
   },
 
+  getCommentFromPostId(postId) {
+    return this.comments.filter((comment) => comment.postLID == postId);
+  },
+  
   getComment(id) {
-    return this.comments.find((comment) => comment.id === id);
+    return this.comments.find((comment) => comment.id == id);
   },
 
   createComment(id, titlee) {

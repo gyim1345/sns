@@ -3,14 +3,22 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
+  Switch,
+  Route
 } from 'react-router-dom';
 import PostPage from './pages/PostPage';
-
+import PostPageDetail from './pages/PostPageDetail';
 function App() {
   return (
     <Router>
-      <PostPage />
-      <h1>HELLO</h1>
+      <Switch>
+         <Route exact path="/">
+            <PostPage />
+          </Route>
+        <Route path="/posting/:postingId">
+            <PostPageDetail />
+        </Route>
+      </Switch>
     </Router>
   );
 }

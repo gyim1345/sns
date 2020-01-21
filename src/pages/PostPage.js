@@ -1,36 +1,23 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState } from 'react';
+import React from 'react';
 import PostingList from '../components/PostingList';
-import store from '../stores/postingStore';
-
 
 function PostPage() {
-  const [state, setState] = useState([]);
-  const [input, setInput] = useState('');
 
-  const onChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const addPost = () => {
-    store.createPost(input);
-    setState({
-      id: store.postsLength + 1,
-      title: input,
-    });
-  };
+  // const onFileChange = (event) => {
+  //   if (event.target.files != null && event.target.files.length > 0) {
+  //     setFileName(event.target.files[0].name);
+  //     setImage(event.target.files[0]);
+  //   }
+  // };
 
   return (
-    <div>
-      <PostingList
-        state={state}
-        setState={setState}
-        onChange={onChange}
-        addPost={addPost}
-        input={input}
-      />
-    </div>
+    <>
+      <div>
+        <PostingList />
+      </div>
+    </>
   );
 }
 
