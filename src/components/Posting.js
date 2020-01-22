@@ -16,21 +16,25 @@ function Posting({
   setState,
   addComment,
   onChangeComment,
+  size,
 }) {
-  const [input, setInput] = useState([])
+  const [input, setInput] = useState([]);
+
   return (
     <div>
       <Link to={`/posting/${posting.id}`}>
-        [Title]:
-        {posting.title}
-        [Id]:
-        {posting.id}
-        Image:
         <img
           src={posting.imageUrl}
           alt=""
-          width="20%"
+          width={size}
         />
+        <li>
+          [Title]:
+          {posting.title}
+        </li>
+        {/* [Id]:
+        {posting.id}
+        Image: */}
       </Link>
       <Route exact path={`/posting/${posting.id}`}>
         <Edit stateP={posting} state={state} setState={setState} />

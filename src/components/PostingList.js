@@ -16,19 +16,19 @@ import cStore from '../stores/commentStore';
 import Posting from './Posting';
 import Test from './Test';
 
-function PostingList({ postingDetail }) {  
-  console.log(postingDetail )
+function PostingList({ postingDetail, size }) {  
+ 
 
 
   const postings = (postingDetail  == undefined) ? pStore.posts : [postingDetail] ;
   const { comments } = cStore;
- console.log(postings);
+//  console.log(postings);
 
   // const [input, setInput] = useState([]);
   const [inputa, setInputa] = useState('');
   const [state, setState] = useState([]);
-  const [input, setInput] = useState('');
-  const [fileName, setFileName] = useState('이미지 파일 선택');
+  // const [input, setInput] = useState('');
+  // const [fileName, setFileName] = useState('이미지 파일 선택');
 
 
   const onChangeComment = (e) => {
@@ -54,18 +54,9 @@ function PostingList({ postingDetail }) {
 
   return (
     <>
-     
-        
-          {/* <div className="file-box">
-              <input className="upload-name" value={fileName} disabled />
-
-              <label htmlFor="ex_filename" className="btn btn-secondary">업로드</label>
-              <input type="file" id="ex_filename" className="upload-hidden" onChange={onFileChange}/>
-            </div> */}
-
-          <ul>
+          <div>
             {postings.map((posting, i) => (
-              <li key={posting.id}>
+              <ul key={posting.id}>
                 {/* {addLineBreaks(posting.id.toString())} */}
                 <Posting
                   posting={posting}
@@ -74,20 +65,16 @@ function PostingList({ postingDetail }) {
                   setState={setState}
                   addComment={addComment}
                   onChangeComment={onChangeComment}
+                  size={size}
                 />
                 <Switch>
                   <Route exact path={`/posting/${posting.id}`}>
               <Test />
                   </Route>
                 </Switch>
-
-
-              </li>
+              </ul>
             ))}
-          </ul>
-       
-  
-            
+          </div>            
     </>
   );
 }

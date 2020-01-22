@@ -9,8 +9,9 @@ import commentStore from '../stores/commentStore';
 import PostingList from '../components/PostingList';
 import Test from '../components/Test';
 
-function PostPageDetail(state, setState) {  
+function PostPageDetail(state, setState, user) {  
   const { postingId } = useParams();
+  const size = '80%'
   // const post = postStore.posts;
   const postingDetail = postStore.getPost(postingId); 
   const commentsA = commentStore.getCommentFromPostId(postingId);// 안되네 모르겠다. 여기서 그냥 쓴다 ㅅㅂ
@@ -19,7 +20,7 @@ function PostPageDetail(state, setState) {
 
   return (
     <div>
-      <PostingList postingDetail={postingDetail}/>
+      <PostingList postingDetail={postingDetail} size={size} user={user}/>
           {/* <Test />       */}
     </div>
   )

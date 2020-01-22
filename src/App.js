@@ -13,16 +13,16 @@ import PostPageDetail from './pages/PostPageDetail';
 function App() {
 
   const [state, setState] = useState([]);
-
+  const [user, setUser] = useState('gibong')
   return (
     <Router>
       <Link to="/">Home</Link>
       <Switch>
          <Route exact path="/">
-            <PostPage state={state} setState={setState}/>
+            <PostPage state={state} setState={setState} user={user}/>
           </Route>
         <Route path="/posting/:postingId">
-            <PostPageDetail state={state} setState={setState}/>
+            <PostPageDetail state={state} setState={setState} user={user}/>
         </Route>
       </Switch>
     </Router>
