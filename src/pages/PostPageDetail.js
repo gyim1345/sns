@@ -14,9 +14,9 @@ function PostPageDetail(state, setState, user) {
   const size = '80%'
   // const post = postStore.posts;
   const postingDetail = postStore.getPost(postingId); 
-  const commentsA = commentStore.getCommentFromPostId(postingId);// 안되네 모르겠다. 여기서 그냥 쓴다 ㅅㅂ
-  const commentsThis = commentStore.comments.filter((el) => el.postLId == postingId);
-  console.log(postingDetail)
+  // const commentsA = commentStore.getCommentFromPostId(postingId);// 안되네 모르겠다. 여기서 그냥 쓴다 ㅅㅂ
+  // const commentsThis = commentStore.comments.filter((el) => el.postLId == postingId);
+  // console.log(postingDetail)
 
   return (
     <div>

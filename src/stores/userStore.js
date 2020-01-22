@@ -22,6 +22,9 @@ const userStore = {
     return this.users.find((userInfo) => (userInfo.name == userName)).userFollow.length;
   },
 
+  addFollower(userName, targetUserName){
+      return this.users.find((userInfo) => (userInfo.name == userName)).userFollow.push(targetUserName)
+  },
 
 //   getCommentFromPostId(postId) {
 //     return this.users.filter((comment) => comment.postLID == postId);

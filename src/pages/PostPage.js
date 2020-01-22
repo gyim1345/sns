@@ -9,7 +9,6 @@ import UserInfoHead from '../components/UserInfoHead';
 
 function PostPage({state, setState, user}) {
   const size = "40%"
-  const userFollowerNumber = uStore.getFollowerNumberOfUser(user);
 
   // const onFileChange = (event) => {
   //   if (event.target.files != null && event.target.files.length > 0) {
@@ -21,12 +20,6 @@ function PostPage({state, setState, user}) {
 
   return (
     <>
-       {/* <img src="./static/images/profilepicture.png" alt="Smiley face" height="42" width="42"></img>
-       &nbsp;&nbsp;&nbsp;{user}&nbsp;&nbsp;&nbsp; 
-       <span> 게시물 갯수</span>  
-       {pStore.getuserPosts(user).length}
-       &nbsp;&nbsp;&nbsp;following 갯수
-       {userFollowerNumber  } */}
       <UserInfoHead state={state} user={user} />
       <div>
         <Addpost state={state} setState={setState} user={user} />
