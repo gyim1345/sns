@@ -5,7 +5,6 @@ import { Link, Route } from "react-router-dom";
 import Comment from "./Comment";
 import Remove from "./Remove";
 import Edit from "./Edit";
-import pStore from "../stores/postingStore";
 
 function Posting({
   posting,
@@ -18,16 +17,12 @@ function Posting({
   user
 }) {
   const [input] = useState([]);
-  
-  const increaseLikeOnPost = (e, Id) =>{
-  
-    posting.like = posting.like +1;
-    
-    setState(Date.now())
-    // pStore.getLike(1) = pStore.getLike(1)+1
-  } 
 
-  
+  const increaseLike = () => {
+    posting.like = posting.like + 1;
+    setState(Date.now());
+  };
+
   return (
     <div>
       <Link to={`/${user}/posting/${posting.id}`}>
@@ -40,12 +35,11 @@ function Posting({
           Like:
           {posting.like}
         </li>
-       
         {/* [Id]:
         {posting.id}
         Image: */}
       </Link>
-      <button type="button" onClick={e => increaseLikeOnPost(e, posting.id)}>
+      <button type="button" onClick={increaseLike} id="increaseLike">
         Like
       </button>
       <Route exact path={`/${user}/posting/${posting.id}`}>

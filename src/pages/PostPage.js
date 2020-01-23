@@ -8,7 +8,6 @@ import UserInfoHead from "../components/UserInfoHead";
 
 function PostPage({ state, setState, user }) {
   const size = "40%";
-  console.log(user)
   // const onFileChange = (event) => {
   //   if (event.target.files != null && event.target.files.length > 0) {
   //     setFileName(event.target.files[0].name);
