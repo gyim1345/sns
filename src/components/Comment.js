@@ -1,6 +1,5 @@
 import React from "react";
 import Edit from "./Edit";
-// import { Link } from 'react-router-dom';
 
 function Comment({ posting, comments, state, setState }) {
   const found = comments.filter(el => el.postLId === posting.id);

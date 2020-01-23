@@ -1,11 +1,8 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable react/jsx-filename-extension */
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import PostPage from "./pages/PostPage";
 import PostPageDetail from "./pages/PostPageDetail";
 import TimeLinePage from "./pages/TimeLinePage";
-// import Test from "./components/Test"
 
 function App() {
   const [state, setState] = useState([]);

@@ -1,16 +1,60 @@
-/* eslint-disable no-underscore-dangle */
 const commentStore = {
   comments: [
-    { id: 1, postLId: 1, title: "comment with postLId 1" },
-    { id: 2, postLId: 2, title: "comment with postLId 2" },
-    { id: 3, postLId: 3, title: "comment with postLId 3 A" },
-    { id: 4, postLId: 3, title: "comment with postLId 3 B" },
-    { id: 5, postLId: 3, title: "comment with postLId 3 C" },
-    { id: 6, postLId: 3, title: "comment with postLId 3 D" },
-    { id: 7, postLId: 3, title: "comment with postLId 3 E" },
-    { id: 8, postLId: 3, title: "comment with postLId 3 F" },
-    { id: 9, postLId: 4, title: "comment with postLId 4" },
-    { id: 10, postLId: 5, title: "comment with postLId 5" }
+    {
+      id: 1,
+      postLId: 1,
+      title: "comment with postLId 1",
+      userWritten: "gibong"
+    },
+    {
+      id: 2,
+      postLId: 2,
+      title: "comment with postLId 2",
+      userWritten: "gibong"
+    },
+    {
+      id: 3,
+      postLId: 3,
+      title: "comment with postLId 3 A",
+      userWritten: "gibong"
+    },
+    {
+      id: 4,
+      postLId: 3,
+      title: "comment with postLId 3 B",
+      userWritten: "gibong"
+    },
+    {
+      id: 5,
+      postLId: 3,
+      title: "comment with postLId 3 C",
+      userWritten: "gibong"
+    },
+    {
+      id: 6,
+      postLId: 3,
+      title: "comment with postLId 3 D",
+      userWritten: "gibong"
+    },
+    {
+      id: 7,
+      postLId: 3,
+      title: "comment with postLId 3 E",
+      userWritten: "gibong"
+    },
+    {
+      id: 8,
+      postLId: 3,
+      title: "comment with postLId 3 F",
+      userWritten: "gibong"
+    },
+    { id: 9, postLId: 4, title: "comment with postLId 4", userWritten: "guy" },
+    {
+      id: 10,
+      postLId: 5,
+      title: "comment with postLId 5",
+      userWritten: "noone"
+    }
   ],
 
   get commentList() {

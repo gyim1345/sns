@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 import Posting from "./Posting";
-import Test from "./Test";
 
 function PostingList({ postingDetail, size, user, follower }) {
   let postings =
@@ -20,11 +19,8 @@ function PostingList({ postingDetail, size, user, follower }) {
     postings.push(...temp);
   }
 
-  // const [input, setInput] = useState([]);
   const [inputa, setInputa] = useState("");
   const [state, setState] = useState([]);
-  // const [input, setInput] = useState('');
-  // const [fileName, setFileName] = useState('이미지 파일 선택');
 
   const onChangeComment = e => {
     setInputa(e.target.value);
@@ -36,19 +32,11 @@ function PostingList({ postingDetail, size, user, follower }) {
     setState(commentLength);
   };
 
-  // const addLineBreaks = (string) => string.split('\n').map((text, index) => (
-  //   <React.Fragment key={`${text}-${index}`}>
-  //     {text}
-  //     <br />
-  //   </React.Fragment>
-  // ));
-
   return (
     <>
       <div>
         {postings.map(posting => (
           <ul key={posting.id}>
-            {/* {addLineBreaks(posting.id.toString())} */}
             <Posting
               posting={posting}
               comments={comments}
@@ -59,11 +47,6 @@ function PostingList({ postingDetail, size, user, follower }) {
               size={size}
               user={user}
             />
-            {/* <Switch>
-              <Route exact path={`/posting/${posting.id}`}>
-                <Test />
-              </Route>
-            </Switch> */}
           </ul>
         ))}
       </div>

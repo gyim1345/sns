@@ -3,10 +3,12 @@
 import React from "react";
 import pStore from "../stores/postingStore";
 
-function Remove({ stateP, state, setState }) {
+function Remove({ stateP, state, setState, user }) {
   const removeThis = () => {
-    pStore.removePost(stateP.id);
-    setState(Date.now());
+    if (user === stateP.userName) {
+      pStore.removePost(stateP.id);
+      setState(Date.now());
+    } else alert("you dont have permission");
   };
 
   return (

@@ -3,16 +3,21 @@ import React, { useState } from "react";
 import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 
-function Edit({ stateP, setState, cid, indexC }) {
+function Edit({ stateP, setState, cid, indexC, user }) {
   const [edit, setEdit] = useState([""]);
   const input = [];
 
   const editThis = () => {
-    if (pStore.getPost(stateP.id) === stateP) {
+    console.log(stateP.userName);
+    if (stateP.userName !== user) alert("you dont have permission");
+    else if (pStore.getPost(stateP.id) === stateP && stateP.userName === user) {
       pStore.getPost(stateP.id).title = edit[stateP.id];
-    } else if (cStore.getComment(indexC + 1) === stateP[cid]) {
+    } else if (
+      cStore.getComment(indexC + 1) === stateP[cid] &&
+      cStore.getComment(indexC + 1).userWritten === user
+    ) {
       cStore.getComment(indexC + 1).title = edit[stateP.id];
-    }
+    } else alert("you dont have permission");
     setState(Date.now());
   };
 

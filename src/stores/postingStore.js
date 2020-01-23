@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-underscore-dangle */
-
 const baseurl = "http://localhost:8080/"
 const DEFAULT_IMAGE = `${baseurl}/static/images/defaultnumber.png`;
 const postStore = {
@@ -37,21 +34,21 @@ const postStore = {
       id: 5,
       title: "posting with id 5",
       imageUrl: DEFAULT_IMAGE,
-      userName: "z",
+      userName: "guy",
       like: 12
     },
     {
       id: 6,
       title: "posting with id 6",
       imageUrl: DEFAULT_IMAGE,
-      userName: "asd",
+      userName: "guy",
       like: 52
     },
     {
       id: 7,
       title: "posting with id 7",
       imageUrl: DEFAULT_IMAGE,
-      userName: "asd",
+      userName: "guy",
       like: 52
     },
     {

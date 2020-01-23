@@ -28,19 +28,11 @@ const userStore = {
       .userFollow.push(targetUserName);
   },
 
-  //   getCommentFromPostId(postId) {
-  //     return this.users.filter((comment) => comment.postLID == postId);
-  //   },
-
-  //   getComment(id) {
-  //     return this.users.find((comment) => comment.id == id);
-  //   },
-
   createComment(id, titlee) {
     this.users = [
       ...this.users,
       {
-        id: this.users.length + 1, // last index +1 로 나중에 수정 하도록.
+        id: this.users.length + 1,
         postLId: id,
         title: titlee
       }

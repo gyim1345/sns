@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, Route } from "react-router-dom";
-// import Test from "./Test.js"
 import Comment from "./Comment";
 import Remove from "./Remove";
 import Edit from "./Edit";
@@ -19,7 +18,7 @@ function Posting({
   const [input] = useState([]);
 
   const increaseLike = () => {
-    posting.like = posting.like + 1;
+    posting.like += 1;
     setState(Date.now());
   };
 
@@ -43,13 +42,19 @@ function Posting({
         Like
       </button>
       <Route exact path={`/${user}/posting/${posting.id}`}>
-        <Edit stateP={posting} state={state} setState={setState} />
-        <Remove stateP={posting} state={state} setState={setState} />
+        <Edit stateP={posting} state={state} setState={setState} user={user} />
+        <Remove
+          stateP={posting}
+          state={state}
+          setState={setState}
+          user={user}
+        />
         <Comment
           posting={posting}
           comments={comments}
           state={state}
           setState={setState}
+          user={user}
         />
         <input
           value={input[posting.id]}
