@@ -6,6 +6,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    "eslint:recommended",
+    "eslint-config-prettier"
   ],
   globals: {
     Atomics: 'readonly',
@@ -20,8 +22,10 @@ module.exports = {
   },
   plugins: [
     'react',
+    "prettier"  ,
   ],
   rules: {
+    "prettier/prettier": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   },
 };

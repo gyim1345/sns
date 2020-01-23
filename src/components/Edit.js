@@ -1,15 +1,10 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable linebreak-style */
-import React, { useState } from 'react';
-import pStore from '../stores/postingStore';
-import cStore from '../stores/commentStore';
+import React, { useState } from "react";
+import pStore from "../stores/postingStore";
+import cStore from "../stores/commentStore";
 
-function Edit({
-  stateP, state, setState, cid, indexC,
-}) {
-  const [edit, setEdit] = useState(['']);
+function Edit({ stateP, setState, cid, indexC }) {
+  const [edit, setEdit] = useState([""]);
   const input = [];
 
   const editThis = () => {
@@ -26,14 +21,18 @@ function Edit({
     setEdit(edit);
   };
 
-
   return (
     <>
-      <input type="text" value={input[stateP.id]} onChange={(e) => onEdit(e, stateP.id)} />
-      <button type="button" onClick={editThis} id="buttonEdit">Edit</button>
+      <input
+        type="text"
+        value={input[stateP.id]}
+        onChange={e => onEdit(e, stateP.id)}
+      />
+      <button type="button" onClick={editThis} id="buttonEdit">
+        Edit
+      </button>
     </>
   );
 }
-
 
 export default Edit;

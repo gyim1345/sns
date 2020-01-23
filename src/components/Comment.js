@@ -1,23 +1,15 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable linebreak-style */
-import React from 'react';
-import Edit from './Edit';
+import React from "react";
+import Edit from "./Edit";
 // import { Link } from 'react-router-dom';
 
-function Comment({
-  posting,
-  comments,
-  state,
-  setState,
-}) {
-  const found = comments.filter((el) => el.postLId === posting.id);
+function Comment({ posting, comments, state, setState }) {
+  const found = comments.filter(el => el.postLId === posting.id);
 
   if (comments[posting.id - 1] !== undefined) {
     return (
       <>
         {found.map((postings, i) => (
-          <ul key={i}>
+          <ul key={posting.id}>
             <li>
               [comment]:
               {postings.title}
@@ -35,7 +27,8 @@ function Comment({
         ))}
       </>
     );
-  } return '';
+  }
+  return "";
 }
 
 export default Comment;

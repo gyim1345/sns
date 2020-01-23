@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable linebreak-style */
-import React from 'react';
-import pStore from '../stores/postingStore';
+import React from "react";
+import pStore from "../stores/postingStore";
 
 function Remove({ stateP, state, setState }) {
   const removeThis = () => {
@@ -13,7 +11,9 @@ function Remove({ stateP, state, setState }) {
 
   return (
     <>
-      <button type="button" onClick={removeThis} id="buttonRemove">Remove</button>
+      <button type="button" onClick={removeThis} id="buttonRemove">
+        Remove
+      </button>
     </>
   );
 }
