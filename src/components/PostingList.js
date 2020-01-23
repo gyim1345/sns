@@ -1,17 +1,24 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import { BrowserRouter as Route, Switch } from "react-router-dom";
 import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 import Posting from "./Posting";
 import Test from "./Test";
 
-function PostingList({ postingDetail, size }) {
-  console.log(postingDetail===undefined);
-  const postings =
-  postingDetail == undefined ? pStore.postList : [postingDetail];
+function PostingList({ postingDetail, size, user, follower }) {
+  let postings =
+    postingDetail === undefined
+      ? pStore.postList.filter(post => post.userName === user)
+      : [postingDetail];
   const { comments } = cStore;
-  //  console.log(postings);
+
+  if (follower !== undefined) {
+    const temppostings = [];
+    follower.forEach(person => temppostings.push(pStore.getuserPosts(person)))
+    const [temp] = temppostings;
+    postings = pStore.postList.filter(post => post.userName === user)
+    postings.push(...temp);
+  }
 
   // const [input, setInput] = useState([]);
   const [inputa, setInputa] = useState("");
@@ -50,12 +57,13 @@ function PostingList({ postingDetail, size }) {
               addComment={addComment}
               onChangeComment={onChangeComment}
               size={size}
+              user={user}
             />
-            <Switch>
+            {/* <Switch>
               <Route exact path={`/posting/${posting.id}`}>
                 <Test />
               </Route>
-            </Switch>
+            </Switch> */}
           </ul>
         ))}
       </div>
