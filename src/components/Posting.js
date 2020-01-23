@@ -18,7 +18,9 @@ function Posting({
   const [input] = useState([]);
 
   const increaseLike = () => {
-    posting.like += 1;
+    if (!posting.like.includes(user)) posting.like.push(user);
+    else if (posting.like.includes(user))
+      posting.like = posting.like.filter(el => el !== user);
     setState(Date.now());
   };
 
@@ -32,7 +34,7 @@ function Posting({
         </li>
         <li>
           Like:
-          {posting.like}
+          {posting.like.length}
         </li>
         {/* [Id]:
         {posting.id}

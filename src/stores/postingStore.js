@@ -7,63 +7,63 @@ const postStore = {
       title: "posting with id 1",
       imageUrl: `${baseurl}/static/images/1.jpg`,
       userName: "gibong",
-      like: 2314
+      like: ["gibong", "guy", "noone"]
     },
     {
       id: 2,
       title: "posting with id 2",
       imageUrl: `${baseurl}/static/images/2.jpg`,
       userName: "gibong",
-      like: 442
+      like: ["gibong", "guy", "noone"]
     },
     {
       id: 3,
       title: "posting with id 3",
       imageUrl: `${baseurl}/static/images/3.jpeg`,
       userName: "gibong",
-      like: 22
+      like: ["gibong", "noone"]
     },
     {
       id: 4,
       title: "posting with id 4",
       imageUrl: `${baseurl}/static/images/4.png`,
       userName: "gibong",
-      like: 32
+      like: ["guy", "noone"]
     },
     {
       id: 5,
       title: "posting with id 5",
       imageUrl: DEFAULT_IMAGE,
       userName: "guy",
-      like: 12
+      like: ["noone"]
     },
     {
       id: 6,
       title: "posting with id 6",
       imageUrl: DEFAULT_IMAGE,
       userName: "guy",
-      like: 52
+      like: []
     },
     {
       id: 7,
       title: "posting with id 7",
       imageUrl: DEFAULT_IMAGE,
       userName: "guy",
-      like: 52
+      like: ["guy", "noone"]
     },
     {
       id: 8,
       title: "posting with id 8",
       imageUrl: DEFAULT_IMAGE,
       userName: "noone",
-      like: 62
+      like: ["gibong", "guy"]
     },
     {
       id: 9,
       title: "posting with id 9",
       imageUrl: DEFAULT_IMAGE,
       userName: "noone",
-      like: 62
+      like: ["noone"]
     }
   ],
 
@@ -90,7 +90,8 @@ const postStore = {
         title,
         id: this.posts.length + 1, // last index +1 로 나중에 수정 하도록.
         imageUrl: DEFAULT_IMAGE,
-        userName: name
+        userName: name,
+        like: []
       }
     ];
   },
