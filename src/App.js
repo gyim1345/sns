@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import PostPage from "./pages/PostPage";
 import PostPageDetail from "./pages/PostPageDetail";
@@ -20,7 +20,13 @@ function App() {
       <Link to="/" onClick={toTop}>
         <button type="button">Home</button>
       </Link>
-      <Link to={`/${globalUser}`} onClick={changeToGlobalUser} onClick={toTop}>
+      <Link
+        to={`/${globalUser}`}
+        onClick={() => {
+          changeToGlobalUser();
+          toTop();
+        }}
+      >
         <button type="button">UserHome</button>
       </Link>
 

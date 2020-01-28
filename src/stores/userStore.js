@@ -1,9 +1,24 @@
 const baseurl = "http://localhost:8080";
 const userStore = {
   users: [
-    { name: "gibong", userId: 1, userFollow: ["guy"], userURL: `${baseurl}/static/images/user1.png`},
-    { name: "guy", userId: 2, userFollow: ["gibong"], userURL: `${baseurl}/static/images/user2.png` },
-    { name: "noone", userId: 3, userFollow: [], userURL: `${baseurl}/static/images/user3.png` }
+    {
+      name: "gibong",
+      userId: 1,
+      userFollow: ["guy"],
+      userURL: `${baseurl}/static/images/user1.png`
+    },
+    {
+      name: "guy",
+      userId: 2,
+      userFollow: ["gibong"],
+      userURL: `${baseurl}/static/images/user2.png`
+    },
+    {
+      name: "noone",
+      userId: 3,
+      userFollow: [],
+      userURL: `${baseurl}/static/images/user3.png`
+    }
   ],
 
   get userList() {

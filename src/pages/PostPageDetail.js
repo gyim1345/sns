@@ -10,8 +10,13 @@ function PostPageDetail({ user, setUser, globalUser }) {
 
   return (
     <div>
-      <PostingList postingDetail={postingDetail} size={size} user={user} setUser={setUser} globalUser={globalUser} />
-      {/* <Test />       */}
+      <PostingList
+        postingDetail={postingDetail}
+        size={size}
+        user={user}
+        setUser={setUser}
+        globalUser={globalUser}
+      />
     </div>
   );
 }
