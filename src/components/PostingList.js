@@ -65,11 +65,11 @@ function PostingList({
 
 PostingList.propTypes = {
   user: PropTypes.string,
-  setUser: PropTypes.string,
+  setUser: PropTypes.func,
   globalUser: PropTypes.string,
-  follower: PropTypes.string,
+  follower: PropTypes.node,
   postingDetail: PropTypes.elementType,
-  size: PropTypes.number
+  size: PropTypes.string
 };
 
 PostingList.defaultProps = {
@@ -78,7 +78,7 @@ PostingList.defaultProps = {
   globalUser: "",
   follower: "",
   postingDetail: "",
-  size: 0
+  size: ""
 };
 
 export default PostingList;

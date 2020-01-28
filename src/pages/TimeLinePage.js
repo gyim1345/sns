@@ -22,7 +22,7 @@ function TimeLinePage({ setUser, globalUser }) {
 }
 
 TimeLinePage.propTypes = {
-  setUser: PropTypes.string,
+  setUser: PropTypes.func,
   globalUser: PropTypes.string
 };
 

@@ -21,7 +21,7 @@ function Remove({ stateP, setState, globalUser }) {
 
 Remove.propTypes = {
   globalUser: PropTypes.string,
-  stateP: PropTypes.elementType,
+  stateP: PropTypes.object,
   setState: PropTypes.elementType
 };
 

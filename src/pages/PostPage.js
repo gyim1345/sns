@@ -30,17 +30,17 @@ function PostPage({ state, setState, user, setUser, globalUser }) {
 
 PostPage.propTypes = {
   user: PropTypes.string,
-  setUser: PropTypes.string,
+  setUser: PropTypes.func,
   globalUser: PropTypes.string,
-  state: PropTypes.elementType,
+  state: PropTypes.arrayOf(PropTypes.number),
   setState: PropTypes.elementType
 };
 
 PostPage.defaultProps = {
   user: "",
-  setUser: "",
+  setUser: {},
   globalUser: "",
-  state: "",
+  state: [],
   setState: ""
 };
 

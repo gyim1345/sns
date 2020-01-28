@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
@@ -42,5 +41,27 @@ function Edit({ stateP, setState, cid, indexC, globalUser }) {
     </>
   );
 }
+
+Edit.propTypes = {
+  globalUser: PropTypes.string,
+  stateP: PropTypes.exact({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    userName: PropTypes.string,
+    like: PropTypes.arrayOf(PropTypes.string)
+  }),
+  setState: PropTypes.elementType,
+  indexC: PropTypes.string,
+  cid: PropTypes.string
+};
+
+Edit.defaultProps = {
+  globalUser: "",
+  stateP: [],
+  setState: 0,
+  indexC: "",
+  cid: ""
+};
 
 export default Edit;

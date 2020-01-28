@@ -104,12 +104,18 @@ function Posting({
 
 Posting.propTypes = {
   user: PropTypes.string,
-  setUser: PropTypes.string,
+  setUser: PropTypes.func,
   globalUser: PropTypes.string,
-  size: PropTypes.number,
-  posting: PropTypes.element,
-  comments: PropTypes.element,
-  state: PropTypes.elementType,
+  size: PropTypes.string,
+  posting: PropTypes.exact({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    imageUrl: PropTypes.string,
+    userName: PropTypes.string,
+    like: PropTypes.arrayOf(PropTypes.string)
+  }),
+  comments: PropTypes.arrayOf(PropTypes.object),
+  state: PropTypes.arrayOf(PropTypes.string),
   setState: PropTypes.elementType,
   addComment: PropTypes.elementType,
   onChangeComment: PropTypes.elementType
@@ -121,12 +127,11 @@ Posting.defaultProps = {
   globalUser: "",
   size: 0,
   posting: [],
-  comments: [],
+  comments: {},
   state: 0,
   setState: 0,
   addComment: "",
   onChangeComment: ""
 };
-
 
 export default Posting;

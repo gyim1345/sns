@@ -24,7 +24,7 @@ function PostPageDetail({ user, setUser, globalUser }) {
 
 PostPageDetail.propTypes = {
   user: PropTypes.string,
-  setUser: PropTypes.string,
+  setUser: PropTypes.func,
   globalUser: PropTypes.string
 };
 
