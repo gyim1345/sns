@@ -1,15 +1,19 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 
-function Edit({ stateP, setState, cid, indexC, user, globalUser }) {
+function Edit({ stateP, setState, cid, indexC, globalUser }) {
   const [edit, setEdit] = useState([""]);
   const input = [];
 
   const editThis = () => {
     if (stateP.userName !== globalUser) alert("you dont have permission");
-    else if (pStore.getPost(stateP.id) === stateP && stateP.userName === globalUser) {
+    else if (
+      pStore.getPost(stateP.id) === stateP &&
+      stateP.userName === globalUser
+    ) {
       pStore.getPost(stateP.id).title = edit[stateP.id];
     } else if (
       cStore.getComment(indexC + 1) === stateP[cid] &&

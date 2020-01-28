@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 import postStore from "../stores/postingStore";
 import PostingList from "../components/PostingList";
 
@@ -20,5 +21,17 @@ function PostPageDetail({ user, setUser, globalUser }) {
     </div>
   );
 }
+
+PostPageDetail.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.string,
+  globalUser: PropTypes.string
+};
+
+PostPageDetail.defaultProps = {
+  user: "",
+  setUser: "",
+  globalUser: ""
+};
 
 export default PostPageDetail;

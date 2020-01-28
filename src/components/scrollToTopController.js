@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import { useRouter } from 'state';
+/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line no-unused-vars
+import React, { useEffect } from "react";
+import { useRouter } from "state";
 
 // Component that attaches scroll to top hanler on router change
 // renders nothing, just attaches side effects

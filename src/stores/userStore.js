@@ -52,7 +52,7 @@ const userStore = {
     this.users = [
       ...this.users,
       {
-        id: this.users.length + 1,
+        id: Date.Now(),
         postLId: id,
         title: titlee
       }

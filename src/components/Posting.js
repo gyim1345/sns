@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Link, Route } from "react-router-dom";
 import Comment from "./Comment";
 import Remove from "./Remove";
@@ -35,7 +35,13 @@ function Posting({
   return (
     <div>
       <h1>
-        <Link to={`/${posting.userName}`} onClick={() => {changeUser(); toTop();}}>
+        <Link
+          to={`/${posting.userName}`}
+          onClick={() => {
+            changeUser();
+            toTop();
+          }}
+        >
           <img src={uStore.getUserImage(posting.userName)} alt="" width={50} />
           {posting.userName}
         </Link>
@@ -95,5 +101,32 @@ function Posting({
     </div>
   );
 }
+
+Posting.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.string,
+  globalUser: PropTypes.string,
+  size: PropTypes.number,
+  posting: PropTypes.element,
+  comments: PropTypes.element,
+  state: PropTypes.elementType,
+  setState: PropTypes.elementType,
+  addComment: PropTypes.elementType,
+  onChangeComment: PropTypes.elementType
+};
+
+Posting.defaultProps = {
+  user: "",
+  setUser: "",
+  globalUser: "",
+  size: 0,
+  posting: [],
+  comments: [],
+  state: 0,
+  setState: 0,
+  addComment: "",
+  onChangeComment: ""
+};
+
 
 export default Posting;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Edit from "./Edit";
 
 function Comment({ posting, comments, state, setState }) {
@@ -8,7 +9,7 @@ function Comment({ posting, comments, state, setState }) {
     return (
       <>
         {found.map((postings, i) => (
-          <ul key={posting.id}>
+          <ul key={postings.id}>
             <li>
               [comment]:
               {postings.title}

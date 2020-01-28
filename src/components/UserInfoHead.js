@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 import uStore from "../stores/userStore";
 
@@ -24,5 +24,13 @@ function UserInfoHead({ user }) {
     </>
   );
 }
+
+UserInfoHead.propTypes = {
+  user: PropTypes.string
+};
+
+UserInfoHead.defaultProps = {
+  user: ""
+};
 
 export default UserInfoHead;

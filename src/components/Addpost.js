@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 
 function AddPost({ setState, user, globalUser }) {
@@ -10,12 +10,12 @@ function AddPost({ setState, user, globalUser }) {
   };
 
   const addPost = () => {
-    if(user!== globalUser)
-    return alert('go to ur page fucker')
-    pStore.createPost(input, globalUser);
-
-    setState(Date.now());
-    setInput("");
+    if (user !== globalUser) alert("go to ur page fucker");
+    else {
+      pStore.createPost(input, globalUser);
+      setState(Date.now());
+      setInput("");
+    }
   };
 
   return (
@@ -27,5 +27,17 @@ function AddPost({ setState, user, globalUser }) {
     </>
   );
 }
+
+AddPost.propTypes = {
+  user: PropTypes.string,
+  globalUser: PropTypes.string,
+  setState: PropTypes.elementType
+};
+
+AddPost.defaultProps = {
+  user: "",
+  globalUser: "",
+  setState: 0
+};
 
 export default AddPost;

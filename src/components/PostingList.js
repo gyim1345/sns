@@ -1,10 +1,17 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 import Posting from "./Posting";
 
-function PostingList({ postingDetail, size, user, follower, setUser, globalUser }) {
+function PostingList({
+  postingDetail,
+  size,
+  user,
+  follower,
+  setUser,
+  globalUser
+}) {
   let postings =
     postingDetail === undefined
       ? pStore.postList.filter(post => post.userName === user)
@@ -55,5 +62,23 @@ function PostingList({ postingDetail, size, user, follower, setUser, globalUser 
     </>
   );
 }
+
+PostingList.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.string,
+  globalUser: PropTypes.string,
+  follower: PropTypes.string,
+  postingDetail: PropTypes.elementType,
+  size: PropTypes.number
+};
+
+PostingList.defaultProps = {
+  user: "",
+  setUser: "",
+  globalUser: "",
+  follower: "",
+  postingDetail: "",
+  size: 0
+};
 
 export default PostingList;

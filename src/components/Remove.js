@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 
-function Remove({ stateP, state, setState, user, globalUser }) {
+function Remove({ stateP, setState, globalUser }) {
   const removeThis = () => {
     if (globalUser === stateP.userName) {
       pStore.removePost(stateP.id);
@@ -19,5 +18,17 @@ function Remove({ stateP, state, setState, user, globalUser }) {
     </>
   );
 }
+
+Remove.propTypes = {
+  globalUser: PropTypes.string,
+  stateP: PropTypes.elementType,
+  setState: PropTypes.elementType
+};
+
+Remove.defaultProps = {
+  globalUser: "",
+  stateP: {},
+  setState: {}
+};
 
 export default Remove;

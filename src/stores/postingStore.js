@@ -88,7 +88,7 @@ const postStore = {
       ...this.posts,
       {
         title,
-        id: this.posts.length + 1, // last index +1 로 나중에 수정 하도록.
+        id: Date.now(), // last index +1 로 나중에 수정 하도록.
         imageUrl: DEFAULT_IMAGE,
         userName: name,
         like: []
