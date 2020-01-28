@@ -4,6 +4,8 @@ import { Link, Route } from "react-router-dom";
 import Comment from "./Comment";
 import Remove from "./Remove";
 import Edit from "./Edit";
+import uStore from "../stores/userStore";
+import toTop from "./toTop";
 
 function Posting({
   posting,
@@ -13,20 +15,32 @@ function Posting({
   addComment,
   onChangeComment,
   size,
-  user
+  user,
+  setUser,
+  globalUser
 }) {
   const [input] = useState([]);
 
   const increaseLike = () => {
-    if (!posting.like.includes(user)) posting.like.push(user);
-    else if (posting.like.includes(user))
-      posting.like = posting.like.filter(el => el !== user);
+    if (!posting.like.includes(globalUser)) posting.like.push(globalUser);
+    else if (posting.like.includes(globalUser))
+      posting.like = posting.like.filter(el => el !== globalUser);
     setState(Date.now());
+  };
+
+  const changeUser = () => {
+    setUser(posting.userName);
   };
 
   return (
     <div>
-      <Link to={`/${user}/posting/${posting.id}`}>
+      <h1>
+        <Link to={`/${posting.userName}`} onClick={() => {changeUser(); toTop();}}>
+          <img src={uStore.getUserImage(posting.userName)} alt="" width={50} />
+          {posting.userName}
+        </Link>
+      </h1>
+      <Link to={`/${user}/posting/${posting.id}`} onClick={toTop}>
         <img src={posting.imageUrl} alt="" width={size} />
         <li>
           [Title]:
@@ -44,12 +58,19 @@ function Posting({
         Like
       </button>
       <Route exact path={`/${user}/posting/${posting.id}`}>
-        <Edit stateP={posting} state={state} setState={setState} user={user} />
+        <Edit
+          stateP={posting}
+          state={state}
+          setState={setState}
+          user={user}
+          globalUser={globalUser}
+        />
         <Remove
           stateP={posting}
           state={state}
           setState={setState}
           user={user}
+          globalUser={globalUser}
         />
         <Comment
           posting={posting}
@@ -57,6 +78,7 @@ function Posting({
           state={state}
           setState={setState}
           user={user}
+          globalUser={globalUser}
         />
         <input
           value={input[posting.id]}

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import pStore from "../stores/postingStore";
 
-function AddPost({ setState, user }) {
+function AddPost({ setState, user, globalUser }) {
   const [input, setInput] = useState("");
 
   const onChange = e => {
@@ -10,7 +10,9 @@ function AddPost({ setState, user }) {
   };
 
   const addPost = () => {
-    pStore.createPost(input, user);
+    if(user!== globalUser)
+    return alert('go to ur page fucker')
+    pStore.createPost(input, globalUser);
 
     setState(Date.now());
     setInput("");

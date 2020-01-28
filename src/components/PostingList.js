@@ -4,7 +4,7 @@ import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 import Posting from "./Posting";
 
-function PostingList({ postingDetail, size, user, follower }) {
+function PostingList({ postingDetail, size, user, follower, setUser, globalUser }) {
   let postings =
     postingDetail === undefined
       ? pStore.postList.filter(post => post.userName === user)
@@ -13,9 +13,9 @@ function PostingList({ postingDetail, size, user, follower }) {
 
   if (follower !== undefined) {
     const temppostings = [];
-    follower.forEach(person => temppostings.push(pStore.getuserPosts(person)))
+    follower.forEach(person => temppostings.push(pStore.getuserPosts(person)));
     const [temp] = temppostings;
-    postings = pStore.postList.filter(post => post.userName === user)
+    postings = pStore.postList.filter(post => post.userName === user);
     postings.push(...temp);
   }
 
@@ -28,7 +28,7 @@ function PostingList({ postingDetail, size, user, follower }) {
 
   const addComment = (_, postId) => {
     const commentLength = cStore.commentsLength;
-    cStore.createComment(postId, inputa);
+    cStore.createComment(postId, inputa, globalUser);
     setState(commentLength);
   };
 
@@ -46,6 +46,8 @@ function PostingList({ postingDetail, size, user, follower }) {
               onChangeComment={onChangeComment}
               size={size}
               user={user}
+              setUser={setUser}
+              globalUser={globalUser}
             />
           </ul>
         ))}

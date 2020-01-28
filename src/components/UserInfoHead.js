@@ -9,7 +9,7 @@ function UserInfoHead({ user }) {
   return (
     <>
       <img
-        src="./static/images/profilepicture.png"
+        src={uStore.getUserImage(user)}
         alt="Smiley face"
         height="42"
         width="42"

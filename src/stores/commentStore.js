@@ -73,13 +73,14 @@ const commentStore = {
     return this.comments.find(comment => comment.id === id);
   },
 
-  createComment(id, titlee) {
+  createComment(id, titlee, commentWrittenBy) {
     this.comments = [
       ...this.comments,
       {
         id: this.comments.length + 1, // last index +1 로 나중에 수정 하도록.
         postLId: id,
-        title: titlee
+        title: titlee,
+        userWritten: commentWrittenBy
       }
     ];
   }

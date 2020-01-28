@@ -1,4 +1,4 @@
-const baseurl = "http://localhost:8080/"
+const baseurl = "http://localhost:8080/";
 const DEFAULT_IMAGE = `${baseurl}/static/images/defaultnumber.png`;
 const postStore = {
   posts: [

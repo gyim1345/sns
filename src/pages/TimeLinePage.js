@@ -2,13 +2,13 @@ import React from "react";
 import PostingList from "../components/PostingList";
 import uStore from "../stores/userStore";
 
-function TimeLinePage({ state, setState, user }) {
-  const follower = uStore.getFollowerFromUser(user);
+function TimeLinePage({ user, setUser, globalUser }) {
+  const follower = uStore.getFollowerFromUser(globalUser);
   const size = "40%";
   return (
     <>
       <div>
-        <PostingList size={size} user={user} follower={follower} />
+        <PostingList size={size} user={globalUser} follower={follower} setUser={setUser} globalUser={globalUser}/>
       </div>
     </>
   );
