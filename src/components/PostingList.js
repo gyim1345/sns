@@ -63,22 +63,5 @@ function PostingList({
   );
 }
 
-PostingList.propTypes = {
-  user: PropTypes.string,
-  setUser: PropTypes.func,
-  globalUser: PropTypes.string,
-  follower: PropTypes.node,
-  postingDetail: PropTypes.elementType,
-  size: PropTypes.string
-};
-
-PostingList.defaultProps = {
-  user: "",
-  setUser: "",
-  globalUser: "",
-  follower: "",
-  postingDetail: "",
-  size: ""
-};
 
 export default PostingList;

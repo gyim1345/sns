@@ -8,7 +8,8 @@ function Edit({ stateP, setState, cid, indexC, globalUser }) {
   const input = [];
 
   const editThis = () => {
-    if (stateP.userName !== globalUser) alert("you dont have permission");
+    if (stateP.userName !== globalUser && indexC === undefined)
+      alert("you dont have permission");
     else if (
       pStore.getPost(stateP.id) === stateP &&
       stateP.userName === globalUser
@@ -19,7 +20,7 @@ function Edit({ stateP, setState, cid, indexC, globalUser }) {
       cStore.getComment(indexC + 1).userWritten === globalUser
     ) {
       cStore.getComment(indexC + 1).title = edit[stateP.id];
-    } else alert("you dont have permission");
+    } else alert(`you dont have permission ${globalUser}`);
     setState(Date.now());
   };
 
@@ -44,24 +45,23 @@ function Edit({ stateP, setState, cid, indexC, globalUser }) {
 
 Edit.propTypes = {
   globalUser: PropTypes.string,
-  stateP: PropTypes.exact({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    imageUrl: PropTypes.string,
-    userName: PropTypes.string,
-    like: PropTypes.arrayOf(PropTypes.string)
-  }),
+  stateP: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
   setState: PropTypes.elementType,
-  indexC: PropTypes.string,
-  cid: PropTypes.string
+  indexC: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 Edit.defaultProps = {
   globalUser: "",
-  stateP: [],
+  stateP: {},
   setState: 0,
-  indexC: "",
-  cid: ""
+  indexC: undefined,
+  cid: undefined
 };
 
 export default Edit;

@@ -5,19 +5,29 @@ import PostPageDetail from "./pages/PostPageDetail";
 import TimeLinePage from "./pages/TimeLinePage";
 // import scrollToTopController from "./components/scrollToTopController";
 import toTop from "./components/toTop";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const [state, setState] = useState([]);
-  const [user, setUser] = useState("gibong");
-  const [globalUser, setGlobalUser] = useState("gibong");
+  const [user, setUser] = useState("");
+  const [globalUser, setGlobalUser] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const changeToGlobalUser = () => {
     setUser(globalUser);
   };
 
+  const logStatus = () => {
+    loggedIn === false ? setLoggedIn(true) : setLoggedIn(false);
+    console.log(loggedIn);
+  };
+
   return (
     <Router>
-      <Link to="/" onClick={toTop}>
+      <Link to="/">
+        <button type="button">login</button>
+      </Link>
+      <Link to={`/${globalUser}/TimeLine`} onClick={toTop}>
         <button type="button">Home</button>
       </Link>
       <Link
@@ -29,9 +39,16 @@ function App() {
       >
         <button type="button">UserHome</button>
       </Link>
-
       <Switch>
         <Route exact path="/">
+          <LoginPage
+            setUser={setUser}
+            setGlobalUser={setGlobalUser}
+            setLoggedIn={setLoggedIn}
+            logStatus={logStatus}
+          />
+        </Route>
+        <Route exact path={`/${globalUser}/TimeLine`}>
           <TimeLinePage
             state={state}
             setState={setState}

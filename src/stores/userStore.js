@@ -5,19 +5,29 @@ const userStore = {
       name: "gibong",
       userId: 1,
       userFollow: ["guy"],
-      userURL: `${baseurl}/static/images/user1.png`
+      userURL: `${baseurl}/static/images/user1.png`,
+      password: "gb123"
     },
     {
       name: "guy",
       userId: 2,
       userFollow: ["gibong"],
-      userURL: `${baseurl}/static/images/user2.png`
+      userURL: `${baseurl}/static/images/user2.png`,
+      password: "guy123"
     },
     {
       name: "noone",
       userId: 3,
-      userFollow: [],
-      userURL: `${baseurl}/static/images/user3.png`
+      userFollow: [""],
+      userURL: `${baseurl}/static/images/user3.png`,
+      password: "noonepwd"
+    },
+    {
+      name: "",
+      userI: 0,
+      userFollow: [""],
+      userURL: ``,
+      password: ""
     }
   ],
 
@@ -29,13 +39,23 @@ const userStore = {
     return this.users.length;
   },
 
+  getUserName(userName) {
+    return this.users.find(userInfo => userInfo.name === userName).name;
+  },
+
   getFollowerFromUser(userName) {
-    return this.users.find(userInfo => userInfo.name === userName).userFollow;
+    if (userName !== undefined)
+      return this.users.find(userInfo => userInfo.name === userName).userFollow;
+    return "empty";
   },
 
   getFollowerNumberOfUser(userName) {
     return this.users.find(userInfo => userInfo.name === userName).userFollow
       .length;
+  },
+
+  getUserPassword(userName) {
+    return this.users.find(userInfo => userInfo.name === userName).password;
   },
 
   addFollower(userName, targetUserName) {

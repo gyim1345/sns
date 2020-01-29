@@ -1,7 +1,7 @@
 import React from "react";
 import Edit from "./Edit";
 
-function Comment({ posting, comments, state, setState }) {
+function Comment({ posting, comments, state, setState, globalUser }) {
   const found = comments.filter(el => el.postLId === posting.id);
 
   if (comments[posting.id - 1] !== undefined) {
@@ -21,6 +21,7 @@ function Comment({ posting, comments, state, setState }) {
               setState={setState}
               cid={i}
               indexC={comments.indexOf(postings)}
+              globalUser={globalUser}
             />
           </ul>
         ))}

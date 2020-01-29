@@ -4,7 +4,10 @@ import PostingList from "../components/PostingList";
 import uStore from "../stores/userStore";
 
 function TimeLinePage({ setUser, globalUser }) {
-  const follower = uStore.getFollowerFromUser(globalUser);
+  let follower = [];
+  if (globalUser !== undefined) {
+    follower = uStore.getFollowerFromUser(globalUser);
+  } else follower = [];
   const size = "40%";
   return (
     <>
@@ -23,12 +26,14 @@ function TimeLinePage({ setUser, globalUser }) {
 
 TimeLinePage.propTypes = {
   setUser: PropTypes.func,
-  globalUser: PropTypes.string
+  globalUser: PropTypes.string,
+  follower: PropTypes.string
 };
 
 TimeLinePage.defaultProps = {
   setUser: "",
-  globalUser: ""
+  globalUser: "",
+  follower: ""
 };
 
 export default TimeLinePage;

@@ -115,7 +115,7 @@ Posting.propTypes = {
     like: PropTypes.arrayOf(PropTypes.string)
   }),
   comments: PropTypes.arrayOf(PropTypes.object),
-  state: PropTypes.arrayOf(PropTypes.string),
+  state: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   setState: PropTypes.elementType,
   addComment: PropTypes.elementType,
   onChangeComment: PropTypes.elementType
