@@ -25,7 +25,7 @@ const LoginPage = ({
       <Register />
     </>
   );
-}; // your form submit function which will invoke after successful validation
+};
 
 LoginPage.propTypes = {
   setUser: PropTypes.func,

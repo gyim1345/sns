@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 import cStore from "../stores/commentStore";
 import Posting from "./Posting";
+import uStore from "../stores/userStore";
 
 function PostingList({
   postingDetail,
@@ -34,9 +35,8 @@ function PostingList({
   };
 
   const addComment = (_, postId) => {
-    const commentLength = cStore.commentsLength;
     cStore.createComment(postId, inputa, globalUser);
-    setState(commentLength);
+    setState(Date.now());
   };
 
   return (
@@ -63,5 +63,22 @@ function PostingList({
   );
 }
 
+PostingList.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.func,
+  globalUser: PropTypes.string,
+  size: PropTypes.string,
+  postingDetail: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  follower: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+};
+
+PostingList.defaultProps = {
+  user: "",
+  setUser: "",
+  globalUser: "",
+  size: 0,
+  postingDetail: {},
+  follower: [""]
+};
 
 export default PostingList;

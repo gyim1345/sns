@@ -4,14 +4,14 @@ const userStore = {
     {
       name: "gibong",
       userId: 1,
-      userFollow: ["guy"],
+      userFollow: ["", "guy"],
       userURL: `${baseurl}/static/images/user1.png`,
       password: "gb123"
     },
     {
       name: "guy",
       userId: 2,
-      userFollow: ["gibong"],
+      userFollow: ["", "gibong"],
       userURL: `${baseurl}/static/images/user2.png`,
       password: "guy123"
     },
@@ -50,12 +50,13 @@ const userStore = {
   },
 
   getFollowerNumberOfUser(userName) {
-    return this.users.find(userInfo => userInfo.name === userName).userFollow
-      .length;
+    return (
+      this.users.find(userInfo => userInfo.name === userName).userFollow
+        .length - 1
+    );
   },
 
   getUserPassword(userName) {
-  
     return this.users.find(userInfo => userInfo.name === userName).password;
   },
 
@@ -90,7 +91,7 @@ const userStore = {
         userURL: `${baseurl}/static/images/profilepicture.png`,
         password: pwd
       }
-    ]
+    ];
   }
 };
 

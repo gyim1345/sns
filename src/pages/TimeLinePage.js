@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import uStore from "../stores/userStore";
+import pStore from "../stores/postingStore";
 
 function TimeLinePage({ setUser, globalUser }) {
   let follower = [];
@@ -11,15 +12,19 @@ function TimeLinePage({ setUser, globalUser }) {
   const size = "40%";
   return (
     <>
-      <div>
-        <PostingList
-          size={size}
-          user={globalUser}
-          follower={follower}
-          setUser={setUser}
-          globalUser={globalUser}
-        />
-      </div>
+      {pStore.getuserPosts(globalUser)[0] === undefined ? (
+        <li>Go to Your user home and add some stuff RIGHT NOW!</li>
+      ) : (
+        <div>
+          <PostingList
+            size={size}
+            user={globalUser}
+            follower={follower}
+            setUser={setUser}
+            globalUser={globalUser}
+          />
+        </div>
+      )}
     </>
   );
 }

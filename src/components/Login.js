@@ -50,4 +50,22 @@ const Login = ({
   );
 };
 
+Login.propTypes = {
+  setUser: PropTypes.func,
+  setGlobalUser: PropTypes.func,
+  logStatus: PropTypes.func,
+  setLoggedIn: PropTypes.func,
+  loggedIn: PropTypes.bool,
+  globalUser: PropTypes.string
+};
+
+Login.defaultProps = {
+  setUser: {},
+  setGlobalUser: {},
+  logStatus: {},
+  setLoggedIn: {},
+  loggedIn: false,
+  globalUser: ""
+};
+
 export default Login;

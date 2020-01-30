@@ -5,8 +5,10 @@ import uStore from "../stores/userStore";
 const Register = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
-    if (!uStore.userList.find(user => user.name === data.Id))
+    if (!uStore.userList.find(user => user.name === data.Id)){
       uStore.createUser(data.Id, data.Password);
+      alert("Registered! Please login!") 
+    }
     else alert("already registered");
   };
 

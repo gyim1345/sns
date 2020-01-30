@@ -18,8 +18,7 @@ function App() {
   };
 
   const logStatus = () => {
-    loggedIn === false ? setLoggedIn(true) : setLoggedIn(false);
-    console.log(loggedIn);
+    return loggedIn === false ? setLoggedIn(true) : setLoggedIn(false);
   };
 
   const logout = () => {
@@ -39,7 +38,7 @@ function App() {
         </button>
       </Link>
       <Link to={`/${globalUser}/TimeLine`} onClick={toTop}>
-        <button type="button">Home</button>
+        {loggedIn && <button type="button">Home</button>}
       </Link>
       <Link
         to={`/${globalUser}`}
@@ -48,7 +47,7 @@ function App() {
           toTop();
         }}
       >
-        <button type="button">UserHome</button>
+        {loggedIn && <button type="button">UserHome</button>}
       </Link>
       <Switch>
         <Route exact path="/">
