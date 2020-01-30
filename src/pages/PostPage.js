@@ -32,7 +32,7 @@ PostPage.propTypes = {
   user: PropTypes.string,
   setUser: PropTypes.func,
   globalUser: PropTypes.string,
-  state: PropTypes.arrayOf(PropTypes.number),
+  state: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   setState: PropTypes.elementType
 };
 

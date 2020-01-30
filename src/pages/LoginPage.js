@@ -1,36 +1,48 @@
+// /* eslint-disable prettier/prettier */
 import React from "react";
-import { useForm } from "react-hook-form";
-import uStore from "../stores/userStore";
+import PropTypes from "prop-types";
+import Register from "../components/Register";
+import Login from "../components/Login";
 
-const LoginPage = ({ setUser, setGlobalUser, setLoggedIn, logStatus }) => {
-  const { register, handleSubmit, watch, errors } = useForm();
-
-  const onSubmit = data => {
-    if (
-      uStore.getUserPassword(data.Id) === data.Password &&
-      uStore.getUserName(data.Id) !== undefined
-    ) {
-      setGlobalUser(data.Id);
-      setUser(data.Id);
-      logStatus();
-      alert('logged in')
-    }
-  };
-
+const LoginPage = ({
+  setUser,
+  setGlobalUser,
+  setLoggedIn,
+  logStatus,
+  loggedIn,
+  globalUser
+}) => {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      login:
-      <label>Id</label>
-      <input name="Id" defaultValue="test" ref={register} />
-      <label>password</label>
-      <input
-        name="Password"
-        ref={register({ required: true, maxLength: 10 })}
+    <>
+      <Login
+        setUser={setUser}
+        setGlobalUser={setGlobalUser}
+        setLoggedIn={setLoggedIn}
+        logStatus={logStatus}
+        loggedIn={loggedIn}
+        globalUser={globalUser}
       />
-      {errors.exampleRequired && <p>This field is required</p>}
-      <input type="submit" />
-    </form>
+      <Register />
+    </>
   );
 }; // your form submit function which will invoke after successful validation
+
+LoginPage.propTypes = {
+  setUser: PropTypes.func,
+  setGlobalUser: PropTypes.func,
+  logStatus: PropTypes.func,
+  setLoggedIn: PropTypes.func,
+  loggedIn: PropTypes.bool,
+  globalUser: PropTypes.string
+};
+
+LoginPage.defaultProps = {
+  setUser: {},
+  setGlobalUser: {},
+  logStatus: {},
+  setLoggedIn: {},
+  loggedIn: false,
+  globalUser: ""
+};
 
 export default LoginPage;

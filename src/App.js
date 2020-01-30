@@ -22,10 +22,21 @@ function App() {
     console.log(loggedIn);
   };
 
+  const logout = () => {
+    if (loggedIn === true) {
+      setLoggedIn(false);
+      setGlobalUser("");
+      setUser("");
+      alert("logging out")
+    }
+  };
+
   return (
     <Router>
       <Link to="/">
-        <button type="button">login</button>
+        <button type="button" onClick={logout}>
+          {loggedIn ? "logout" : "logIn"}
+        </button>
       </Link>
       <Link to={`/${globalUser}/TimeLine`} onClick={toTop}>
         <button type="button">Home</button>
@@ -46,6 +57,9 @@ function App() {
             setGlobalUser={setGlobalUser}
             setLoggedIn={setLoggedIn}
             logStatus={logStatus}
+            loggedIn={loggedIn}
+            globalUser={globalUser}
+            setState={setState}
           />
         </Route>
         <Route exact path={`/${globalUser}/TimeLine`}>

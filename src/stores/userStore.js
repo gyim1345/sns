@@ -24,7 +24,7 @@ const userStore = {
     },
     {
       name: "",
-      userI: 0,
+      userId: 0,
       userFollow: [""],
       userURL: ``,
       password: ""
@@ -55,6 +55,7 @@ const userStore = {
   },
 
   getUserPassword(userName) {
+  
     return this.users.find(userInfo => userInfo.name === userName).password;
   },
 
@@ -77,6 +78,19 @@ const userStore = {
         title: titlee
       }
     ];
+  },
+
+  createUser(id, pwd) {
+    this.users = [
+      ...this.users,
+      {
+        name: id,
+        userId: this.usersLength,
+        userFollow: [""],
+        userURL: `${baseurl}/static/images/profilepicture.png`,
+        password: pwd
+      }
+    ]
   }
 };
 

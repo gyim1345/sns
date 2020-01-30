@@ -26,14 +26,12 @@ function TimeLinePage({ setUser, globalUser }) {
 
 TimeLinePage.propTypes = {
   setUser: PropTypes.func,
-  globalUser: PropTypes.string,
-  follower: PropTypes.string
+  globalUser: PropTypes.string
 };
 
 TimeLinePage.defaultProps = {
   setUser: "",
-  globalUser: "",
-  follower: ""
+  globalUser: ""
 };
 
 export default TimeLinePage;
