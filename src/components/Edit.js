@@ -1,27 +1,40 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import pStore from "../stores/postingStore";
-import cStore from "../stores/commentStore";
+import postingStore from "../stores/postingStore";
+import commentStore from "../stores/commentStore";
 
-function Edit({ stateP, setState, cid, indexC, globalUser }) {
+function Edit({ posting, setGlobalStateForTestingPurpose, commentId, indexOfComment, currentUser }) {
   const [edit, setEdit] = useState([""]);
   const input = [];
 
+  const checkOwnershipOfPost = () => {
+    return posting.userName !== currentUser && indexOfComment === undefined;
+  }
+  
+  const clickedIsPostAndIsMine = () => {
+    return  postingStore.getPost(posting.id) === posting && posting.userName === currentUser;
+  }
+
+  const clickedIsCommentAndIsMine = () => {
+    return commentStore.getComment(indexOfComment + 1) === posting[commentId] && commentStore.getComment(indexOfComment + 1).userWritten === currentUser;
+  }
+
+  const editPost = () => {
+    return postingStore.getPost(posting.id).title = edit[posting.id];
+  }
+
+  const editComment = () =>{
+    return commentStore.getComment(indexOfComment + 1).title = edit[posting.id];
+  }
   const editThis = () => {
-    if (stateP.userName !== globalUser && indexC === undefined)
-      alert("you dont have permission");
-    else if (
-      pStore.getPost(stateP.id) === stateP &&
-      stateP.userName === globalUser
-    ) {
-      pStore.getPost(stateP.id).title = edit[stateP.id];
-    } else if (
-      cStore.getComment(indexC + 1) === stateP[cid] &&
-      cStore.getComment(indexC + 1).userWritten === globalUser
-    ) {
-      cStore.getComment(indexC + 1).title = edit[stateP.id];
-    } else alert(`you dont have permission ${globalUser}`);
-    setState(Date.now());
+    checkOwnershipOfPost 
+      ? alert("you dont have permission") 
+      : clickedIsPostAndIsMine 
+        ? editPost 
+        : clickedIsCommentAndIsMine 
+          ? editComment 
+          : alert(`you dont have permission ${currentUser}`);
+    setGlobalStateForTestingPurpose(Date.now());
   };
 
   const onEdit = (e, Id) => {
@@ -33,8 +46,8 @@ function Edit({ stateP, setState, cid, indexC, globalUser }) {
     <>
       <input
         type="text"
-        value={input[stateP.id]}
-        onChange={e => onEdit(e, stateP.id)}
+        value={input[posting.id]}
+        onChange={e => onEdit(e, posting.id)}
       />
       <button type="button" onClick={editThis} id="buttonEdit">
         Edit
@@ -44,22 +57,22 @@ function Edit({ stateP, setState, cid, indexC, globalUser }) {
 }
 
 Edit.propTypes = {
-  globalUser: PropTypes.string,
-  stateP: PropTypes.oneOfType([
+  currentUser: PropTypes.string,
+  posting: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.array,
     PropTypes.object
   ]),
-  setState: PropTypes.elementType,
+  setGlobalStateForTestingPurpose: PropTypes.elementType,
   indexC: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 Edit.defaultProps = {
-  globalUser: "",
-  stateP: {},
-  setState: 0,
+  currentUser: "",
+  posting: {},
+  setGlobalStateForTestingPurpose: 0,
   indexC: undefined,
   cid: undefined
 };

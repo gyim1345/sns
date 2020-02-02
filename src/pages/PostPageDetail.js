@@ -1,37 +1,37 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
-import postStore from "../stores/postingStore";
+import postingStore from "../stores/postingStore";
 import PostingList from "../components/PostingList";
 
-function PostPageDetail({ user, setUser, globalUser }) {
+function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) {
   const { postingId } = useParams();
-  const size = "80%";
-  const postingDetail = postStore.getPost(postingId);
+  const sizeOfPicture = "80%";
+  const postingDetail = postingStore.getPost(postingId);
 
   return (
     <div>
       <PostingList
         postingDetail={postingDetail}
-        size={size}
-        user={user}
-        setUser={setUser}
-        globalUser={globalUser}
+        sizeOfPicture={sizeOfPicture}
+        userOfActivePage={userOfActivePage}
+        setUserOfActivePage={setUserOfActivePage}
+        currentUser={currentUser}
       />
     </div>
   );
 }
 
 PostPageDetail.propTypes = {
-  user: PropTypes.string,
-  setUser: PropTypes.func,
-  globalUser: PropTypes.string
+  userOfActivePage: PropTypes.string,
+  setUserOfActivePage: PropTypes.func,
+  currentUser: PropTypes.string
 };
 
 PostPageDetail.defaultProps = {
-  user: "",
-  setUser: "",
-  globalUser: ""
+  userOfActivePage: "",
+  setUserOfActivePage: "",
+  currentUser: ""
 };
 
 export default PostPageDetail;

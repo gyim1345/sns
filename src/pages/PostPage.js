@@ -4,24 +4,24 @@ import PostingList from "../components/PostingList";
 import Addpost from "../components/Addpost";
 import UserInfoHead from "../components/UserInfoHead";
 
-function PostPage({ state, setState, user, setUser, globalUser }) {
-  const size = "40%";
+function PostPage({ globalStateForTestingPurpose, setGlobalStateForTestingPurpose, userOfActivePage, setUserOfActivePage, currentUser }) {
+  const sizeOfPicture = "40%";
 
   return (
     <>
-      <UserInfoHead state={state} user={user} />
+      <UserInfoHead userOfActivePage={userOfActivePage} />
       <div>
         <Addpost
-          state={state}
-          setState={setState}
-          user={user}
-          globalUser={globalUser}
+          globalStateForTestingPurpose={globalStateForTestingPurpose}
+          setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+          userOfActivePage={userOfActivePage}
+          currentUser={currentUser}
         />
         <PostingList
-          size={size}
-          user={user}
-          setUser={setUser}
-          globalUser={globalUser}
+          sizeOfPicture={sizeOfPicture}
+          userOfActivePage={userOfActivePage}
+          setUserOfActivePage={setUserOfActivePage}
+          currentUser={currentUser}
         />
       </div>
     </>
@@ -29,19 +29,19 @@ function PostPage({ state, setState, user, setUser, globalUser }) {
 }
 
 PostPage.propTypes = {
-  user: PropTypes.string,
-  setUser: PropTypes.func,
-  globalUser: PropTypes.string,
-  state: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setState: PropTypes.elementType
+  userOfActivePage: PropTypes.string,
+  setUserOfActivePage: PropTypes.func,
+  currentUser: PropTypes.string,
+  globalStateForTestingPurpose: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  setGlobalStateForTestingPurpose: PropTypes.elementType
 };
 
 PostPage.defaultProps = {
-  user: "",
-  setUser: {},
-  globalUser: "",
-  state: [],
-  setState: ""
+  userOfActivePage: "",
+  setUserOfActivePage: {},
+  currentUser: "",
+  globalStateForTestingPurpose: [],
+  setGlobalStateForTestingPurpose: ""
 };
 
 export default PostPage;

@@ -1,24 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import pStore from "../stores/postingStore";
-import uStore from "../stores/userStore";
+import postingStore from "../stores/postingStore";
+import userStore from "../stores/userStore";
 
-function UserInfoHead({ user }) {
-  const userFollowerNumber = uStore.getFollowerNumberOfUser(user);
+function UserInfoHead({ userOfActivePage }) {
+  const userFollowerNumber = userStore.getFollowerNumberOfUser(userOfActivePage);
 
   return (
     <>
       <img
-        src={uStore.getUserImage(user)}
+        src={userStore.getUserImage(userOfActivePage)}
         alt="Smiley face"
         height="42"
         width="42"
       />
       &nbsp;&nbsp;&nbsp;
-      {user}
+      {userOfActivePage}
       &nbsp;&nbsp;&nbsp;
       <span> 게시물 갯수</span>
-      {pStore.getuserPosts(user).length}
+      {postingStore.getuserPosts(userOfActivePage).length}
       &nbsp;&nbsp;&nbsp;following 갯수
       {userFollowerNumber}
     </>
@@ -26,11 +26,11 @@ function UserInfoHead({ user }) {
 }
 
 UserInfoHead.propTypes = {
-  user: PropTypes.string
+  userOfActivePage: PropTypes.string
 };
 
 UserInfoHead.defaultProps = {
-  user: ""
+  userOfActivePage: ""
 };
 
 export default UserInfoHead;

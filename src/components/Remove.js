@@ -1,39 +1,50 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-import pStore from "../stores/postingStore";
+import postingStore from "../stores/postingStore";
 
-function Remove({ stateP, setState, globalUser }) {
+function Remove({ posting, setGlobalStateForTestingPurpose, currentUser }) {
   const [removed, setRemoved] = useState(false);
 
+  const checkOwnerShipOfPost = () => {
+    return currentUser === posting.userName;
+  }
+
+  const RemovePostingFromPostStore = () => {
+    return postingStore.removePost(posting.id);
+  }
+
+
   const removeThis = () => {
-    if (globalUser === stateP.userName) {
-      pStore.removePost(stateP.id);
-      setRemoved(true);
-      setState(Date.now());
-    } else alert("you dont have permission");
-  };
+    checkOwnerShipOfPost 
+      ? (
+          RemovePostingFromPostStore;
+          setRemoved(true);
+          setGlobalStateForTestingPurpose(Date.now());
+        )
+      : alert("you dont have permission")
+    }
 
   return (
     <>
       <button type="button" onClick={removeThis} id="buttonRemove">
         Remove
       </button>
-      {removed && <Redirect to={`/${globalUser}/TimeLine`} />}
+      {removed && <Redirect to={`/${currentUser}/TimeLine`} />}
     </>
   );
 }
 
 Remove.propTypes = {
-  globalUser: PropTypes.string,
-  stateP: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  setState: PropTypes.elementType
+  currentUser: PropTypes.string,
+  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  setGlobalStateForTestingPurpose: PropTypes.elementType
 };
 
 Remove.defaultProps = {
-  globalUser: "",
-  stateP: {},
-  setState: {}
+  currentUser: "",
+  posting: {},
+  setGlobalStateForTestingPurpose: {}
 };
 
 export default Remove;

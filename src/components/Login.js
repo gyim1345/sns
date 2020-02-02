@@ -2,32 +2,42 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-import uStore from "../stores/userStore";
+import userStore from "../stores/userStore";
 
 const Login = ({
-  setUser,
-  setGlobalUser,
+  setUserOfActivePage,
+  setCurrentUser,
   setLoggedIn,
-  logStatus,
+  toggleLogInStatus,
   loggedIn,
-  globalUser
+  currentUser
 }) => {
   const { register, handleSubmit, watch, errors } = useForm();
 
-  const onSubmit = data => {
-    if (uStore.userList.find(item => item.name === data.Id) === undefined)
-      // 입력한 아이디가 store에 없을 경우
-      alert("check id");
-    else if (uStore.getUserPassword(data.Id) !== data.Password)
-      // 입력한 아이디의 비번이 안 맞을 경우
-      alert("check password");
-    else {
-      setGlobalUser(data.Id);
-      setUser(data.Id);
-      logStatus();
+  const checkIdIsRegistered = () => {
+    return userStore.userList.find(item => item.name === data.Id) === undefined
+  }
+
+  const checkPassword = () => {
+    return userStore.getUserPassword(data.Id) !== data.Password
+  }
+
+  const performLogIn = () => {
+    return (
+      setCurrentUser(data.Id);
+      setUserOfActivePage(data.Id);
+      toggleLogInStatus();
       alert("logged in");
       setLoggedIn(true);
-    }
+    )
+  }
+
+  const onSubmit = data => {
+      checkIdIsRegistered 
+        ? alert("check id") 
+        : checkPassword 
+          ? alert("check password") 
+          : performLogIn;
   };
 
   return (
@@ -45,27 +55,27 @@ const Login = ({
         {errors.exampleRequired && <p>This field is required</p>}
         <input type="submit" />
       </form>
-      {loggedIn && <Redirect to={`/${globalUser}/TimeLine`} />}
+      {loggedIn && <Redirect to={`/${currentUser}/TimeLine`} />}
     </>
   );
 };
 
 Login.propTypes = {
-  setUser: PropTypes.func,
-  setGlobalUser: PropTypes.func,
-  logStatus: PropTypes.func,
+  setUserOfActivePage: PropTypes.func,
+  setCurrentUser: PropTypes.func,
+  toggleLogInStatus: PropTypes.func,
   setLoggedIn: PropTypes.func,
   loggedIn: PropTypes.bool,
-  globalUser: PropTypes.string
+  currentUser: PropTypes.string
 };
 
 Login.defaultProps = {
-  setUser: {},
-  setGlobalUser: {},
-  logStatus: {},
+  setUserOfActivePage: {},
+  setCurrentUser: {},
+  toggleLogInStatus: {},
   setLoggedIn: {},
   loggedIn: false,
-  globalUser: ""
+  currentUser: ""
 };
 
 export default Login;

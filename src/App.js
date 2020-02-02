@@ -8,24 +8,24 @@ import toTop from "./components/toTop";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
-  const [state, setState] = useState([]);
-  const [user, setUser] = useState("");
-  const [globalUser, setGlobalUser] = useState("");
+  const [globalStateForTestingPurpose, setGlobalStateForTestingPurpose] = useState([]);
+  const [userOfActivePage, setUserOfActivePage] = useState("");
+  const [currentUser, setCurrentUser] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const changeToGlobalUser = () => {
-    setUser(globalUser);
+  const changeToCurrentUser = () => {
+    setUserOfActivePage(currentUser);
   };
 
-  const logStatus = () => {
+  const toggleLogInStatus = () => {
     return loggedIn === false ? setLoggedIn(true) : setLoggedIn(false);
   };
 
   const logout = () => {
     if (loggedIn === true) {
       setLoggedIn(false);
-      setGlobalUser("");
-      setUser("");
+      setCurrentUser("");
+      setUserOfActivePage("");
       alert("logging out")
     }
   };
@@ -37,13 +37,13 @@ function App() {
           {loggedIn ? "logout" : "logIn"}
         </button>
       </Link>
-      <Link to={`/${globalUser}/TimeLine`} onClick={toTop}>
+      <Link to={`/${currentUser}/TimeLine`} onClick={toTop}>
         {loggedIn && <button type="button">Home</button>}
       </Link>
       <Link
-        to={`/${globalUser}`}
+        to={`/${currentUser}`}
         onClick={() => {
-          changeToGlobalUser();
+          changeToCurrentUser();
           toTop();
         }}
       >
@@ -52,40 +52,40 @@ function App() {
       <Switch>
         <Route exact path="/">
           <LoginPage
-            setUser={setUser}
-            setGlobalUser={setGlobalUser}
+            setUserOfActivePage={setUserOfActivePage}
+            setCurrentUser={setCurrentUser}
             setLoggedIn={setLoggedIn}
-            logStatus={logStatus}
+            toggleLogInStatus={toggleLogInStatus}
             loggedIn={loggedIn}
-            globalUser={globalUser}
-            setState={setState}
+            currentUser={currentUser}
+            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
           />
         </Route>
-        <Route exact path={`/${globalUser}/TimeLine`}>
+        <Route exact path={`/${currentUser}/TimeLine`}>
           <TimeLinePage
-            state={state}
-            setState={setState}
-            user={user}
-            setUser={setUser}
-            globalUser={globalUser}
+            globalStateForTestingPurpose={globalStateForTestingPurpose}
+            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            userOfActivePage={userOfActivePage}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
           />
         </Route>
-        <Route exact path={`/${user}`}>
+        <Route exact path={`/${userOfActivePage}`}>
           <PostPage
-            state={state}
-            setState={setState}
-            user={user}
-            setUser={setUser}
-            globalUser={globalUser}
+            globalStateForTestingPurpose={globalStateForTestingPurpose}
+            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            userOfActivePage={userOfActivePage}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
           />
         </Route>
-        <Route path={`/${user}/posting/:postingId`}>
+        <Route path={`/${userOfActivePage}/posting/:postingId`}>
           <PostPageDetail
-            state={state}
-            setState={setState}
-            user={user}
-            setUser={setUser}
-            globalUser={globalUser}
+            globalStateForTestingPurpose={globalStateForTestingPurpose}
+            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            userOfActivePage={userOfActivePage}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
           />
         </Route>
       </Switch>

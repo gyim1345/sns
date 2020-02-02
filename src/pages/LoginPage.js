@@ -5,22 +5,22 @@ import Register from "../components/Register";
 import Login from "../components/Login";
 
 const LoginPage = ({
-  setUser,
-  setGlobalUser,
+  setUserOfActivePage,
+  setCurrentUser,
   setLoggedIn,
-  logStatus,
+  toggleLogInStatus,
   loggedIn,
-  globalUser
+  currentUser
 }) => {
   return (
     <>
       <Login
-        setUser={setUser}
-        setGlobalUser={setGlobalUser}
+        setUserOfActivePage={setUserOfActivePage}
+        setCurrentUser={setCurrentUser}
         setLoggedIn={setLoggedIn}
-        logStatus={logStatus}
+        toggleLogInStatus={toggleLogInStatus}
         loggedIn={loggedIn}
-        globalUser={globalUser}
+        currentUser={currentUser}
       />
       <Register />
     </>
@@ -28,21 +28,21 @@ const LoginPage = ({
 };
 
 LoginPage.propTypes = {
-  setUser: PropTypes.func,
-  setGlobalUser: PropTypes.func,
-  logStatus: PropTypes.func,
+  setUserOfActivePage: PropTypes.func,
+  setCurrentUser: PropTypes.func,
+  toggleLogInStatus: PropTypes.func,
   setLoggedIn: PropTypes.func,
   loggedIn: PropTypes.bool,
-  globalUser: PropTypes.string
+  currentUser: PropTypes.string
 };
 
 LoginPage.defaultProps = {
-  setUser: {},
-  setGlobalUser: {},
-  logStatus: {},
+  setUserOfActivePage: {},
+  setCurrentUser: {},
+  toggleLogInStatus: {},
   setLoggedIn: {},
   loggedIn: false,
-  globalUser: ""
+  currentUser: ""
 };
 
 export default LoginPage;

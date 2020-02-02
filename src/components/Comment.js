@@ -2,13 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import Edit from "./Edit";
 
-function Comment({ posting, comments, state, setState, globalUser }) {
-  const found = comments.filter(el => el.postLId === posting.id);
+function Comment({ posting, comments, globalStateForTestingPurpose, setGlobalStateForTestingPurpose, currentUser }) {
+  const commentsOfPosting = comments.filter(el => el.postLId === posting.id);
 
-  // if (comments[posting.id - 1] !== undefined) {
   return (
     <>
-      {found.map((postings, i) => (
+      {commentsOfPosting.map((postings, i) => (
         <ul key={postings.id}>
           <li>
             [comment]:
@@ -17,23 +16,21 @@ function Comment({ posting, comments, state, setState, globalUser }) {
             {i}
           </li>
           <Edit
-            stateP={found}
-            state={state}
-            setState={setState}
-            cid={i}
-            indexC={comments.indexOf(postings)}
-            globalUser={globalUser}
+            posting={commentsOfPosting}
+            globalStateForTestingPurpose={globalStateForTestingPurpose}
+            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            commentId={i}
+            indexOfComment={comments.indexOf(postings)}
+            currentUser={currentUser}
           />
         </ul>
       ))}
     </>
   );
-  // }
-  // return "";
 }
 
 Comment.propTypes = {
-  globalUser: PropTypes.string,
+  currentUser: PropTypes.string,
   posting: PropTypes.exact({
     id: PropTypes.number,
     title: PropTypes.string,
@@ -42,16 +39,16 @@ Comment.propTypes = {
     like: PropTypes.arrayOf(PropTypes.string)
   }),
   comments: PropTypes.arrayOf(PropTypes.object),
-  state: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setState: PropTypes.elementType
+  globalStateForTestingPurpose: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  setGlobalStateForTestingPurpose: PropTypes.elementType
 };
 
 Comment.defaultProps = {
-  globalUser: "",
+  currentUser: "",
   posting: [],
   comments: {},
-  state: 0,
-  setState: 0
+  globalStateForTestingPurpose: 0,
+  setGlobalStateForTestingPurpose: 0
 };
 
 

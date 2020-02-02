@@ -1,42 +1,45 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import pStore from "../stores/postingStore";
-import cStore from "../stores/commentStore";
+import postingStore from "../stores/postingStore";
+import commentStore from "../stores/commentStore";
 import Posting from "./Posting";
-import uStore from "../stores/userStore";
 
 function PostingList({
   postingDetail,
-  size,
-  user,
+  sizeOfPicture,
+  userOfActivePage,
   follower,
-  setUser,
-  globalUser
+  setUserOfActivePage,
+  currentUser
 }) {
-  let postings =
-    postingDetail === undefined
-      ? pStore.postList.filter(post => post.userName === user)
-      : [postingDetail];
-  const { comments } = cStore;
-
-  if (follower !== undefined) {
-    const temppostings = [];
-    follower.forEach(person => temppostings.push(pStore.getuserPosts(person)));
-    const [temp] = temppostings;
-    postings = pStore.postList.filter(post => post.userName === user);
-    postings.push(...temp);
+  const [input, setInput] = useState("");
+  const [globalStateForTestingPurpose, setGlobalStateForTestingPurpose] = useState([]);
+  const { comments } = commentStore;
+  
+  const distinguishPostings = () => {
+    return (postingDetail === undefined
+      ? postingStore.postList.filter(post => post.userName === userOfActivePage)
+      : [postingDetail]
+    );
   }
-
-  const [inputa, setInputa] = useState("");
-  const [state, setState] = useState([]);
+    
+  const addFollowerPostingsToCurrentPostings = () => {
+    return 
+      if (follower !== undefined) {
+        follower.forEach(person => postings = [...postings, ...postingStore.getuserPosts(person));
+      }
+  }
+  
+  let postings = distinguishPosting();
+  addFollowerPostingsToCurrentPostings();
 
   const onChangeComment = e => {
-    setInputa(e.target.value);
+    setInput(e.target.value);
   };
 
   const addComment = (_, postId) => {
-    cStore.createComment(postId, inputa, globalUser);
-    setState(Date.now());
+    commentStore.createComment(postId, input, currentUser);
+    setGlobalStateForTestingPurpose(Date.now());
   };
 
   return (
@@ -47,14 +50,14 @@ function PostingList({
             <Posting
               posting={posting}
               comments={comments}
-              state={state}
-              setState={setState}
+              globalStateForTestingPurpose={globalStateForTestingPurpose}
+              setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
               addComment={addComment}
               onChangeComment={onChangeComment}
-              size={size}
-              user={user}
-              setUser={setUser}
-              globalUser={globalUser}
+              sizeOfPicture={sizeOfPicture}
+              userOfActivePage={userOfActivePage}
+              setUserOfActivePage={setUserOfActivePage}
+              currentUser={currentUser}
             />
           </ul>
         ))}
@@ -64,19 +67,19 @@ function PostingList({
 }
 
 PostingList.propTypes = {
-  user: PropTypes.string,
-  setUser: PropTypes.func,
-  globalUser: PropTypes.string,
-  size: PropTypes.string,
+  userOfActivePage: PropTypes.string,
+  setUserOfActivePage: PropTypes.func,
+  currentUser: PropTypes.string,
+  sizeOfPicture: PropTypes.string,
   postingDetail: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   follower: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
 };
 
 PostingList.defaultProps = {
-  user: "",
-  setUser: "",
-  globalUser: "",
-  size: 0,
+  userOfActivePage: "",
+  setUserOfActivePage: "",
+  currentUser: "",
+  sizeOfPicture: 0,
   postingDetail: {},
   follower: [""]
 };

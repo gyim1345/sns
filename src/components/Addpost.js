@@ -1,21 +1,30 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import pStore from "../stores/postingStore";
+import postingStore from "../stores/postingStore";
 
-function AddPost({ setState, user, globalUser }) {
+function AddPost({ setGlobalStateForTestingPurpose, userOfActivePage, currentUser }) {
   const [input, setInput] = useState("");
 
   const onChange = e => {
     setInput(e.target.value);
   };
 
+  const checkOwnershipOfPost = () => {
+    return userOfActivePage !== currentUser;
+  }
+
+  const addPostToMyPage = () => {
+    return postingStore.createPost(input, currentUser);
+  }
+
   const addPost = () => {
-    if (user !== globalUser) alert("go to ur page fucker");
-    else {
-      pStore.createPost(input, globalUser);
-      setState(Date.now());
-      setInput("");
-    }
+    checkOwnershipOfPost 
+      ? alert("go to ur page fucker") 
+      : (
+          addPostToMyPage; 
+          setGlobalStateForTestingPurpose(Date.now()); 
+          setInput("");
+        )
   };
 
   return (
@@ -29,15 +38,15 @@ function AddPost({ setState, user, globalUser }) {
 }
 
 AddPost.propTypes = {
-  user: PropTypes.string,
-  globalUser: PropTypes.string,
-  setState: PropTypes.elementType
+  userOfActivePage: PropTypes.string,
+  currentUser: PropTypes.string,
+  setGlobalStateForTestingPurpose: PropTypes.elementType
 };
 
 AddPost.defaultProps = {
-  user: "",
-  globalUser: "",
-  setState: 0
+  userOfActivePage: "",
+  currentUser: "",
+  setGlobalStateForTestingPurpose: 0
 };
 
 export default AddPost;
