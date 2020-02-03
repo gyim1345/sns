@@ -4,7 +4,7 @@ import postingStorage from "../stores/postingStore";
 import commentStorage from "../stores/commentStore";
 import countStore from "../stores/countStore";
 
-function Edit({ posting, setGlobalState, cid, indexOfComment, thisComment, currentUser }) {
+function Edit({ posting, setGlobalState, indexOfCommentOnThisPosting, idOfComment, thisComment, currentUser }) {
   const [edit, setEdit] = useState([""]);
   const input = [];
   
@@ -20,7 +20,7 @@ const clickedIsPostAndIsMine = () => {
 }
 
 const clickedIsCommentAndIsMine = () => {
-  return commentStorage.getComment(thisComment.id) === posting[cid] && commentStorage.getComment(thisComment.id).userWritten === currentUser;
+  return commentStorage.getComment(thisComment.id) === posting[indexOfCommentOnThisPosting] && commentStorage.getComment(thisComment.id).userWritten === currentUser;
 }
 
 const editPost = () => {

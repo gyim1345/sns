@@ -6,6 +6,7 @@ import Remove from "./Remove";
 import Edit from "./Edit";
 import userStorage from "../stores/userStore";
 import toTop from "./toTop";
+import Like from "./Like";
 
 function Posting({
   posting,
@@ -21,22 +22,22 @@ function Posting({
 }) {
 const [input] = useState([]);
 
-const findIfIClickedLike = () => {
-  return posting.like.includes(currentUser)
-}
+// const findIfIClickedLike = () => {
+//   return posting.like.includes(currentUser)
+// }
 
-const deleteLike = () => {
-  return posting.like = posting.like.filter(el => el !== currentUser);
-}
+// const deleteLike = () => {
+//   return posting.like = posting.like.filter(el => el !== currentUser);
+// }
 
-const addLike = () => {
-  return posting.like = [...posting.like, currentUser];
-}
+// const addLike = () => {
+//   return posting.like = [...posting.like, currentUser];
+// }
 
-const increaseLike = () => {
-  !findIfIClickedLike() ? addLike() : deleteLike();
-  setGlobalState(Date.now());
-};
+// const increaseLike = () => {
+//   !findIfIClickedLike() ? addLike() : deleteLike();
+//   setGlobalState(Date.now());
+// };
 
 const changeUser = () => {
   setUserOfActivePage(posting.userName);
@@ -62,17 +63,16 @@ const changeUser = () => {
           [Title]:
           {posting.title}
         </li>
-        <li>
-          Like:
-          {posting.like.length}
-        </li>
+  
         {/* [Id]:
         {posting.id}
         Image: */}
       </Link>
-      <button type="button" onClick={increaseLike} id="increaseLike">
-        Like
-      </button>
+      <Like 
+        posting={posting}
+        currentUser={currentUser}
+        setGlobalState={setGlobalState}
+      />
       <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
         <Edit
           posting={posting}

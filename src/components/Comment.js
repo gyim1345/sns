@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Edit from "./Edit";
 import Remove from "./Remove";
+import Like from "./Like";
+import commentStorage from "../stores/commentStore"
+import Reply from "./Reply";
 
 function Comment({ posting, comments, globalState, setGlobalState, currentUser }) {
   const commentsForThisPosting = comments.filter(el => el.postLId === posting.id);
@@ -17,13 +20,18 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser }
             [id]:
             {comments.id}
           </li>
+          <Like 
+        posting={postings}
+        currentUser={currentUser}
+        setGlobalState={setGlobalState}
+      />
           <Edit
             posting={commentsForThisPosting}
             globalState={globalState}
             setGlobalState={setGlobalState}
-            cid={i}
+            indexOfCommentOnThisPosting={i}
             thisComment={comments.find(x => x === postings)}
-            indexC={comments.indexOf(postings)}
+            idOfComment={comments.indexOf(postings)}
             currentUser={currentUser}
           />
           <Remove
@@ -34,6 +42,14 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser }
             thisComment={comments.find(x => x === postings)}
             postingId={posting.id}
             commentOwner={postings.userWritten}
+          />
+          <Reply
+            posting={postings}
+            comments={commentStorage.getReplyFromComment(postings)}
+            globalState={globalState}
+            setGlobalState={setGlobalState}
+            currentUser={currentUser}
+            replyIsTrue={true}
           />
         </ul>
       ))}
