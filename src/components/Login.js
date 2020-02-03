@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-import userStore from "../stores/userStore";
+import userStorage from "../stores/userStore";
 
 const Login = ({
   setUserOfActivePage,
@@ -14,30 +14,31 @@ const Login = ({
 }) => {
   const { register, handleSubmit, watch, errors } = useForm();
 
-  const checkIdIsRegistered = () => {
-    return userStore.userList.find(item => item.name === data.Id) === undefined
+  const checkIdIsRegistered = (data) => {
+    return userStorage.userList.find(item => item.name === data.Id) === undefined
   }
 
-  const checkPassword = () => {
-    return userStore.getUserPassword(data.Id) !== data.Password
+  const checkPassword = (data) => {
+    return userStorage.getUserPassword(data.Id) !== data.Password
   }
 
-  const performLogIn = () => {
+  const performLogIn = (data) => {
     return (
-      setCurrentUser(data.Id);
-      setUserOfActivePage(data.Id);
-      toggleLogInStatus();
-      alert("logged in");
-      setLoggedIn(true);
+      setCurrentUser(data.Id),
+      setUserOfActivePage(data.Id),
+      toggleLogInStatus(),
+      alert("logged in"),
+      setLoggedIn(true)
     )
   }
 
   const onSubmit = data => {
-      checkIdIsRegistered 
+    console.log(userStorage.userList.find(item => item.name === data.Id) === undefined)
+      checkIdIsRegistered(data)
         ? alert("check id") 
-        : checkPassword 
+        : checkPassword(data)
           ? alert("check password") 
-          : performLogIn;
+          : performLogIn(data);
   };
 
   return (

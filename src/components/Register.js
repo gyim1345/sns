@@ -1,25 +1,26 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import userStore from "../stores/userStore";
+import uStore from "../stores/userStore";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
-  
-  const checkRegistered = () => {
-    return !userStore.userList.find(user => user.name === data.Id);
+ 
+  const checkRegistered = (data) => {
+    return !uStore.userList.find(user => user.name === data.Id);
   }
   
-  const createUserOnRegister = () => {
-    return userStore.createUser(data.Id, data.Password)
+  const createUserOnRegister = (data) => {
+    return uStore.createUser(data.Id, data.Password)
   }
 
   const onSubmit = data => {
-    checkRegistered ? (
-      createUserOnRegister;
+    checkRegistered(data) ? (
+      createUserOnRegister(data),
       alert("Registered! Please login!") 
     )
     : alert("already registered");
   };
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

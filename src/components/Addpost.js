@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import postingStore from "../stores/postingStore";
+import postingStorage from "../stores/postingStore";
 
-function AddPost({ setGlobalStateForTestingPurpose, userOfActivePage, currentUser }) {
-  const [input, setInput] = useState("");
-
-  const onChange = e => {
-    setInput(e.target.value);
-  };
-
-  const checkOwnershipOfPost = () => {
-    return userOfActivePage !== currentUser;
-  }
-
-  const addPostToMyPage = () => {
-    return postingStore.createPost(input, currentUser);
-  }
-
-  const addPost = () => {
-    checkOwnershipOfPost 
-      ? alert("go to ur page fucker") 
-      : (
-          addPostToMyPage; 
-          setGlobalStateForTestingPurpose(Date.now()); 
-          setInput("");
-        )
-  };
+function AddPost({ setGlobalState, userOfActivePage, currentUser }) {
+    const [input, setInput] = useState("");
+  
+    const onChange = e => {
+      setInput(e.target.value);
+    };
+  
+    const checkOwnershipOfPost = () => {
+      return userOfActivePage !== currentUser;
+    }
+  
+    const addPostToMyPage = (input) => {
+      return postingStorage.createPost(input, currentUser);
+    }
+  
+    const addPost = () => {
+      checkOwnershipOfPost()
+        ? alert("go to ur page fucker") 
+        : (
+            addPostToMyPage(input), 
+            setGlobalState(Date.now()), 
+            setInput("")
+          )
+    };
 
   return (
     <>
@@ -40,13 +40,13 @@ function AddPost({ setGlobalStateForTestingPurpose, userOfActivePage, currentUse
 AddPost.propTypes = {
   userOfActivePage: PropTypes.string,
   currentUser: PropTypes.string,
-  setGlobalStateForTestingPurpose: PropTypes.elementType
+  setGlobalState: PropTypes.elementType
 };
 
 AddPost.defaultProps = {
   userOfActivePage: "",
   currentUser: "",
-  setGlobalStateForTestingPurpose: 0
+  setGlobalState: 0
 };
 
 export default AddPost;

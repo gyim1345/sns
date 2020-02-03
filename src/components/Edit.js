@@ -1,41 +1,47 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import postingStore from "../stores/postingStore";
-import commentStore from "../stores/commentStore";
+import postingStorage from "../stores/postingStore";
+import commentStorage from "../stores/commentStore";
+import countStore from "../stores/countStore";
 
-function Edit({ posting, setGlobalStateForTestingPurpose, commentId, indexOfComment, currentUser }) {
+function Edit({ posting, setGlobalState, cid, indexOfComment, thisComment, currentUser }) {
   const [edit, setEdit] = useState([""]);
   const input = [];
-
-  const checkOwnershipOfPost = () => {
-    return posting.userName !== currentUser && indexOfComment === undefined;
-  }
   
-  const clickedIsPostAndIsMine = () => {
-    return  postingStore.getPost(posting.id) === posting && posting.userName === currentUser;
-  }
+const checkOwnershipOfPost = () => {
+  console.log(posting)
+  console.log(currentUser)
+  console.log(thisComment)
+  return posting.userName !== currentUser && thisComment === undefined;
+}
 
-  const clickedIsCommentAndIsMine = () => {
-    return commentStore.getComment(indexOfComment + 1) === posting[commentId] && commentStore.getComment(indexOfComment + 1).userWritten === currentUser;
-  }
+const clickedIsPostAndIsMine = () => {
+  return  postingStorage.getPost(posting.id) === posting && posting.userName === currentUser;
+}
 
-  const editPost = () => {
-    return postingStore.getPost(posting.id).title = edit[posting.id];
-  }
+const clickedIsCommentAndIsMine = () => {
+  return commentStorage.getComment(thisComment.id) === posting[cid] && commentStorage.getComment(thisComment.id).userWritten === currentUser;
+}
 
-  const editComment = () =>{
-    return commentStore.getComment(indexOfComment + 1).title = edit[posting.id];
-  }
-  const editThis = () => {
-    checkOwnershipOfPost 
-      ? alert("you dont have permission") 
-      : clickedIsPostAndIsMine 
-        ? editPost 
-        : clickedIsCommentAndIsMine 
-          ? editComment 
-          : alert(`you dont have permission ${currentUser}`);
-    setGlobalStateForTestingPurpose(Date.now());
-  };
+const editPost = () => {
+  return postingStorage.getPost(posting.id).title = edit[posting.id];
+}
+
+const editComment = () =>{
+  return commentStorage.getComment(thisComment.id).title = edit[posting.id];
+}
+const editThis = () => {
+  checkOwnershipOfPost()
+    ? alert("you dont have permission") 
+    : clickedIsPostAndIsMine()
+      ? editPost()
+      : clickedIsCommentAndIsMine()
+        ? editComment() 
+        : alert(`you dont have permission ${currentUser}`);
+  setGlobalState(Date.now());
+};
+
+
 
   const onEdit = (e, Id) => {
     edit[Id] = e.target.value;
@@ -64,16 +70,16 @@ Edit.propTypes = {
     PropTypes.array,
     PropTypes.object
   ]),
-  setGlobalStateForTestingPurpose: PropTypes.elementType,
-  indexC: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  setGlobalState: PropTypes.elementType,
+  indexOfComment: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 Edit.defaultProps = {
   currentUser: "",
   posting: {},
-  setGlobalStateForTestingPurpose: 0,
-  indexC: undefined,
+  setGlobalState: 0,
+  indexOfComment: undefined,
   cid: undefined
 };
 

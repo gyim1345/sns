@@ -1,3 +1,5 @@
+import countStore from "./countStore";
+
 const commentStore = {
   comments: [
     {
@@ -73,11 +75,21 @@ const commentStore = {
     return this.comments.find(comment => comment.id === id);
   },
 
+  removeComment(postingId, commentId) {
+    // console.log(postingId, commentId);
+    // console.log(this.comments.forEach(x => console.log(x.id, x.postLId)));
+    const removeElement = this.comments.find(
+      comment => comment.id === commentId && comment.postLId === postingId
+      );
+      // console.log(removeElement);
+    this.comments = this.comments.filter(comment => comment !== removeElement);
+  },
+
   createComment(id, titlee, commentWrittenBy) {
     this.comments = [
       ...this.comments,
       {
-        id: this.comments.length + 1, // last index +1 로 나중에 수정 하도록.
+        id: countStore.useCommentCount(), // last ind`ex +1 로 나중에 수정 하도록.
         postLId: id,
         title: titlee,
         userWritten: commentWrittenBy

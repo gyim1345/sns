@@ -4,14 +4,14 @@ import { Link, Route } from "react-router-dom";
 import Comment from "./Comment";
 import Remove from "./Remove";
 import Edit from "./Edit";
-import userStore from "../stores/userStore";
+import userStorage from "../stores/userStore";
 import toTop from "./toTop";
 
 function Posting({
   posting,
   comments,
-  globalStateForTestingPurpose,
-  setGlobalStateForTestingPurpose,
+  globalState,
+  setGlobalState,
   addComment,
   onChangeComment,
   sizeOfPicture,
@@ -19,28 +19,28 @@ function Posting({
   setUserOfActivePage,
   currentUser
 }) {
-  const [input] = useState([]);
+const [input] = useState([]);
 
-  const findIfIClickedLike = () => {
-    return posting.like.includes(currentUser)
-  }
+const findIfIClickedLike = () => {
+  return posting.like.includes(currentUser)
+}
 
-  const deleteLike = () => {
-    return posting.like = posting.like.filter(el => el !== currentUser);
-  }
+const deleteLike = () => {
+  return posting.like = posting.like.filter(el => el !== currentUser);
+}
 
-  const addLike = () => {
-    return postings.like = [...postings.like, currentUser];
-  }
+const addLike = () => {
+  return posting.like = [...posting.like, currentUser];
+}
 
-  const increaseLikeOnClick = () => {
-    !findIfIClickedLike ? addLike : deleteLike;
-    setGlobalStateForTestingPurpose(Date.now());
-  };
+const increaseLike = () => {
+  !findIfIClickedLike() ? addLike() : deleteLike();
+  setGlobalState(Date.now());
+};
 
-  const changeUser = () => {
-    setUserOfActivePage(posting.userName);
-  };
+const changeUser = () => {
+  setUserOfActivePage(posting.userName);
+};
 
   return (
     <div>
@@ -52,7 +52,7 @@ function Posting({
             toTop();
           }}
         >
-          <img src={userStore.getUserImage(posting.userName)} alt="" width={50} />
+          <img src={userStorage.getUserImage(posting.userName)} alt="" width={50} />
           {posting.userName}
         </Link>
       </h1>
@@ -70,29 +70,29 @@ function Posting({
         {posting.id}
         Image: */}
       </Link>
-      <button type="button" onClick={increaseLikeOnClick} id="increaseLike">
+      <button type="button" onClick={increaseLike} id="increaseLike">
         Like
       </button>
       <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
         <Edit
           posting={posting}
-          globalStateForTestingPurpose={globalStateForTestingPurpose}
-          setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+          globalState={globalState}
+          setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
         <Remove
           posting={posting}
-          globalStateForTestingPurpose={globalStateForTestingPurpose}
-          setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+          globalState={globalState}
+          setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
         <Comment
           posting={posting}
           comments={comments}
-          globalStateForTestingPurpose={globalStateForTestingPurpose}
-          setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+          globalState={globalState}
+          setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
@@ -125,8 +125,8 @@ Posting.propTypes = {
     like: PropTypes.arrayOf(PropTypes.string)
   }),
   comments: PropTypes.arrayOf(PropTypes.object),
-  state: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setGlobalStateForTestingPurpose: PropTypes.elementType,
+  globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  setGlobalState: PropTypes.elementType,
   addComment: PropTypes.elementType,
   onChangeComment: PropTypes.elementType
 };
@@ -138,8 +138,8 @@ Posting.defaultProps = {
   sizeOfPicture: 0,
   posting: [],
   comments: {},
-  state: 0,
-  setGlobalStateForTestingPurpose: 0,
+  globalState: 0,
+  setGlobalState: 0,
   addComment: "",
   onChangeComment: ""
 };

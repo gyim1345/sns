@@ -1,30 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
-import uStore from "../stores/userStore";
-import postingStore from "../stores/postingStore";
+import userStorage from "../stores/userStore";
+import postingStorage from "../stores/postingStore";
 
 function TimeLinePage({ setUserOfActivePage, currentUser }) {
+
   const sizeOfPicture = "40%";
+  let follower = [];
 
   const checkCurrentUserDataPresent = () => {
     return currentUser !== undefined;
   }
 
   const getFollowerForCurrentUser = () => {
-    return const follower = uStore.getFollowerFromUser(currentUser);
+    return follower = userStorage.getFollowerFromUser(currentUser);
   }
 
   const setFollowerIsEmpty =() => {
-    return const follower = [];
+    return follower = [];
   }
 
-  checkCurrentUserDataPresent ? getFollowerForCurrentUser : setFollowerIsEmpty;
-
+  checkCurrentUserDataPresent() ? getFollowerForCurrentUser() : setFollowerIsEmpty();
 
   return (
     <>
-      {postingStore.getuserPosts(currentUser)[0] === undefined ? (
+      {postingStorage.getuserPosts(currentUser)[0] === undefined ? (
         <li>Go to Your user home and add some stuff RIGHT NOW!</li>
       ) : (
         <div>

@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
-import postingStore from "../stores/postingStore";
+import postStore from "../stores/postingStore";
 import PostingList from "../components/PostingList";
 
 function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) {
   const { postingId } = useParams();
   const sizeOfPicture = "80%";
-  const postingDetail = postingStore.getPost(postingId);
+  const postingDetail = postStore.getPost(postingId);
 
   return (
     <div>

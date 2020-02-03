@@ -1,3 +1,5 @@
+import countStore from "./countStore";
+
 const baseurl = "http://localhost:8080/";
 const DEFAULT_IMAGE = `${baseurl}/static/images/defaultnumber.png`;
 const postStore = {
@@ -83,12 +85,12 @@ const postStore = {
     return this.posts.find(post => post.id === Number(id));
   },
 
-  createPost(title, name) {
+  createPost(recievedTitle, name) {
     this.posts = [
       ...this.posts,
       {
-        id: Date.now(),
-        title,
+        id: countStore.usePostingCount(),
+        title: recievedTitle,
         imageUrl: DEFAULT_IMAGE,
         userName: name,
         like: []

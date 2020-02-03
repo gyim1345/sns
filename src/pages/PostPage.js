@@ -4,16 +4,16 @@ import PostingList from "../components/PostingList";
 import Addpost from "../components/Addpost";
 import UserInfoHead from "../components/UserInfoHead";
 
-function PostPage({ globalStateForTestingPurpose, setGlobalStateForTestingPurpose, userOfActivePage, setUserOfActivePage, currentUser }) {
+function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActivePage, currentUser }) {
   const sizeOfPicture = "40%";
 
   return (
     <>
-      <UserInfoHead userOfActivePage={userOfActivePage} />
+      <UserInfoHead globalState={globalState} userOfActivePage={userOfActivePage} />
       <div>
         <Addpost
-          globalStateForTestingPurpose={globalStateForTestingPurpose}
-          setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+          globalState={globalState}
+          setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
@@ -29,19 +29,19 @@ function PostPage({ globalStateForTestingPurpose, setGlobalStateForTestingPurpos
 }
 
 PostPage.propTypes = {
-  userOfActivePage: PropTypes.string,
+  user: PropTypes.string,
   setUserOfActivePage: PropTypes.func,
   currentUser: PropTypes.string,
-  globalStateForTestingPurpose: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setGlobalStateForTestingPurpose: PropTypes.elementType
+  globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  setGlobalState: PropTypes.elementType
 };
 
 PostPage.defaultProps = {
-  userOfActivePage: "",
+  user: "",
   setUserOfActivePage: {},
   currentUser: "",
-  globalStateForTestingPurpose: [],
-  setGlobalStateForTestingPurpose: ""
+  globalState: [],
+  setGlobalState: ""
 };
 
 export default PostPage;

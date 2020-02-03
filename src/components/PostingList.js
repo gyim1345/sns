@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import postingStore from "../stores/postingStore";
-import commentStore from "../stores/commentStore";
+import postingStorage from "../stores/postingStore";
+import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
+import uStore from "../stores/userStore";
+import countStore from "../stores/countStore";
+
 
 function PostingList({
   postingDetail,
@@ -12,34 +15,59 @@ function PostingList({
   setUserOfActivePage,
   currentUser
 }) {
-  const [input, setInput] = useState("");
-  const [globalStateForTestingPurpose, setGlobalStateForTestingPurpose] = useState([]);
-  const { comments } = commentStore;
+  // let postings = postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === user) : [postingDetail]
+  // const { comments } = commentStorage;
+  // console.log("postingDetail", postingDetail, follower);
+  // if (follower !== undefined) {
+
+  //   const temppostings = [];
+  //   follower.forEach(person => temppostings.push(postingStorage.getuserPosts(person)));
+  //   const [temp] = temppostings;
+  //   postings = postingStorage.postList.filter(post => post.userName === user);
+  //   postings.push(...temp);
+  // }
+
+  //asdad
+  const [inputa, setInputa] = useState("");
+  const [globalState, setGlobalState] = useState([]);
+  const { comments } = commentStorage;
   
   const distinguishPostings = () => {
-    return (postingDetail === undefined
-      ? postingStore.postList.filter(post => post.userName === userOfActivePage)
-      : [postingDetail]
-    );
-  }
-    
-  const addFollowerPostingsToCurrentPostings = () => {
-    return 
-      if (follower !== undefined) {
-        follower.forEach(person => postings = [...postings, ...postingStore.getuserPosts(person));
-      }
+    return postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === userOfActivePage) : [postingDetail]
   }
   
-  let postings = distinguishPosting();
-  addFollowerPostingsToCurrentPostings();
+ const checkFollowerPresent = () => {
+   return follower !== undefined;
+ }
+
+  const addFollowerPostingsToCurrentPostings = () => {
+    return follower.forEach(person => postings = [...postings, ...postingStorage.getuserPosts(person)]);
+  }
+  
+  let postings = distinguishPostings();
+  checkFollowerPresent() && addFollowerPostingsToCurrentPostings();
+
+
+
+  // console.log(postingStorage.postList)
+  // const followerPost = []; 
+  // console.log(follower.forEach( x => postingStorage.getuserPosts(x) !== undefined ? followerPost.push(postingStorage.getuserPosts(x)): console.log('asd')))
+  // const [ffollowerPost] = followerPost;
+  // console.log(ffollowerPost)
+  // console.log(postings.push(...[followerPost]))
+  // console.log(postingStorage.posts)
+  // const finalpostingpostingDetail === undefined ? postingStore.postList.filter(post => post.userName === user) postingDetail === undefined ? postingStore.postList.filter(post => post.userName === user) : [postingDetail]: [postingDetail] = postingDetail === undefined ? postings : [postingDetail]
+  // console.log(postings)
+  // console.log(finalposting)
+  // console.log(postingDetail)
 
   const onChangeComment = e => {
-    setInput(e.target.value);
+    setInputa(e.target.value);
   };
 
   const addComment = (_, postId) => {
-    commentStore.createComment(postId, input, currentUser);
-    setGlobalStateForTestingPurpose(Date.now());
+    commentStorage.createComment(postId, inputa, currentUser);
+    setGlobalState(Date.now());
   };
 
   return (
@@ -50,8 +78,8 @@ function PostingList({
             <Posting
               posting={posting}
               comments={comments}
-              globalStateForTestingPurpose={globalStateForTestingPurpose}
-              setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
               addComment={addComment}
               onChangeComment={onChangeComment}
               sizeOfPicture={sizeOfPicture}
@@ -80,7 +108,7 @@ PostingList.defaultProps = {
   setUserOfActivePage: "",
   currentUser: "",
   sizeOfPicture: 0,
-  postingDetail: {},
+  postingDetail: undefined,
   follower: [""]
 };
 

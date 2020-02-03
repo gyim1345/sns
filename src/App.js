@@ -8,7 +8,7 @@ import toTop from "./components/toTop";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
-  const [globalStateForTestingPurpose, setGlobalStateForTestingPurpose] = useState([]);
+  const [globalState, setGlobalState] = useState([]);
   const [userOfActivePage, setUserOfActivePage] = useState("");
   const [currentUser, setCurrentUser] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -58,13 +58,13 @@ function App() {
             toggleLogInStatus={toggleLogInStatus}
             loggedIn={loggedIn}
             currentUser={currentUser}
-            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            setGlobalState={setGlobalState}
           />
         </Route>
         <Route exact path={`/${currentUser}/TimeLine`}>
           <TimeLinePage
-            globalStateForTestingPurpose={globalStateForTestingPurpose}
-            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            globalState={globalState}
+            setGlobalState={setGlobalState}
             userOfActivePage={userOfActivePage}
             setUserOfActivePage={setUserOfActivePage}
             currentUser={currentUser}
@@ -72,8 +72,8 @@ function App() {
         </Route>
         <Route exact path={`/${userOfActivePage}`}>
           <PostPage
-            globalStateForTestingPurpose={globalStateForTestingPurpose}
-            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            globalState={globalState}
+            setGlobalState={setGlobalState}
             userOfActivePage={userOfActivePage}
             setUserOfActivePage={setUserOfActivePage}
             currentUser={currentUser}
@@ -81,8 +81,8 @@ function App() {
         </Route>
         <Route path={`/${userOfActivePage}/posting/:postingId`}>
           <PostPageDetail
-            globalStateForTestingPurpose={globalStateForTestingPurpose}
-            setGlobalStateForTestingPurpose={setGlobalStateForTestingPurpose}
+            globalState={globalState}
+            setGlobalState={setGlobalState}
             userOfActivePage={userOfActivePage}
             setUserOfActivePage={setUserOfActivePage}
             currentUser={currentUser}
