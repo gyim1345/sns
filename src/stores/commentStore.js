@@ -8,7 +8,7 @@ const commentStore = {
       title: "comment with postLId 1",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ const commentStore = {
       title: "comment with postLId 2",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ const commentStore = {
       title: "comment with postLId 3 A",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 4,
@@ -32,7 +32,7 @@ const commentStore = {
       title: "comment with postLId 3 B",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 5,
@@ -40,14 +40,15 @@ const commentStore = {
       title: "comment with postLId 3 C",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 6,
       postLId: 3,
       title: "comment with postLId 3 D",
       userWritten: "gibong",
-      like: ["gibong", "guy", "noone"]
+      like: ["gibong", "guy", "noone"],
+      isUnder: undefined
     },
     {
       id: 7,
@@ -55,7 +56,7 @@ const commentStore = {
       title: "comment with postLId 3 E",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 8,
@@ -63,14 +64,14 @@ const commentStore = {
       title: "comment with postLId 3 F",
       userWritten: "gibong",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     { id: 9,
       postLId: 4,
       title: "comment with postLId 4",
       userWritten: "guy",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
+      isUnder: undefined
     },
     {
       id: 10,
@@ -78,8 +79,24 @@ const commentStore = {
       title: "comment with postLId 5",
       userWritten: "noone",
       like: ["gibong", "guy", "noone"],
-      reply: ["hi12", "hi22"]
-    }
+      isUnder: undefined
+    },
+    {
+      id: 11,
+      postLId: 1,
+      title: "comment with postLId 1",
+      userWritten: "gibong",
+      like: ["gibong", "guy", "noone"],
+      isUnder: undefined
+    },
+    {
+      id: 12,
+      postLId: 1,
+      title: "under comment",
+      userWritten: "gibong",
+      like: ["gibong", "guy", "noone"],
+      isUnder: 1
+    },
   ],
 
   get commentList() {
@@ -109,7 +126,7 @@ const commentStore = {
     this.comments = this.comments.filter(comment => comment !== removeElement);
   },
 
-  createComment(id, titlee, commentWrittenBy) {
+  createComment(id, titlee, commentWrittenBy, commentId) {
     this.comments = [
       ...this.comments,
       {
@@ -118,7 +135,7 @@ const commentStore = {
         title: titlee,
         userWritten: commentWrittenBy,
         like: [],
-        reply: []
+        isUnder : commentId
       }
     ];
   }

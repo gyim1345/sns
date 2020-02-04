@@ -9,16 +9,20 @@ import Reply from "./Reply";
 function Comment({ posting, comments, globalState, setGlobalState, currentUser }) {
   const commentsForThisPosting = comments.filter(el => el.postLId === posting.id);
   const [isComment, setIsComment] = useState(true);
+  commentsForThisPosting.sort(function(a,b) {
+    return (a.isUnder !== undefined ? a.isUnder : a.id ) - (b.isUnder !== undefined ? b.isUnder : b.id )
+  })
+  console.log(commentsForThisPosting);
   // if (comments[posting.id - 1] !== undefined) {
   return (
     <>
       {commentsForThisPosting.map((postings, i) => (
         <ul key={`comment${posting.id}${postings.id}`}>
           <li>
-            [comment]:
+            {postings.isUnder ? " [Under comment]: " : "[comment]" }
             {postings.title}
             [id]:
-            {comments.id}
+            {postings.id}
           </li>
           <Like 
         posting={postings}
@@ -43,6 +47,7 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser }
             postingId={posting.id}
             commentOwner={postings.userWritten}
           />
+          {(postings.isUnder !== undefined) ||
           <Reply
             posting={postings}
             comments={commentStorage.getReplyFromComment(postings)}
@@ -50,7 +55,11 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser }
             setGlobalState={setGlobalState}
             currentUser={currentUser}
             replyIsTrue={true}
+            indexOfCommentOnThisPosting={i}
+            thisComment={comments.find(x => x === postings)}
+            idOfComment={comments.indexOf(postings)}
           />
+          } 
         </ul>
       ))}
     </>

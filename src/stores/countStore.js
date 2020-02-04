@@ -1,7 +1,7 @@
 const countStore = {
   count: {
-    postingCount: 10,
-    commentCount: 10
+    postingCount: 12,
+    commentCount: 12
   },
 
   get postCount() {
