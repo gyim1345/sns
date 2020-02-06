@@ -1,18 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import postStore from "../stores/postingStore";
 import PostingList from "../components/PostingList";
+import {getPostsFromId} from "../apis/post"
 
 function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) {
   const { postingId } = useParams();
   const sizeOfPicture = "80%";
-  const postingDetail = postStore.getPost(postingId);
-
+  const [posting, setPosting] = useState([])
+  
+  const getPosting = async () => {
+     const {posts} = await getPostsFromId(postingId);
+     setPosting([posts])
+     console.log('detail', posts)  
+  }
+  
+  useEffect(() => {
+    getPosting()
+  }, []);
+  console.log('detail', posting)  
   return (
     <div>
       <PostingList
-        postingDetail={postingDetail}
+        posting={posting}
         sizeOfPicture={sizeOfPicture}
         userOfActivePage={userOfActivePage}
         setUserOfActivePage={setUserOfActivePage}

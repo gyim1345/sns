@@ -22,22 +22,7 @@ function Posting({
 }) {
 const [input] = useState([]);
 
-// const findIfIClickedLike = () => {
-//   return posting.like.includes(currentUser)
-// }
 
-// const deleteLike = () => {
-//   return posting.like = posting.like.filter(el => el !== currentUser);
-// }
-
-// const addLike = () => {
-//   return posting.like = [...posting.like, currentUser];
-// }
-
-// const increaseLike = () => {
-//   !findIfIClickedLike() ? addLike() : deleteLike();
-//   setGlobalState(Date.now());
-// };
 
 const changeUser = () => {
   setUserOfActivePage(posting.userName);

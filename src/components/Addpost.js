@@ -1,36 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import postingStorage from "../stores/postingStore";
+import { addPostAPI } from '../apis/post'
+import {getUserPostOnly} from "../apis/post"
 
-function AddPost({ setGlobalState, userOfActivePage, currentUser }) {
-    const [input, setInput] = useState("");
-  
-    const onChange = e => {
-      setInput(e.target.value);
-    };
-  
-    const checkOwnershipOfPost = () => {
-      return userOfActivePage !== currentUser;
-    }
-  
-    const addPostToMyPage = (input) => {
-      return postingStorage.createPost(input, currentUser);
-    }
-  
-    const addPost = () => {
-      checkOwnershipOfPost()
-        ? alert("go to ur page fucker") 
-        : (
-            addPostToMyPage(input), 
-            setGlobalState(Date.now()), 
-            setInput("")
-          )
-    };
 
+function AddPost({ setGlobalState, userOfActivePage, currentUser, posting, setPosting}) {
+  const [input, setInput] = useState("");
+
+  const onChange = e => {
+    setInput(e.target.value);
+  };
+  
+    const onClick = async () => {
+      try {
+        const response = await addPostAPI(input, currentUser);
+        setPosting([...posting, response])
+      } catch(e) {
+        console.log(e)
+      }
+    }
+
+    
   return (
     <>
       <input value={input} onChange={onChange} />
-      <button type="button" onClick={addPost} id="buttonAdd">
+      <button type="button" onClick={onClick} id="buttonAdd">
         Add
       </button>
     </>

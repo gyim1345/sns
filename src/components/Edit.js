@@ -9,9 +9,6 @@ function Edit({ posting, setGlobalState, indexOfCommentOnThisPosting, idOfCommen
   const input = [];
   
 const checkOwnershipOfPost = () => {
-  console.log(posting)
-  console.log(currentUser)
-  console.log(thisComment)
   return posting.userName !== currentUser && thisComment === undefined;
 }
 

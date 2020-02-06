@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import postingStorage from "../stores/postingStore";
 import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
 import uStore from "../stores/userStore";
 import countStore from "../stores/countStore";
+import { getPosts } from "../apis/post"
 
 
 function PostingList({
-  postingDetail,
+  posting,
+  setPosting,
   sizeOfPicture,
   userOfActivePage,
   follower,
@@ -31,7 +33,23 @@ function PostingList({
   const [inputa, setInputa] = useState("");
   const [globalState, setGlobalState] = useState([]);
   const { comments } = commentStorage;
-  
+  const [state, setState] = useState([]);
+ 
+
+
+
+    
+// const fetchTasks = async ({ state, setState }) => {
+//   const posts = await getPosts();
+//     setState({...state, posts})
+// }
+
+// useEffect(() => {
+//   fetchTasks({ state, setState });
+// }, []);
+// console.log(state.posts);
+
+
   const distinguishPostings = () => {
     return postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === userOfActivePage) : [postingDetail]
   }
@@ -44,9 +62,9 @@ function PostingList({
     return follower.forEach(person => postings = [...postings, ...postingStorage.getuserPosts(person)]);
   }
   
-  let postings = distinguishPostings();
-  checkFollowerPresent() && addFollowerPostingsToCurrentPostings();
-
+  // let postings = distinguishPostings();
+  // checkFollowerPresent() && addFollowerPostingsToCurrentPostings();
+  console.log("asd", posting)
 
 
   // console.log(postingStorage.postList)
@@ -73,7 +91,7 @@ function PostingList({
   return (
     <>
       <div>
-        {postings.map(posting => (
+        {posting!== undefined && posting.map(posting => (
           <ul key={posting.id}>
             <Posting
               posting={posting}

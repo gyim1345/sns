@@ -1,23 +1,46 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import Addpost from "../components/Addpost";
 import UserInfoHead from "../components/UserInfoHead";
+import {getUserPostOnly} from "../apis/post"
 
 function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActivePage, currentUser }) {
   const sizeOfPicture = "40%";
+  const [posting, setPosting] = useState([])
+ 
+  const getPostingOfCurrentUser = async () => {
+     const {posts} = await getUserPostOnly(currentUser);
+    setPosting(posts)
+    console.log('postPage', posts);
+
+  }
+
+    useEffect(() => {
+      getPostingOfCurrentUser()
+    }, []);
+
+
+
+
+
+    
+console.log('postPage', posting);
 
   return (
     <>
       <UserInfoHead globalState={globalState} userOfActivePage={userOfActivePage} />
       <div>
         <Addpost
+          posting={posting}
+          setPosting={setPosting}
           globalState={globalState}
           setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
         <PostingList
+          posting={posting}
           sizeOfPicture={sizeOfPicture}
           userOfActivePage={userOfActivePage}
           setUserOfActivePage={setUserOfActivePage}

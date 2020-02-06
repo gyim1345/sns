@@ -1,7 +1,11 @@
 import React from "react";
+import { fetchPosts } from "../taskService"
 
-function Test() {
-  return <h1>hello link router</h1>;
+export const Test = async () => {
+ try {
+   return await fetchPosts();
+   //  console.log(thisPost)
+  } catch (e){
+    console.log(e);
+  }
 }
-
-export default Test;
