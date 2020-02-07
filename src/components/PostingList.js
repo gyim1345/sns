@@ -15,7 +15,8 @@ function PostingList({
   userOfActivePage,
   follower,
   setUserOfActivePage,
-  currentUser
+  currentUser,
+  commentAPI
 }) {
   // let postings = postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === user) : [postingDetail]
   // const { comments } = commentStorage;
@@ -104,6 +105,7 @@ function PostingList({
               userOfActivePage={userOfActivePage}
               setUserOfActivePage={setUserOfActivePage}
               currentUser={currentUser}
+              commentAPI={commentAPI}
             />
           </ul>
         ))}

@@ -14,14 +14,14 @@ function TimeLinePage({ setUserOfActivePage, currentUser }) {
   const getUserTimeLinePostsAPI = async ({ posting, setPosting }) => {
     const { posts }= await getUserTimeLinePosts(currentUser);
     setPosting(posts)
-    console.log('Timeline', posts)
+    // console.log('Timeline', posts)
 
     }
   
   useEffect(() => {
     getUserTimeLinePostsAPI({ posting, setPosting })
   }, []);
-  console.log('Timeline', posting)
+  // console.log('Timeline', posting)
 
 
   const checkCurrentUserDataPresent = () => {

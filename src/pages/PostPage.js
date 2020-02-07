@@ -12,7 +12,7 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
   const getPostingOfCurrentUser = async () => {
      const {posts} = await getUserPostOnly(currentUser);
     setPosting(posts)
-    console.log('postPage', posts);
+    // console.log('postPage', posts);
 
   }
 
@@ -25,7 +25,7 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
 
 
     
-console.log('postPage', posting);
+// console.log('postPage', posting);
 
   return (
     <>

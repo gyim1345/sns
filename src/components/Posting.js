@@ -18,7 +18,8 @@ function Posting({
   sizeOfPicture,
   userOfActivePage,
   setUserOfActivePage,
-  currentUser
+  currentUser,
+  commentAPI
 }) {
 const [input] = useState([]);
 
@@ -80,6 +81,7 @@ const changeUser = () => {
           setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
+          commentAPI={commentAPI}
         />
         <input
           value={input[posting.id]}
