@@ -7,23 +7,18 @@ import {getUserPostOnly} from "../apis/post"
 
 function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActivePage, currentUser }) {
   const sizeOfPicture = "40%";
-  const [posting, setPosting] = useState([])
+  const [posting, setPosting] = useState([]);
+  const [commentAPI, setCommentAPI] = useState([]);
  
   const getPostingOfCurrentUser = async () => {
-     const {posts} = await getUserPostOnly(currentUser);
+     const {posts} = await getUserPostOnly(userOfActivePage);
     setPosting(posts)
     // console.log('postPage', posts);
 
   }
-
     useEffect(() => {
       getPostingOfCurrentUser()
     }, []);
-
-
-
-
-
     
 // console.log('postPage', posting);
 
@@ -45,6 +40,7 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
           userOfActivePage={userOfActivePage}
           setUserOfActivePage={setUserOfActivePage}
           currentUser={currentUser}
+       
         />
       </div>
     </>

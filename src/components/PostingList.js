@@ -16,7 +16,8 @@ function PostingList({
   follower,
   setUserOfActivePage,
   currentUser,
-  commentAPI
+  commentAPI,
+  setCommentAPI
 }) {
   // let postings = postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === user) : [postingDetail]
   // const { comments } = commentStorage;
@@ -67,7 +68,7 @@ function PostingList({
   // checkFollowerPresent() && addFollowerPostingsToCurrentPostings();
   console.log("asd", posting)
 
-
+ 
   // console.log(postingStorage.postList)
   // const followerPost = []; 
   // console.log(follower.forEach( x => postingStorage.getuserPosts(x) !== undefined ? followerPost.push(postingStorage.getuserPosts(x)): console.log('asd')))
@@ -96,6 +97,7 @@ function PostingList({
           <ul key={posting.id}>
             <Posting
               posting={posting}
+              setPosting={setPosting}
               comments={comments}
               globalState={globalState}
               setGlobalState={setGlobalState}
@@ -106,6 +108,7 @@ function PostingList({
               setUserOfActivePage={setUserOfActivePage}
               currentUser={currentUser}
               commentAPI={commentAPI}
+              setCommentAPI={setCommentAPI}
             />
           </ul>
         ))}
@@ -120,7 +123,7 @@ PostingList.propTypes = {
   currentUser: PropTypes.string,
   sizeOfPicture: PropTypes.string,
   postingDetail: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  follower: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+  follower: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 };
 
 PostingList.defaultProps = {
@@ -129,7 +132,7 @@ PostingList.defaultProps = {
   currentUser: "",
   sizeOfPicture: 0,
   postingDetail: undefined,
-  follower: [""]
+  follower: [""],
 };
 
 export default PostingList;

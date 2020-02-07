@@ -11,38 +11,38 @@ function TimeLinePage({ setUserOfActivePage, currentUser }) {
   const sizeOfPicture = "40%";
   let follower = [];
   const [posting, setPosting] = useState([])
-  const getUserTimeLinePostsAPI = async ({ posting, setPosting }) => {
+  const [commentAPI, setCommentAPI] = useState([]);
+  const getUserTimeLinePostsAPI = async () => {
     const { posts }= await getUserTimeLinePosts(currentUser);
     setPosting(posts)
     // console.log('Timeline', posts)
-
     }
   
   useEffect(() => {
-    getUserTimeLinePostsAPI({ posting, setPosting })
+    getUserTimeLinePostsAPI()
   }, []);
   // console.log('Timeline', posting)
 
 
-  const checkCurrentUserDataPresent = () => {
-    return currentUser !== undefined;
-  }
+  // const checkCurrentUserDataPresent = () => {
+  //   return currentUser !== undefined;
+  // }
 
-  const getFollowerForCurrentUser = () => {
-    return follower = userStorage.getFollowerFromUser(currentUser);
-  }
+  // const getFollowerForCurrentUser = () => {
+  //   return follower = userStorage.getFollowerFromUser(currentUser);
+  // }
 
-  const setFollowerIsEmpty =() => {
-    return follower = [];
-  }
+  // const setFollowerIsEmpty =() => {
+  //   return follower = [];
+  // }
 
-  checkCurrentUserDataPresent() ? getFollowerForCurrentUser() : setFollowerIsEmpty();
+  // checkCurrentUserDataPresent() ? getFollowerForCurrentUser() : setFollowerIsEmpty();
 
   return (
     <>
-      {postingStorage.getuserPosts(currentUser)[0] === undefined ? (
+      {/* {postingStorage.getuserPosts(currentUser)[0] === undefined ? (
         <li>Go to Your user home and add some stuff RIGHT NOW!</li>
-      ) : (
+      ) : ( */}
         <div>
           <PostingList
             posting={posting}
@@ -51,9 +51,10 @@ function TimeLinePage({ setUserOfActivePage, currentUser }) {
             follower={follower}
             setUserOfActivePage={setUserOfActivePage}
             currentUser={currentUser}
+        
           />
         </div>
-      )}
+      {/* )} */}
     </>
   );
 }

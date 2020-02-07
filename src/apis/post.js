@@ -32,6 +32,13 @@ export const addPostAPI = async (title, user) => {
   return data;
 };
 
+export const editPostAPI = async (input, posting, user, indexOfCommentOnThisPosting) => {
+  console.log(input, posting, user)
+  const { data } = await axios.patch(`${TASKS_URL}edit`, { input, posting, user, indexOfCommentOnThisPosting });
+  console.log(data)
+  return data;
+};
+
 // export const removeTask = async (id) => {
 //   const { data } = await axios.delete(TASKS_URL + `/${id}`);
 //   return data;

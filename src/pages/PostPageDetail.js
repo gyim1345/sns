@@ -9,34 +9,31 @@ import { getCommentFromIdAPI } from "../apis/comment"
 
 function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) {
   const { postingId } = useParams();
+  console.log(postingId)
   const sizeOfPicture = "80%";
   const [posting, setPosting] = useState([])
   const [commentAPI, setCommentAPI] = useState([]);
-  
+  console.log('postpageDetail')
   const getPosting = async () => {
      const {posts} = await getPostsFromId(postingId);
      setPosting([posts])
-    //  console.log('detail', posts)  
+     console.log('detail', posts)  
+  }
+  const getcommentAPI = async () => {
+    try {
+      const response = await getCommentFromIdAPI(postingId);
+      setCommentAPI(response);
+    } catch(e) {
+      console.log(e)
+    }
   }
   
   useEffect(() => {
     getPosting();
     getcommentAPI();
-    console.log('got');
   }, []);
 
 
-  const getcommentAPI = async () => {
-    try {
-      console.log('postingid', postingId)
-      const response = await getCommentFromIdAPI(postingId);
-      setCommentAPI(response);
-      console.log('response', response);
-    } catch(e) {
-      console.log(e)
-    }
-  }
-console.log(commentAPI)
 
 // useEffect(() => {
 //   getcommentAPI();
@@ -48,11 +45,13 @@ console.log(commentAPI)
     <div>
       <PostingList
         posting={posting}
+        setPosting={setPosting}
         sizeOfPicture={sizeOfPicture}
         userOfActivePage={userOfActivePage}
         setUserOfActivePage={setUserOfActivePage}
         currentUser={currentUser}
         commentAPI={commentAPI}
+        setCommentAPI={setCommentAPI}
       />
     </div>
   );

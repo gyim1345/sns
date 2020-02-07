@@ -44,6 +44,7 @@ import {getPosts} from './apis/post'
 // }, []);
 //     console.log(state)
   const changeToCurrentUser = () => {
+    console.log(currentUser)
     setUserOfActivePage(currentUser);
   };
 
@@ -59,7 +60,7 @@ import {getPosts} from './apis/post'
       alert("logging out")
     }
   };
-
+console.log('currentuser',currentUser,'userofActivePage', userOfActivePage)
   return (
     <Router>
       <Link to="/">

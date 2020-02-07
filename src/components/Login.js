@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import userStorage from "../stores/userStore";
+import { setLoginAPI } from "../apis/login"
 
 const Login = ({
   setUserOfActivePage,
@@ -32,14 +33,33 @@ const Login = ({
     )
   }
 
-  const onSubmit = data => {
-    console.log(userStorage.userList.find(item => item.name === data.Id) === undefined)
-      checkIdIsRegistered(data)
-        ? alert("check id") 
-        : checkPassword(data)
-          ? alert("check password") 
-          : performLogIn(data);
+  const onSubmit = async (data) => {
+      console.log(data)
+      try {
+        const response = await setLoginAPI(data);
+        console.log(response);
+        alert(response.statusMessage)
+        response.loginStatus 
+        && (setCurrentUser(data.Id), 
+         setUserOfActivePage(data.Id) )
+        // && toggleLogInStatus()
+        setLoggedIn(response.loginStatus)
+        
+      } catch(e) {
+        console.log(e)
+      }
   };
+
+  console.log(currentUser , loggedIn)
+
+  // const onSubmit = data => {
+  //   console.log(userStorage.userList.find(item => item.name === data.Id) === undefined)
+  //     checkIdIsRegistered(data)
+  //       ? alert("check id") 
+  //       : checkPassword(data)
+  //         ? alert("check password") 
+  //         : performLogIn(data);
+  // };
 
   return (
     <>

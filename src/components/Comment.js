@@ -3,20 +3,15 @@ import PropTypes from "prop-types";
 import Edit from "./Edit";
 import Remove from "./Remove";
 import Like from "./Like";
-import commentStorage from "../stores/commentStore"
-import Reply from "./Reply";
-import { getCommentFromIdAPI } from "../apis/comment"
 
-function Comment({ posting, comments, globalState, setGlobalState, currentUser,commentAPI }) {
-  const commentsForThisPosting = comments.filter(el => el.postLId === posting.id);
+function Comment({ posting, comments, globalState, setGlobalState, currentUser,commentAPI, setCommentAPI }) {
+  
   const [isComment, setIsComment] = useState(true);
- 
+  const [comm, setComm] = useState([]);
 
-  commentsForThisPosting.sort(function(a,b) {
+  commentAPI.sort(function(a,b) {
     return (a.isUnder !== undefined ? a.isUnder : a.id ) - (b.isUnder !== undefined ? b.isUnder : b.id )
   })
-  console.log(commentsForThisPosting);
-  // if (comments[posting.id - 1] !== undefined) {
   return (
     <>
       {commentAPI.map((postings, i) => (
@@ -31,15 +26,16 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser,c
         posting={postings}
         currentUser={currentUser}
         setGlobalState={setGlobalState}
-      />
+      /> */}
           <Edit
-            posting={commentsForThisPosting}
+            posting={commentAPI}
             globalState={globalState}
             setGlobalState={setGlobalState}
             indexOfCommentOnThisPosting={i}
             thisComment={comments.find(x => x === postings)}
             idOfComment={comments.indexOf(postings)}
             currentUser={currentUser}
+            setCommentAPI={setCommentAPI}
           />
           <Remove
             isComment={isComment}
@@ -49,20 +45,7 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser,c
             thisComment={comments.find(x => x === postings)}
             postingId={posting.id}
             commentOwner={postings.userWritten}
-          /> */}
-          {/* {(postings.isUnder !== undefined) ||
-          <Reply
-            posting={postings}
-            comments={commentStorage.getReplyFromComment(postings)}
-            globalState={globalState}
-            setGlobalState={setGlobalState}
-            currentUser={currentUser}
-            replyIsTrue={true}
-            indexOfCommentOnThisPosting={i}
-            thisComment={comments.find(x => x === postings)}
-            idOfComment={comments.indexOf(postings)}
           />
-          }  */}
         </ul>
       ))}
     </>

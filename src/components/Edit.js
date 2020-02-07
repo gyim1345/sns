@@ -3,48 +3,70 @@ import PropTypes from "prop-types";
 import postingStorage from "../stores/postingStore";
 import commentStorage from "../stores/commentStore";
 import countStore from "../stores/countStore";
+import { editPostAPI } from "../apis/post"
 
-function Edit({ posting, setGlobalState, indexOfCommentOnThisPosting, idOfComment, thisComment, currentUser }) {
-  const [edit, setEdit] = useState([""]);
+function Edit({ posting, setPosting, setGlobalState, indexOfCommentOnThisPosting, idOfComment, thisComment, currentUser, setCommentAPI}) {
+  const [edit, setEdit] = useState([]);
   const input = [];
   
-const checkOwnershipOfPost = () => {
-  return posting.userName !== currentUser && thisComment === undefined;
-}
+// const checkOwnershipOfPost = () => {
+//   return posting.userName !== currentUser && thisComment === undefined;
+// }
 
-const clickedIsPostAndIsMine = () => {
-  return  postingStorage.getPost(posting.id) === posting && posting.userName === currentUser;
-}
+// const clickedIsPostAndIsMine = () => {
+//   return  postingStorage.getPost(posting.id) === posting && posting.userName === currentUser;
+// }
 
-const clickedIsCommentAndIsMine = () => {
-  return commentStorage.getComment(thisComment.id) === posting[indexOfCommentOnThisPosting] && commentStorage.getComment(thisComment.id).userWritten === currentUser;
-}
+// const clickedIsCommentAndIsMine = () => {
+//   return commentStorage.getComment(thisComment.id) === posting[indexOfCommentOnThisPosting] && commentStorage.getComment(thisComment.id).userWritten === currentUser;
+// }
 
-const editPost = () => {
-  return postingStorage.getPost(posting.id).title = edit[posting.id];
-}
+// const editPost = () => {
+//   return postingStorage.getPost(posting.id).title = edit[posting.id];
+// }
 
-const editComment = () =>{
-  return commentStorage.getComment(thisComment.id).title = edit[posting.id];
-}
-const editThis = () => {
-  checkOwnershipOfPost()
-    ? alert("you dont have permission") 
-    : clickedIsPostAndIsMine()
-      ? editPost()
-      : clickedIsCommentAndIsMine()
-        ? editComment() 
-        : alert(`you dont have permission ${currentUser}`);
-  setGlobalState(Date.now());
-};
+// const editComment = () =>{
+//   return commentStorage.getComment(thisComment.id).title = edit[posting.id];
+// }
+// const editThis = () => {
+//   checkOwnershipOfPost()
+//     ? alert("you dont have permission") 
+//     : clickedIsPostAndIsMine()
+//       ? editPost()
+//       : clickedIsCommentAndIsMine()
+//         ? editComment() 
+//         : alert(`you dont have permission ${currentUser}`);
+//   setGlobalState(Date.now());
+// };
 
 
 
   const onEdit = (e, Id) => {
-    edit[Id] = e.target.value;
-    setEdit(edit);
+    // edit[Id] = e.target.value;
+    setEdit(e.target.value);
   };
 
+  const onChange = e => {
+    setInput(e.target.value);
+  };
+
+    const onClick = async () => {
+      try {
+        const response = await editPostAPI(edit, posting, currentUser, indexOfCommentOnThisPosting);
+        indexOfCommentOnThisPosting === undefined 
+        ? setPosting([response])
+        : setCommentAPI(response)
+         // setPosting([...posting, response])x
+      } catch(e) {
+        console.log(e)
+      }
+    }
+
+
+
+
+
+    
   return (
     <>
       <input
@@ -52,7 +74,7 @@ const editThis = () => {
         value={input[posting.id]}
         onChange={e => onEdit(e, posting.id)}
       />
-      <button type="button" onClick={editThis} id="buttonEdit">
+      <button type="button" onClick={onClick} id="buttonEdit">
         Edit
       </button>
     </>
