@@ -38,6 +38,7 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser,c
             setCommentAPI={setCommentAPI}
           />
           <Remove
+            posting={commentAPI}
             isComment={isComment}
             setIsComment={setIsComment}
             currentUser={currentUser}
@@ -45,6 +46,8 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser,c
             thisComment={comments.find(x => x === postings)}
             postingId={posting.id}
             commentOwner={postings.userWritten}
+            indexOfCommentOnThisPosting={i}
+            setCommentAPI={setCommentAPI}
           />
         </ul>
       ))}

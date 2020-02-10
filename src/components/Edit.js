@@ -52,10 +52,12 @@ function Edit({ posting, setPosting, setGlobalState, indexOfCommentOnThisPosting
 
     const onClick = async () => {
       try {
-        const response = await editPostAPI(edit, posting, currentUser, indexOfCommentOnThisPosting);
-        indexOfCommentOnThisPosting === undefined 
-        ? setPosting([response])
-        : setCommentAPI(response)
+        const response = await editPostAPI(posting, currentUser, indexOfCommentOnThisPosting);
+        response.Message !== undefined 
+        ? alert(response.Message)
+        : indexOfCommentOnThisPosting === undefined 
+          ? setPosting([response])
+          : setCommentAPI(response)
          // setPosting([...posting, response])x
       } catch(e) {
         console.log(e)
@@ -81,25 +83,25 @@ function Edit({ posting, setPosting, setGlobalState, indexOfCommentOnThisPosting
   );
 }
 
-Edit.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
-  setGlobalState: PropTypes.elementType,
-  indexOfComment: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  cid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-};
+// Edit.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.oneOfType([
+//     PropTypes.number,
+//     PropTypes.string,
+//     PropTypes.array,
+//     PropTypes.object
+//   ]),
+//   setGlobalState: PropTypes.elementType,
+//   indexOfComment: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+//   cid: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+// };
 
-Edit.defaultProps = {
-  currentUser: "",
-  posting: {},
-  setGlobalState: 0,
-  indexOfComment: undefined,
-  cid: undefined
-};
+// Edit.defaultProps = {
+//   currentUser: "",
+//   posting: {},
+//   setGlobalState: 0,
+//   indexOfComment: undefined,
+//   cid: undefined
+// };
 
 export default Edit;

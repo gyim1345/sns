@@ -73,6 +73,7 @@ const changeUser = () => {
         />
         <Remove
           posting={posting}
+          setPosting={setPosting}
           globalState={globalState}
           setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
