@@ -36,19 +36,19 @@ export const editPostAPI = async (input, posting, user, indexOfCommentOnThisPost
   return data;
 };
 
-export const removePostApi = async (id, user) => {
-  console.log(id, user)
-  const { data }  = await axios.delete(`${TASKS_URL}/${id}`, { id });
-  console.log(data)
-  return data;
-};
-
-// export const removePostApi = async (posting, user, indexOfCommentOnThisPosting) => {
-//   console.log(posting, user)
-//   const { data }  = await axios.patch(`${TASKS_URL}Remove`, { posting, user, indexOfCommentOnThisPosting });
+// export const removePostApi = async (id, user) => {
+//   console.log(id, user)
+//   const { data }  = await axios.delete(`${TASKS_URL}/${id}`, { id });
 //   console.log(data)
 //   return data;
-// }
+// };
+
+export const removePostApi = async (posting, user, indexOfCommentOnThisPosting) => {
+  console.log(posting, user, indexOfCommentOnThisPosting)
+  const { data }  = await axios.patch(`${TASKS_URL}Remove`, { posting, user, indexOfCommentOnThisPosting });
+  console.log(data)
+  return data;
+}
 
 // export const removeTask = async (id) => {
 //   const { data } = await axios.delete(TASKS_URL + `/${id}`);

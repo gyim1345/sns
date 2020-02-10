@@ -44,15 +44,16 @@ function Remove({
   // }
   const onClick = async () => {
     try {
-      const { post, status } = await removePostApi(posting.id, currentUser)
-      console.log(post, status)
-      setRemoved(status)
-      // setPosting(post)    
-      // indexOfCommentOnThisPosting === undefined
-      // ? setPosting(response) && setRemoved(true)
-      // : setCommentAPI(response)
-      // console.log('resposne', response)
-      // console.log('posting', posting)
+      const response = await removePostApi(posting, currentUser, indexOfCommentOnThisPosting)
+      console.log(response)
+      if(response.Message !== undefined)
+      return alert(response.Message)
+
+      indexOfCommentOnThisPosting === undefined
+      ? setRemoved(response)
+      : setCommentAPI(response)
+      console.log('resposne', response)
+      console.log('posting', posting)
     }catch(e) {
       console.log(e)
     }
