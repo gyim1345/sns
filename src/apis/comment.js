@@ -6,6 +6,7 @@ export const getCommentFromIdAPI = async (id) => {
     return data;
   };
 
-// export const addCommentForPost = async(id) => {
-//   const { data } = await.post(`${TASKS_URL}`)
-// }
+export const addCommentForPost = async(postId, inputa, currentUser) => {
+  const { data } = await axios.post(`${TASKS_URL}${postId}`, { postId, inputa, currentUser })
+  return data;
+}

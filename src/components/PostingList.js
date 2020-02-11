@@ -6,7 +6,7 @@ import Posting from "./Posting";
 import uStore from "../stores/userStore";
 import countStore from "../stores/countStore";
 import { getPosts } from "../apis/post"
-
+import { addCommentForPost } from "../apis/comment"
 
 function PostingList({
   posting,
@@ -85,10 +85,20 @@ function PostingList({
     setInputa(e.target.value);
   };
 
-  const addComment = (_, postId) => {
-    commentStorage.createComment(postId, inputa, currentUser);
-    setGlobalState(Date.now());
-  };
+  const addComment = async (_, postId) => {
+    try {
+      const response = await addCommentForPost(postId, inputa, currentUser)
+     setCommentAPI(response)
+      setInputa('')
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  // const addComment = (_, postId) => {
+  //   commentStorage.createComment(postId, inputa, currentUser);
+  //   setGlobalState(Date.now());
+  // };
 
   return (
     <>

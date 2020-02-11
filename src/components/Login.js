@@ -34,20 +34,20 @@ const Login = ({
   }
 
   const onSubmit = async (data) => {
-      console.log(data)
-      try {
-        const response = await setLoginAPI(data);
-        console.log(response);
-        alert(response.statusMessage)
-        response.loginStatus 
-        && (setCurrentUser(data.Id), 
-         setUserOfActivePage(data.Id) )
-        // && toggleLogInStatus()
-        setLoggedIn(response.loginStatus)
-        
-      } catch(e) {
-        console.log(e)
-      }
+    console.log(data)
+    try {
+      const response = await setLoginAPI(data);
+      console.log(response);
+      alert(response.statusMessage)
+      response.loginStatus
+        && (setCurrentUser(data.Id),
+          setUserOfActivePage(data.Id))
+      // && toggleLogInStatus()
+      setLoggedIn(response.loginStatus)
+
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   console.log(currentUser , loggedIn)
