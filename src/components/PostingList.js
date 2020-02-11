@@ -85,12 +85,12 @@ function PostingList({
     setInputa(e.target.value);
   };
 
-  const addComment = async (_, postId) => {
+  const addComment = async (_, postId, inputa, currentUser, indexOfCommentOnThisPosting) => {
     try {
-      const response = await addCommentForPost(postId, inputa, currentUser)
-     setCommentAPI(response)
+      const response = await addCommentForPost(postId, inputa, currentUser, indexOfCommentOnThisPosting)
+      setCommentAPI(response)
       setInputa('')
-    } catch (e) {
+    } catch (e) { 
       console.log(e)
     }
   }

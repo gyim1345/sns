@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import Edit from "./Edit";
 import Remove from "./Remove";
 import Like from "./Like";
+import Reply from "./Reply"
+import commentStorage from "../stores/commentStore"
 
-function Comment({ posting, comments, globalState, setGlobalState, currentUser,commentAPI, setCommentAPI }) {
+function Comment({ posting, comments, globalState, setGlobalState, currentUser,commentAPI, setCommentAPI, addComment }) {
   
   const [isComment, setIsComment] = useState(true);
   const [comm, setComm] = useState([]);
@@ -49,7 +51,24 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser,c
             indexOfCommentOnThisPosting={i}
             setCommentAPI={setCommentAPI}
           />
+         {(postings.isUnder !== undefined) ||
+          <Reply
+            posting={postings}
+            comments={comments}
+            commentAPI={commentAPI}
+            globalState={globalState}
+            setGlobalState={setGlobalState}
+            currentUser={currentUser}
+            replyIsTrue={true}
+            indexOfCommentOnThisPosting={i}
+            thisComment={comments.find(x => x === postings)}
+            idOfComment={comments.indexOf(postings)}
+            addComment={addComment}
+          />}
+          
         </ul>
+
+
       ))}
     </>
   );

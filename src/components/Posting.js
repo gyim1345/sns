@@ -88,6 +88,7 @@ const changeUser = () => {
           currentUser={currentUser}
           commentAPI={commentAPI}
           setCommentAPI={setCommentAPI}
+          addComment={addComment}
         />
         <input
           value={input[posting.id]}
