@@ -52,7 +52,8 @@ function Edit({ posting, setPosting, setGlobalState, indexOfCommentOnThisPosting
 
     const onClick = async () => {
       try {
-        const response = await editPostAPI(posting, currentUser, indexOfCommentOnThisPosting);
+        console.log(edit, posting, currentUser, indexOfCommentOnThisPosting)
+        const response = await editPostAPI(edit, posting, currentUser, indexOfCommentOnThisPosting);
         response.Message !== undefined 
         ? alert(response.Message)
         : indexOfCommentOnThisPosting === undefined 

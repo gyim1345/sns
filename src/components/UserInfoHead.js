@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import pStore from "../stores/postingStore";
 import uStore from "../stores/userStore";
+import { getUserInfoAPI } from "../apis/post"
 
 function UserInfoHead({ userOfActivePage }) {
-  const userFollowerNumber = uStore.getFollowerNumberOfUser(userOfActivePage);
+  const [info, setInfo] = useState('')
+
+  const userInfo = async () => {
+    try {
+      const response = await getUserInfoAPI(userOfActivePage)
+      setInfo(response)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    userInfo();
+  }, []);
 
   return (
     <>
       <img
-        src={uStore.getUserImage(userOfActivePage)}
+        src={info.image}
         alt="Smiley face"
         height="42"
         width="42"
@@ -18,12 +32,13 @@ function UserInfoHead({ userOfActivePage }) {
       {userOfActivePage}
       &nbsp;&nbsp;&nbsp;
       <span> 게시물 갯수</span>
-      {pStore.getuserPosts(userOfActivePage).length}
+      {info.postNumber}
       &nbsp;&nbsp;&nbsp;following 갯수
-      {userFollowerNumber}
+      {info.followerNumber}
     </>
   );
 }
+
 
 UserInfoHead.propTypes = {
   userOfActivePage: PropTypes.string
