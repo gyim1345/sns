@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Edit from "./Edit";
 import Remove from "./Remove";
-import Like from "./Like";
-import Reply from "./Reply"
-import commentStorage from "../stores/commentStore"
+import Reply from "./Reply";
 
-function Comment({ posting, comments, globalState, setGlobalState, currentUser,commentAPI, setCommentAPI, addComment }) {
-  
-  const [isComment, setIsComment] = useState(true);
-  const [comm, setComm] = useState([]);
-
-  commentAPI.sort(function(a,b) {
-    return (a.isUnder !== undefined ? a.isUnder : a.id ) - (b.isUnder !== undefined ? b.isUnder : b.id )
-  })
+function Comment({
+  posting,
+  currentUser,
+  commentAPI,
+  setCommentAPI,
+  addComment
+}) {
+  commentAPI.sort(function(a, b) {
+    return (
+      (a.isUnder !== undefined ? a.isUnder : a.id) -
+      (b.isUnder !== undefined ? b.isUnder : b.id)
+    );
+  });
   return (
     <>
       {commentAPI.map((postings, i) => (
         <ul key={`comment${posting.id}${postings.id}`}>
           <li>
-            {postings.isUnder ? " [Under comment]: " : "[comment]" }
+            {postings.isUnder ? " [Under comment]: " : "[comment]"}
             {postings.title}
             [id]:
             {postings.id}
@@ -27,48 +30,29 @@ function Comment({ posting, comments, globalState, setGlobalState, currentUser,c
           {/* <Like 
         posting={postings}
         currentUser={currentUser}
-        setGlobalState={setGlobalState}
       /> */}
           <Edit
             posting={commentAPI}
-            globalState={globalState}
-            setGlobalState={setGlobalState}
             indexOfCommentOnThisPosting={i}
-            thisComment={comments.find(x => x === postings)}
-            idOfComment={comments.indexOf(postings)}
             currentUser={currentUser}
             setCommentAPI={setCommentAPI}
           />
           <Remove
             posting={commentAPI}
-            isComment={isComment}
-            setIsComment={setIsComment}
             currentUser={currentUser}
-            setGlobalState={setGlobalState}
-            thisComment={comments.find(x => x === postings)}
-            postingId={posting.id}
-            commentOwner={postings.userWritten}
             indexOfCommentOnThisPosting={i}
             setCommentAPI={setCommentAPI}
           />
-         {(postings.isUnder !== undefined) ||
-          <Reply
-            posting={postings}
-            comments={comments}
-            commentAPI={commentAPI}
-            globalState={globalState}
-            setGlobalState={setGlobalState}
-            currentUser={currentUser}
-            replyIsTrue={true}
-            indexOfCommentOnThisPosting={i}
-            thisComment={comments.find(x => x === postings)}
-            idOfComment={comments.indexOf(postings)}
-            addComment={addComment}
-          />}
-          
+          {postings.isUnder !== undefined || (
+            <Reply
+              posting={postings}
+              commentAPI={commentAPI}
+              currentUser={currentUser}
+              indexOfCommentOnThisPosting={i}
+              addComment={addComment}
+            />
+          )}
         </ul>
-
-
       ))}
     </>
   );
@@ -86,16 +70,15 @@ Comment.propTypes = {
     like: PropTypes.arrayOf(PropTypes.string)
   }),
   comments: PropTypes.arrayOf(PropTypes.object),
-  globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setGlobalState: PropTypes.elementType
+  commentAPI: PropTypes.oneOfType([PropTypes.array]),
+  setCommentAPI: PropTypes.elementType,
+  addComment: PropTypes.func
 };
 
 Comment.defaultProps = {
   currentUser: "",
   posting: [],
-  comments: {},
-  globalState: 0,
-  setGlobalState: 0
+  comments: {}
 };
 
 export default Comment;

@@ -1,27 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import postingStorage from "../stores/postingStore";
-import { addPostAPI } from '../apis/post'
-import {getUserPostOnly} from "../apis/post"
+import { addPostAPI } from "../apis/post";
 
-
-function AddPost({ setGlobalState, userOfActivePage, currentUser, posting, setPosting}) {
+function AddPost({ currentUser, posting, setPosting }) {
   const [input, setInput] = useState("");
 
   const onChange = e => {
     setInput(e.target.value);
   };
-  
-    const onClick = async () => {
-      try {
-        const response = await addPostAPI(input, currentUser);
-        setPosting([...posting, response])
-      } catch(e) {
-        console.log(e)
-      }
-    }
 
-    
+  const onClick = async () => {
+    try {
+      const response = await addPostAPI(input, currentUser);
+      setPosting([...posting, response]);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <>
       <input value={input} onChange={onChange} />
@@ -33,15 +29,13 @@ function AddPost({ setGlobalState, userOfActivePage, currentUser, posting, setPo
 }
 
 AddPost.propTypes = {
-  userOfActivePage: PropTypes.string,
   currentUser: PropTypes.string,
-  setGlobalState: PropTypes.elementType
+  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  setPosting: PropTypes.func
 };
 
 AddPost.defaultProps = {
-  userOfActivePage: "",
-  currentUser: "",
-  setGlobalState: 0
+  currentUser: ""
 };
 
 export default AddPost;

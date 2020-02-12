@@ -1,24 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
-import userStorage from "../stores/userStore";
-import postingStorage from "../stores/postingStore";
-import { getUserTimeLinePosts } from "../apis/post"
-
+import { getUserTimeLinePosts } from "../apis/post";
 
 function TimeLinePage({ setUserOfActivePage, currentUser }) {
-
   const sizeOfPicture = "40%";
-  let follower = [];
-  const [posting, setPosting] = useState([])
-  const [commentAPI, setCommentAPI] = useState([]);
+  const [posting, setPosting] = useState([]);
   const getUserTimeLinePostsAPI = async () => {
-    const { posts }= await getUserTimeLinePosts(currentUser);
-    setPosting(posts)
-    }
-  
+    const { posts } = await getUserTimeLinePosts(currentUser);
+    setPosting(posts);
+  };
+
   useEffect(() => {
-    getUserTimeLinePostsAPI()
+    getUserTimeLinePostsAPI();
   }, []);
 
   return (
@@ -26,18 +20,16 @@ function TimeLinePage({ setUserOfActivePage, currentUser }) {
       {/* {postingStorage.getuserPosts(currentUser)[0] === undefined ? (
         <li>Go to Your user home and add some stuff RIGHT NOW!</li>
       ) : ( */}
-        <div>
-          <PostingList
-            posting={posting}
-            setPosting={setPosting}
-            sizeOfPicture={sizeOfPicture}
-            userOfActivePage={currentUser}
-            follower={follower}
-            setUserOfActivePage={setUserOfActivePage}
-            currentUser={currentUser}
-        
-          />
-        </div>
+      <div>
+        <PostingList
+          posting={posting}
+          setPosting={setPosting}
+          sizeOfPicture={sizeOfPicture}
+          userOfActivePage={currentUser}
+          setUserOfActivePage={setUserOfActivePage}
+          currentUser={currentUser}
+        />
+      </div>
       {/* )} */}
     </>
   );

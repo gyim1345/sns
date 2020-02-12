@@ -13,8 +13,6 @@ function Posting({
   postingAll,
   setPosting,
   comments,
-  globalState,
-  setGlobalState,
   addComment,
   onChangeComment,
   sizeOfPicture,
@@ -22,17 +20,13 @@ function Posting({
   setUserOfActivePage,
   currentUser,
   commentAPI,
-  setCommentAPI,
-  postWithFollowerPost,
-  setPostWithFollowerPost
+  setCommentAPI
 }) {
-const [input] = useState([]);
+  const [input] = useState([]);
 
-
-
-const changeUser = () => {
-  setUserOfActivePage(posting.userName);
-};
+  const changeUser = () => {
+    setUserOfActivePage(posting.userName);
+  };
 
   return (
     <div>
@@ -44,7 +38,11 @@ const changeUser = () => {
             toTop();
           }}
         >
-          <img src={userStorage.getUserImage(posting.userName)} alt="" width={50} />
+          <img
+            src={userStorage.getUserImage(posting.userName)}
+            alt=""
+            width={50}
+          />
           {posting.userName}
         </Link>
       </h1>
@@ -54,42 +52,23 @@ const changeUser = () => {
           [Title]:
           {posting.title}
         </li>
-  
-        {/* [Id]:
-        {posting.id}
-        Image: */}
       </Link>
-      <Like 
+      <Like
         posting={posting}
         currentUser={currentUser}
-        setGlobalState={setGlobalState}
         setPosting={setPosting}
-        postWithFollowerPost={postWithFollowerPost}
-        setPostWithFollowerPost={setPostWithFollowerPost}
         postingAll={postingAll}
       />
       <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
         <Edit
           posting={posting}
           setPosting={setPosting}
-          globalState={globalState}
-          setGlobalState={setGlobalState}
-          userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
-        <Remove
-          posting={posting}
-          setPosting={setPosting}
-          globalState={globalState}
-          setGlobalState={setGlobalState}
-          userOfActivePage={userOfActivePage}
-          currentUser={currentUser}
-        />
+        <Remove posting={posting} currentUser={currentUser} />
         <Comment
           posting={posting}
           comments={comments}
-          globalState={globalState}
-          setGlobalState={setGlobalState}
           userOfActivePage={userOfActivePage}
           currentUser={currentUser}
           commentAPI={commentAPI}
@@ -124,11 +103,13 @@ Posting.propTypes = {
     userName: PropTypes.string,
     like: PropTypes.arrayOf(PropTypes.string)
   }),
+  postingAll: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   comments: PropTypes.arrayOf(PropTypes.object),
-  globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setGlobalState: PropTypes.elementType,
+  setPosting: PropTypes.elementType,
   addComment: PropTypes.elementType,
-  onChangeComment: PropTypes.elementType
+  onChangeComment: PropTypes.elementType,
+  commentAPI: PropTypes.oneOfType([PropTypes.array]),
+  setCommentAPI: PropTypes.elementType
 };
 
 Posting.defaultProps = {
@@ -138,8 +119,6 @@ Posting.defaultProps = {
   sizeOfPicture: 0,
   posting: [],
   comments: {},
-  globalState: 0,
-  setGlobalState: 0,
   addComment: "",
   onChangeComment: ""
 };

@@ -1,22 +1,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import uStore from "../stores/userStore";
 import { registerAPI } from "../apis/post";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
- 
-  const registration = async (data) => {
+
+  const registration = async data => {
     try {
-          const response = await registerAPI(data.Id, data.Password)
-          alert(response.message)
-        } catch(e) {
-      console.log(e)
+      const response = await registerAPI(data.Id, data.Password);
+      alert(response.Message);
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit(registration   )}>
+    <form onSubmit={handleSubmit(registration)}>
       <span>[Register] Id:</span>
       <input name="Id" defaultValue="" ref={register} />
       <label>password:</label>

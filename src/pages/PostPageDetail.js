@@ -1,30 +1,32 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
-import postStore from "../stores/postingStore";
 import PostingList from "../components/PostingList";
-import {getPostsFromId} from "../apis/post"
-import { getCommentFromIdAPI } from "../apis/comment"
+import { getPostsFromId } from "../apis/post";
+import { getCommentFromIdAPI } from "../apis/comment";
 
-
-function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) {
+function PostPageDetail({
+  userOfActivePage,
+  setUserOfActivePage,
+  currentUser
+}) {
   const { postingId } = useParams();
   const sizeOfPicture = "80%";
-  const [posting, setPosting] = useState([])
+  const [posting, setPosting] = useState([]);
   const [commentAPI, setCommentAPI] = useState([]);
   const getPosting = async () => {
-     const {posts} = await getPostsFromId(postingId);
-     setPosting([posts])
-  }
+    const { posts } = await getPostsFromId(postingId);
+    setPosting([posts]);
+  };
   const getcommentAPI = async () => {
     try {
       const response = await getCommentFromIdAPI(postingId);
       setCommentAPI(response);
-    } catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
-  }
-  
+  };
+
   useEffect(() => {
     getPosting();
     getcommentAPI();

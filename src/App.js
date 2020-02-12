@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import PostPage from "./pages/PostPage";
 import PostPageDetail from "./pages/PostPageDetail";
 import TimeLinePage from "./pages/TimeLinePage";
-// import scrollToTopController from "./components/scrollToTopController";
 import toTop from "./components/toTop";
 import LoginPage from "./pages/LoginPage";
-// import { Test } from "./components/Test";
-import {getPosts} from './apis/post'
 
-
-//   const pp = await fetchPosts();
-
-// useEffect(() => {
-  //   fetchTasks({ state, setState });
-  // }, []);
-  
-  function App() {
-    const [globalState, setGlobalState] = useState([]);
-    const [userOfActivePage, setUserOfActivePage] = useState("");
-    const [currentUser, setCurrentUser] = useState("");
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [state, setState] = useState();
+function App() {
+  const [globalState, setGlobalState] = useState([]);
+  const [userOfActivePage, setUserOfActivePage] = useState("");
+  const [currentUser, setCurrentUser] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
@@ -36,7 +25,7 @@ import {getPosts} from './apis/post'
       setLoggedIn(false);
       setCurrentUser("");
       setUserOfActivePage("");
-      alert("logging out")
+      alert("logging out");
     }
   };
   return (
@@ -58,7 +47,6 @@ import {getPosts} from './apis/post'
       >
         {loggedIn && <button type="button">UserHome</button>}
       </Link>
-      {/* <Test /> */}
       <Switch>
         <Route exact path="/">
           <LoginPage

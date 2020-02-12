@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import pStore from "../stores/postingStore";
-import uStore from "../stores/userStore";
-import { getUserInfoAPI } from "../apis/post"
+import { getUserInfoAPI } from "../apis/post";
 
 function UserInfoHead({ userOfActivePage }) {
-  const [info, setInfo] = useState('')
+  const [info, setInfo] = useState("");
 
   const userInfo = async () => {
     try {
-      const response = await getUserInfoAPI(userOfActivePage)
-      setInfo(response)
+      const response = await getUserInfoAPI(userOfActivePage);
+      setInfo(response);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
+  };
 
   useEffect(() => {
     userInfo();
@@ -22,12 +20,7 @@ function UserInfoHead({ userOfActivePage }) {
 
   return (
     <>
-      <img
-        src={info.image}
-        alt="Smiley face"
-        height="42"
-        width="42"
-      />
+      <img src={info.image} alt="Smiley face" height="42" width="42" />
       &nbsp;&nbsp;&nbsp;
       {userOfActivePage}
       &nbsp;&nbsp;&nbsp;
@@ -38,7 +31,6 @@ function UserInfoHead({ userOfActivePage }) {
     </>
   );
 }
-
 
 UserInfoHead.propTypes = {
   userOfActivePage: PropTypes.string

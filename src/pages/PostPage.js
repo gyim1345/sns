@@ -1,33 +1,29 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import Addpost from "../components/Addpost";
 import UserInfoHead from "../components/UserInfoHead";
-import {getUserPostOnly} from "../apis/post"
+import { getUserPostOnly } from "../apis/post";
 
-function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActivePage, currentUser }) {
+function PostPage({ userOfActivePage, setUserOfActivePage, currentUser }) {
   const sizeOfPicture = "40%";
   const [posting, setPosting] = useState([]);
-  const [commentAPI, setCommentAPI] = useState([]);
- 
+
   const getPostingOfCurrentUser = async () => {
-     const {posts} = await getUserPostOnly(userOfActivePage);
-    setPosting(posts)
-  }
-    useEffect(() => {
-      getPostingOfCurrentUser()
-    }, []);
-    
+    const { posts } = await getUserPostOnly(userOfActivePage);
+    setPosting(posts);
+  };
+  useEffect(() => {
+    getPostingOfCurrentUser();
+  }, []);
+
   return (
     <>
-      <UserInfoHead globalState={globalState} userOfActivePage={userOfActivePage} />
+      <UserInfoHead userOfActivePage={userOfActivePage} />
       <div>
         <Addpost
           posting={posting}
           setPosting={setPosting}
-          globalState={globalState}
-          setGlobalState={setGlobalState}
-          userOfActivePage={userOfActivePage}
           currentUser={currentUser}
         />
         <PostingList
@@ -37,7 +33,6 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
           userOfActivePage={userOfActivePage}
           setUserOfActivePage={setUserOfActivePage}
           currentUser={currentUser}
-       
         />
       </div>
     </>
@@ -46,6 +41,7 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
 
 PostPage.propTypes = {
   user: PropTypes.string,
+  userOfActivePage: PropTypes.string,
   setUserOfActivePage: PropTypes.func,
   currentUser: PropTypes.string,
   globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),

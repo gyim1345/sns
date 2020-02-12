@@ -8,22 +8,15 @@ const LoginPage = ({
   setUserOfActivePage,
   setCurrentUser,
   setLoggedIn,
-  toggleLogInStatus,
   loggedIn,
   currentUser
 }) => {
-
-  
-
-
-
   return (
     <>
       <Login
         setUserOfActivePage={setUserOfActivePage}
         setCurrentUser={setCurrentUser}
         setLoggedIn={setLoggedIn}
-        toggleLogInStatus={toggleLogInStatus}
         loggedIn={loggedIn}
         currentUser={currentUser}
       />

@@ -4,13 +4,13 @@ class Time {
     
     this._start = start;
     
-     this._end = end; 
+         this._end = end; 
     
     this._duration = end - start; 
     
-    } 
+ } 
     
-    } 
+} 
     
     const time = new Time(0, 20); 
     
