@@ -46,6 +46,7 @@ function TimeLinePage({ setUserOfActivePage, currentUser }) {
         <div>
           <PostingList
             posting={posting}
+            setPosting={setPosting}
             sizeOfPicture={sizeOfPicture}
             userOfActivePage={currentUser}
             follower={follower}

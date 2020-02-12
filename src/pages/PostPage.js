@@ -36,6 +36,7 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
         />
         <PostingList
           posting={posting}
+          setPosting={setPosting}
           sizeOfPicture={sizeOfPicture}
           userOfActivePage={userOfActivePage}
           setUserOfActivePage={setUserOfActivePage}

@@ -36,8 +36,8 @@ function PostingList({
   const [globalState, setGlobalState] = useState([]);
   const { comments } = commentStorage;
   const [state, setState] = useState([]);
- 
-
+  const [ postWithFollowerPost, setPostWithFollowerPost ] = useState(posting)
+  
 
 
     
@@ -67,7 +67,7 @@ function PostingList({
   // let postings = distinguishPostings();
   // checkFollowerPresent() && addFollowerPostingsToCurrentPostings();
   console.log("asd", posting)
-
+ 
  
   // console.log(postingStorage.postList)
   // const followerPost = []; 
@@ -103,10 +103,11 @@ function PostingList({
   return (
     <>
       <div>
-        {posting!== undefined && posting.map(posting => (
-          <ul key={posting.id}>
+        {posting!== undefined && posting.map(posting1 => (
+          <ul key={posting1.id}>
             <Posting
-              posting={posting}
+              posting={posting1}
+              postingAll={posting}
               setPosting={setPosting}
               comments={comments}
               globalState={globalState}
@@ -119,6 +120,9 @@ function PostingList({
               currentUser={currentUser}
               commentAPI={commentAPI}
               setCommentAPI={setCommentAPI}
+              postWithFollowerPost={postWithFollowerPost}
+              setPostWithFollowerPost={setPostWithFollowerPost}
+              
             />
           </ul>
         ))}

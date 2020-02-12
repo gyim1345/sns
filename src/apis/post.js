@@ -40,6 +40,12 @@ export const registerAPI = async (id, password) => {
   const { data } = await axios.post(`${TASKS_URL}/register`, {id, password})
   return data
 };
+
+export const getChangeLike = async (posting, currentUser, postingAll) => {
+  const { data } = await axios.patch(`${TASKS_URL}/postLike`, {posting, currentUser, postingAll} )
+  return data
+}
+
 // export const remove  PostApi = async (id, user) => {
 //   console.log(id, user)
 //   const { data }  = await axios.delete(`${TASKS_URL}/${id}`, { id });

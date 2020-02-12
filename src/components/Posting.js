@@ -10,6 +10,7 @@ import Like from "./Like";
 
 function Posting({
   posting,
+  postingAll,
   setPosting,
   comments,
   globalState,
@@ -21,7 +22,9 @@ function Posting({
   setUserOfActivePage,
   currentUser,
   commentAPI,
-  setCommentAPI
+  setCommentAPI,
+  postWithFollowerPost,
+  setPostWithFollowerPost
 }) {
 const [input] = useState([]);
 
@@ -61,6 +64,10 @@ const changeUser = () => {
         posting={posting}
         currentUser={currentUser}
         setGlobalState={setGlobalState}
+        setPosting={setPosting}
+        postWithFollowerPost={postWithFollowerPost}
+        setPostWithFollowerPost={setPostWithFollowerPost}
+        postingAll={postingAll}
       />
       <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
         <Edit
