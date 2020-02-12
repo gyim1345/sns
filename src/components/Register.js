@@ -9,6 +9,7 @@ const Register = () => {
   const registration = async (data) => {
     try {
           const response = await registerAPI(data.Id, data.Password)
+          alert(response.message)
         } catch(e) {
       console.log(e)
     }
