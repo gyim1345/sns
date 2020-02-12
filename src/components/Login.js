@@ -34,10 +34,8 @@ const Login = ({
   }
 
   const onSubmit = async (data) => {
-    console.log(data)
     try {
       const response = await setLoginAPI(data);
-      console.log(response);
       alert(response.statusMessage)
       response.loginStatus
         && (setCurrentUser(data.Id),
@@ -49,17 +47,6 @@ const Login = ({
       console.log(e)
     }
   };
-
-  console.log(currentUser , loggedIn)
-
-  // const onSubmit = data => {
-  //   console.log(userStorage.userList.find(item => item.name === data.Id) === undefined)
-  //     checkIdIsRegistered(data)
-  //       ? alert("check id") 
-  //       : checkPassword(data)
-  //         ? alert("check password") 
-  //         : performLogIn(data);
-  // };
 
   return (
     <>

@@ -7,7 +7,6 @@ export const getCommentFromIdAPI = async (id) => {
   };
 
 export const addCommentForPost = async(postId, inputa, currentUser, isUnder) => {
-  console.log(postId, isUnder)
   const { data } = await axios.post(`${TASKS_URL}${postId}`, { postId, inputa, currentUser, isUnder})
   return data;
 }

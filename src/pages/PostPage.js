@@ -13,15 +13,11 @@ function PostPage({ globalState, setGlobalState, userOfActivePage, setUserOfActi
   const getPostingOfCurrentUser = async () => {
      const {posts} = await getUserPostOnly(userOfActivePage);
     setPosting(posts)
-    // console.log('postPage', posts);
-
   }
     useEffect(() => {
       getPostingOfCurrentUser()
     }, []);
     
-// console.log('postPage', posting);
-
   return (
     <>
       <UserInfoHead globalState={globalState} userOfActivePage={userOfActivePage} />

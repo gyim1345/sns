@@ -15,28 +15,11 @@ function TimeLinePage({ setUserOfActivePage, currentUser }) {
   const getUserTimeLinePostsAPI = async () => {
     const { posts }= await getUserTimeLinePosts(currentUser);
     setPosting(posts)
-    // console.log('Timeline', posts)
     }
   
   useEffect(() => {
     getUserTimeLinePostsAPI()
   }, []);
-  // console.log('Timeline', posting)
-
-
-  // const checkCurrentUserDataPresent = () => {
-  //   return currentUser !== undefined;
-  // }
-
-  // const getFollowerForCurrentUser = () => {
-  //   return follower = userStorage.getFollowerFromUser(currentUser);
-  // }
-
-  // const setFollowerIsEmpty =() => {
-  //   return follower = [];
-  // }
-
-  // checkCurrentUserDataPresent() ? getFollowerForCurrentUser() : setFollowerIsEmpty();
 
   return (
     <>

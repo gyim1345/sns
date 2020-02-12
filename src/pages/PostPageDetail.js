@@ -9,15 +9,12 @@ import { getCommentFromIdAPI } from "../apis/comment"
 
 function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) {
   const { postingId } = useParams();
-  console.log(postingId)
   const sizeOfPicture = "80%";
   const [posting, setPosting] = useState([])
   const [commentAPI, setCommentAPI] = useState([]);
-  console.log('postpageDetail')
   const getPosting = async () => {
      const {posts} = await getPostsFromId(postingId);
      setPosting([posts])
-     console.log('detail', posts)  
   }
   const getcommentAPI = async () => {
     try {
@@ -33,14 +30,6 @@ function PostPageDetail({ userOfActivePage, setUserOfActivePage, currentUser }) 
     getcommentAPI();
   }, []);
 
-
-
-// useEffect(() => {
-//   getcommentAPI();
-// }, [])
-
-  
-  // console.log('detail', posting)  
   return (
     <div>
       <PostingList

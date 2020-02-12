@@ -31,7 +31,6 @@ const [input] = useState([]);
 
 
 const changeUser = () => {
-  console.log(posting.userName)
   setUserOfActivePage(posting.userName);
 };
 

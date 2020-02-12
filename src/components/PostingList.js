@@ -19,39 +19,13 @@ function PostingList({
   commentAPI,
   setCommentAPI
 }) {
-  // let postings = postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === user) : [postingDetail]
-  // const { comments } = commentStorage;
-  // console.log("postingDetail", postingDetail, follower);
-  // if (follower !== undefined) {
 
-  //   const temppostings = [];
-  //   follower.forEach(person => temppostings.push(postingStorage.getuserPosts(person)));
-  //   const [temp] = temppostings;
-  //   postings = postingStorage.postList.filter(post => post.userName === user);
-  //   postings.push(...temp);
-  // }
-
-  //asdad
   const [inputa, setInputa] = useState("");
   const [globalState, setGlobalState] = useState([]);
   const { comments } = commentStorage;
   const [state, setState] = useState([]);
   const [ postWithFollowerPost, setPostWithFollowerPost ] = useState(posting)
   
-
-
-    
-// const fetchTasks = async ({ state, setState }) => {
-//   const posts = await getPosts();
-//     setState({...state, posts})
-// }
-
-// useEffect(() => {
-//   fetchTasks({ state, setState });
-// }, []);
-// console.log(state.posts);
-
-
   const distinguishPostings = () => {
     return postingDetail === undefined ? postingStorage.postList.filter(post => post.userName === userOfActivePage) : [postingDetail]
   }
@@ -64,23 +38,6 @@ function PostingList({
     return follower.forEach(person => postings = [...postings, ...postingStorage.getuserPosts(person)]);
   }
   
-  // let postings = distinguishPostings();
-  // checkFollowerPresent() && addFollowerPostingsToCurrentPostings();
-  console.log("asd", posting)
- 
- 
-  // console.log(postingStorage.postList)
-  // const followerPost = []; 
-  // console.log(follower.forEach( x => postingStorage.getuserPosts(x) !== undefined ? followerPost.push(postingStorage.getuserPosts(x)): console.log('asd')))
-  // const [ffollowerPost] = followerPost;
-  // console.log(ffollowerPost)
-  // console.log(postings.push(...[followerPost]))
-  // console.log(postingStorage.posts)
-  // const finalpostingpostingDetail === undefined ? postingStore.postList.filter(post => post.userName === user) postingDetail === undefined ? postingStore.postList.filter(post => post.userName === user) : [postingDetail]: [postingDetail] = postingDetail === undefined ? postings : [postingDetail]
-  // console.log(postings)
-  // console.log(finalposting)
-  // console.log(postingDetail)
-
   const onChangeComment = e => {
     setInputa(e.target.value);
   };

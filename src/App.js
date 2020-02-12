@@ -22,29 +22,8 @@ import {getPosts} from './apis/post'
     const [currentUser, setCurrentUser] = useState("");
     const [loggedIn, setLoggedIn] = useState(false);
     const [state, setState] = useState();
-    //   const pp = await fetchPosts();
 
-    // const getPostingDetaila = async () => {
-    //   const a = await getPostsFromId(postingId);
-    //  setPostingDetaila(a.posts)
-    //  }
- 
-    //  useEffect(() => {
-    //    getPostingDetaila()
-    //  }, []);
-     
-//     const fetchTasks = async ({ state, setState }) => {
-//       const posts = await getPosts();
-//       console.log(posts)
-//         setState(posts)
-//     }
-// useEffect(() => {
-//   fetchTasks({ state, setState })
-  
-// }, []);
-//     console.log(state)
   const changeToCurrentUser = () => {
-    console.log(currentUser)
     setUserOfActivePage(currentUser);
   };
 
@@ -60,7 +39,6 @@ import {getPosts} from './apis/post'
       alert("logging out")
     }
   };
-console.log('currentuser',currentUser,'userofActivePage', userOfActivePage)
   return (
     <Router>
       <Link to="/">
