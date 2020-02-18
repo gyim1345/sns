@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const TASKS_URL = "http://localhost:3000";
+const TASKS_URL = "http://localhost:3000/posts";
 
 export const getPosts = async () => {
-  const { data } = await axios.get(`${TASKS_URL}/posts`);
+  const { data } = await axios.get(`${TASKS_URL}`);
   return data;
 };
 
@@ -18,12 +18,12 @@ export const getUserPostOnly = async user => {
 };
 
 export const getPostsFromId = async id => {
-  const { data } = await axios.get(`${TASKS_URL}/posts/${id}`, { id });
+  const { data } = await axios.get(`${TASKS_URL}/${id}`, { id });
   return data;
 };
 
 export const addPostAPI = async (title, user) => {
-  const { data } = await axios.patch(`${TASKS_URL}/posts`, { title, user });
+  const { data } = await axios.patch(`${TASKS_URL}`, { title, user });
   return data;
 };
 
@@ -33,7 +33,7 @@ export const editPostAPI = async (
   user,
   indexOfCommentOnThisPosting
 ) => {
-  const { data } = await axios.patch(`${TASKS_URL}/postsedit`, {
+  const { data } = await axios.patch(`${TASKS_URL}/edit`, {
     input,
     posting,
     user,
@@ -48,7 +48,7 @@ export const registerAPI = async (id, password) => {
 };
 
 export const getChangeLike = async (posting, currentUser, postingAll) => {
-  const { data } = await axios.patch(`${TASKS_URL}/postLike`, {
+  const { data } = await axios.patch(`${TASKS_URL}/Like`, {
     posting,
     currentUser,
     postingAll
@@ -61,7 +61,7 @@ export const removePostApi = async (
   user,
   indexOfCommentOnThisPosting
 ) => {
-  const { data } = await axios.patch(`${TASKS_URL}/postsRemove`, {
+  const { data } = await axios.patch(`${TASKS_URL}/Remove`, {
     posting,
     user,
     indexOfCommentOnThisPosting

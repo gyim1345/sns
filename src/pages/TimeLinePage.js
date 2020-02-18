@@ -4,7 +4,7 @@ import PostingList from "../components/PostingList";
 import { getUserTimeLinePosts } from "../apis/post";
 
 function TimeLinePage({ setUserOfActivePage, currentUser }) {
-  const sizeOfPicture = "40%";
+  const sizeOfPicture = { width: "320px", height: "200px" };
   const [posting, setPosting] = useState([]);
   const getUserTimeLinePostsAPI = async () => {
     const { posts } = await getUserTimeLinePosts(currentUser);

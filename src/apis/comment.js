@@ -1,5 +1,5 @@
 import axios from "axios";
-const TASKS_URL = "http://localhost:3000/comments/";
+const TASKS_URL = "http://localhost:3000/posts/comments/";
 
 export const getCommentFromIdAPI = async id => {
   const { data } = await axios.get(`${TASKS_URL}${id}`, { id });

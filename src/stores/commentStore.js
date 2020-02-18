@@ -66,7 +66,8 @@ const commentStore = {
       like: ["gibong", "guy", "noone"],
       isUnder: undefined
     },
-    { id: 9,
+    {
+      id: 9,
       postLId: 4,
       title: "comment with postLId 4",
       userWritten: "guy",

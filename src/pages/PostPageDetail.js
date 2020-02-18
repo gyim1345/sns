@@ -11,7 +11,7 @@ function PostPageDetail({
   currentUser
 }) {
   const { postingId } = useParams();
-  const sizeOfPicture = "80%";
+  const sizeOfPicture = { width: "100%", height: "100%" };
   const [posting, setPosting] = useState([]);
   const [commentAPI, setCommentAPI] = useState([]);
   const getPosting = async () => {

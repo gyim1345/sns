@@ -23,6 +23,4 @@ const countStore = {
   }
 };
 
-
-
 export default countStore;

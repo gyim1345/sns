@@ -6,7 +6,7 @@ import UserInfoHead from "../components/UserInfoHead";
 import { getUserPostOnly } from "../apis/post";
 
 function PostPage({ userOfActivePage, setUserOfActivePage, currentUser }) {
-  const sizeOfPicture = "40%";
+  const sizeOfPicture = { width: "320px", height: "200px" };
   const [posting, setPosting] = useState([]);
 
   const getPostingOfCurrentUser = async () => {
