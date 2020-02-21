@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
 import { addCommentForPost } from "../apis/comment";
+import { Global, css, jsx } from "@emotion/core";
 
 function PostingList({
   posting,
@@ -44,7 +45,7 @@ function PostingList({
 
   return (
     <>
-      <div>
+      <div css={[wrap]}>
         {posting !== undefined &&
           posting.map(posting1 => (
             <ul key={posting1.id}>
@@ -69,11 +70,17 @@ function PostingList({
   );
 }
 
+const wrap = css`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 PostingList.propTypes = {
   userOfActivePage: PropTypes.string,
   setUserOfActivePage: PropTypes.func,
   currentUser: PropTypes.string,
-  sizeOfPicture: PropTypes.string,
+  sizeOfPicture: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   setPosting: PropTypes.elementType,
   postingDetail: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

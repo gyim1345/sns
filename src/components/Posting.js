@@ -34,8 +34,8 @@ function Posting({
     <>
       <h1 css={[h1]}>
         <Link
-          css={[fuck]}
           to={`/${posting.userName}`}
+          css={[fuck]}
           onClick={() => {
             changeUser();
             toTop();
@@ -58,11 +58,8 @@ function Posting({
             width={sizeOfPicture.width}
             height={sizeOfPicture.height}
           />
-          {/* <li>
-          [Title]:
-          {posting.title}
-        </li> */}
         </Link>
+        <div>{posting.title}</div>
         <Like
           posting={posting}
           currentUser={currentUser}
@@ -103,7 +100,7 @@ function Posting({
 }
 
 const nameSize = css`
-font-size: 18px;
+  font-size: 18px;
 `;
 
 const fuck = css`
@@ -139,7 +136,7 @@ Posting.propTypes = {
   userOfActivePage: PropTypes.string,
   setUserOfActivePage: PropTypes.func,
   currentUser: PropTypes.string,
-  sizeOfPicture: PropTypes.string,
+  sizeOfPicture: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   posting: PropTypes.exact({
     id: PropTypes.number,
     title: PropTypes.string,

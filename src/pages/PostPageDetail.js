@@ -4,19 +4,26 @@ import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import { getPostsFromId } from "../apis/post";
 import { getCommentFromIdAPI } from "../apis/comment";
+import checkStatus from "../apis/check";
 
 function PostPageDetail({
   userOfActivePage,
   setUserOfActivePage,
-  currentUser
+  currentUser,
+  setCurrentUser,
+  setLoggedIn
 }) {
   const { postingId } = useParams();
   const sizeOfPicture = { width: "100%", height: "100%" };
   const [posting, setPosting] = useState([]);
   const [commentAPI, setCommentAPI] = useState([]);
   const getPosting = async () => {
+    const { response } = await checkStatus(currentUser);
+    // setUserOfActivePage(response);
+    setCurrentUser(response);
     const { posts } = await getPostsFromId(postingId);
     setPosting([posts]);
+    setLoggedIn(true);
   };
   const getcommentAPI = async () => {
     try {

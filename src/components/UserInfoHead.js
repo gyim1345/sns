@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { getUserInfoAPI } from "../apis/post";
+import { Global, css, jsx } from "@emotion/core";
 
-function UserInfoHead({ userOfActivePage }) {
+function UserInfoHead({ user }) {
   const [info, setInfo] = useState("");
-
   const userInfo = async () => {
     try {
-      const response = await getUserInfoAPI(userOfActivePage);
+      const response = await getUserInfoAPI(user);
       setInfo(response);
     } catch (e) {
       console.log(e);
@@ -16,21 +16,51 @@ function UserInfoHead({ userOfActivePage }) {
 
   useEffect(() => {
     userInfo();
-  }, []);
+  }, [info.postNumber]);
 
   return (
     <>
-      <img src={info.image} alt="Smiley face" height="42" width="42" />
-      &nbsp;&nbsp;&nbsp;
-      {userOfActivePage}
-      &nbsp;&nbsp;&nbsp;
-      <span> 게시물 갯수</span>
-      {info.postNumber}
-      &nbsp;&nbsp;&nbsp;following 갯수
-      {info.followerNumber}
+      <div css={[gridBoxForUserHead]}>
+        <img
+          src={info.image}
+          alt="Smiley face"
+          height="100"
+          width="100"
+          css={[borderRadius]}
+        />
+        <span css={[location23]}> {info.user} </span>
+        <span css={[location33]}> 게시물 갯수 {info.postNumber}</span>
+        <span css={[location43]}>following 갯수 {info.followerNumber}</span>
+      </div>
     </>
   );
 }
+
+const gridBoxForUserHead = css`
+  display: grid;
+  grid-template: 20% 20% 20% 20% / 20% 20%20%20%;
+`;
+
+const borderRadius = css`
+  border-radius: 50%;
+  grid-column-start: 2;
+`;
+
+const location33 = css`
+  grid-row-start: 3;
+  grid-column-start: 3;
+`;
+
+const location23 = css`
+  grid-row-start: 1;
+  grid-column-start: 3;
+  font-size: xx-large;
+`;
+
+const location43 = css`
+  grid-row-start: 3;
+  grid-column-start: 4;
+`;
 
 UserInfoHead.propTypes = {
   userOfActivePage: PropTypes.string

@@ -75,7 +75,7 @@ const Login = ({
         <input type="submit" css={[blackButton, whiteButton]} value="Login" />
         Or
       </form>
-      {loggedIn && <Redirect to={`/${currentUser}/TimeLine`} />}
+      {loggedIn && <Redirect to={`/TimeLine/${currentUser}`} />}
     </div>
   );
 };

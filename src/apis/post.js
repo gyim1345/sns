@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const TASKS_URL = "http://localhost:3000/posts";
+const TASKS_URL = "http://localhost:3000";
 
 export const getPosts = async () => {
   const { data } = await axios.get(`${TASKS_URL}`);
@@ -8,7 +8,7 @@ export const getPosts = async () => {
 };
 
 export const getUserTimeLinePosts = async user => {
-  const { data } = await axios.post(`${TASKS_URL}/TimeLine`, { user });
+  const { data } = await axios.post(`${TASKS_URL}/TimeLine/${user}`, { user });
   return data;
 };
 
@@ -18,12 +18,12 @@ export const getUserPostOnly = async user => {
 };
 
 export const getPostsFromId = async id => {
-  const { data } = await axios.get(`${TASKS_URL}/${id}`, { id });
+  const { data } = await axios.get(`${TASKS_URL}/posts/${id}`, { id });
   return data;
 };
 
 export const addPostAPI = async (title, user) => {
-  const { data } = await axios.patch(`${TASKS_URL}`, { title, user });
+  const { data } = await axios.patch(`${TASKS_URL}/posts/`, { title, user });
   return data;
 };
 
@@ -33,7 +33,7 @@ export const editPostAPI = async (
   user,
   indexOfCommentOnThisPosting
 ) => {
-  const { data } = await axios.patch(`${TASKS_URL}/edit`, {
+  const { data } = await axios.patch(`${TASKS_URL}/posts/edit`, {
     input,
     posting,
     user,
@@ -43,12 +43,12 @@ export const editPostAPI = async (
 };
 
 export const registerAPI = async (id, password) => {
-  const { data } = await axios.post(`${TASKS_URL}/register`, { id, password });
+  const { data } = await axios.post(`${TASKS_URL}/posts/register`, { id, password });
   return data;
 };
 
 export const getChangeLike = async (posting, currentUser, postingAll) => {
-  const { data } = await axios.patch(`${TASKS_URL}/Like`, {
+  const { data } = await axios.patch(`${TASKS_URL}/posts/Like`, {
     posting,
     currentUser,
     postingAll
@@ -61,7 +61,7 @@ export const removePostApi = async (
   user,
   indexOfCommentOnThisPosting
 ) => {
-  const { data } = await axios.patch(`${TASKS_URL}/Remove`, {
+  const { data } = await axios.patch(`${TASKS_URL}/posts/Remove`, {
     posting,
     user,
     indexOfCommentOnThisPosting
@@ -70,6 +70,6 @@ export const removePostApi = async (
 };
 
 export const getUserInfoAPI = async user => {
-  const { data } = await axios.post(`${TASKS_URL}/userInfo`, { user });
+  const { data } = await axios.post(`${TASKS_URL}/user/Info`, { user });
   return data;
 };

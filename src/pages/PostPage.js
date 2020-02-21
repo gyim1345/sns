@@ -4,23 +4,36 @@ import PostingList from "../components/PostingList";
 import Addpost from "../components/Addpost";
 import UserInfoHead from "../components/UserInfoHead";
 import { getUserPostOnly } from "../apis/post";
+import { Global, css, jsx } from "@emotion/core";
+import { useParams } from "react-router-dom";
+import checkStatus from "../apis/check";
 
-function PostPage({ userOfActivePage, setUserOfActivePage, currentUser }) {
+function PostPage({
+  userOfActivePage,
+  setUserOfActivePage,
+  currentUser,
+  setLoggedIn,
+  setCurrentUser,
+}) {
   const sizeOfPicture = { width: "320px", height: "200px" };
   const [posting, setPosting] = useState([]);
+  const { user } = useParams();
 
   const getPostingOfCurrentUser = async () => {
-    const { posts } = await getUserPostOnly(userOfActivePage);
+    const { response, activeUser } = await checkStatus(currentUser, user);
+    setUserOfActivePage(user);
+    setCurrentUser(response);
+    const { posts } = await getUserPostOnly(user);
     setPosting(posts);
+    setLoggedIn(true);
   };
   useEffect(() => {
     getPostingOfCurrentUser();
-  }, []);
-
+  }, [user]);
   return (
     <>
-      <UserInfoHead userOfActivePage={userOfActivePage} />
-      <div>
+      <UserInfoHead user={user} />
+      <div css={[flexCenterColumn]}>
         <Addpost
           posting={posting}
           setPosting={setPosting}
@@ -38,6 +51,12 @@ function PostPage({ userOfActivePage, setUserOfActivePage, currentUser }) {
     </>
   );
 }
+
+const flexCenterColumn = css`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 
 PostPage.propTypes = {
   user: PropTypes.string,

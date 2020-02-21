@@ -1,16 +1,28 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import { getUserTimeLinePosts } from "../apis/post";
+import { useParams } from "react-router-dom";
+import checkStatus from "../apis/check";
 
-function TimeLinePage({ setUserOfActivePage, currentUser }) {
+function TimeLinePage({
+  setUserOfActivePage,
+  currentUser,
+  setCurrentUser,
+  setLoggedIn,
+  userOfActivePage
+}) {
   const sizeOfPicture = { width: "320px", height: "200px" };
   const [posting, setPosting] = useState([]);
   const getUserTimeLinePostsAPI = async () => {
-    const { posts } = await getUserTimeLinePosts(currentUser);
+    const { response } = await checkStatus(currentUser);
+    setUserOfActivePage(response);
+    setCurrentUser(response);
+    const { posts } = await getUserTimeLinePosts(response);
     setPosting(posts);
+    setLoggedIn(true);
   };
-
   useEffect(() => {
     getUserTimeLinePostsAPI();
   }, []);

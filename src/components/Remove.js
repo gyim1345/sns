@@ -32,7 +32,7 @@ function Remove({
       <button type="button" onClick={onClick} id="buttonRemove">
         Remove
       </button>
-      {removed && <Redirect to={`/${currentUser}/TimeLine`} />}
+      {removed && <Redirect to={`/TimeLine/${currentUser}`} />}
     </>
   );
 }

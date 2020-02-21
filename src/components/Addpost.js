@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { addPostAPI } from "../apis/post";
+import { useParams } from "react-router-dom";
+
 
 function AddPost({ currentUser, posting, setPosting }) {
   const [input, setInput] = useState("");
+  const [isOwner, setIsOwner] = useState(false);
+  const { user } = useParams();
 
   const onChange = e => {
     setInput(e.target.value);
   };
-
+  console.log(user, currentUser)
   const onClick = async () => {
     try {
       const response = await addPostAPI(input, currentUser);
@@ -20,10 +24,12 @@ function AddPost({ currentUser, posting, setPosting }) {
 
   return (
     <>
-      <input value={input} onChange={onChange} />
-      <button type="button" onClick={onClick} id="buttonAdd">
-        Add
-      </button>
+      {user === currentUser && <input value={input} onChange={onChange} />}
+      {user === currentUser && (
+        <button type="button" onClick={onClick} id="buttonAdd">
+          Add Post
+        </button>
+      )}
     </>
   );
 }

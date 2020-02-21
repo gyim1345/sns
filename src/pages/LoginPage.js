@@ -34,8 +34,7 @@ const box = css`
   flex-wrap: wrap;
   flex-direction: column;
   display: inline-flex;
-  
-  `;
+`;
 
 LoginPage.propTypes = {
   setUserOfActivePage: PropTypes.func,
