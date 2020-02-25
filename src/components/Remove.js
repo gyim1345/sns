@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { removePostApi } from "../apis/post";
 import PropTypes from "prop-types";
+import { Global, css, jsx } from "@emotion/core";
 
 function Remove({
   posting,
@@ -29,13 +30,22 @@ function Remove({
 
   return (
     <>
-      <button type="button" onClick={onClick} id="buttonRemove">
+      <button
+        type="button"
+        onClick={onClick}
+        id="buttonRemove"
+        css={[marginLeft0]}
+      >
         Remove
       </button>
       {removed && <Redirect to={`/TimeLine/${currentUser}`} />}
     </>
   );
 }
+
+const marginLeft0 = css`
+  margin-left: 0px;
+`;
 
 Remove.propTypes = {
   currentUser: PropTypes.string,

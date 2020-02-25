@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { getUserInfoAPI } from "../apis/post";
 import { Global, css, jsx } from "@emotion/core";
 
-function UserInfoHead({ user }) {
-  const [info, setInfo] = useState("");
+function UserInfoHead({ user, info, setInfo, posting }) {
   const userInfo = async () => {
     try {
       const response = await getUserInfoAPI(user);
@@ -16,7 +15,7 @@ function UserInfoHead({ user }) {
 
   useEffect(() => {
     userInfo();
-  }, [info.postNumber]);
+  }, [posting]);
 
   return (
     <>

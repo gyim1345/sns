@@ -70,6 +70,8 @@ export const removePostApi = async (
 };
 
 export const getUserInfoAPI = async user => {
+  console.log(user)
   const { data } = await axios.post(`${TASKS_URL}/user/Info`, { user });
+  console.log(data)
   return data;
 };

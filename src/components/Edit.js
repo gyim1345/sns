@@ -11,7 +11,7 @@ function Edit({
 }) {
   const [edit, setEdit] = useState([]);
   const input = [];
-
+  const index = useState(indexOfCommentOnThisPosting)
   const onEdit = e => {
     // edit[Id] = e.target.value;
     setEdit(e.target.value);
@@ -38,7 +38,12 @@ function Edit({
 
   return (
     <>
-      <input type="text" value={input[posting.id]} onChange={e => onEdit(e)} />
+      <input
+        type="text"
+        value={input[posting.id]}
+        onChange={e => onEdit(e)}
+        placeholder={posting.title || "edit comment"}
+      />
       <button type="button" onClick={onClick} id="buttonEdit">
         Edit
       </button>

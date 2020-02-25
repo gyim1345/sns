@@ -10,13 +10,15 @@ export const addCommentForPost = async (
   postId,
   inputa,
   currentUser,
-  isUnder
+  isUnder,
+  commentId
 ) => {
   const { data } = await axios.post(`${TASKS_URL}${postId}`, {
     postId,
     inputa,
     currentUser,
-    isUnder
+    isUnder,
+    commentId
   });
   return data;
 };

@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { setLoginAPI } from "../apis/login";
 import { Global, css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
-// import "./components.css";
+import "./components.css";
 // import MyFont from "<path/to/font.woff>";
 // import { injectGlobal } from 'emotion'
 
@@ -48,35 +48,44 @@ const Login = ({
   };
 
   return (
-    <div css={[box]}>
-      <SNS> Bongstagram </SNS>
-      <Global styles={GlobalStyles} />
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        css={[box]}
-        className="LoginonSubmit"
-      >
-        {/* <span>[Login] </span> */}
-        {/* <label>Id: </label> */}
-        <input
-          name="Id"
-          defaultValue=""
-          ref={register}
-          placeholder="Login Id"
-        />
-        {/* <label>password:</label> */}
-        <input
-          name="Password"
-          defaultValue=""
-          ref={register({ required: true, maxLength: 10 })}
-          placeholder="Login password"
-        />
-        {errors.exampleRequired && <p>This field is required</p>}
-        <input type="submit" css={[blackButton, whiteButton]} value="Login" />
-        Or
-      </form>
-      {loggedIn && <Redirect to={`/TimeLine/${currentUser}`} />}
-    </div>
+    <>
+      <button className="trigger">Click here to trigger the modal!</button>
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close-button">&times;</span>
+          <h1>Hello, I am a modal!</h1>
+        </div>
+      </div>
+      <div css={[box]}>
+        <SNS> Bongstagram </SNS>
+        <Global styles={GlobalStyles} />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          css={[box]}
+          className="LoginonSubmit"
+        >
+          {/* <span>[Login] </span> */}
+          {/* <label>Id: </label> */}
+          <input
+            name="Id"
+            defaultValue=""
+            ref={register}
+            placeholder="Login Id"
+          />
+          {/* <label>password:</label> */}
+          <input
+            name="Password"
+            defaultValue=""
+            ref={register({ required: true, maxLength: 10 })}
+            placeholder="Login password"
+          />
+          {errors.exampleRequired && <p>This field is required</p>}
+          <input type="submit" css={[blackButton, whiteButton]} value="Login" />
+          Or
+        </form>
+        {loggedIn && <Redirect to={`/TimeLine/${currentUser}`} />}
+      </div>
+    </>
   );
 };
 

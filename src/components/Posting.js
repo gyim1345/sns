@@ -9,6 +9,11 @@ import toTop from "./toTop";
 import Like from "./Like";
 import { Global, css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
+import Modal from "react-modal";
+
+import ModalBox from "./ModalBox";
+
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
 function Posting({
   posting,
@@ -16,7 +21,6 @@ function Posting({
   setPosting,
   comments,
   addComment,
-  onChangeComment,
   sizeOfPicture,
   userOfActivePage,
   setUserOfActivePage,
@@ -24,10 +28,32 @@ function Posting({
   commentAPI,
   setCommentAPI
 }) {
-  const [input] = useState([]);
+  const [input, setInput] = useState([]);
+
+  // let subtitle;
+  // const [modalIsOpen, setIsOpen] = React.useState(false);
+  // function openModal() {
+  //   setIsOpen(true);
+  // }
+
+  // function afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   subtitle.style.color = "#f00";
+  // }
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
 
   const changeUser = () => {
     setUserOfActivePage(posting.userName);
+  };
+
+  const onChange = e => {
+    setInput(e.target.value);
+  };
+
+  const addToComment = () => {
+    return addComment(null, posting.id, input, currentUser);
   };
 
   return (
@@ -59,7 +85,17 @@ function Posting({
             height={sizeOfPicture.height}
           />
         </Link>
-        <div>{posting.title}</div>
+        <div css={[wordBreak]}>{posting.title}</div>
+
+        <div>
+          <ModalBox
+            posting={posting}
+            setPosting={setPosting}
+            currentUser={currentUser}
+            editInput={input}
+          />
+        </div>
+
         <Like
           posting={posting}
           currentUser={currentUser}
@@ -67,12 +103,6 @@ function Posting({
           postingAll={postingAll}
         />
         <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
-          <Edit
-            posting={posting}
-            setPosting={setPosting}
-            currentUser={currentUser}
-          />
-          <Remove posting={posting} currentUser={currentUser} />
           <Comment
             posting={posting}
             comments={comments}
@@ -83,14 +113,11 @@ function Posting({
             addComment={addComment}
           />
           <input
-            value={input[posting.id]}
-            onChange={e => onChangeComment(e, posting.id)}
+            value={input}
+            onChange={onChange}
+            placeholder={"input comment"}
           />
-          <button
-            type="button"
-            onClick={e => addComment(e, posting.id)}
-            id="buttonAddComment"
-          >
+          <button type="button" onClick={addToComment} id="buttonAddComment">
             AddComment
           </button>
         </Route>
@@ -98,6 +125,10 @@ function Posting({
     </>
   );
 }
+
+const wordBreak = css`
+  word-break: break-all;
+`;
 
 const nameSize = css`
   font-size: 18px;
@@ -113,7 +144,7 @@ const fuck = css`
 `;
 const h1 = css`
   border-top: solid 1px;
-  width: 300px;
+  width: 580px;
   border-left: solid 1px;
   border-right: solid 1px;
   background-color: white;
@@ -128,7 +159,7 @@ const title = css`
   text-decoration: none;
   border: 1px solid;
   border-width: 1px;
-  width: 320px;
+  width: 600px;
   background-color: white;
 `;
 

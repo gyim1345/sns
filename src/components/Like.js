@@ -38,15 +38,6 @@ const Like = ({ posting, setPosting, currentUser, postingAll }) => {
   );
 };
 
-// const heart = css`
-//   clip-path: path(
-//     M45.479,17.482C33.7-10.258.22-3.785,0,28.411-0.123,46.094,15.942,52.7,26.638,59.773,37.01,66.628,44.392,76.007,45.549,80c0.99-3.912,9.212-13.555,18.813-20.418C74.86,52.077,91.123,45.9,91,28.219,90.779-4.057,56.716-9.151,45.479,17.482Z"  );
-//   background-color: red;
-//   height: 30px;
-//   transform: rotate(-45deg);
-//   width: 30px;
-// `;
-
 const marginLeft5px = css`
   margin-left: 5px;
 `;
@@ -55,15 +46,7 @@ const margin1 = css`
   margin: -5px 0px 5px 5px;
   font-size: 10px;
 `;
-// const heartAfter = css`
-//   ${heart}
-//   content: "";
-//   background-color: red;
-//   border-radius: 50%;
-//   height: 30px;
-//   position: absolute;
-//   width: 30px;
-// `;
+
 
 Like.propTypes = {
   currentUser: PropTypes.string,

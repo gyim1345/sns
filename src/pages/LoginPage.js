@@ -1,10 +1,8 @@
-// /* eslint-disable prettier/prettier */
 import React from "react";
 import PropTypes from "prop-types";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import { Global, css, jsx } from "@emotion/core";
-import styled from "@emotion/styled";
 
 const LoginPage = ({
   setUserOfActivePage,

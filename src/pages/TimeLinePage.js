@@ -13,7 +13,7 @@ function TimeLinePage({
   setLoggedIn,
   userOfActivePage
 }) {
-  const sizeOfPicture = { width: "320px", height: "200px" };
+  const sizeOfPicture = { width: "600px"};
   const [posting, setPosting] = useState([]);
   const getUserTimeLinePostsAPI = async () => {
     const { response } = await checkStatus(currentUser);

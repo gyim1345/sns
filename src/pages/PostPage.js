@@ -13,12 +13,17 @@ function PostPage({
   setUserOfActivePage,
   currentUser,
   setLoggedIn,
-  setCurrentUser,
+  setCurrentUser
 }) {
-  const sizeOfPicture = { width: "320px", height: "200px" };
+  const sizeOfPicture = { width: "600px"};
   const [posting, setPosting] = useState([]);
   const { user } = useParams();
-
+  const [info, setInfo] = useState({
+    user: undefined,
+    postNumber: undefined,
+    followerNumber: undefined,
+    image: undefined
+  });
   const getPostingOfCurrentUser = async () => {
     const { response, activeUser } = await checkStatus(currentUser, user);
     setUserOfActivePage(user);
@@ -32,12 +37,19 @@ function PostPage({
   }, [user]);
   return (
     <>
-      <UserInfoHead user={user} />
+      <UserInfoHead
+        user={user}
+        info={info}
+        setInfo={setInfo}
+        posting={posting}
+      />
       <div css={[flexCenterColumn]}>
         <Addpost
           posting={posting}
           setPosting={setPosting}
           currentUser={currentUser}
+          info={info}
+          setInfo={setInfo}
         />
         <PostingList
           posting={posting}

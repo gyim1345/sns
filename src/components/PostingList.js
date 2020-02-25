@@ -27,14 +27,20 @@ function PostingList({
     postId,
     Input,
     currentUser,
-    indexOfCommentOnThisPosting
+    indexOfCommentOnThisPosting,
+    commentId
   ) => {
     try {
+      console.log(   postId,
+        Input,
+        currentUser,
+        indexOfCommentOnThisPosting )
       const response = await addCommentForPost(
         postId,
         Input,
         currentUser,
-        indexOfCommentOnThisPosting
+        indexOfCommentOnThisPosting,
+        commentId
       );
       setCommentAPI(response);
       setInput("");
@@ -62,6 +68,7 @@ function PostingList({
                 currentUser={currentUser}
                 commentAPI={commentAPI}
                 setCommentAPI={setCommentAPI}
+                setInput={Input}
               />
             </ul>
           ))}
