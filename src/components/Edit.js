@@ -9,18 +9,17 @@ function Edit({
   currentUser,
   setCommentAPI
 }) {
-  const [edit, setEdit] = useState([]);
-  const input = [];
-  const index = useState(indexOfCommentOnThisPosting)
+  const thisPost = posting[indexOfCommentOnThisPosting] || posting;
+  const [input, setInput] = useState([thisPost.title]);
+
   const onEdit = e => {
-    // edit[Id] = e.target.value;
-    setEdit(e.target.value);
+    setInput(e.target.value);
   };
 
   const onClick = async () => {
     try {
       const response = await editPostAPI(
-        edit,
+        input,
         posting,
         currentUser,
         indexOfCommentOnThisPosting
@@ -30,7 +29,6 @@ function Edit({
         : indexOfCommentOnThisPosting === undefined
         ? setPosting([response])
         : setCommentAPI(response);
-      // setPosting([...posting, response])x
     } catch (e) {
       console.log(e);
     }
@@ -40,9 +38,9 @@ function Edit({
     <>
       <input
         type="text"
-        value={input[posting.id]}
+        value={input}
         onChange={e => onEdit(e)}
-        placeholder={posting.title || "edit comment"}
+        // placeholder={posting.title || "edit comment"}
       />
       <button type="button" onClick={onClick} id="buttonEdit">
         Edit

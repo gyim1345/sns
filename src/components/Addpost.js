@@ -6,13 +6,11 @@ import { useParams } from "react-router-dom";
 
 function AddPost({ currentUser, posting, setPosting }) {
   const [input, setInput] = useState("");
-  const [isOwner, setIsOwner] = useState(false);
   const { user } = useParams();
 
   const onChange = e => {
     setInput(e.target.value);
   };
-  console.log(user, currentUser)
   const onClick = async () => {
     try {
       const response = await addPostAPI(input, currentUser);

@@ -31,10 +31,6 @@ function PostingList({
     commentId
   ) => {
     try {
-      console.log(   postId,
-        Input,
-        currentUser,
-        indexOfCommentOnThisPosting )
       const response = await addCommentForPost(
         postId,
         Input,

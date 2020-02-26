@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Edit from "./Edit";
-import Remove from "./Remove";
-import Reply from "./Reply";
 import { css } from "@emotion/core";
-import Modal from "react-modal";
 import ModalBoxComment from "./ModalBoxComment";
 import ModalBoxReply from "./ModalBoxReply";
 
@@ -15,38 +11,29 @@ function Comment({
   setCommentAPI,
   addComment
 }) {
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
   commentAPI.sort((a, b) => {
     return (
-      (a.isUnder !== undefined ? a.isUnder : a.id) -
-      (b.isUnder !== undefined ? b.isUnder : b.id)
+      (Number.isInteger(a.isUnder) ? a.isUnder : a.id) -
+      (Number.isInteger(b.isUnder) ? b.isUnder : b.id)
     );
-  });
+  }); 
+  // 진짜 모르겠다. a 나 b 가 대댓글인지 isUnder이 값이 들어오는지 
+  // 확인해서 들어오면(숫자로 들어오니 undefined 인지 확인 
+  // 하는것보다 숫자인지 확인해서 들어오는지 확인) 
+  // 그 isUnder인 대댓글의 해당 댓글의 id를 반환해서 
+  // 쓰고 그냥 댓글이면 그냥 id 값을 써서 sorting을 하게 된다.
+  // 대댓글도 그냥 댓글로 취급해서 같은 store 에 저장되어 있다.
+  // 단지 isUnder이라는 속성에 부모, 즉 해당 댓글의 id 가 들어가게 된다.
+
   return (
     <>
       {commentAPI.map((postings, i) => (
         <ul key={`comment${posting.id}${postings.id}`}>
           <div>
-            <li css={[wordBreak]}>
-              {/* {postings.isUnder ? " [Under comment]: " : "[comment]"} */}
+            <li css={[displayFlex]}>
+              {postings.isUnder && "ㄴ"}
               <div css={[fontBold]}>{postings.userName}</div>
-              {`: ${postings.title}`}
-              {/* [id]:
-            {postings.id} */}
+              <div css={[wordBreak]}>{`: ${postings.title}`}</div>
             </li>
           </div>
           <div>
@@ -60,43 +47,25 @@ function Comment({
                 setCommentAPI={setCommentAPI}
               />
             )}
-          {postings.isUnder !== undefined || (
-            <ModalBoxReply
-            postings={postings}
-            commentAPI={commentAPI}
-            currentUser={currentUser}
-            indexOfCommentOnThisPosting={i}
-            addComment={addComment}
-            setCommentAPI={setCommentAPI}
-            />
+            {postings.isUnder !== undefined || (
+              <ModalBoxReply
+                postings={postings}
+                commentAPI={commentAPI}
+                currentUser={currentUser}
+                indexOfCommentOnThisPosting={i}
+                addComment={addComment}
+                setCommentAPI={setCommentAPI}
+              />
             )}
           </div>
-          {/* <Edit
-            posting={commentAPI}
-            indexOfCommentOnThisPosting={i}
-            currentUser={currentUser}
-            setCommentAPI={setCommentAPI}
-          />
-          <Remove
-            posting={commentAPI}
-            currentUser={currentUser}
-            indexOfCommentOnThisPosting={i}
-            setCommentAPI={setCommentAPI}
-          />
-          {postings.isUnder !== undefined || (
-            <Reply
-              posting={postings}
-              commentAPI={commentAPI}
-              currentUser={currentUser}
-              indexOfCommentOnThisPosting={i}
-              addComment={addComment}
-            />
-          )} */}
         </ul>
       ))}
     </>
   );
 }
+const displayFlex = css`
+  display: flex;
+`;
 
 const wordBreak = css`
   word-break: break-all;
