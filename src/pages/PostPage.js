@@ -70,21 +70,21 @@ const flexCenterColumn = css`
   flex-direction: column;
 `;
 
-PostPage.propTypes = {
-  user: PropTypes.string,
-  userOfActivePage: PropTypes.string,
-  setUserOfActivePage: PropTypes.func,
-  currentUser: PropTypes.string,
-  globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-  setGlobalState: PropTypes.elementType
-};
+// PostPage.propTypes = {
+//   user: PropTypes.string,
+//   userOfActivePage: PropTypes.string,
+//   setUserOfActivePage: PropTypes.func,
+//   currentUser: PropTypes.string,
+//   globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+//   setGlobalState: PropTypes.elementType
+// };
 
-PostPage.defaultProps = {
-  user: "",
-  setUserOfActivePage: {},
-  currentUser: "",
-  globalState: [],
-  setGlobalState: ""
-};
+// PostPage.defaultProps = {
+//   user: "",
+//   setUserOfActivePage: {},
+//   currentUser: "",
+//   globalState: [],
+//   setGlobalState: ""
+// };
 
 export default PostPage;

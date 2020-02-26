@@ -47,17 +47,17 @@ const marginLeft0 = css`
   margin-left: 0px;
 `;
 
-Remove.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  setCommentAPI: PropTypes.elementType,
-  indexOfCommentOnThisPosting: PropTypes.number
-};
+// Remove.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   setCommentAPI: PropTypes.elementType,
+//   indexOfCommentOnThisPosting: PropTypes.number
+// };
 
-Remove.defaultProps = {
-  currentUser: "",
-  posting: {},
-  isComment: false
-};
+// Remove.defaultProps = {
+//   currentUser: "",
+//   posting: {},
+//   isComment: false
+// };
 
 export default Remove;

@@ -123,7 +123,7 @@ const nameSize = css`
 const fuck = css`
   text-decoration: none;
   display: grid;
-  grid-template-columns: 15% 20% 60%;
+  grid-template-columns: 10% 15% 75%;
   padding: 0px 0px 10px 0px;
   justify-items: center;
   align-items: center;
@@ -134,6 +134,7 @@ const h1 = css`
   border-left: solid 1px;
   border-right: solid 1px;
   background-color: white;
+  border-color: lightgrey;
   padding: 5px 15px 0px 5px;
   margin: 0px 0px -5px 0px;
 `;
@@ -147,38 +148,39 @@ const title = css`
   border-width: 1px;
   width: 600px;
   background-color: white;
+  border-color: lightgrey;
 `;
 
-Posting.propTypes = {
-  userOfActivePage: PropTypes.string,
-  setUserOfActivePage: PropTypes.func,
-  currentUser: PropTypes.string,
-  sizeOfPicture: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  posting: PropTypes.exact({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    imageUrl: PropTypes.string,
-    userName: PropTypes.string,
-    like: PropTypes.arrayOf(PropTypes.string)
-  }),
-  postingAll: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  comments: PropTypes.arrayOf(PropTypes.object),
-  setPosting: PropTypes.elementType,
-  addComment: PropTypes.elementType,
-  onChangeComment: PropTypes.elementType,
-  commentAPI: PropTypes.oneOfType([PropTypes.array]),
-  setCommentAPI: PropTypes.elementType
-};
+// Posting.propTypes = {
+//   userOfActivePage: PropTypes.string,
+//   setUserOfActivePage: PropTypes.func,
+//   currentUser: PropTypes.string,
+//   sizeOfPicture: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   posting: PropTypes.exact({
+//     id: PropTypes.number,
+//     title: PropTypes.string,
+//     imageUrl: PropTypes.string,
+//     userName: PropTypes.string,
+//     like: PropTypes.arrayOf(PropTypes.string)
+//   }),
+//   postingAll: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   comments: PropTypes.arrayOf(PropTypes.object),
+//   setPosting: PropTypes.elementType,
+//   addComment: PropTypes.elementType,
+//   onChangeComment: PropTypes.elementType,
+//   commentAPI: PropTypes.oneOfType([PropTypes.array]),
+//   setCommentAPI: PropTypes.elementType
+// };
 
-Posting.defaultProps = {
-  userOfActivePage: "",
-  setUserOfActivePage: "",
-  currentUser: "",
-  sizeOfPicture: 0,
-  posting: [],
-  comments: {},
-  addComment: "",
-  onChangeComment: ""
-};
+// Posting.defaultProps = {
+//   userOfActivePage: "",
+//   setUserOfActivePage: "",
+//   currentUser: "",
+//   sizeOfPicture: 0,
+//   posting: [],
+//   comments: {},
+//   addComment: "",
+//   onChangeComment: ""
+// };
 
 export default Posting;

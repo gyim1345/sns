@@ -55,16 +55,16 @@ function PostPageDetail({
   );
 }
 
-PostPageDetail.propTypes = {
-  userOfActivePage: PropTypes.string,
-  setUserOfActivePage: PropTypes.func,
-  currentUser: PropTypes.string
-};
+// PostPageDetail.propTypes = {
+//   userOfActivePage: PropTypes.string,
+//   setUserOfActivePage: PropTypes.func,
+//   currentUser: PropTypes.string
+// };
 
-PostPageDetail.defaultProps = {
-  userOfActivePage: "",
-  setUserOfActivePage: "",
-  currentUser: ""
-};
+// PostPageDetail.defaultProps = {
+//   userOfActivePage: "",
+//   setUserOfActivePage: "",
+//   currentUser: ""
+// };
 
 export default PostPageDetail;

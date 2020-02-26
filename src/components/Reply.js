@@ -39,11 +39,11 @@ function Reply({
   );
 }
 
-Reply.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  addComment: PropTypes.elementType,
-  commentAPI: PropTypes.oneOfType([PropTypes.array]),
-  indexOfCommentOnThisPosting: PropTypes.number
-};
+// Reply.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   addComment: PropTypes.elementType,
+//   commentAPI: PropTypes.oneOfType([PropTypes.array]),
+//   indexOfCommentOnThisPosting: PropTypes.number
+// };
 export default Reply;

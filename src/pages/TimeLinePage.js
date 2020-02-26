@@ -47,14 +47,14 @@ function TimeLinePage({
   );
 }
 
-TimeLinePage.propTypes = {
-  setUserOfActivePage: PropTypes.func,
-  currentUser: PropTypes.string
-};
+// TimeLinePage.propTypes = {
+//   setUserOfActivePage: PropTypes.func,
+//   currentUser: PropTypes.string
+// };
 
-TimeLinePage.defaultProps = {
-  setUserOfActivePage: "",
-  currentUser: ""
-};
+// TimeLinePage.defaultProps = {
+//   setUserOfActivePage: "",
+//   currentUser: ""
+// };
 
 export default TimeLinePage;

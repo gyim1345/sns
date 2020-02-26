@@ -36,12 +36,7 @@ function Edit({
 
   return (
     <>
-      <input
-        type="text"
-        value={input}
-        onChange={e => onEdit(e)}
-        // placeholder={posting.title || "edit comment"}
-      />
+      <input type="text" value={input} onChange={e => onEdit(e)} />
       <button type="button" onClick={onClick} id="buttonEdit">
         Edit
       </button>
@@ -49,19 +44,19 @@ function Edit({
   );
 }
 
-Edit.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  setPosting: PropTypes.elementType,
-  indexOfCommentOnThisPosting: PropTypes.number,
-  setCommentAPI: PropTypes.elementType
-};
+// Edit.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   setPosting: PropTypes.elementType,
+//   indexOfCommentOnThisPosting: PropTypes.number,
+//   setCommentAPI: PropTypes.elementType
+// };
 
-Edit.defaultProps = {
-  currentUser: "",
-  posting: {},
-  indexOfComment: undefined,
-  cid: undefined
-};
+// Edit.defaultProps = {
+//   currentUser: "",
+//   posting: {},
+//   indexOfComment: undefined,
+//   cid: undefined
+// };
 
 export default Edit;

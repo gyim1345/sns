@@ -134,20 +134,20 @@ const blackButton = css`
   color: white;
 `;
 
-Login.propTypes = {
-  setUserOfActivePage: PropTypes.func,
-  setCurrentUser: PropTypes.func,
-  setLoggedIn: PropTypes.func,
-  loggedIn: PropTypes.bool,
-  currentUser: PropTypes.string
-};
+// Login.propTypes = {
+//   setUserOfActivePage: PropTypes.func,
+//   setCurrentUser: PropTypes.func,
+//   setLoggedIn: PropTypes.func,
+//   loggedIn: PropTypes.bool,
+//   currentUser: PropTypes.string
+// };
 
-Login.defaultProps = {
-  setUserOfActivePage: {},
-  setCurrentUser: {},
-  setLoggedIn: {},
-  loggedIn: false,
-  currentUser: ""
-};
+// Login.defaultProps = {
+//   setUserOfActivePage: {},
+//   setCurrentUser: {},
+//   setLoggedIn: {},
+//   loggedIn: false,
+//   currentUser: ""
+// };
 
 export default Login;

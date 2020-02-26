@@ -34,22 +34,22 @@ const box = css`
   display: inline-flex;
 `;
 
-LoginPage.propTypes = {
-  setUserOfActivePage: PropTypes.func,
-  setCurrentUser: PropTypes.func,
-  toggleLogInStatus: PropTypes.func,
-  setLoggedIn: PropTypes.func,
-  loggedIn: PropTypes.bool,
-  currentUser: PropTypes.string
-};
+// LoginPage.propTypes = {
+//   setUserOfActivePage: PropTypes.func,
+//   setCurrentUser: PropTypes.func,
+//   toggleLogInStatus: PropTypes.func,
+//   setLoggedIn: PropTypes.func,
+//   loggedIn: PropTypes.bool,
+//   currentUser: PropTypes.string
+// };
 
-LoginPage.defaultProps = {
-  setUserOfActivePage: {},
-  setCurrentUser: {},
-  toggleLogInStatus: {},
-  setLoggedIn: {},
-  loggedIn: false,
-  currentUser: ""
-};
+// LoginPage.defaultProps = {
+//   setUserOfActivePage: {},
+//   setCurrentUser: {},
+//   toggleLogInStatus: {},
+//   setLoggedIn: {},
+//   loggedIn: false,
+//   currentUser: ""
+// };
 
 export default LoginPage;

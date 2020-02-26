@@ -32,14 +32,14 @@ function AddPost({ currentUser, posting, setPosting }) {
   );
 }
 
-AddPost.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  setPosting: PropTypes.func
-};
+// AddPost.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   setPosting: PropTypes.func
+// };
 
-AddPost.defaultProps = {
-  currentUser: ""
-};
+// AddPost.defaultProps = {
+//   currentUser: ""
+// };
 
 export default AddPost;

@@ -3,11 +3,13 @@ import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
 import PostPage from "./pages/PostPage";
 import PostPageDetail from "./pages/PostPageDetail";
 import TimeLinePage from "./pages/TimeLinePage";
+import SearchPage from "./pages/SearchPage";
 import toTop from "./components/toTop";
 import LoginPage from "./pages/LoginPage";
 import { Global, css, jsx } from "@emotion/core";
 import checkStatus from "./apis/check";
 import "./App.css";
+import { getPosts } from "./apis/SearchPage";
 
 function App() {
   const [globalState, setGlobalState] = useState([]);
@@ -23,7 +25,18 @@ function App() {
 
   useEffect(() => {
     check();
+    getPostss()
   }, []);
+
+  const getPostss = async () => {
+    try {
+
+      const posts = await getPosts();
+      console.log(posts)
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
@@ -51,7 +64,7 @@ function App() {
               logout
             </button> */}
             <svg
-              width='24px'
+              width="24px"
               type="button"
               aria-hidden="true"
               focusable="false"
@@ -88,6 +101,9 @@ function App() {
               ></path>
             </svg>
           )}
+        </Link>
+        <Link to={`/SearchPage`}>
+          <button type="button">SearchButton</button>
         </Link>
         <Link
           to={`/${currentUser}`}
@@ -135,6 +151,17 @@ function App() {
             setLoggedIn={setLoggedIn}
           />
         </Route>
+        <Route exact path={`/SearchPage`}>
+          <SearchPage
+            globalState={globalState}
+            setGlobalState={setGlobalState}
+            userOfActivePage={userOfActivePage}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
+            setLoggedIn={setLoggedIn}
+            setCurrentUser={setCurrentUser}
+          />
+        </Route>
         <Route exact path={`/:user`}>
           <PostPage
             globalState={globalState}
@@ -146,7 +173,7 @@ function App() {
             setCurrentUser={setCurrentUser}
           />
         </Route>
-        <Route path={`/${userOfActivePage}/posting/:postingId`}>
+        <Route exact path={`/${userOfActivePage}/posting/:postingId`}>
           <PostPageDetail
             globalState={globalState}
             setGlobalState={setGlobalState}

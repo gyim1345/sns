@@ -16,7 +16,6 @@ function UserInfoHead({ user, info, setInfo, posting }) {
   useEffect(() => {
     userInfo();
   }, [posting]);
-
   return (
     <>
       <div css={[gridBoxForUserHead]}>
@@ -61,12 +60,12 @@ const location43 = css`
   grid-column-start: 4;
 `;
 
-UserInfoHead.propTypes = {
-  userOfActivePage: PropTypes.string
-};
+// UserInfoHead.propTypes = {
+//   userOfActivePage: PropTypes.string
+// };
 
-UserInfoHead.defaultProps = {
-  userOfActivePage: ""
-};
+// UserInfoHead.defaultProps = {
+//   userOfActivePage: ""
+// };
 
 export default UserInfoHead;

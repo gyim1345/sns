@@ -31,12 +31,15 @@ function Comment({
         <ul key={`comment${posting.id}${postings.id}`}>
           <div>
             <li css={[displayFlex]}>
-              {postings.isUnder && "ㄴ"}
+              {postings.isUnder && <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
               <div css={[fontBold]}>{postings.userName}</div>
               <div css={[wordBreak]}>{`: ${postings.title}`}</div>
             </li>
           </div>
           <div>
+            {postings.isUnder && (
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            )}
             {postings.userName === currentUser && (
               <ModalBoxComment
                 postings={postings}
@@ -76,25 +79,25 @@ const fontBold = css`
   font-weight: bold;
 `;
 
-Comment.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.exact({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    imageUrl: PropTypes.string,
-    userName: PropTypes.string,
-    like: PropTypes.arrayOf(PropTypes.string)
-  }),
-  comments: PropTypes.arrayOf(PropTypes.object),
-  commentAPI: PropTypes.oneOfType([PropTypes.array]),
-  setCommentAPI: PropTypes.elementType,
-  addComment: PropTypes.func
-};
+// Comment.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.exact({
+//     id: PropTypes.number,
+//     title: PropTypes.string,
+//     imageUrl: PropTypes.string,
+//     userName: PropTypes.string,
+//     like: PropTypes.arrayOf(PropTypes.string)
+//   }),
+//   comments: PropTypes.arrayOf(PropTypes.object),
+//   commentAPI: PropTypes.oneOfType([PropTypes.array]),
+//   setCommentAPI: PropTypes.elementType,
+//   addComment: PropTypes.func
+// };
 
-Comment.defaultProps = {
-  currentUser: "",
-  posting: [],
-  comments: {}
-};
+// Comment.defaultProps = {
+//   currentUser: "",
+//   posting: [],
+//   comments: {}
+// };
 
 export default Comment;

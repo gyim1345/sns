@@ -48,22 +48,22 @@ const margin1 = css`
 `;
 
 
-Like.propTypes = {
-  currentUser: PropTypes.string,
-  posting: PropTypes.exact({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    imageUrl: PropTypes.string,
-    userName: PropTypes.string,
-    like: PropTypes.arrayOf(PropTypes.string)
-  }),
-  postingAll: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  comments: PropTypes.arrayOf(PropTypes.object),
-  setPosting: PropTypes.elementType,
-  addComment: PropTypes.elementType,
-  onChangeComment: PropTypes.elementType,
-  commentAPI: PropTypes.oneOfType([PropTypes.array]),
-  setCommentAPI: PropTypes.elementType
-};
+// Like.propTypes = {
+//   currentUser: PropTypes.string,
+//   posting: PropTypes.exact({
+//     id: PropTypes.number,
+//     title: PropTypes.string,
+//     imageUrl: PropTypes.string,
+//     userName: PropTypes.string,
+//     like: PropTypes.arrayOf(PropTypes.string)
+//   }),
+//   postingAll: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   comments: PropTypes.arrayOf(PropTypes.object),
+//   setPosting: PropTypes.elementType,
+//   addComment: PropTypes.elementType,
+//   onChangeComment: PropTypes.elementType,
+//   commentAPI: PropTypes.oneOfType([PropTypes.array]),
+//   setCommentAPI: PropTypes.elementType
+// };
 
 export default Like;

@@ -79,25 +79,25 @@ const wrap = css`
   justify-content: center;
 `;
 
-PostingList.propTypes = {
-  userOfActivePage: PropTypes.string,
-  setUserOfActivePage: PropTypes.func,
-  currentUser: PropTypes.string,
-  sizeOfPicture: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  setPosting: PropTypes.elementType,
-  postingDetail: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  commentAPI: PropTypes.oneOfType([PropTypes.array]),
-  setCommentAPI: PropTypes.elementType
-};
+// PostingList.propTypes = {
+//   userOfActivePage: PropTypes.string,
+//   setUserOfActivePage: PropTypes.func,
+//   currentUser: PropTypes.string,
+//   sizeOfPicture: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+//   setPosting: PropTypes.elementType,
+//   postingDetail: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   commentAPI: PropTypes.oneOfType([PropTypes.array]),
+//   setCommentAPI: PropTypes.elementType
+// };
 
-PostingList.defaultProps = {
-  userOfActivePage: "",
-  setUserOfActivePage: "",
-  currentUser: "",
-  sizeOfPicture: 0,
-  postingDetail: undefined,
-  follower: [""]
-};
+// PostingList.defaultProps = {
+//   userOfActivePage: "",
+//   setUserOfActivePage: "",
+//   currentUser: "",
+//   sizeOfPicture: 0,
+//   postingDetail: undefined,
+//   follower: [""]
+// };
 
 export default PostingList;
