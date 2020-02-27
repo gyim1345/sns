@@ -49,13 +49,6 @@ const Login = ({
 
   return (
     <>
-      <button className="trigger">Click here to trigger the modal!</button>
-      <div className="modal">
-        <div className="modal-content">
-          <span className="close-button">&times;</span>
-          <h1>Hello, I am a modal!</h1>
-        </div>
-      </div>
       <div css={[box]}>
         <SNS> Bongstagram </SNS>
         <Global styles={GlobalStyles} />
@@ -64,15 +57,12 @@ const Login = ({
           css={[box]}
           className="LoginonSubmit"
         >
-          {/* <span>[Login] </span> */}
-          {/* <label>Id: </label> */}
           <input
             name="Id"
             defaultValue=""
             ref={register}
             placeholder="Login Id"
           />
-          {/* <label>password:</label> */}
           <input
             name="Password"
             defaultValue=""

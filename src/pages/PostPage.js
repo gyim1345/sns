@@ -7,6 +7,8 @@ import { getUserPostOnly } from "../apis/post";
 import { Global, css, jsx } from "@emotion/core";
 import { useParams } from "react-router-dom";
 import checkStatus from "../apis/check";
+import ModalBoxAdd from "../components/ModalBoxAdd";
+
 
 function PostPage({
   userOfActivePage,
@@ -44,13 +46,15 @@ function PostPage({
         posting={posting}
       />
       <div css={[flexCenterColumn]}>
-        <Addpost
+        {/* <Addpost
           posting={posting}
           setPosting={setPosting}
           currentUser={currentUser}
           info={info}
           setInfo={setInfo}
-        />
+        /> */}
+        <ModalBoxAdd currentUser={currentUser} />
+
         <PostingList
           posting={posting}
           setPosting={setPosting}

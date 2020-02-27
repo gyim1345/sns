@@ -25,14 +25,13 @@ function App() {
 
   useEffect(() => {
     check();
-    getPostss()
+    getPostss();
   }, []);
 
   const getPostss = async () => {
     try {
-
       const posts = await getPosts();
-      console.log(posts)
+      console.log(posts);
     } catch (e) {
       console.log(e);
     }
@@ -103,7 +102,7 @@ function App() {
           )}
         </Link>
         <Link to={`/SearchPage`}>
-          <button type="button">SearchButton</button>
+          {loggedIn && <button type="button">SearchButton</button>}
         </Link>
         <Link
           to={`/${currentUser}`}

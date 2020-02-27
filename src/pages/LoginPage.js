@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import { Global, css, jsx } from "@emotion/core";
+import FileUpload from "../components/FileUpload";
+import ModalBoxAdd from "../components/ModalBoxAdd";
 
 const LoginPage = ({
   setUserOfActivePage,

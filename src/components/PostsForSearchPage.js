@@ -15,23 +15,23 @@ import ModalBox from "./ModalBox";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
-function PostsForSearchPage({ posting, sizeOfPicture, setUserOfActivePage, userOfActivePage }) {
+function PostsForSearchPage({
+  posting,
+  sizeOfPicture,
+  setUserOfActivePage,
+  userOfActivePage
+}) {
   const changeUser = () => {
     setUserOfActivePage(posting.userName);
   };
   return (
     <>
-        <Link
-          to={`/${posting.userName}/posting/${posting.id}`}
-          onClick={changeUser}
-        >
-          <img
-            src={posting.imageUrl}
-            alt=""
-            width='250px'
-            height='200px'
-          />
-        </Link>
+      <Link
+        to={`/${posting.userName}/posting/${posting.id}`}
+        onClick={changeUser}
+      >
+        <img src={posting.imageUrl} alt="" width="250px" height="200px" />
+      </Link>
     </>
   );
 }
