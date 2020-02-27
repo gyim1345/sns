@@ -46,15 +46,11 @@ function PostPage({
         posting={posting}
       />
       <div css={[flexCenterColumn]}>
-        {/* <Addpost
+        <ModalBoxAdd
           posting={posting}
           setPosting={setPosting}
           currentUser={currentUser}
-          info={info}
-          setInfo={setInfo}
-        /> */}
-        <ModalBoxAdd currentUser={currentUser} />
-
+        />
         <PostingList
           posting={posting}
           setPosting={setPosting}

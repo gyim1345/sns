@@ -1,18 +1,15 @@
 import React, { Fragment, useState } from "react";
 import Message from "./Message";
-import Progress from "./Progress";
 import axios from "axios";
 import { css } from "@emotion/core";
 
-
-const FileUpload = () => {
+const FileUpload = ({ currentUser, posting, setPosting }) => {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
   const [message, setMessage] = useState("");
   const [imgURL, setImgURL] = useState("");
   const [input, setInput] = useState("");
   const [inputTag, setInputTag] = useState("");
-
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       setImgURL(URL.createObjectURL(event.target.files[0]));
@@ -40,15 +37,20 @@ const FileUpload = () => {
     formData.append("file", file);
     formData.append("input", input);
     formData.append("inputTag", inputTag);
+    formData.append("user", currentUser);
 
     try {
       console.log(formData);
-      const res = await axios.post("http://localhost:3000/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
+      const { data } = await axios.post(
+        "http://localhost:3000/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
         }
-      });
-
+      );
+      setPosting([...posting, data.posts]);
       setMessage("File Uploaded");
     } catch (err) {
       if (err.response.status === 500) {
@@ -58,6 +60,7 @@ const FileUpload = () => {
       }
     }
   };
+
 
   return (
     <Fragment>
@@ -70,9 +73,6 @@ const FileUpload = () => {
             id="customFile"
             onChange={onChange}
           />
-          {/* <label className="custom-file-label" htmlFor="customFile">
-            {filename}
-          </label> */}
         </div>
 
         {imgURL !== "" && (

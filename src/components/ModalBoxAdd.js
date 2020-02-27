@@ -1,10 +1,6 @@
 import Modal from "react-modal";
 import React from "react";
 import { css } from "@emotion/core";
-import ThreeRoundButton from "./threeRoundButton";
-import Edit from "./Edit";
-import Remove from "./Remove";
-import ModalAddPost from "./ModalAddpost";
 import FileUpload from "./FileUpload";
 
 function ModalBoxAdd({ posting, setPosting, currentUser, input }) {
@@ -15,7 +11,7 @@ function ModalBoxAdd({ posting, setPosting, currentUser, input }) {
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   return (
@@ -23,13 +19,15 @@ function ModalBoxAdd({ posting, setPosting, currentUser, input }) {
       <button onClick={openModal} css={[marginLeft0]}>
         AddBong
       </button>
-      {/* <ThreeRoundButton setIsOpen={setIsOpen} /> */}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <button onClick={closeModal} css={[marginLeft0]}>
           close
         </button>
-        {/* <ModalAddPost currentUser={currentUser} /> */}
-        <FileUpload />
+        <FileUpload
+          posting={posting}
+          setPosting={setPosting}
+          currentUser={currentUser}
+        />
       </Modal>
     </>
   );
