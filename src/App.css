@@ -4,7 +4,9 @@
   background-color: white;
   margin: -7px -8px 0px -8px;
   padding: 0px 0px 7px 0px;
-  border-bottom: solid;
+  /* border-bottom: solid;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.26);
+  border-color: lightgray; */
   display: flex;
     justify-content: space-evenly;
     font-family: 'Dancing Script';  

@@ -23,6 +23,11 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+    }
+  }
   // devServer: {
   //   inline: true,
   //   port: 8080,

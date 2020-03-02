@@ -5,6 +5,7 @@ import Login from "../components/Login";
 import { Global, css, jsx } from "@emotion/core";
 import FileUpload from "../components/FileUpload";
 import ModalBoxAdd from "../components/ModalBoxAdd";
+import Shit from "../indexx";
 
 const LoginPage = ({
   setUserOfActivePage,
@@ -23,6 +24,7 @@ const LoginPage = ({
         currentUser={currentUser}
       />
       <Register />
+      {/* <Shit /> */}
     </div>
   );
 };

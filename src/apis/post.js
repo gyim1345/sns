@@ -3,7 +3,14 @@ import axios from "axios";
 const TASKS_URL = "http://localhost:3000";
 
 export const getPosts = async () => {
-  const { data } = await axios.get(`${TASKS_URL}`);
+  const { data } = await axios.get(`${TASKS_URL}`, { withCredentials: true });
+  console.log(data);
+  return data;
+};
+
+export const logoutApi = async () => {
+  const { data } = await axios.post(`${TASKS_URL}/logout`);
+  console.log(data);
   return data;
 };
 

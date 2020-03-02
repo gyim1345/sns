@@ -40,7 +40,6 @@ const FileUpload = ({ currentUser, posting, setPosting }) => {
     formData.append("user", currentUser);
 
     try {
-      console.log(formData);
       const { data } = await axios.post(
         "http://localhost:3000/upload",
         formData,
@@ -60,7 +59,6 @@ const FileUpload = ({ currentUser, posting, setPosting }) => {
       }
     }
   };
-
 
   return (
     <Fragment>
@@ -83,7 +81,7 @@ const FileUpload = ({ currentUser, posting, setPosting }) => {
           />
         )}
         <div css={[inputInputTagUpload]}>
-          <input type="text" onChange={onChangeInput} placeholder="Title" />
+          <textarea type="text" onChange={onChangeInput} placeholder="Title" />
           <input type="text" onChange={onChangeTagInput} placeholder="Tag" />
           <input
             type="submit"
