@@ -11,6 +11,7 @@ export const checkStatus = async (currentUser, userOfActivePage) => {
     },
     { withCredentials: true }
   );
+  console.log(data)
   return data;
 };
 

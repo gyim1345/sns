@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { getChangeLike } from "../apis/post";
 import { Global, css, jsx } from "@emotion/core";
 
-const Like = ({ posting, setPosting, currentUser, postingAll }) => {
+const Like = ({ posting, setPosting, postingAll }) => {
   const changeLikeOnClick = async () => {
     try {
-      const response = await getChangeLike(posting, currentUser, postingAll);
+      const response = await getChangeLike(posting, postingAll);
       setPosting(response);
     } catch (e) {
       console.log(e);

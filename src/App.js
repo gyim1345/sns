@@ -6,10 +6,9 @@ import TimeLinePage from "./pages/TimeLinePage";
 import SearchPage from "./pages/SearchPage";
 import toTop from "./components/toTop";
 import LoginPage from "./pages/LoginPage";
-import { Global, css, jsx } from "@emotion/core";
+import { css } from "@emotion/core";
 import { checkStatus } from "./apis/check";
 import "./App.css";
-import { logoutApi } from "./apis/post";
 import { deleteLoginStatus } from "./apis/login";
 
 function App() {
@@ -19,19 +18,18 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const check = async () => {
-    const { response } = await checkStatus(currentUser, userOfActivePage);
-    setUserOfActivePage(response);
-    setCurrentUser(response);
+    const { currentUserAPI } = await checkStatus(currentUser, userOfActivePage);
+    setUserOfActivePage(currentUserAPI);
+    setCurrentUser(currentUserAPI);
   };
-console.log(document.cookie)
+  console.log(document.cookie);
   useEffect(() => {
     check();
   }, []);
 
   const loggingOut = async () => {
     try {
-      const posts = await deleteLoginStatus();
-      console.log(posts);
+      await deleteLoginStatus();
     } catch (e) {
       console.log(e);
     }
@@ -39,10 +37,6 @@ console.log(document.cookie)
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
-  };
-
-  const toggleLogInStatus = () => {
-    return loggedIn === false ? setLoggedIn(true) : setLoggedIn(false);
   };
 
   const logout = () => {
@@ -54,6 +48,7 @@ console.log(document.cookie)
       alert("logging out");
     }
   };
+
   return (
     <Router>
       <div css={[borderCss]}>
@@ -136,7 +131,6 @@ console.log(document.cookie)
             setUserOfActivePage={setUserOfActivePage}
             setCurrentUser={setCurrentUser}
             setLoggedIn={setLoggedIn}
-            toggleLogInStatus={toggleLogInStatus}
             loggedIn={loggedIn}
             currentUser={currentUser}
             setGlobalState={setGlobalState}

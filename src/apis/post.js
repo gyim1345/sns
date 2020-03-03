@@ -8,19 +8,25 @@ export const getPosts = async () => {
   return data;
 };
 
-export const logoutApi = async () => {
-  const { data } = await axios.post(`${TASKS_URL}/logout`);
-  console.log(data);
-  return data;
-};
+// export const logoutApi = async () => {
+//   const { data } = await axios.post(`${TASKS_URL}/logout`);
+//   console.log(data);
+//   return data;
+// };
 
-export const getUserTimeLinePosts = async user => {
-  const { data } = await axios.post(`${TASKS_URL}/TimeLine/${user}`, { user }, { withCredentials: true });
-  return data;
-};
+// export const getUserTimeLinePosts = async user => {
+//   const { data } = await axios.get(`${TASKS_URL}/TimeLine/${user}`, {
+//     withCredentials: true
+//   });
+//   return data;
+// };
 
 export const getUserPostOnly = async user => {
-  const { data } = await axios.post(`${TASKS_URL}/user`, { user });
+  const { data } = await axios.post(
+    `${TASKS_URL}/user`,
+    { user },
+    { withCredentials: true }
+  );
   return data;
 };
 
@@ -40,45 +46,57 @@ export const editPostAPI = async (
   user,
   indexOfCommentOnThisPosting
 ) => {
-  const { data } = await axios.patch(`${TASKS_URL}/posts/edit`, {
-    input,
-    posting,
-    user,
-    indexOfCommentOnThisPosting
-  });
+  const { data } = await axios.patch(
+    `${TASKS_URL}/posts/edit`,
+    {
+      input,
+      posting,
+      indexOfCommentOnThisPosting
+    },
+    { withCredentials: true }
+  );
   return data;
 };
 
 export const registerAPI = async (id, password) => {
-  const { data } = await axios.post(`${TASKS_URL}/posts/register`, { id, password });
-  return data;
-};
-
-export const getChangeLike = async (posting, currentUser, postingAll) => {
-  const { data } = await axios.patch(`${TASKS_URL}/posts/Like`, {
-    posting,
-    currentUser,
-    postingAll
+  const { data } = await axios.post(`${TASKS_URL}/posts/register`, {
+    id,
+    password
   });
   return data;
 };
 
-export const removePostApi = async (
-  posting,
-  user,
-  indexOfCommentOnThisPosting
-) => {
-  const { data } = await axios.patch(`${TASKS_URL}/posts/Remove`, {
-    posting,
-    user,
-    indexOfCommentOnThisPosting
-  });
+export const getChangeLike = async (posting, postingAll) => {
+  const { data } = await axios.patch(
+    `${TASKS_URL}/posts/Like`,
+    {
+      posting,
+      postingAll
+    },
+    { withCredentials: true }
+  );
+  return data;
+};
+
+export const removePostApi = async (posting, indexOfCommentOnThisPosting) => {
+  const { data } = await axios.patch(
+    `${TASKS_URL}/posts/Remove`,
+    {
+      posting,
+      indexOfCommentOnThisPosting
+    },
+    { withCredentials: true }
+  );
   return data;
 };
 
 export const getUserInfoAPI = async user => {
-  console.log(user)
-  const { data } = await axios.post(`${TASKS_URL}/user/Info`, { user }, { withCredentials: true });
-  console.log(data)
+  console.log("getuser info", user);
+  const { data } = await axios.post(
+    `${TASKS_URL}/user/Info`,
+    { user },
+    { withCredentials: true }
+  );
+  console.log(data);
   return data;
 };

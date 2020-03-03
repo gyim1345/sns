@@ -27,9 +27,9 @@ function PostPage({
     image: undefined
   });
   const getPostingOfCurrentUser = async () => {
-    const { response, activeUser } = await checkStatus(currentUser, user);
+    const { currentUserAPI } = await checkStatus(currentUser, user);
     setUserOfActivePage(user);
-    setCurrentUser(response);
+    setCurrentUser(currentUserAPI);
     const { posts } = await getUserPostOnly(user);
     setPosting(posts);
     setLoggedIn(true);

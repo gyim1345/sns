@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
-import { getUserTimeLinePosts } from "../apis/post";
+import { getUserTimeLinePosts } from "../apis/TimeLinePageApis";
 import { useParams } from "react-router-dom";
 import { checkStatus } from "../apis/check";
 
@@ -15,16 +15,21 @@ function TimeLinePage({
 }) {
   const sizeOfPicture = { width: "600px"};
   const [posting, setPosting] = useState([]);
+
   const getUserTimeLinePostsAPI = async () => {
-    const { response } = await checkStatus(currentUser);
-    setUserOfActivePage(response);
-    setCurrentUser(response);
-    const { posts } = await getUserTimeLinePosts(response);
+    console.log('tdhdfgdg')
+    const { currentUserAPI } = await checkStatus();
+    console.log('fuck timeline', currentUserAPI)
+    setUserOfActivePage(currentUserAPI);
+    setCurrentUser(currentUserAPI);
+    const { posts } = await getUserTimeLinePosts(currentUserAPI);
     setPosting(posts);
     setLoggedIn(true);
   };
   useEffect(() => {
     getUserTimeLinePostsAPI();
+    console.log('tdhdfgdg')
+
   }, []);
 
   return (

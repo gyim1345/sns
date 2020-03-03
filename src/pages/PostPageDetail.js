@@ -18,9 +18,9 @@ function PostPageDetail({
   const [posting, setPosting] = useState([]);
   const [commentAPI, setCommentAPI] = useState([]);
   const getPosting = async () => {
-    const { response } = await checkStatus(currentUser);
+    const { currentUserAPI } = await checkStatus(currentUser);
     // setUserOfActivePage(response);
-    setCurrentUser(response);
+    setCurrentUser(currentUserAPI);
     const { posts } = await getPostsFromId(postingId);
     setPosting([posts]);
     setLoggedIn(true);

@@ -26,8 +26,8 @@ module.exports = {
   devServer: {
     proxy: [
       {
-        context: ["/login", "/SearchPage", "/TimeLine"],
-        target: "http://localhost:3000/",
+        context: ["/login", "/SearchPage", "/TimeLine", "/:user"],
+        target: "http://localhost:3000",
         secure: false,
         changeOrigin: true
       }

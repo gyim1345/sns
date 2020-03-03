@@ -40,14 +40,12 @@ const Login = ({
 
   const checkLoggedIn = async () => {
     const response = await checkIfLoggedIn();
-    console.log(response)
     const { loggedIn, userName } = response;
     if (loggedIn === true) {
       setCurrentUser(userName);
       setUserOfActivePage(userName);
       setLoggedIn(true);
     }
-    console.log(response);
   };
 
   useEffect(() => {
