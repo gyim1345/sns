@@ -24,13 +24,18 @@ module.exports = {
     ]
   },
   devServer: {
-    proxy: {
-      '/api': 'http://localhost:3000',
-    }
+    proxy: [
+      {
+        context: ["/login", "/SearchPage", "/TimeLine"],
+        target: "http://localhost:3000/",
+        secure: false,
+        changeOrigin: true
+      }
+    ]
+    // devServer: {
+    //   inline: true,
+    //   port: 8080,
+    //   historyApiFallback: true
+    // }
   }
-  // devServer: {
-  //   inline: true,
-  //   port: 8080,
-  //   historyApiFallback: true
-  // }
 };

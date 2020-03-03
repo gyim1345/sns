@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import { getUserTimeLinePosts } from "../apis/post";
 import { useParams } from "react-router-dom";
-import checkStatus from "../apis/check";
+import { checkStatus } from "../apis/check";
 
 function TimeLinePage({
   setUserOfActivePage,

@@ -6,7 +6,7 @@ import UserInfoHead from "../components/UserInfoHead";
 import { getUserPostOnly } from "../apis/post";
 import { Global, css, jsx } from "@emotion/core";
 import { useParams } from "react-router-dom";
-import checkStatus from "../apis/check";
+import { checkStatus } from "../apis/check";
 import ModalBoxAdd from "../components/ModalBoxAdd";
 
 

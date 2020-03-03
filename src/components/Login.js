@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
@@ -6,6 +6,9 @@ import { setLoginAPI } from "../apis/login";
 import { Global, css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import "./components.css";
+import { checkStatus } from "../apis/check";
+import { checkIfLoggedIn } from "../apis/check";
+
 // import MyFont from "<path/to/font.woff>";
 // import { injectGlobal } from 'emotion'
 
@@ -34,6 +37,22 @@ const Login = ({
   currentUser
 }) => {
   const { register, handleSubmit, errors } = useForm();
+
+  const checkLoggedIn = async () => {
+    const response = await checkIfLoggedIn();
+    console.log(response)
+    const { loggedIn, userName } = response;
+    if (loggedIn === true) {
+      setCurrentUser(userName);
+      setUserOfActivePage(userName);
+      setLoggedIn(true);
+    }
+    console.log(response);
+  };
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
 
   const onSubmit = async data => {
     try {

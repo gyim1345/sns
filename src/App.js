@@ -7,10 +7,10 @@ import SearchPage from "./pages/SearchPage";
 import toTop from "./components/toTop";
 import LoginPage from "./pages/LoginPage";
 import { Global, css, jsx } from "@emotion/core";
-import checkStatus from "./apis/check";
+import { checkStatus } from "./apis/check";
 import "./App.css";
-import { getPosts } from "./apis/SearchPage";
 import { logoutApi } from "./apis/post";
+import { deleteLoginStatus } from "./apis/login";
 
 function App() {
   const [globalState, setGlobalState] = useState([]);
@@ -23,24 +23,14 @@ function App() {
     setUserOfActivePage(response);
     setCurrentUser(response);
   };
-
+console.log(document.cookie)
   useEffect(() => {
     check();
-    getPostss();
   }, []);
-
-  const getPostss = async () => {
-    try {
-      const posts = await getPosts();
-      console.log(posts);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   const loggingOut = async () => {
     try {
-      const posts = await logoutApi();
+      const posts = await deleteLoginStatus();
       console.log(posts);
     } catch (e) {
       console.log(e);

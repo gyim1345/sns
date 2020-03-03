@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { getPosts } from "../apis/SearchPage";
 import { Global, css, jsx } from "@emotion/core";
 import PostsForSearchPage from "../components/PostsForSearchPage";
-import checkStatus from "../apis/check";
+import { checkStatus } from "../apis/check";
 import { searchPosts } from "../apis/SearchPage";
 
 function SearchPage({

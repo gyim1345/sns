@@ -15,7 +15,7 @@ export const logoutApi = async () => {
 };
 
 export const getUserTimeLinePosts = async user => {
-  const { data } = await axios.post(`${TASKS_URL}/TimeLine/${user}`, { user });
+  const { data } = await axios.post(`${TASKS_URL}/TimeLine/${user}`, { user }, { withCredentials: true });
   return data;
 };
 
@@ -78,7 +78,7 @@ export const removePostApi = async (
 
 export const getUserInfoAPI = async user => {
   console.log(user)
-  const { data } = await axios.post(`${TASKS_URL}/user/Info`, { user });
+  const { data } = await axios.post(`${TASKS_URL}/user/Info`, { user }, { withCredentials: true });
   console.log(data)
   return data;
 };

@@ -1,13 +1,21 @@
 import axios from "axios";
 
-const TASKS_URL = "http://localhost:3000";
+const TASKS_URL = "http://localhost:3000/check";
 
-const checkStatus = async (currentUser, userOfActivePage) => {
-  const { data } = await axios.post(TASKS_URL, {
-    currentUser,
-    userOfActivePage
-  });
+export const checkStatus = async (currentUser, userOfActivePage) => {
+  const { data } = await axios.post(
+    TASKS_URL,
+    {
+      currentUser,
+      userOfActivePage
+    },
+    { withCredentials: true }
+  );
   return data;
 };
 
-export default checkStatus;
+export const checkIfLoggedIn = async () => {
+  const { data } = await axios.get(TASKS_URL, { withCredentials: true });
+  console.log(data)
+  return data;
+};

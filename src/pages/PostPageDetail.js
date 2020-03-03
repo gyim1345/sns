@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import PostingList from "../components/PostingList";
 import { getPostsFromId } from "../apis/post";
 import { getCommentFromIdAPI } from "../apis/comment";
-import checkStatus from "../apis/check";
+import { checkStatus } from "../apis/check";
 
 function PostPageDetail({
   userOfActivePage,
