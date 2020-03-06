@@ -66,12 +66,11 @@ export const registerAPI = async (id, password) => {
   return data;
 };
 
-export const getChangeLike = async (posting, postingAll) => {
+export const getChangeLike = async posting => {
   const { data } = await axios.patch(
     `${TASKS_URL}/posts/Like`,
     {
-      posting,
-      postingAll
+      posting
     },
     { withCredentials: true }
   );

@@ -46,9 +46,11 @@ const FileUpload = ({ currentUser, posting, setPosting }) => {
         {
           headers: {
             "Content-Type": "multipart/form-data"
-          }
+          },
+          withCredentials: true
         }
       );
+      console.log(data);
       setPosting([...posting, data.posts]);
       setMessage("File Uploaded");
     } catch (err) {

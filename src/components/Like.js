@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getChangeLike } from "../apis/post";
 import { Global, css, jsx } from "@emotion/core";
@@ -6,14 +6,16 @@ import { Global, css, jsx } from "@emotion/core";
 const Like = ({ posting, setPosting, postingAll }) => {
   const changeLikeOnClick = async () => {
     try {
-      const response = await getChangeLike(posting, postingAll);
-      setPosting(response);
+      const response = await getChangeLike(posting);
+      setPosting([response]);
+      const index = postingAll.findIndex(it => posting.id === it.id);
+      postingAll[index] = response;
+      setPosting(postingAll);
     } catch (e) {
       console.log(e);
     }
   };
 
-  // const [ post] = posting
   return (
     <>
       <svg
@@ -47,7 +49,6 @@ const margin1 = css`
   margin: -5px 0px 5px 5px;
   font-size: 10px;
 `;
-
 
 // Like.propTypes = {
 //   currentUser: PropTypes.string,
