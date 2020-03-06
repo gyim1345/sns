@@ -13,10 +13,12 @@ function Comment({
 }) {
   commentAPI.sort((a, b) => {
     return (
-      (Number.isInteger(a.isUnder) ? a.isUnder : a.id) -
-      (Number.isInteger(b.isUnder) ? b.isUnder : b.id)
+      (a.isUnder !== undefined ? a.isUnder : a.id) -
+      (b.isUnder !== undefined ? b.isUnder : b.id)
     );
-  }); 
+  });
+
+console.log(commentAPI);
   // 진짜 모르겠다. a 나 b 가 대댓글인지 isUnder이 값이 들어오는지 
   // 확인해서 들어오면(숫자로 들어오니 undefined 인지 확인 
   // 하는것보다 숫자인지 확인해서 들어오는지 확인) 

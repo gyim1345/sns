@@ -55,7 +55,7 @@ function Posting({
         >
           <img
             css={[imgCss]}
-            src={userStorage.getUserImage(posting.userName)}
+            src={"static/images/profilepicture.png"}
             alt=""
             width={35}
           />

@@ -22,7 +22,7 @@ function PostPageDetail({
     // setUserOfActivePage(response);
     setCurrentUser(currentUserAPI);
     const { posts } = await getPostsFromId(postingId);
-    setPosting([posts]);
+    setPosting(posts);
     setLoggedIn(true);
   };
   const getcommentAPI = async () => {

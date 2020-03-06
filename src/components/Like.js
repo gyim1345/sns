@@ -13,6 +13,7 @@ const Like = ({ posting, setPosting, postingAll }) => {
     }
   };
 
+  // const [ post] = posting
   return (
     <>
       <svg

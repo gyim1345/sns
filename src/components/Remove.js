@@ -16,7 +16,6 @@ function Remove({
     try {
       const response = await removePostApi(
         posting,
-        currentUser,
         indexOfCommentOnThisPosting
       );
       if (response.Message !== undefined) return alert(response.Message);

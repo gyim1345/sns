@@ -55,6 +55,7 @@ const Login = ({
   const onSubmit = async data => {
     try {
       const response = await setLoginAPI(data);
+      console.log(response)
       alert(response.statusMessage);
       response.loginStatus &&
         (setCurrentUser(data.Id), setUserOfActivePage(data.Id));

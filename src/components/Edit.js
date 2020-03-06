@@ -24,10 +24,11 @@ function Edit({
         currentUser,
         indexOfCommentOnThisPosting
       );
+      console.log(response)
       response.Message !== undefined
         ? alert(response.Message)
         : indexOfCommentOnThisPosting === undefined
-        ? setPosting([response])
+        ? setPosting(response)
         : setCommentAPI(response);
     } catch (e) {
       console.log(e);

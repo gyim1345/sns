@@ -9,7 +9,7 @@ export const setLoginAPI = async ({ Id, Password }) => {
     { Id, Password },
     { withCredentials: true }
   );
-  console.log(data);
+  console.log('asdasd', data);
   return data;
 };
 
