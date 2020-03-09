@@ -23,6 +23,7 @@ function TimeLinePage({
     setUserOfActivePage(currentUserAPI);
     setCurrentUser(currentUserAPI);
     const { posts } = await getUserTimeLinePosts(currentUserAPI);
+    console.log(posts)
     setPosting(posts);
     setLoggedIn(true);
   };
