@@ -72,6 +72,9 @@ const inputBarCss = css`
 `;
 
 const PostsForSearchPageCss = css`
+justify-content: center;
+  top: 70px;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 `;

@@ -4,6 +4,7 @@ import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
 import { addCommentForPost } from "../apis/comment";
 import { Global, css, jsx } from "@emotion/core";
+import UserInfo from "./UserInfo";
 
 function PostingList({
   posting,
@@ -50,7 +51,7 @@ function PostingList({
       <div css={[wrap]}>
         {posting !== undefined &&
           posting.map(posting1 => (
-            <ul key={posting1.id}>
+            <ul key={posting1.id} style={{ marginTop: "90px", marginBottom: "-20px" }} >
               <Posting
                 posting={posting1}
                 postingAll={posting}
@@ -76,7 +77,9 @@ function PostingList({
 const wrap = css`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-content: center;
 `;
 
 // PostingList.propTypes = {

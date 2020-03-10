@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { css } from "@emotion/core";
 import PostingList from "../components/PostingList";
 import { getUserTimeLinePosts } from "../apis/TimeLinePageApis";
 import { useParams } from "react-router-dom";
 import { checkStatus } from "../apis/check";
-
+import UserInfo from "../components/UserInfo";
+import { Time } from "glamorous";
 function TimeLinePage({
   setUserOfActivePage,
   currentUser,
@@ -13,24 +15,23 @@ function TimeLinePage({
   setLoggedIn,
   userOfActivePage
 }) {
-  const sizeOfPicture = { width: "600px"};
+  const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
 
   const getUserTimeLinePostsAPI = async () => {
-    console.log('tdhdfgdg')
+    console.log("tdhdfgdg");
     const { currentUserAPI } = await checkStatus();
-    console.log('fuck timeline', currentUserAPI)
+    console.log("fuck timeline", currentUserAPI);
     setUserOfActivePage(currentUserAPI);
     setCurrentUser(currentUserAPI);
     const { posts } = await getUserTimeLinePosts(currentUserAPI);
-    console.log(posts)
+    console.log(posts);
     setPosting(posts);
     setLoggedIn(true);
   };
   useEffect(() => {
     getUserTimeLinePostsAPI();
-    console.log('tdhdfgdg')
-
+    console.log("tdhdfgdg");
   }, []);
 
   return (
@@ -38,20 +39,29 @@ function TimeLinePage({
       {/* {postingStorage.getuserPosts(currentUser)[0] === undefined ? (
         <li>Go to Your user home and add some stuff RIGHT NOW!</li>
       ) : ( */}
-      <div>
-        <PostingList
-          posting={posting}
-          setPosting={setPosting}
-          sizeOfPicture={sizeOfPicture}
-          userOfActivePage={currentUser}
-          setUserOfActivePage={setUserOfActivePage}
-          currentUser={currentUser}
-        />
+      <div css={[timeLineCss]}>
+        <div>
+          <PostingList
+            posting={posting}
+            setPosting={setPosting}
+            sizeOfPicture={sizeOfPicture}
+            userOfActivePage={currentUser}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
+          />
+        </div>
+        <UserInfo user={currentUser} posting={posting} />
       </div>
       {/* )} */}
     </>
   );
 }
+
+const timeLineCss = css`
+  margin-left: -300px;
+  display: flex;
+  justify-content: center;
+`
 
 // TimeLinePage.propTypes = {
 //   setUserOfActivePage: PropTypes.func,

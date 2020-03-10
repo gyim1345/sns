@@ -45,22 +45,32 @@ function Posting({
   return (
     <>
       <h1 css={[h1]}>
-        <Link
-          to={`/${posting.userName}`}
-          css={[fuck]}
-          onClick={() => {
-            changeUser();
-            toTop();
-          }}
-        >
+        <div css={[leftElement]}>
           <img
             css={[imgCss]}
-            src={"static/images/profilepicture.png"}
+            src={"static/images/user1.png"}
             alt=""
             width={35}
           />
-          <div css={[nameSize]}>{posting.userName}</div>
-        </Link>
+          <div css={[nameSize]}>
+            <Link
+              to={`/${posting.userName}`}
+              css={[fuck]}
+              onClick={() => {
+                changeUser();
+                toTop();
+              }}
+            >
+              {posting.userName}
+            </Link>
+          </div>
+        </div>
+        <ModalBox
+          posting={posting}
+          setPosting={setPosting}
+          currentUser={currentUser}
+          editInput={input}
+        />
       </h1>
       <div css={[title]}>
         <Link to={`/${userOfActivePage}/posting/${posting.id}`} onClick={toTop}>
@@ -71,23 +81,18 @@ function Posting({
             height={sizeOfPicture.height}
           />
         </Link>
-        <div css={[wordBreak]}>{posting.title}</div>
-
-        <div>
-          <ModalBox
+        <div css={[postingButtons]}>
+          <Like
             posting={posting}
-            setPosting={setPosting}
             currentUser={currentUser}
-            editInput={input}
+            setPosting={setPosting}
+            postingAll={postingAll}
           />
         </div>
-
-        <Like
-          posting={posting}
-          currentUser={currentUser}
-          setPosting={setPosting}
-          postingAll={postingAll}
-        />
+        <div css={[displayFlex]}>
+        <div css={[postUserNameBold]}> {posting.userName}</div>
+        <div css={[wordBreak]}>{posting.title}</div>
+        </div>
         <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
           <Comment
             posting={posting}
@@ -112,31 +117,77 @@ function Posting({
   );
 }
 
+const displayFlex = css`
+  display: flex;
+  margin-left: 16px;
+
+`
+
+const postUserNameBold = css`
+  font-weight: bold;
+  `
+
+const leftElement = css`
+  display: flex;
+`;
+
 const wordBreak = css`
   word-break: break-all;
+  margin-left: 6px;
+  margin-bottom: 16px;
 `;
 
 const nameSize = css`
   font-size: 18px;
+  margin-left: 16px;
 `;
 
 const fuck = css`
   text-decoration: none;
-  display: grid;
-  grid-template-columns: 10% 15% 75%;
-  padding: 0px 0px 10px 0px;
+  font-size: 14px;
+  color: black;
+  align-items: center;
   justify-items: center;
   align-items: center;
 `;
+
+// const fuck = css`
+//   text-decoration: none;
+//   display: grid;
+//   grid-template-columns: 10% 15% 75%;
+//   padding: 0px 0px 10px 0px;
+//   justify-items: center;
+//   align-items: center;
+// `;
+
 const h1 = css`
+  display: flex;
   border-top: solid 1px;
-  width: 580px;
   border-left: solid 1px;
   border-right: solid 1px;
   background-color: white;
   border-color: lightgrey;
-  padding: 5px 15px 0px 5px;
-  margin: 0px 0px -5px 0px;
+  padding: 12px 12px 12px 12px;
+  margin: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 575px;
+`;
+
+// const h1 = css`
+//   border-top: solid 1px;
+//   width: 580px;
+//   border-left: solid 1px;
+//   border-right: solid 1px;
+//   background-color: white;
+//   border-color: lightgrey;
+//   padding: 5px 15px 0px 5px;
+//   margin: 0px 0px -5px 0px;
+// `;
+const postingButtons = css`
+  display: flex;
+  margin-top: 4px;
+  justify-content: space-between;
 `;
 const imgCss = css`
   border-radius: 50%;

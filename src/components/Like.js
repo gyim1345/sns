@@ -17,16 +17,15 @@ const Like = ({ posting, setPosting, postingAll }) => {
   };
 
   return (
-    <>
+    <div>
       <svg
+        style={{ marginLeft: "16px", marginBottom: "5px" }}
         type="button"
         onClick={changeLikeOnClick}
         id="increaseLikeSvg"
         viewBox="0 0 50 50"
-        width="15"
-        heigth="15"
-        margin-left="5px"
-        css={[marginLeft5px]}
+        width="20"
+        heigth="20"
       >
         <path
           className="heart"
@@ -34,20 +33,23 @@ const Like = ({ posting, setPosting, postingAll }) => {
         />
       </svg>
       <div css={[margin1]}>
-        Like:
+        좋아요 &nbsp;
         {posting.like.length}
+        개
       </div>
-    </>
+    </div>
   );
 };
 
 const marginLeft5px = css`
   margin-left: 5px;
+
 `;
 
 const margin1 = css`
-  margin: -5px 0px 5px 5px;
-  font-size: 10px;
+  margin: -5px 0px 5px 16px;
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 // Like.propTypes = {
