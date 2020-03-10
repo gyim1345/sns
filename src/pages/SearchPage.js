@@ -16,6 +16,7 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
   const onSearch = async () => {
     try {
       const response = await searchPosts(input);
+      console.log(response);
       setPosting(response);
     } catch (e) {
       console.log(e);
@@ -36,6 +37,18 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
     getPostss();
   }, []);
 
+  let postingByThree = posting
+    .map(
+      (element, index) =>
+        (element = [
+          posting[index * 3 + 0],
+          posting[index * 3 + 1],
+          posting[index * 3 + 2]
+        ])
+    )
+    .slice(0, Math.ceil(posting.length / 3))
+    .map(x => x.filter(y => y !== undefined));
+
   return (
     <>
       <div css={[inputBarCss]}>
@@ -50,14 +63,20 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
         </button>
       </div>
       <div css={[PostsForSearchPageCss]}>
-        {posting.map((posting, i) => (
+        {postingByThree.map((posting, i) => (
           <ul key={`searchPage${i}`}>
-            <PostsForSearchPage
-              posting={posting}
-              sizeOfPicture={sizeOfPicture}
-              userOfActivePage={currentUser}
-              setUserOfActivePage={setUserOfActivePage}
-            />
+            <div css={[postingByThreeCss]}>
+              {posting.map((post, j) => (
+                <ul key={`searchPage${i * 3 + j}`}>
+                  <PostsForSearchPage
+                    posting={post}
+                    sizeOfPicture={sizeOfPicture}
+                    userOfActivePage={currentUser}
+                    setUserOfActivePage={setUserOfActivePage}
+                  />
+                </ul>
+              ))}
+            </div>
           </ul>
         ))}
       </div>
@@ -65,17 +84,25 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
   );
 }
 
+const postingByThreeCss = css`
+  display: flex;
+  margin-bottom: 5px;
+`;
 const inputBarCss = css`
+  top: 70px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 const PostsForSearchPageCss = css`
-justify-content: center;
-  top: 70px;
+  justify-content: center;
+  top: 85px;
+  flex-direction: column;
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  align-content: center;
 `;
 export default SearchPage;
