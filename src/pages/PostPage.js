@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import { checkStatus } from "../apis/check";
 import ModalBoxAdd from "../components/ModalBoxAdd";
 
-
 function PostPage({
   userOfActivePage,
   setUserOfActivePage,
@@ -17,7 +16,7 @@ function PostPage({
   setLoggedIn,
   setCurrentUser
 }) {
-  const sizeOfPicture = { width: "600px"};
+  const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
   const { user } = useParams();
   const [info, setInfo] = useState({
@@ -39,30 +38,37 @@ function PostPage({
   }, [user]);
   return (
     <>
-      <UserInfoHead
-        user={user}
-        info={info}
-        setInfo={setInfo}
-        posting={posting}
-      />
-      <div css={[flexCenterColumn]}>
-        <ModalBoxAdd
+      <div css={[postPageCss]}>
+        <UserInfoHead
+          user={user}
+          info={info}
+          setInfo={setInfo}
           posting={posting}
-          setPosting={setPosting}
-          currentUser={currentUser}
         />
-        <PostingList
-          posting={posting}
-          setPosting={setPosting}
-          sizeOfPicture={sizeOfPicture}
-          userOfActivePage={userOfActivePage}
-          setUserOfActivePage={setUserOfActivePage}
-          currentUser={currentUser}
-        />
+        <div css={[flexCenterColumn]}>
+          <ModalBoxAdd
+            posting={posting}
+            setPosting={setPosting}
+            currentUser={currentUser}
+          />
+          <PostingList
+            posting={posting}
+            setPosting={setPosting}
+            sizeOfPicture={sizeOfPicture}
+            userOfActivePage={userOfActivePage}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
+          />
+        </div>
       </div>
     </>
   );
 }
+
+const postPageCss = css`
+position: relative;
+top: 100px;
+`
 
 const flexCenterColumn = css`
   display: flex;

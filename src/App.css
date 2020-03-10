@@ -14,12 +14,18 @@
   align-items: baseline;
   width: 100%;
   position: fixed;
+  z-index: 1;
 };
 
 .cssTopWord {
     @extend .cssTop;
       font-family: 'Dancing Script';
 }
+
+ul { 
+  padding-left:5px; 
+  margin: 0px;
+} 
 
 @font-face {
     font-family: 'Dancing Script';
