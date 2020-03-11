@@ -31,7 +31,7 @@ function UserInfoHead({ user, info, setInfo, posting }) {
         <div css={[textArea]}>
           <div css={[row1]}>
             <span css={[location23]}> {info.user} </span>
-            <button css={[button]}>dasdasd</button>
+            <button css={[button]}>메시지 보내기</button>
           </div>
           <div css={[row2]}>
             <span css={[location33]}> 게시물 <span style={{fontWeight:'bold'}}>{info.postNumber}</span></span>
@@ -80,6 +80,8 @@ const imageBox = css`
 const row1 = css`
   display: flex;
   margin-bottom: 20px;
+  align-items: center;
+
 `;
 
 const row2 = css`
@@ -109,7 +111,7 @@ const location33 = css`
 `;
 
 const location23 = css`
-  margin-right: 40px;
+  margin-right: 25px;
   font-size: 28px;
 `;
 
