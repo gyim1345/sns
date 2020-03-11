@@ -187,6 +187,7 @@ const nameAndPicture = css`
   display: flex;
   align-items: center;
   margin-bottom: 18px;
+  padding-left: 5px;
 `;
 const gridBoxForUser = css`
   display: flex;
