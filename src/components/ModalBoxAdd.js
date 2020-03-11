@@ -52,6 +52,11 @@ const modalCss = css`
 
 const marginLeft0 = css`
   margin-left: 0px;
+  background-color: transparent;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
 export default ModalBoxAdd;

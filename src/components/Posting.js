@@ -10,8 +10,10 @@ import Like from "./Like";
 import { Global, css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import Modal from "react-modal";
-
+import PostCommentButton from "./PostCommentButton";
+import DirectMessage from "./DirectMessage.js";
 import ModalBox from "./ModalBox";
+import ScrapButton from "./ScrapButton"
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
@@ -81,17 +83,25 @@ function Posting({
             height={sizeOfPicture.height}
           />
         </Link>
-        <div css={[postingButtons]}>
+        <div
+          css={[postingButtons]}
+          style={{
+            position: "relative"
+          }}
+        >
           <Like
             posting={posting}
             currentUser={currentUser}
             setPosting={setPosting}
             postingAll={postingAll}
           />
+          <PostCommentButton />
+          <DirectMessage />
+          <ScrapButton />
         </div>
         <div css={[displayFlex]}>
-        <div css={[postUserNameBold]}> {posting.userName}</div>
-        <div css={[wordBreak]}>{posting.title}</div>
+          <div css={[postUserNameBold]}> {posting.userName}</div>
+          <div css={[wordBreak]}>{posting.title}</div>
         </div>
         <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
           <Comment
@@ -120,12 +130,11 @@ function Posting({
 const displayFlex = css`
   display: flex;
   margin-left: 16px;
-
-`
+`;
 
 const postUserNameBold = css`
   font-weight: bold;
-  `
+`;
 
 const leftElement = css`
   display: flex;
@@ -187,7 +196,7 @@ const h1 = css`
 const postingButtons = css`
   display: flex;
   margin-top: 4px;
-  justify-content: space-between;
+  margin-bottom: 24px;
 `;
 const imgCss = css`
   border-radius: 50%;
