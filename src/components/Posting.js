@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { Link, Route } from "react-router-dom";
 import Comment from "./Comment";
-import Remove from "./Remove";
-import Edit from "./Edit";
-import userStorage from "../stores/userStore";
 import toTop from "./toTop";
 import Like from "./Like";
-import { Global, css, jsx } from "@emotion/core";
-import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import Modal from "react-modal";
 import PostCommentButton from "./PostCommentButton";
-import DirectMessage from "./DirectMessage.js";
+import DirectMessage from "../svgIcons/DirectMessage.js";
 import ModalBox from "./ModalBox";
-import ScrapButton from "./ScrapButton"
+import ScrapButton from "../svgIcons/ScrapButton"
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
@@ -56,7 +51,7 @@ function Posting({
           />
           <div css={[nameSize]}>
             <Link
-              to={`/${posting.userName}`}
+              to={`/profile/${posting.userName}`}
               css={[fuck]}
               onClick={() => {
                 changeUser();

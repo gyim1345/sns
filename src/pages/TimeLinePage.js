@@ -1,19 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { css } from "@emotion/core";
 import PostingList from "../components/PostingList";
 import { getUserTimeLinePosts } from "../apis/TimeLinePageApis";
-import { useParams } from "react-router-dom";
 import { checkStatus } from "../apis/check";
 import UserInfo from "../components/UserInfo";
-import { Time } from "glamorous";
 function TimeLinePage({
   setUserOfActivePage,
   currentUser,
   setCurrentUser,
-  setLoggedIn,
-  userOfActivePage
+  setLoggedIn
 }) {
   const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
@@ -36,9 +32,6 @@ function TimeLinePage({
 
   return (
     <>
-      {/* {postingStorage.getuserPosts(currentUser)[0] === undefined ? (
-        <li>Go to Your user home and add some stuff RIGHT NOW!</li>
-      ) : ( */}
       <div css={[timeLineCss]}>
         <div>
           <PostingList
@@ -61,7 +54,7 @@ const timeLineCss = css`
   margin-left: -300px;
   display: flex;
   justify-content: center;
-`
+`;
 
 // TimeLinePage.propTypes = {
 //   setUserOfActivePage: PropTypes.func,

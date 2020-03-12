@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import { setLoginAPI } from "../apis/login";
-import { Global, css, jsx } from "@emotion/core";
+import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 import "./components.css";
-import { checkStatus } from "../apis/check";
 import { checkIfLoggedIn } from "../apis/check";
 
 // import MyFont from "<path/to/font.woff>";
@@ -23,10 +21,6 @@ const GlobalStyles = css`
 const SNS = styled.h1`
   font-family: "Dancing Script";
   font-size: -webkit-xxx-large;
-`;
-
-const FromLocal = styled.h1`
-  font-family: "Local Font";
 `;
 
 const Login = ({
@@ -55,7 +49,7 @@ const Login = ({
   const onSubmit = async data => {
     try {
       const response = await setLoginAPI(data);
-      console.log(response)
+      console.log(response);
       alert(response.statusMessage);
       response.loginStatus &&
         (setCurrentUser(data.Id), setUserOfActivePage(data.Id));

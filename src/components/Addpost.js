@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { addPostAPI } from "../apis/post";
 import { useParams } from "react-router-dom";
 

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
 import { addCommentForPost } from "../apis/comment";
-import { Global, css, jsx } from "@emotion/core";
-import UserInfo from "./UserInfo";
+import { css } from "@emotion/core";
 
 function PostingList({
   posting,
@@ -51,7 +49,10 @@ function PostingList({
       <div css={[wrap]}>
         {posting !== undefined &&
           posting.map(posting1 => (
-            <ul key={posting1.id} style={{ marginTop: "90px", marginBottom: "-20px" }} >
+            <ul
+              key={posting1.id}
+              style={{ marginTop: "90px", marginBottom: "-20px" }}
+            >
               <Posting
                 posting={posting1}
                 postingAll={posting}

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { removePostApi } from "../apis/post";
-import PropTypes from "prop-types";
-import { Global, css, jsx } from "@emotion/core";
+import { css } from "@emotion/core";
 
 function Remove({
   posting,

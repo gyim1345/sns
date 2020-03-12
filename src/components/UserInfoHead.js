@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect } from "react";
 import { getUserInfoAPI } from "../apis/post";
-import { Global, css, jsx } from "@emotion/core";
+import { css } from "@emotion/core";
 
 function UserInfoHead({ user, info, setInfo, posting }) {
   const userInfo = async () => {
@@ -34,9 +33,20 @@ function UserInfoHead({ user, info, setInfo, posting }) {
             <button css={[button]}>메시지 보내기</button>
           </div>
           <div css={[row2]}>
-            <span css={[location33]}> 게시물 <span style={{fontWeight:'bold'}}>{info.postNumber}</span></span>
-            <span css={[location43]}> 팔로우  <span style={{fontWeight:'bold'}}>{info.followerNumber}</span></span>
-            <span css={[location43]}> 팔로워 <span style={{fontWeight:'bold'}}>999,999,999</span></span>
+            <span css={[location33]}>
+              {" "}
+              게시물{" "}
+              <span style={{ fontWeight: "bold" }}>{info.postNumber}</span>
+            </span>
+            <span css={[location43]}>
+              {" "}
+              팔로우{" "}
+              <span style={{ fontWeight: "bold" }}>{info.followerNumber}</span>
+            </span>
+            <span css={[location43]}>
+              {" "}
+              팔로워 <span style={{ fontWeight: "bold" }}>999,999,999</span>
+            </span>
           </div>
           <div css={[row3]}>
             <span css={[row3Name]}>임기봉</span>
@@ -49,27 +59,27 @@ function UserInfoHead({ user, info, setInfo, posting }) {
 }
 
 const button = css`
-background-color: transparent;
-border: 1px solid rgba(var(--d0b,219,219,219),1);
-color: rgba(var(--f07,38,38,38),1);
-padding: 0px 12px;
+  background-color: transparent;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  padding: 0px 12px;
 `;
 
 const introductory = css`
-margin-bottom: 5px;
-`
+  margin-bottom: 5px;
+`;
 
 const row3Name = css`
   font-weight: bold;
   margin-bottom: 5px;
-`
+`;
 
 const textArea = css`
   width: 600px;
   margin-top: -15px;
   padding-left: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-  Arial, sans-serif;
+    Arial, sans-serif;
 `;
 
 const imageBox = css`
@@ -81,7 +91,6 @@ const row1 = css`
   display: flex;
   margin-bottom: 20px;
   align-items: center;
-
 `;
 
 const row2 = css`

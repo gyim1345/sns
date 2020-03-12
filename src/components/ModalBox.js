@@ -1,12 +1,11 @@
 import Modal from "react-modal";
 import React from "react";
 import { css } from "@emotion/core";
-import ThreeRoundButton from "./threeRoundButton";
+import ThreeRoundButton from "../svgIcons/threeRoundButton";
 import Edit from "./Edit";
 import Remove from "./Remove";
 
 function ModalBox({ posting, setPosting, currentUser, input }) {
-
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function closeModal() {

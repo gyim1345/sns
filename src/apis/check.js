@@ -11,12 +11,10 @@ export const checkStatus = async (currentUser, userOfActivePage) => {
     },
     { withCredentials: true }
   );
-  console.log(data)
   return data;
 };
 
 export const checkIfLoggedIn = async () => {
   const { data } = await axios.get(TASKS_URL, { withCredentials: true });
-  console.log(data)
   return data;
 };

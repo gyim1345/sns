@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import PostingList from "../components/PostingList";
-import Addpost from "../components/Addpost";
 import UserInfoHead from "../components/UserInfoHead";
 import { getUserPostOnly } from "../apis/post";
-import { Global, css, jsx } from "@emotion/core";
+import { css } from "@emotion/core";
 import { useParams } from "react-router-dom";
 import { checkStatus } from "../apis/check";
 import ModalBoxAdd from "../components/ModalBoxAdd";
-
+import PostsForPostPage from "../components/PostsForPostPage";
 function PostPage({
-  userOfActivePage,
   setUserOfActivePage,
   currentUser,
   setLoggedIn,
   setCurrentUser
 }) {
-  const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
   const { user } = useParams();
   const [info, setInfo] = useState({
@@ -51,11 +46,8 @@ function PostPage({
             setPosting={setPosting}
             currentUser={currentUser}
           />
-          <PostingList
+          <PostsForPostPage
             posting={posting}
-            setPosting={setPosting}
-            sizeOfPicture={sizeOfPicture}
-            userOfActivePage={userOfActivePage}
             setUserOfActivePage={setUserOfActivePage}
             currentUser={currentUser}
           />
@@ -66,9 +58,9 @@ function PostPage({
 }
 
 const postPageCss = css`
-position: relative;
-top: 100px;
-`
+  position: relative;
+  top: 100px;
+`;
 
 const flexCenterColumn = css`
   display: flex;
@@ -81,16 +73,14 @@ const flexCenterColumn = css`
 //   userOfActivePage: PropTypes.string,
 //   setUserOfActivePage: PropTypes.func,
 //   currentUser: PropTypes.string,
-//   globalState: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
-//   setGlobalState: PropTypes.elementType
+
 // };
 
 // PostPage.defaultProps = {
 //   user: "",
 //   setUserOfActivePage: {},
 //   currentUser: "",
-//   globalState: [],
-//   setGlobalState: ""
+
 // };
 
 export default PostPage;

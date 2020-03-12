@@ -20,7 +20,7 @@ function ModalBoxAdd({ posting, setPosting, currentUser, input }) {
         AddBong
       </button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
-        <button onClick={closeModal} css={[marginLeft0]}>
+        <button onClick={closeModal} css={[marginLeft0]} style={{ margin: 0 }}>
           close
         </button>
         <FileUpload

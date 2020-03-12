@@ -1,8 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { registerAPI } from "../apis/post";
-import { Global, css, jsx } from "@emotion/core";
-import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { editPostAPI } from "../apis/post";
-import PropTypes from "prop-types";
 
 function Edit({
   posting,

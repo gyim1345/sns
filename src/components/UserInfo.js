@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { getUserInfoAPI } from "../apis/post";
-import { Global, css, jsx } from "@emotion/core";
+import { css } from "@emotion/core";
 
-function UserInfo({ user, posting }) {
+function UserInfo({ user }) {
   const [info, setInfo] = useState("");
   const userInfo = async () => {
     try {
@@ -34,11 +33,15 @@ function UserInfo({ user, posting }) {
           </div>
           <span css={[story]}>
             스토리
-          <span
-              style={{ marginTop: "10px", marginBottom: "4px", fontWeight: 350 }}
+            <span
+              style={{
+                marginTop: "10px",
+                marginBottom: "4px",
+                fontWeight: 350
+              }}
             >
               회원님이 팔로우하는 사람들의 스토리가 여기에 표시 안됩니다.
-          </span>
+            </span>
           </span>
           <div css={[friends]}>
             <span css={[friendsTitle]}>회원님을 위한 추천</span>
@@ -97,7 +100,7 @@ function UserInfo({ user, posting }) {
           </div>
           <div css={[dunnoText]}>
             소개-도움말-홍보센터-API-채용정보-개인정보처리방침-약관-위치-인기계정-해시태그-언어
-        </div>
+          </div>
           <div css={[dunnoText]}>© 2020 BONGSTAGRAM</div>
         </div>
       </div>

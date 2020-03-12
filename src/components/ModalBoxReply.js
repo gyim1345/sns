@@ -2,8 +2,6 @@ import Modal from "react-modal";
 import React from "react";
 import { css } from "@emotion/core";
 import CommentSvg from "./CommentSvg";
-import Edit from "./Edit";
-import Remove from "./Remove";
 import Reply from "./Reply";
 
 function ModalBoxReply({
@@ -11,7 +9,6 @@ function ModalBoxReply({
   indexOfCommentOnThisPosting,
   postings,
   currentUser,
-  setCommentAPI,
   addComment
 }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
