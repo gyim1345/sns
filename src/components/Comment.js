@@ -17,15 +17,6 @@ function Comment({
     );
   });
 
-console.log(commentAPI);
-  // 진짜 모르겠다. a 나 b 가 대댓글인지 isUnder이 값이 들어오는지 
-  // 확인해서 들어오면(숫자로 들어오니 undefined 인지 확인 
-  // 하는것보다 숫자인지 확인해서 들어오는지 확인) 
-  // 그 isUnder인 대댓글의 해당 댓글의 id를 반환해서 
-  // 쓰고 그냥 댓글이면 그냥 id 값을 써서 sorting을 하게 된다.
-  // 대댓글도 그냥 댓글로 취급해서 같은 store 에 저장되어 있다.
-  // 단지 isUnder이라는 속성에 부모, 즉 해당 댓글의 id 가 들어가게 된다.
-
   return (
     <>
       {commentAPI.map((postings, i) => (

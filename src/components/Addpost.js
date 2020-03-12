@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { addPostAPI } from "../apis/post";
 import { useParams } from "react-router-dom";
 
-
 function AddPost({ currentUser, posting, setPosting }) {
   const [input, setInput] = useState("");
   const { user } = useParams();

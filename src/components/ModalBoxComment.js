@@ -37,7 +37,6 @@ function ModalBoxComment({
             indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
             setCommentAPI={setCommentAPI}
           />
-
         </div>
       </Modal>
     </>
