@@ -12,3 +12,11 @@ export const getUserTimeLinePosts = async user => {
   );
   return data;
 };
+
+export const getRandomUser = async () => {
+  const { data } = await axios.get(`${TASKS_URL}/TimeLine/randomUser`, {
+    withCredentials: true
+  });
+  console.log('aaaaaaaaaaaaaaaaaaaaa', data);
+  return data;
+};

@@ -3,6 +3,7 @@ import { getPosts } from "../apis/SearchPage";
 import { css } from "@emotion/core";
 import PostsForSearchPage from "../components/PostsForSearchPage";
 import { searchPosts } from "../apis/SearchPage";
+import Footer from "../components/Footer";
 
 function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
   const sizeOfPicture = { width: "600px" };
@@ -80,6 +81,7 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
           </ul>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

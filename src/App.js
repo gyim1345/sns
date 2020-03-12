@@ -61,11 +61,11 @@ function App() {
 
   return (
     <Router>
-      <div css={[borderCss]}>
-        <div className="cssTop">
-          <span css={[fontSize]}>Bongstagram </span>
-          <div css={[displayFlex]}>
-            {loggedIn && (
+      {loggedIn && (
+        <div css={[borderCss]}>
+          <div className="cssTop">
+            <span css={[fontSize]}>Bongstagram </span>
+            <div css={[displayFlex]}>
               <div css={[navIcons]}>
                 <Link to="/" onClick={logout}>
                   <LogoutSvg />
@@ -87,10 +87,10 @@ function App() {
                 </Link>
                 <UserProfileImg />
               </div>
-            )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <Switch>
         <Route exact path="/">
           <LoginPage

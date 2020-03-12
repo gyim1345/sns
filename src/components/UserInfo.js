@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getUserInfoAPI } from "../apis/post";
 import { css } from "@emotion/core";
+import { getRandomUser } from "../apis/TimeLinePageApis";
 
 function UserInfo({ user }) {
   const [info, setInfo] = useState("");
+  const [randomUsers, setRandomUsers] = useState([]);
   const userInfo = async () => {
     try {
       const response = await getUserInfoAPI(user);
@@ -14,8 +16,28 @@ function UserInfo({ user }) {
     }
   };
 
+  const callRandomUser = async () => {
+    try {
+      const response = await getRandomUser(user);
+      console.log(response);
+      setRandomUsers(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const addClickedFollower = async name => {
+    try {
+      // const response = await AddFollower(name);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     userInfo();
+    callRandomUser();
   }, []);
   return (
     <>
@@ -45,7 +67,34 @@ function UserInfo({ user }) {
           </span>
           <div css={[friends]}>
             <span css={[friendsTitle]}>회원님을 위한 추천</span>
+
             <div css={[friendsImagesAndNames]}>
+              {randomUsers.map((usera, i) => (
+                <div key={`randomUser${i}`}>
+                  <div css={[friendImageAndName]}>
+                    <img
+                      src={usera.userURL}
+                      alt="Smiley face"
+                      height="40"
+                      width="40"
+                      css={[borderRadius]}
+                    />
+                    <div css={textBoxForfriendImageAndName}>
+                      <span css={[name]}>{usera.name}</span>
+                      <span css={[recommendation]}>recommendation</span>
+                    </div>
+
+                    <span
+                      css={[followButton]}
+                      onClick={() => addClickedFollower(usera.name)}
+                    >
+                      {" "}
+                      팔로우{" "}
+                    </span>
+                  </div>
+                </div>
+              ))}
+              {/* test */}
               <div css={[friendImageAndName]}>
                 <img
                   src={info.image}
@@ -55,24 +104,7 @@ function UserInfo({ user }) {
                   css={[borderRadius]}
                 />
                 <div css={textBoxForfriendImageAndName}>
-                  <span css={[name]}>{user}</span>
-                  <span css={[recommendation]}>recommendation</span>
-                </div>
-
-                <span css={[followButton]}> 팔로우 </span>
-              </div>
-
-              {/*  */}
-              <div css={[friendImageAndName]}>
-                <img
-                  src={info.image}
-                  alt="Smiley face"
-                  height="40"
-                  width="40"
-                  css={[borderRadius]}
-                />
-                <div css={textBoxForfriendImageAndName}>
-                  <span css={[name]}>{user}</span>
+                  <span css={[name]}>Test</span>
                   <span css={[recommendation]}>recommendation</span>
                 </div>
 
@@ -88,14 +120,14 @@ function UserInfo({ user }) {
                   css={[borderRadius]}
                 />
                 <div css={textBoxForfriendImageAndName}>
-                  <span css={[name]}>{user}</span>
+                  <span css={[name]}>Test</span>
                   <span css={[recommendation]}>recommendation</span>
                 </div>
 
                 <span css={[followButton]}> 팔로우 </span>
               </div>
 
-              {/*  */}
+              {/* test */}
             </div>
           </div>
           <div css={[dunnoText]}>

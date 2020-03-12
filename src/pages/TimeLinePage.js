@@ -5,6 +5,7 @@ import PostingList from "../components/PostingList";
 import { getUserTimeLinePosts } from "../apis/TimeLinePageApis";
 import { checkStatus } from "../apis/check";
 import UserInfo from "../components/UserInfo";
+import Footer from "../components/Footer";
 function TimeLinePage({
   setUserOfActivePage,
   currentUser,
@@ -46,6 +47,7 @@ function TimeLinePage({
         <UserInfo user={currentUser} posting={posting} />
       </div>
       {/* )} */}
+      <Footer />
     </>
   );
 }

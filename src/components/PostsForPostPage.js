@@ -50,7 +50,7 @@ function PostsForSearchPage({ posting, setUserOfActivePage, currentUser }) {
             <div key={`postPage${i}`}>
               <Link
                 to={`/${post.userName}/posting/${post.id}`}
-                onClick={changeUser}
+                // onClick={changeUser}
               >
                 <PostImagesOnly imageUrl={post.imageUrl} />
               </Link>
@@ -87,23 +87,6 @@ function PostsForSearchPage({ posting, setUserOfActivePage, currentUser }) {
   );
 }
 
-const footerBong = css`
-  position: absolute;
-  right: 0;
-  color: #999;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  font-size: 14px;
-  line-height: 18px;
-`;
-const footer = css`
-  padding-left: 20px;
-`;
-const postPageFooter = css`
-  margin-top: 38px;
-  padding-right: 346px;
-  position: relative;
-`;
 const tabTag = css`
   min-height: 500px;
 `;

@@ -90,12 +90,16 @@ export const removePostApi = async (posting, indexOfCommentOnThisPosting) => {
 };
 
 export const getUserInfoAPI = async user => {
-  console.log("getuser info", user);
   const { data } = await axios.post(
     `${TASKS_URL}/user/Info`,
     { user },
     { withCredentials: true }
   );
   console.log(data);
+  return data;
+};
+
+export const getUserImage = async user => {
+  const { data } = await axios.post(`${TASKS_URL}/user/image`, { user });
   return data;
 };

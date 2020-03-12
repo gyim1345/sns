@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route } from "react-router-dom";
 import Comment from "./Comment";
 import toTop from "./toTop";
@@ -9,6 +9,7 @@ import PostCommentButton from "./PostCommentButton";
 import DirectMessage from "../svgIcons/DirectMessage.js";
 import ModalBox from "./ModalBox";
 import ScrapButton from "../svgIcons/ScrapButton"
+import { getUserImage } from "../apis/post";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
@@ -27,6 +28,22 @@ function Posting({
 }) {
   const [input, setInput] = useState([]);
 
+  const [image, setImage] = useState("");
+
+
+  const userImage = async () => {
+    try {
+      const response = await getUserImage(posting.userName);
+      setImage(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    userImage();
+  }, []);
+
   const changeUser = () => {
     setUserOfActivePage(posting.userName);
   };
@@ -43,12 +60,7 @@ function Posting({
     <>
       <h1 css={[h1]}>
         <div css={[leftElement]}>
-          <img
-            css={[imgCss]}
-            src={"static/images/user1.png"}
-            alt=""
-            width={35}
-          />
+          <img css={[imgCss]} src={image} alt="" width={35} />
           <div css={[nameSize]}>
             <Link
               to={`/profile/${posting.userName}`}
