@@ -48,10 +48,7 @@ function PostsForSearchPage({ posting, setUserOfActivePage, currentUser }) {
         <div css={[searchPagePostsCss]}>
           {posting.map((post, i) => (
             <div key={`postPage${i}`}>
-              <Link
-                to={`/${post.userName}/posting/${post.id}`}
-                // onClick={changeUser}
-              >
+              <Link to={`/${post.userName}/posting/${post.id}`}>
                 <PostImagesOnly imageUrl={post.imageUrl} />
               </Link>
             </div>

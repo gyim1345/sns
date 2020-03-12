@@ -17,6 +17,17 @@ export const getRandomUser = async () => {
   const { data } = await axios.get(`${TASKS_URL}/TimeLine/randomUser`, {
     withCredentials: true
   });
-  console.log('aaaaaaaaaaaaaaaaaaaaa', data);
+  return data;
+};
+
+export const AddFollower = async name => {
+  console.log("asdasdasaddd");
+  const { data } = await axios.patch(
+    `${TASKS_URL}/TimeLine/AddFriend`,
+    { name },
+    {
+      withCredentials: true
+    }
+  );
   return data;
 };

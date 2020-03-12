@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getUserInfoAPI } from "../apis/post";
 import { css } from "@emotion/core";
-import { getRandomUser } from "../apis/TimeLinePageApis";
+import { getRandomUser, AddFollower } from "../apis/TimeLinePageApis";
 
 function UserInfo({ user }) {
   const [info, setInfo] = useState("");
@@ -19,7 +19,6 @@ function UserInfo({ user }) {
   const callRandomUser = async () => {
     try {
       const response = await getRandomUser(user);
-      console.log(response);
       setRandomUsers(response);
     } catch (e) {
       console.log(e);
@@ -28,7 +27,7 @@ function UserInfo({ user }) {
 
   const addClickedFollower = async name => {
     try {
-      // const response = await AddFollower(name);
+      const response = await AddFollower(name);
       console.log(response);
     } catch (e) {
       console.log(e);
