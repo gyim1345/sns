@@ -73,17 +73,19 @@ const Login = ({
             name="Id"
             defaultValue=""
             ref={register}
-            placeholder="Login Id"
+            placeholder="전화번호, 사용자 이름, 이메일"
+            css={[inputBoxCss]}
           />
           <input
             name="Password"
             defaultValue=""
             ref={register({ required: true, maxLength: 10 })}
-            placeholder="Login password"
+            placeholder="비밀번호"
+            css={[inputBoxCss]}
           />
           {errors.exampleRequired && <p>This field is required</p>}
-          <input type="submit" css={[blackButton, whiteButton]} value="Login" />
-          Or
+          <input type="submit" css={[blackButton]} value="로그인" />
+          <span css={[fontCss]}>또는</span>
         </form>
         {loggedIn && <Redirect to={`/TimeLine/${currentUser}`} />}
       </div>
@@ -91,6 +93,19 @@ const Login = ({
   );
 };
 
+const fontCss = css`
+color: rgba(var(--f52,153,153,153),1);
+padding-bottom: 4px;
+`;
+
+const inputBoxCss = css`
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  padding: 7px 60px;
+  margin-bottom: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+`;
 const box = css`
   display: -webkit-box;
   display: flex;
@@ -131,9 +146,15 @@ const whiteButton = css`
 
 const blackButton = css`
   ${button}
-  label: black-button;
+  border-radius: 4px;
   background-color: cornflowerblue;
   color: white;
+  border: 1px solid #dbdbdb;
+  padding: 2px 0px;
+  margin-bottom: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: 6px;
 `;
 
 // Login.propTypes = {

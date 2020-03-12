@@ -22,16 +22,18 @@ const Register = () => {
         name="Id"
         defaultValue=""
         ref={register}
-        placeholder="Register Id"
+        placeholder="가입 원하는 아이디"
+        css={[inputButtonCss]}
       />
       {/* <label>password:</label> */}
       <input
         name="Password"
         defaultValue=""
         ref={register({ required: true, maxLength: 10 })}
-        placeholder="Register password"
+        placeholder="비밀번호"
+        css={[inputButtonCss]}
       />
-      <input type="submit" css={[button]} value="Register" />
+      <input type="submit" css={[submitButtonCss]} value="가입하기" />
     </form>
   );
 };
@@ -45,11 +47,25 @@ const box = css`
   display: inline-flex;
 `;
 
-const button = css`
+const inputButtonCss = css`
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  padding: 7px 60px;
+  margin-bottom: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+`;
+
+const submitButtonCss = css`
   border-radius: 4px;
-  label: white-button;
   background-color: cornflowerblue;
   color: white;
+  border: 1px solid #dbdbdb;
+  padding: 4px 0px;
+  margin-bottom: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: 6px;
 `;
 
 export default Register;
