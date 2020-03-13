@@ -7,8 +7,14 @@ import TvSvg from "../svgIcons/TvSvg";
 import TagSvg from "../svgIcons/TagSvg";
 import PostImagesOnly from "./PostImagesOnly";
 import Footer from "../components/Footer";
+import ScrappedPosts from "./ScrappedPosts";
 
-function PostsForSearchPage({ posting, setUserOfActivePage, currentUser }) {
+function PostsForPostPage({
+  posting,
+  setUserOfActivePage,
+  currentUser,
+  setPosting
+}) {
   const [chosen, setChosen] = useState(1);
   const { user } = useParams();
   console.log(user);
@@ -35,9 +41,9 @@ function PostsForSearchPage({ posting, setUserOfActivePage, currentUser }) {
           <PostGridSvg />
           <span>게시물</span>
         </Link>
-        <Link to={`/profile/${user}/tv`} css={[tabWord]}>
+        <Link to={`/profile/${user}/scrappedPosts`} css={[tabWord]}>
           <TvSvg />
-          티비
+          스크랩
         </Link>
         <Link to={`/profile/${user}/tag`} css={[tabWord]}>
           <TagSvg />
@@ -55,24 +61,9 @@ function PostsForSearchPage({ posting, setUserOfActivePage, currentUser }) {
           ))}
         </div>
       </Route>
-      <Route exact path={`/profile/${user}/tv`}>
+      <Route exact path={`/profile/${user}/scrappedPosts`}>
         <div css={[tabTv]}>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
-          <span>tvtv</span>
+          <ScrappedPosts user={user} />
         </div>
       </Route>
       <Route exact path={`/profile/:user/tag`}>
@@ -127,4 +118,4 @@ const searchPagePostsCss = css`
   justify-content: center;
 `;
 
-export default PostsForSearchPage;
+export default PostsForPostPage;

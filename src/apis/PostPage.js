@@ -12,3 +12,4 @@ export const getUserInfoAPI = async user => {
   console.log(data);
   return data;
 };
+

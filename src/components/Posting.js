@@ -10,6 +10,7 @@ import DirectMessage from "../svgIcons/DirectMessage.js";
 import ModalBox from "./ModalBox";
 import ScrapButton from "../svgIcons/ScrapButton";
 import { getUserImage } from "../apis/post";
+import Scrap from "./Scrap";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
@@ -103,7 +104,7 @@ function Posting({
           />
           <PostCommentButton />
           <DirectMessage />
-          <ScrapButton />
+          <Scrap postingId={posting.id} />
         </div>
         <div css={[displayFlex]}>
           <div css={[postUserNameBold]}> {posting.userName}</div>

@@ -59,7 +59,7 @@ export const editPostAPI = async (
 };
 
 export const registerAPI = async (id, password) => {
-  console.log('asdasdregister')
+  console.log("asdasdregister");
   const { data } = await axios.post(`${TASKS_URL}/posts/register`, {
     id,
     password
@@ -102,5 +102,25 @@ export const getUserInfoAPI = async user => {
 
 export const getUserImage = async user => {
   const { data } = await axios.post(`${TASKS_URL}/user/image`, { user });
+  return data;
+};
+
+export const scrap = async postId => {
+  const { data } = await axios.patch(
+    `${TASKS_URL}/posts/scrap`,
+    { postId },
+    { withCredentials: true }
+  );
+  return data;
+};
+
+export const scrappedPosts = async user => {
+  console.log(user);
+  const { data } = await axios.post(
+    `${TASKS_URL}/posts/scrappedPosts`,
+    { user },
+    { withCredentials: true }
+  );
+  console.log(data);
   return data;
 };
