@@ -52,17 +52,18 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
 
   return (
     <>
-      <div css={[inputBarCss]}>
+      <form onSubmit={onSearch} css={[inputAreaCss]}>
         <input
           type="text"
           value={input}
           onChange={e => onChange(e)}
-          placeholder="search"
+          placeholder="태그로 찾기"
+          css={[inputBoxCss]}
         />
-        <button type="button" onClick={onSearch}>
-          search
+        <button type="submit" onSubmit={onSearch} css={[searchButtonCss]}>
+          찾기
         </button>
-      </div>
+      </form>
       <div css={[PostsForSearchPageCss]}>
         {postingByThree.map((posting, i) => (
           <ul key={`searchPage${i}`}>
@@ -86,11 +87,26 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
   );
 }
 
+const inputBoxCss = css`
+  outline: none;
+  padding: 8px;
+  border: none;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  border-radius: 3px;
+`;
+
+const searchButtonCss = css`
+  background-color: white;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: #262626;
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  padding: 0.35rem 1rem;
+`;
 const postingByThreeCss = css`
   display: flex;
   margin-bottom: 5px;
 `;
-const inputBarCss = css`
+const inputAreaCss = css`
   top: 70px;
   position: relative;
   display: flex;
