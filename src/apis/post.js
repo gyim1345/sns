@@ -96,7 +96,6 @@ export const getUserInfoAPI = async user => {
     { user },
     { withCredentials: true }
   );
-  console.log(data);
   return data;
 };
 
@@ -115,9 +114,18 @@ export const scrap = async postId => {
 };
 
 export const scrappedPosts = async user => {
-  console.log(user);
   const { data } = await axios.post(
     `${TASKS_URL}/posts/scrappedPosts`,
+    { user },
+    { withCredentials: true }
+  );
+  return data;
+};
+
+export const taggedPostsAPI = async user => {
+  console.log('taaaaaaaaaaaaaaaaaaaaaaaag', user);
+  const { data } = await axios.post(
+    `${TASKS_URL}/posts/taggedPosts`,
     { user },
     { withCredentials: true }
   );

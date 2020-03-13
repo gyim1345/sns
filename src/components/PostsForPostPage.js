@@ -8,6 +8,7 @@ import TagSvg from "../svgIcons/TagSvg";
 import PostImagesOnly from "./PostImagesOnly";
 import Footer from "../components/Footer";
 import ScrappedPosts from "./ScrappedPosts";
+import TaggedPosts from "./TaggedPosts";
 
 function PostsForPostPage({
   posting,
@@ -28,7 +29,7 @@ function PostsForPostPage({
   //   setChosen(number);
   // };
 
-  console.log(chosen);
+  // console.log(chosen);
 
   return (
     <>
@@ -67,7 +68,9 @@ function PostsForPostPage({
         </div>
       </Route>
       <Route exact path={`/profile/:user/tag`}>
-        <div css={[tabTag]}>tag</div>
+        <div css={[tabTag]}>
+          <TaggedPosts user={user} />
+        </div>
       </Route>
 
       <Footer />

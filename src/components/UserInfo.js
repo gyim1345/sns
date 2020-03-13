@@ -9,7 +9,6 @@ function UserInfo({ user }) {
   const userInfo = async () => {
     try {
       const response = await getUserInfoAPI(user);
-      console.log(response);
       setInfo(response);
     } catch (e) {
       console.log(e);

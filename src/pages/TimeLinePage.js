@@ -14,21 +14,16 @@ function TimeLinePage({
 }) {
   const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
-
   const getUserTimeLinePostsAPI = async () => {
-    console.log("tdhdfgdg");
     const { currentUserAPI } = await checkStatus();
-    console.log("fuck timeline", currentUserAPI);
     setUserOfActivePage(currentUserAPI);
     setCurrentUser(currentUserAPI);
     const { posts } = await getUserTimeLinePosts(currentUserAPI);
-    console.log(posts);
     setPosting(posts);
     setLoggedIn(true);
   };
   useEffect(() => {
     getUserTimeLinePostsAPI();
-    console.log("tdhdfgdg");
   }, []);
 
   return (
