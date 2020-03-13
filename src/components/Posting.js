@@ -8,7 +8,7 @@ import Modal from "react-modal";
 import PostCommentButton from "./PostCommentButton";
 import DirectMessage from "../svgIcons/DirectMessage.js";
 import ModalBox from "./ModalBox";
-import ScrapButton from "../svgIcons/ScrapButton"
+import ScrapButton from "../svgIcons/ScrapButton";
 import { getUserImage } from "../apis/post";
 
 if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
@@ -29,7 +29,6 @@ function Posting({
   const [input, setInput] = useState([]);
 
   const [image, setImage] = useState("");
-
 
   const userImage = async () => {
     try {
@@ -110,29 +109,62 @@ function Posting({
           <div css={[postUserNameBold]}> {posting.userName}</div>
           <div css={[wordBreak]}>{posting.title}</div>
         </div>
-        <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
-          <Comment
-            posting={posting}
-            comments={comments}
-            userOfActivePage={userOfActivePage}
-            currentUser={currentUser}
-            commentAPI={commentAPI}
-            setCommentAPI={setCommentAPI}
-            addComment={addComment}
-          />
-          <input
-            value={input}
-            onChange={onChange}
-            placeholder={"input comment"}
-          />
-          <button type="button" onClick={addToComment} id="buttonAddComment">
-            AddComment
-          </button>
-        </Route>
+        <div css={[commentAreaCss]}>
+          <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
+            <Comment
+              posting={posting}
+              comments={comments}
+              userOfActivePage={userOfActivePage}
+              currentUser={currentUser}
+              commentAPI={commentAPI}
+              setCommentAPI={setCommentAPI}
+              addComment={addComment}
+            />
+            <div css={[commentInputArea]}>
+              <input
+                value={input}
+                onChange={onChange}
+                placeholder={"댓글 달기..."}
+                css={[commentInputBox]}
+              />
+              <button
+                type="button"
+                onClick={addToComment}
+                id="buttonAddComment"
+                css={[commentInputButton]}
+              >
+                게시
+              </button>
+            </div>
+          </Route>
+        </div>
       </div>
     </>
   );
 }
+
+const commentInputButton = css`
+  background-color: white;
+  flex: none;
+`;
+/* min-width: max-content; */
+
+const commentInputBox = css`
+  padding: 15px;
+  width: 100%;
+  border: none;
+  outline: none;
+`;
+
+const commentInputArea = css`
+  display: flex;
+  border-top: 1px solid rgba(var(--ce3, 239, 239, 239), 1);
+  padding: 0px;
+  margin-left: -10px;
+`;
+const commentAreaCss = css`
+  padding-left: 10px;
+`;
 
 const displayFlex = css`
   display: flex;

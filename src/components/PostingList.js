@@ -81,6 +81,7 @@ const wrap = css`
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  margin-bottom: 100px;
 `;
 
 // PostingList.propTypes = {

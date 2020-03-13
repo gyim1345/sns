@@ -59,6 +59,7 @@ export const editPostAPI = async (
 };
 
 export const registerAPI = async (id, password) => {
+  console.log('asdasdregister')
   const { data } = await axios.post(`${TASKS_URL}/posts/register`, {
     id,
     password
