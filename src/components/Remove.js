@@ -19,7 +19,12 @@ function Remove({
         posting,
         indexOfCommentOnThisPosting
       );
-      if (response.Message !== undefined) return alert(response.Message);
+      if (response.Message !== undefined)
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${response.Message}`
+        });
       indexOfCommentOnThisPosting === undefined
         ? setRemoved(response)
         : setCommentAPI(response);
