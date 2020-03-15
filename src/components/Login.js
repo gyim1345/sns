@@ -6,6 +6,7 @@ import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 import "./components.css";
 import { checkIfLoggedIn } from "../apis/check";
+import Swal from "sweetalert2";
 
 // import MyFont from "<path/to/font.woff>";
 // import { injectGlobal } from 'emotion'
@@ -49,8 +50,7 @@ const Login = ({
   const onSubmit = async data => {
     try {
       const response = await setLoginAPI(data);
-      console.log(response);
-      alert(response.statusMessage);
+      Swal.fire(response.statusMessage, "", "success");
       response.loginStatus &&
         (setCurrentUser(data.Id), setUserOfActivePage(data.Id));
       setLoggedIn(response.loginStatus);
@@ -94,8 +94,8 @@ const Login = ({
 };
 
 const fontCss = css`
-color: rgba(var(--f52,153,153,153),1);
-padding-bottom: 4px;
+  color: rgba(var(--f52, 153, 153, 153), 1);
+  padding-bottom: 4px;
 `;
 
 const inputBoxCss = css`

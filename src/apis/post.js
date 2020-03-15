@@ -113,19 +113,10 @@ export const scrap = async postId => {
   return data;
 };
 
-export const scrappedPosts = async user => {
-  const { data } = await axios.post(
-    `${TASKS_URL}/posts/scrappedPosts`,
-    { user },
-    { withCredentials: true }
-  );
-  return data;
-};
 
 export const taggedPostsAPI = async user => {
-  console.log('taaaaaaaaaaaaaaaaaaaaaaaag', user);
-  const { data } = await axios.post(
-    `${TASKS_URL}/posts/taggedPosts`,
+  const { data } = await axios.get(
+    `${TASKS_URL}/taggedPosts`,
     { user },
     { withCredentials: true }
   );

@@ -38,7 +38,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "axios": "^0.19.2",
     "customize-cra": "^0.9.1",
     "emotion": "^10.0.27",
@@ -52,7 +52,8 @@
     "react-hook-form": "^4.4.3",
     "react-modal": "^3.11.1",
     "react-router-dom": "^5.1.2",
-    "styled-react-modal": "^2.0.0"
+    "styled-react-modal": "^2.0.0",
+    "sweetalert2": "^9.10.0"
   },
   "repository": {
     "type": "git",

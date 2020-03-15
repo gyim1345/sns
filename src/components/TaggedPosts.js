@@ -10,7 +10,6 @@ function TaggedPosts({ user }) {
   const getTaggedPost = async () => {
     try {
       const response = await taggedPostsAPI(user);
-      console.log(response);
       setPosts(response);
     } catch (e) {
       console.log(e);
@@ -21,20 +20,14 @@ function TaggedPosts({ user }) {
     getTaggedPost();
   }, []);
 
-  console.log(posts);
-
   return (
-    <>
-      <div css={[tagPostImagesCss]}>
-        {posts.map((post, i) => (
-          <div key={`scrapped${i}`}>
-            <Link to={`/${post.userName}/posting/${post.id}`}>
-              <PostImagesOnly imageUrl={post.imageUrl} />
-            </Link>
-          </div>
-        ))}
-      </div>
-    </>
+    <div css={[tagPostImagesCss]}>
+      {posts.map(post => (
+        <Link to={`/${post.userName}/posting/${post.id}`} key={post.id}>
+          <PostImagesOnly imageUrl={post.imageUrl} />
+        </Link>
+      ))}
+    </div>
   );
 }
 

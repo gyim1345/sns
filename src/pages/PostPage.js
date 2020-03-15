@@ -18,7 +18,9 @@ function PostPage({
     user: undefined,
     postNumber: undefined,
     followerNumber: undefined,
-    image: undefined
+    image: undefined,
+    usernickName: undefined,
+    userIntroductory: undefined
   });
   const getPostingOfCurrentUser = async () => {
     const { currentUserAPI } = await checkStatus(currentUser, user);

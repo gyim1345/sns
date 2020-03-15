@@ -55,7 +55,6 @@ function App() {
       setCurrentUser("");
       setUserOfActivePage("");
       loggingOut();
-      alert("logging out");
     }
   };
 

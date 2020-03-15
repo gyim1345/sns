@@ -18,3 +18,4 @@ export const checkIfLoggedIn = async () => {
   const { data } = await axios.get(TASKS_URL, { withCredentials: true });
   return data;
 };
+

@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
-import { getUserInfoAPI } from "../apis/post";
+
 import { css } from "@emotion/core";
 
+import { getUserInfoAPI } from "../apis/post";
+import ModalBoxSetting from "./ModalBoxSetting";
+
 function UserInfoHead({ user, info, setInfo, posting }) {
+
   const userInfo = async () => {
     try {
       const response = await getUserInfoAPI(user);
       setInfo(response);
+      console.log(response);
     } catch (e) {
       console.log(e);
     }
@@ -31,6 +36,7 @@ function UserInfoHead({ user, info, setInfo, posting }) {
           <div css={[row1]}>
             <span css={[location23]}> {info.user} </span>
             <button css={[button]}>메시지 보내기</button>
+            <ModalBoxSetting info={info} userInfo={userInfo} />
           </div>
           <div css={[row2]}>
             <span css={[location33]}>
@@ -49,8 +55,8 @@ function UserInfoHead({ user, info, setInfo, posting }) {
             </span>
           </div>
           <div css={[row3]}>
-            <span css={[row3Name]}>임기봉</span>
-            <span css={[introductory]}>hello my name is gibong yim!</span>
+            <span css={[row3Name]}>{info.userNickName}</span>
+            <span css={[introductory]}>{info.userIntroductory}</span>
           </div>
         </div>
       </div>
@@ -63,6 +69,7 @@ const button = css`
   border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
   color: rgba(var(--f07, 38, 38, 38), 1);
   padding: 0px 12px;
+  margin-right: 25px;
 `;
 
 const introductory = css`
