@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { removePostApi } from "../apis/post";
 import { css } from "@emotion/core";
+import Swal from "sweetalert2";
+
+import { removePostApi } from "../apis/post";
 
 function Remove({
   posting,
@@ -22,7 +24,11 @@ function Remove({
         ? setRemoved(response)
         : setCommentAPI(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

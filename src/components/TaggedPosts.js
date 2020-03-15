@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { taggedPostsAPI } from "../apis/post";
 import { Link } from "react-router-dom";
-import PostImagesOnly from "./PostImagesOnly";
+import Swal from "sweetalert2";
+
 import { css } from "@emotion/core";
+
+import { taggedPostsAPI } from "../apis/post";
+import PostImagesOnly from "./PostImagesOnly";
 
 function TaggedPosts({ user }) {
   const [posts, setPosts] = useState([]);
@@ -12,7 +15,11 @@ function TaggedPosts({ user }) {
       const response = await taggedPostsAPI(user);
       setPosts(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

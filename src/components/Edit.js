@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+
 import { editPostAPI } from "../apis/post";
 
 function Edit({
@@ -29,7 +31,11 @@ function Edit({
         ? setPosting(response)
         : setCommentAPI(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

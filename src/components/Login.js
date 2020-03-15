@@ -50,12 +50,17 @@ const Login = ({
   const onSubmit = async data => {
     try {
       const response = await setLoginAPI(data);
+      console.log(response);
       Swal.fire(response.statusMessage, "", "success");
       response.loginStatus &&
         (setCurrentUser(data.Id), setUserOfActivePage(data.Id));
       setLoggedIn(response.loginStatus);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Check your Input"
+      });
     }
   };
 

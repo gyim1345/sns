@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getPosts } from "../apis/SearchPage";
+import Swal from "sweetalert2";
+
 import { css } from "@emotion/core";
+
+import { getPosts } from "../apis/SearchPage";
 import PostsForSearchPage from "../components/PostsForSearchPage";
 import { searchPosts } from "../apis/SearchPage";
 import Footer from "../components/Footer";
@@ -20,7 +23,11 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
       console.log(response);
       setPosting(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 
@@ -30,7 +37,11 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
       setPosting(posts);
       setLoggedIn(true);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

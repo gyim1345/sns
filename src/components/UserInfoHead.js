@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Swal from "sweetalert2";
 
 import { css } from "@emotion/core";
 
@@ -13,7 +14,11 @@ function UserInfoHead({ user, info, setInfo, posting }) {
       setInfo(response);
       console.log(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import { css } from "@emotion/core";
 
@@ -14,7 +15,11 @@ function ScrappedPosts({ user }) {
       const response = await scrappedPosts(user);
       setPosts(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

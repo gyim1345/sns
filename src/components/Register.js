@@ -1,4 +1,6 @@
 import React from "react";
+import Swal from "sweetalert2";
+
 import { useForm } from "react-hook-form";
 import { registerAPI } from "../apis/post";
 import { css } from "@emotion/core";
@@ -9,9 +11,20 @@ const Register = () => {
   const registration = async data => {
     try {
       const response = await registerAPI(data.Id, data.Password);
-      alert(response.Message);
+      console.log(response);
+      if (response.status) {
+        Swal.fire({
+          icon: "success",
+          title: "Registered",
+          text: `Welcome ${data.Id} to Bongstagram Please login!`
+        });
+      }
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Check Input"
+      });
     }
   };
 

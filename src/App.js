@@ -6,6 +6,8 @@ import {
   Route,
   withRouter
 } from "react-router-dom";
+import Swal from "sweetalert2";
+
 import PostPage from "./pages/PostPage";
 import PostPageDetail from "./pages/PostPageDetail";
 import TimeLinePage from "./pages/TimeLinePage";
@@ -41,7 +43,11 @@ function App() {
     try {
       await deleteLoginStatus();
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

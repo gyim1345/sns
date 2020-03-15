@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getUserInfoAPI } from "../apis/post";
+import Swal from "sweetalert2";
+
 import { css } from "@emotion/core";
+
+import { getUserInfoAPI } from "../apis/post";
 import { getRandomUser, AddFollower } from "../apis/TimeLinePageApis";
 
 function UserInfo({ user }) {
@@ -11,7 +14,11 @@ function UserInfo({ user }) {
       const response = await getUserInfoAPI(user);
       setInfo(response);
     } catch (e) {
-      console.log(e);
+        Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 
@@ -20,7 +27,11 @@ function UserInfo({ user }) {
       const response = await getRandomUser(user);
       setRandomUsers(response);
     } catch (e) {
-      console.log(e);
+        Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 
@@ -29,7 +40,11 @@ function UserInfo({ user }) {
       const response = await AddFollower(name);
       console.log(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

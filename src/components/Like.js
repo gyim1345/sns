@@ -1,6 +1,8 @@
 import React from "react";
-import { getChangeLike } from "../apis/post";
+import Swal from "sweetalert2";
 import { css } from "@emotion/core";
+
+import { getChangeLike } from "../apis/post";
 import LikeSvg from "../svgIcons/LikeSvg";
 
 const Like = ({ posting, setPosting, postingAll }) => {
@@ -12,7 +14,11 @@ const Like = ({ posting, setPosting, postingAll }) => {
       postingAll[index] = response;
       setPosting(postingAll);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

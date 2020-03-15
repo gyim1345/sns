@@ -5,6 +5,8 @@ import toTop from "./toTop";
 import Like from "./Like";
 import { css } from "@emotion/core";
 import Modal from "react-modal";
+import Swal from "sweetalert2";
+
 import PostCommentButton from "./PostCommentButton";
 import DirectMessage from "../svgIcons/DirectMessage.js";
 import ModalBox from "./ModalBox";
@@ -36,7 +38,11 @@ function Posting({
       const response = await getUserImage(posting.userName);
       setImage(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 

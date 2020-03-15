@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { css } from "@emotion/core";
+import Swal from "sweetalert2";
+
 import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
 import { addCommentForPost } from "../apis/comment";
-import { css } from "@emotion/core";
 
 function PostingList({
   posting,
@@ -40,8 +42,11 @@ function PostingList({
       setCommentAPI(response);
       setInput("");
     } catch (e) {
-      console.log(e);
-    }
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });    }
   };
 
   return (

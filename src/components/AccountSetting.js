@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 import { css } from "@emotion/core";
+
 import { editIntroductoryApi, editNickNameApi } from "../apis/PostPage";
 
 function AccountSetting({ userInfo, info }) {
@@ -15,7 +17,11 @@ function AccountSetting({ userInfo, info }) {
       await editNickNameApi(inputNickName);
       userInfo();
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 
@@ -28,7 +34,11 @@ function AccountSetting({ userInfo, info }) {
       await editIntroductoryApi(inputIntroductory);
       userInfo();
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
   return (

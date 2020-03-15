@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
+
 import PostingList from "../components/PostingList";
 import { getPostsFromId } from "../apis/post";
 import { getCommentFromIdAPI } from "../apis/comment";
@@ -29,7 +31,11 @@ function PostPageDetail({
       const response = await getCommentFromIdAPI(postingId);
       setCommentAPI(response);
     } catch (e) {
-      console.log(e);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Internal Error"
+      });
     }
   };
 
