@@ -26,7 +26,11 @@ function Edit({
         indexOfCommentOnThisPosting
       );
       response.Message !== undefined
-        ? alert(response.Message)
+        ? Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${response.Message}`
+          })
         : indexOfCommentOnThisPosting === undefined
         ? setPosting(response)
         : setCommentAPI(response);

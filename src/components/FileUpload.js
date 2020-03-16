@@ -2,8 +2,9 @@ import React, { Fragment, useState } from "react";
 import Message from "./Message";
 import axios from "axios";
 import { css } from "@emotion/core";
+import { uploadPicture, uploadUserImage } from "../apis/upload";
 
-const FileUpload = ({ currentUser, posting, setPosting }) => {
+const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
   const [message, setMessage] = useState("");
@@ -38,26 +39,29 @@ const FileUpload = ({ currentUser, posting, setPosting }) => {
     formData.append("input", input);
     formData.append("inputTag", inputTag);
     formData.append("user", currentUser);
-
-    try {
-      const { data } = await axios.post(
-        "http://localhost:3000/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          },
-          withCredentials: true
+    if (posting) {
+      try {
+        const data = await uploadPicture(formData);
+        posting && setPosting([...posting, data.posts]);
+        setMessage("File Uploaded");
+      } catch (err) {
+        if (err.response.status === 500) {
+          setMessage("There was a problem with the server");
+        } else {
+          setMessage(err.response.data.msg);
         }
-      );
-      console.log(data);
-      setPosting([...posting, data.posts]);
-      setMessage("File Uploaded");
-    } catch (err) {
-      if (err.response.status === 500) {
-        setMessage("There was a problem with the server");
-      } else {
-        setMessage(err.response.data.msg);
+      }
+    } else {
+      try {
+        const data = await uploadUserImage(formData);
+        userInfo();
+        setMessage("File Uploaded");
+      } catch (err) {
+        if (err.response.status === 500) {
+          setMessage("There was a problem with the server");
+        } else {
+          setMessage(err.response.data.msg);
+        }
       }
     }
   };

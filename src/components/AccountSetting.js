@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { css } from "@emotion/core";
 
 import { editIntroductoryApi, editNickNameApi } from "../apis/PostPage";
+import FileUpload from "./FileUpload";
 
 function AccountSetting({ userInfo, info }) {
   const [inputNickName, setInputNickName] = useState("");
@@ -47,6 +48,7 @@ function AccountSetting({ userInfo, info }) {
         <div css={[categorizeInfoCss]}>
           <span css={[paddingTop3px, paddingRight20px]}>사용자 이름</span>
           <span css={[paddingTop15px]}>소개</span>
+          <span css={[paddingTopRight]}>프로필 사진 수정</span>
         </div>
         <div css={[inputBoxCss]}>
           <div css={[nickNameCss]}>
@@ -83,11 +85,17 @@ function AccountSetting({ userInfo, info }) {
               수정
             </button>
           </div>
+          <FileUpload userInfo={userInfo} />
         </div>
       </div>
     </>
   );
 }
+
+const paddingTopRight = css`
+  padding-top: 36px;
+  padding-right: 25px;
+`;
 
 const editNickNameButtonCss = css`
   background-color: white;
