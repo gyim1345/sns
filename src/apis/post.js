@@ -34,6 +34,16 @@ export const getUserPostOnly = async user => {
   return data;
 };
 
+export const getPostIsScrapped = async postId => {
+  const { data } = await axios.get(`${TASKS_URL}/posts/scrapped`, {
+    params: {
+      id: postId
+    },
+    withCredentials: true
+  });
+  return data;
+};
+
 export const getPostsFromId = async id => {
   const { data } = await axios.get(`${TASKS_URL}/posts/${id}`, { id });
   return data;
@@ -44,10 +54,7 @@ export const addPostAPI = async (title, user) => {
   return data;
 };
 
-export const editPostAPI = async (
-  input,
-  posting
-) => {
+export const editPostAPI = async (input, posting) => {
   const { data } = await axios.patch(
     `${TASKS_URL}/posts/edit`,
     {
