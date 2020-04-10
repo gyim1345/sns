@@ -12,7 +12,7 @@ const Register = () => {
     try {
       const response = await registerAPI(data.Id, data.Password);
       console.log(response);
-      if (response.status) {
+      if (response) {
         Swal.fire({
           icon: "success",
           title: "Registered",

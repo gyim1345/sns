@@ -22,9 +22,13 @@ export const getPosts = async () => {
 // };
 
 export const getUserPostOnly = async user => {
-  const { data } = await axios.post(
+  const { data } = await axios.get(
     `${TASKS_URL}/user`,
-    { user },
+    {
+      params: {
+        user: user
+      }
+    },
     { withCredentials: true }
   );
   return data;
@@ -36,22 +40,19 @@ export const getPostsFromId = async id => {
 };
 
 export const addPostAPI = async (title, user) => {
-  const { data } = await axios.patch(`${TASKS_URL}/posts/`, { title, user });
+  const { data } = await axios.post(`${TASKS_URL}/posts/`, { title, user });
   return data;
 };
 
 export const editPostAPI = async (
   input,
-  posting,
-  user,
-  indexOfCommentOnThisPosting
+  posting
 ) => {
   const { data } = await axios.patch(
     `${TASKS_URL}/posts/edit`,
     {
       input,
-      posting,
-      indexOfCommentOnThisPosting
+      posting
     },
     { withCredentials: true }
   );
@@ -60,7 +61,7 @@ export const editPostAPI = async (
 
 export const registerAPI = async (id, password) => {
   console.log("asdasdregister");
-  const { data } = await axios.post(`${TASKS_URL}/posts/register`, {
+  const { data } = await axios.post(`${TASKS_URL}/auth/register`, {
     id,
     password
   });
@@ -91,16 +92,24 @@ export const removePostApi = async (posting, indexOfCommentOnThisPosting) => {
 };
 
 export const getUserInfoAPI = async user => {
-  const { data } = await axios.post(
+  const { data } = await axios.get(
     `${TASKS_URL}/user/Info`,
-    { user },
+    {
+      params: {
+        user: user
+      }
+    },
     { withCredentials: true }
   );
   return data;
 };
 
 export const getUserImage = async user => {
-  const { data } = await axios.post(`${TASKS_URL}/user/image`, { user });
+  const { data } = await axios.get(`${TASKS_URL}/user/image`, {
+    params: {
+      user: user
+    }
+  });
   return data;
 };
 
@@ -113,10 +122,9 @@ export const scrap = async postId => {
   return data;
 };
 
-
 export const taggedPostsAPI = async user => {
   const { data } = await axios.get(
-    `${TASKS_URL}/taggedPosts`,
+    `${TASKS_URL}/posts/taggedPosts`,
     { user },
     { withCredentials: true }
   );

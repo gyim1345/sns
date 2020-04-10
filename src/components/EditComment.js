@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { css } from "@emotion/core";
-
 
 import { editPostAPI } from "../apis/post";
+import { editCommentAPI } from "../apis/comment";
 
-function Edit({
+function EditComment({
   posting,
   setPosting,
   indexOfCommentOnThisPosting,
@@ -21,7 +20,7 @@ function Edit({
 
   const onClick = async () => {
     try {
-      const response = await editPostAPI(
+      const response = await editCommentAPI(
         input,
         posting,
         currentUser,
@@ -47,23 +46,13 @@ function Edit({
 
   return (
     <>
-      <input
-        type="text"
-        value={input}
-        onChange={e => onEdit(e)}
-        css={[boxHidden]}
-      />
+      <input type="text" value={input} onChange={e => onEdit(e)} />
       <button type="button" onClick={onClick} id="buttonEdit">
         Edit
       </button>
     </>
   );
 }
-
-const boxHidden = css`
-  border-style: hidden;
-  padding-left: 12px;
-`;
 
 // Edit.propTypes = {
 //   currentUser: PropTypes.string,
@@ -80,4 +69,4 @@ const boxHidden = css`
 //   cid: undefined
 // };
 
-export default Edit;
+export default EditComment;

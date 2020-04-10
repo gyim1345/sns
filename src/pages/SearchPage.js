@@ -7,8 +7,9 @@ import { getPosts } from "../apis/SearchPage";
 import PostsForSearchPage from "../components/PostsForSearchPage";
 import { searchPosts } from "../apis/SearchPage";
 import Footer from "../components/Footer";
+import { checkStatus } from "../apis/check";
 
-function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
+function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn, setCurrentUser }) {
   const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
   const [input, setInput] = useState("");
@@ -16,6 +17,17 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn }) {
   const onChange = e => {
     setInput(e.target.value);
   };
+
+  const tryy = async () => {
+    const { sessionUserName } = await checkStatus();
+    setUserOfActivePage(sessionUserName);
+    setCurrentUser(sessionUserName);
+    setLoggedIn(true);
+  };
+  useEffect(() => {
+    tryy();
+  }, []);
+
 
   const onSearch = async () => {
     try {

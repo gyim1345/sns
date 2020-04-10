@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 function ModalAddPost({ currentUser }) {
   const [input, setInput] = useState("");
   const { user } = useParams();
+  console.log('params',user)
 
   const onChange = e => {
     setInput(e.target.value);

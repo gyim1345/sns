@@ -54,8 +54,8 @@ function AccountSetting({ userInfo, info }) {
           <div css={[nickNameCss]}>
             <input
               name="Id"
-              defaultValue={info.userNickName}
-              placeholder={info.userNickName}
+              defaultValue={info.nickName}
+              placeholder={info.nickName}
               css={[inputCss]}
               onChange={onChangeNickName}
             />
@@ -71,8 +71,8 @@ function AccountSetting({ userInfo, info }) {
           <div css={[introductoryCss]}>
             <textarea
               name="Id"
-              defaultValue={info.userIntroductory}
-              placeholder={info.userIntroductory}
+              defaultValue={info.introductory}
+              placeholder={info.introductory}
               css={[inputCssTextBox]}
               onChange={onChangeIntroductory}
             />

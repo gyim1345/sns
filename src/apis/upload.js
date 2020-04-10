@@ -13,7 +13,7 @@ export const uploadPicture = async formData => {
 };
 
 export const uploadUserImage = async formData => {
-  const { data } = await axios.post(`${TASKS_URL}/userImage`, formData, {
+  const { data } = await axios.patch(`${TASKS_URL}/userImage`, formData, {
     headers: {
       "Content-Type": "multipart/form-data"
     },

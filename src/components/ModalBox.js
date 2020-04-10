@@ -52,6 +52,7 @@ const modalCss = css`
 
 const marginLeft0 = css`
   margin-left: 0px;
+  
 `;
 
 export default ModalBox;

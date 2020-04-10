@@ -30,9 +30,12 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const check = async () => {
-    const { currentUserAPI } = await checkStatus(currentUser, userOfActivePage);
-    setUserOfActivePage(currentUserAPI);
-    setCurrentUser(currentUserAPI);
+    const { sessionUserName } = await checkStatus(
+      currentUser,
+      userOfActivePage
+    );
+    setUserOfActivePage(sessionUserName);
+    setCurrentUser(sessionUserName);
   };
 
   useEffect(() => {
@@ -133,7 +136,7 @@ function App() {
             setCurrentUser={setCurrentUser}
           />
         </Route>
-        <Route exact path={`/${userOfActivePage}/posting/:postingId`}>
+        <Route exact path={`/posting/:postingId`}>
           <PostPageDetail
             userOfActivePage={userOfActivePage}
             setUserOfActivePage={setUserOfActivePage}

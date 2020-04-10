@@ -14,7 +14,7 @@ function UserInfo({ user }) {
       const response = await getUserInfoAPI(user);
       setInfo(response);
     } catch (e) {
-        Swal.fire({
+      Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Internal Error"
@@ -27,7 +27,7 @@ function UserInfo({ user }) {
       const response = await getRandomUser(user);
       setRandomUsers(response);
     } catch (e) {
-        Swal.fire({
+      Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Internal Error"
@@ -39,6 +39,11 @@ function UserInfo({ user }) {
     try {
       const response = await AddFollower(name);
       console.log(response);
+      Swal.fire({
+        icon: "success",
+        title: "Following",
+        // text: "Ho"
+      });
     } catch (e) {
       Swal.fire({
         icon: "error",
@@ -58,13 +63,13 @@ function UserInfo({ user }) {
         <div css={[fix]}>
           <div css={[nameAndPicture]}>
             <img
-              src={info.image}
+              src={info.userURL}
               alt="Smiley face"
               height="50"
               width="50"
               css={[borderRadius]}
             />
-            <span css={[name]}>{user}</span>
+            <span css={[name]}>{user.substring(0, user.indexOf("@"))}</span>
           </div>
           <span css={[story]}>
             스토리
@@ -93,7 +98,9 @@ function UserInfo({ user }) {
                       css={[borderRadius]}
                     />
                     <div css={textBoxForfriendImageAndName}>
-                      <span css={[name]}>{usera.name}</span>
+                      <span css={[name]}>
+                        {usera.name.substring(0, usera.name.indexOf("@"))}
+                      </span>
                       <span css={[recommendation]}>recommendation</span>
                     </div>
 
@@ -110,7 +117,7 @@ function UserInfo({ user }) {
               {/* test */}
               <div css={[friendImageAndName]}>
                 <img
-                  src={info.image}
+                  src={info.userURL}
                   alt="Smiley face"
                   height="40"
                   width="40"
@@ -126,7 +133,7 @@ function UserInfo({ user }) {
 
               <div css={[friendImageAndName]}>
                 <img
-                  src={info.image}
+                  src={info.userURL}
                   alt="Smiley face"
                   height="40"
                   width="40"

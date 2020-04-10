@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 function AddPost({ currentUser, posting, setPosting }) {
   const [input, setInput] = useState("");
   const { user } = useParams();
-
+  console.log('params',user)
   const onChange = e => {
     setInput(e.target.value);
   };

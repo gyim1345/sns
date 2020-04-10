@@ -76,7 +76,7 @@ function Posting({
                 toTop();
               }}
             >
-              {posting.userName}
+              {posting.userName.substring(0, posting.userName.indexOf("@"))}
             </Link>
           </div>
         </div>
@@ -88,7 +88,7 @@ function Posting({
         />
       </h1>
       <div css={[title]}>
-        <Link to={`/${userOfActivePage}/posting/${posting.id}`} onClick={toTop}>
+        <Link to={`/posting/${posting.id}`} onClick={toTop}>
           <img
             src={posting.imageUrl}
             alt=""
@@ -113,11 +113,11 @@ function Posting({
           <Scrap postingId={posting.id} />
         </div>
         <div css={[displayFlex]}>
-          <div css={[postUserNameBold]}> {posting.userName}</div>
+          <div css={[postUserNameBold]}> {posting.userName.substring(0, posting.userName.indexOf("@"))}</div>
           <div css={[wordBreak]}>{posting.title}</div>
         </div>
         <div css={[commentAreaCss]}>
-          <Route exact path={`/${userOfActivePage}/posting/${posting.id}`}>
+          <Route exact path={`/posting/${posting.id}`}>
             <Comment
               posting={posting}
               comments={comments}

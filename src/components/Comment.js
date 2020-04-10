@@ -12,8 +12,8 @@ function Comment({
 }) {
   commentAPI.sort((a, b) => {
     return (
-      (a.isUnder !== undefined ? a.isUnder : a.id) -
-      (b.isUnder !== undefined ? b.isUnder : b.id)
+      (a.replyToCommentId !== undefined ? a.replyToCommentId : a.id) -
+      (b.replyToCommentId !== undefined ? b.replyToCommentId : b.id)
     );
   });
 
@@ -24,7 +24,9 @@ function Comment({
           <div>
             <li css={[displayFlex]}>
               {postings.isUnder && <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
-              <div css={[fontBold]}>{postings.userName}</div>
+              <div css={[fontBold]}>
+                {postings.userName.substring(0, posting.userName.indexOf("@"))}
+              </div>
               <div css={[wordBreak]}>{`: ${postings.title}`}</div>
             </li>
           </div>

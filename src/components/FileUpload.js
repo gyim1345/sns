@@ -5,7 +5,7 @@ import { css } from "@emotion/core";
 import { uploadPicture, uploadUserImage } from "../apis/upload";
 
 const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
-  const [file, setFile] = useState("");
+  const [files, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
   const [message, setMessage] = useState("");
   const [imgURL, setImgURL] = useState("");
@@ -30,12 +30,12 @@ const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
   };
-  console.log(file);
+  console.log(files);
 
   const onSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("files", files);
     formData.append("input", input);
     formData.append("inputTag", inputTag);
     formData.append("user", currentUser);

@@ -12,13 +12,15 @@ function TimeLinePage({
   setCurrentUser,
   setLoggedIn
 }) {
+  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   const sizeOfPicture = { width: "600px" };
   const [posting, setPosting] = useState([]);
   const getUserTimeLinePostsAPI = async () => {
-    const { currentUserAPI } = await checkStatus();
-    setUserOfActivePage(currentUserAPI);
-    setCurrentUser(currentUserAPI);
-    const { posts } = await getUserTimeLinePosts(currentUserAPI);
+    const { sessionUserName } = await checkStatus();
+    console.log(sessionUserName,'timelineeeeeeeeeeeeeeeeeeeeeee')
+    setUserOfActivePage(sessionUserName);
+    setCurrentUser(sessionUserName);
+    const { posts } = await getUserTimeLinePosts(sessionUserName);
     setPosting(posts);
     setLoggedIn(true);
   };

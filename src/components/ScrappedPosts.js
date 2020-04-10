@@ -30,7 +30,7 @@ function ScrappedPosts({ user }) {
   return (
     <div css={[tagPostImagesCss]}>
       {posts.map(post => (
-        <Link to={`/${post.userName}/posting/${post.id}`} key={post.id}>
+        <Link to={`/posting/${post.id}`} key={post.id}>
           <PostImagesOnly imageUrl={post.imageUrl} />
         </Link>
       ))}

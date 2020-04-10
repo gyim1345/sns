@@ -15,13 +15,15 @@ function PostPageDetail({
   setLoggedIn
 }) {
   const { postingId } = useParams();
+  console.log('params',postingId)
+
   const sizeOfPicture = { width: "100%", height: "100%" };
   const [posting, setPosting] = useState([]);
   const [commentAPI, setCommentAPI] = useState([]);
   const getPosting = async () => {
-    const { currentUserAPI } = await checkStatus(currentUser);
+    const { sessionUserName } = await checkStatus(currentUser);
     // setUserOfActivePage(response);
-    setCurrentUser(currentUserAPI);
+    setCurrentUser(sessionUserName);
     const { posts } = await getPostsFromId(postingId);
     setPosting(posts);
     setLoggedIn(true);

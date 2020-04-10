@@ -18,9 +18,9 @@ function Reply({
     return addComment(
       null,
       posting.postLId,
-      `@${posting.userName} ${input}`,
+      `@${posting.userName.substring(0, posting.userName.indexOf("@"))} ${input}`,
       currentUser,
-      commentAPI[indexOfCommentOnThisPosting],
+      commentAPI[indexOfCommentOnThisPosting].id,
       posting.id
     );
   };

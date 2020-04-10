@@ -30,7 +30,7 @@ function UserInfoHead({ user, info, setInfo, posting }) {
       <div css={[gridBoxForUserHead]}>
         <div css={[imageBox]}>
           <img
-            src={info.image}
+            src={info.userURL}
             alt="Smiley face"
             height="150"
             width="150"
@@ -39,7 +39,7 @@ function UserInfoHead({ user, info, setInfo, posting }) {
         </div>
         <div css={[textArea]}>
           <div css={[row1]}>
-            <span css={[location23]}> {info.user} </span>
+            <span css={[location23]}> {info.name && info.name.substring(0, info.name.indexOf("@"))} </span>
             <button css={[button]}>메시지 보내기</button>
             <ModalBoxSetting info={info} userInfo={userInfo} />
           </div>
@@ -60,8 +60,8 @@ function UserInfoHead({ user, info, setInfo, posting }) {
             </span>
           </div>
           <div css={[row3]}>
-            <span css={[row3Name]}>{info.userNickName}</span>
-            <span css={[introductory]}>{info.userIntroductory}</span>
+            <span css={[row3Name]}>{info.nickName}</span>
+            <span css={[introductory]}>{info.introductory}</span>
           </div>
         </div>
       </div>

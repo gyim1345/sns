@@ -2,8 +2,8 @@ import Modal from "react-modal";
 import React from "react";
 import { css } from "@emotion/core";
 import ThreeRoundButton from "../svgIcons/threeRoundButton";
-import Edit from "./Edit";
-import Remove from "./Remove";
+import EditComment from "./EditComment";
+import RemoveComment from "./RemoveComment";
 
 function ModalBoxComment({
   commentAPI,
@@ -25,13 +25,13 @@ function ModalBoxComment({
           close
         </button>
         <div>
-          <Edit
+          <EditComment
             posting={commentAPI}
             indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
             currentUser={currentUser}
             setCommentAPI={setCommentAPI}
           />
-          <Remove
+          <RemoveComment
             posting={commentAPI}
             currentUser={currentUser}
             indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}

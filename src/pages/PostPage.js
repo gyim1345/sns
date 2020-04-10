@@ -14,6 +14,8 @@ function PostPage({
 }) {
   const [posting, setPosting] = useState([]);
   const { user } = useParams();
+  console.log('params',user)
+
   const [info, setInfo] = useState({
     user: undefined,
     postNumber: undefined,
@@ -23,9 +25,10 @@ function PostPage({
     userIntroductory: undefined
   });
   const getPostingOfCurrentUser = async () => {
-    const { currentUserAPI } = await checkStatus(currentUser, user);
+    const { sessionUserName } = await checkStatus(currentUser, user);
+    console.log('qqqqqqqqqqqqqqqq', sessionUserName)
     setUserOfActivePage(user);
-    setCurrentUser(currentUserAPI);
+    setCurrentUser(sessionUserName);
     const { posts } = await getUserPostOnly(user);
     setPosting(posts);
     setLoggedIn(true);

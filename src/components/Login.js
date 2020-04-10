@@ -51,10 +51,13 @@ const Login = ({
     try {
       const response = await setLoginAPI(data);
       console.log(response);
-      Swal.fire(response.statusMessage, "", "success");
-      response.loginStatus &&
-        (setCurrentUser(data.Id), setUserOfActivePage(data.Id));
-      setLoggedIn(response.loginStatus);
+      Swal.fire(
+        `WelcomeBack ${data.Id.substring(0, data.Id.indexOf("@"))}`,
+        "",
+        "success"
+      );
+      response && (setCurrentUser(data.Id), setUserOfActivePage(data.Id));
+      setLoggedIn(response);
     } catch (e) {
       Swal.fire({
         icon: "error",

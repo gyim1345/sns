@@ -18,7 +18,7 @@ function PostsForPostPage({
 }) {
   const [chosen, setChosen] = useState(1);
   const { user } = useParams();
-  console.log(user);
+  console.log('params', user);
 
   const changeUser = () => {
     setUserOfActivePage(posting.userName);
@@ -55,7 +55,7 @@ function PostsForPostPage({
         <div css={[searchPagePostsCss]}>
           {posting.map((post, i) => (
             <div key={`postPage${i}`}>
-              <Link to={`/${post.userName}/posting/${post.id}`}>
+              <Link to={`/posting/${post.id}`}>
                 <PostImagesOnly imageUrl={post.imageUrl} />
               </Link>
             </div>

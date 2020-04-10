@@ -23,20 +23,14 @@ function PostingList({
     setInput(e.target.value);
   };
 
-  const addComment = async (
-    _,
-    postId,
-    Input,
-    currentUser,
-    indexOfCommentOnThisPosting,
-    commentId
-  ) => {
+  const addComment = async (_, postId, Input, username, index, commentId) => {
+    console.log(postId, postId, Input, username, index, commentId)
     try {
       const response = await addCommentForPost(
         postId,
         Input,
         currentUser,
-        indexOfCommentOnThisPosting,
+        index,
         commentId
       );
       setCommentAPI(response);
@@ -46,7 +40,8 @@ function PostingList({
         icon: "error",
         title: "Oops...",
         text: "Internal Error"
-      });    }
+      });
+    }
   };
 
   return (
