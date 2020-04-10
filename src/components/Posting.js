@@ -20,7 +20,7 @@ function Posting({
   posting,
   postingAll,
   setPosting,
-  comments,
+  // comments,
   addComment,
   sizeOfPicture,
   userOfActivePage,
@@ -120,7 +120,7 @@ function Posting({
           <Route exact path={`/posting/${posting.id}`}>
             <Comment
               posting={posting}
-              comments={comments}
+              // comments={comments}
               userOfActivePage={userOfActivePage}
               currentUser={currentUser}
               commentAPI={commentAPI}

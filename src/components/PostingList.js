@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { css } from "@emotion/core";
 import Swal from "sweetalert2";
 
-import commentStorage from "../stores/commentStore";
+// import commentStorage from "../stores/commentStore";
 import Posting from "./Posting";
 import { addCommentForPost } from "../apis/comment";
 
@@ -17,14 +17,13 @@ function PostingList({
   setCommentAPI
 }) {
   const [Input, setInput] = useState("");
-  const { comments } = commentStorage;
+  // const { comments } = commentStorage;
 
   const onChangeComment = e => {
     setInput(e.target.value);
   };
 
   const addComment = async (_, postId, Input, username, index, commentId) => {
-    console.log(postId, postId, Input, username, index, commentId)
     try {
       const response = await addCommentForPost(
         postId,
@@ -57,7 +56,7 @@ function PostingList({
                 posting={posting1}
                 postingAll={posting}
                 setPosting={setPosting}
-                comments={comments}
+                // comments={comments}
                 addComment={addComment}
                 onChangeComment={onChangeComment}
                 sizeOfPicture={sizeOfPicture}

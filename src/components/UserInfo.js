@@ -44,6 +44,7 @@ function UserInfo({ user }) {
         title: "Following",
         // text: "Ho"
       });
+      callRandomUser();
     } catch (e) {
       Swal.fire({
         icon: "error",
