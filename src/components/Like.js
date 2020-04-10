@@ -4,14 +4,17 @@ import { css } from "@emotion/core";
 
 import { getChangeLike } from "../apis/post";
 import LikeSvg from "../svgIcons/LikeSvg";
+import LikeFilledSvg from "../svgIcons/LikeFilledSvg";
 
-const Like = ({ posting, setPosting, postingAll }) => {
+const Like = ({ posting, setPosting, postingAll, currentUser }) => {
+  const likeTrue = posting.like.includes(currentUser);
   const changeLikeOnClick = async () => {
     try {
       const response = await getChangeLike(posting);
       setPosting([response]);
       const index = postingAll.findIndex(it => posting.id === it.id);
       postingAll[index] = response;
+      console.log(posting);
       setPosting(postingAll);
     } catch (e) {
       Swal.fire({
@@ -25,7 +28,8 @@ const Like = ({ posting, setPosting, postingAll }) => {
   return (
     <div>
       <div onClick={changeLikeOnClick} css={[likeDiv]}></div>
-      <LikeSvg />
+
+      {likeTrue ? <LikeFilledSvg /> : <LikeSvg />}
       <div css={[margin1]}>
         좋아요 &nbsp;
         {posting.like.length}개
