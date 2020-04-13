@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Remove /> 스냅샷 비교 1`] = `
+<Remove
+  posting={
+    Object {
+      "_id": "5e8ec52d9bb4913b5a844423",
+      "id": 1,
+      "imageUrl": "http://localhost:3000/static/images/1.jpg",
+      "like": Array [
+        "gibong@gmail.com",
+      ],
+      "tag": Array [
+        "landscape",
+      ],
+      "title": "posting with id 1",
+      "userName": "gibong@gmail.com",
+    }
+  }
+>
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Remove"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__="button"
+    css={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlJlbW92ZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUE0Q3VCIiwiZmlsZSI6IlJlbW92ZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFJlZGlyZWN0IH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSc7XG5pbXBvcnQgeyBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcbmltcG9ydCBTd2FsIGZyb20gJ3N3ZWV0YWxlcnQyJztcblxuaW1wb3J0IHsgcmVtb3ZlUG9zdEFwaSB9IGZyb20gJy4uL2FwaXMvcG9zdCc7XG5cbmZ1bmN0aW9uIFJlbW92ZSh7IHBvc3RpbmcsIGN1cnJlbnRVc2VyIH0pIHtcbiAgY29uc3QgW3JlbW92ZWQsIHNldFJlbW92ZWRdID0gdXNlU3RhdGUoZmFsc2UpO1xuXG4gIGNvbnN0IG9uQ2xpY2sgPSBhc3luYyAoKSA9PiB7XG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgcmVtb3ZlUG9zdEFwaShwb3N0aW5nKTtcbiAgICAgIGlmIChyZXNwb25zZS5NZXNzYWdlICE9PSB1bmRlZmluZWQpXG4gICAgICAgIHJldHVybiBTd2FsLmZpcmUoe1xuICAgICAgICAgIGljb246ICdlcnJvcicsXG4gICAgICAgICAgdGl0bGU6ICdPb3BzLi4uJyxcbiAgICAgICAgICB0ZXh0OiBgJHtyZXNwb25zZS5NZXNzYWdlfWBcbiAgICAgICAgfSk7XG4gICAgICBzZXRSZW1vdmVkKHJlc3BvbnNlKTtcbiAgICB9IGNhdGNoIChlKSB7XG4gICAgICBTd2FsLmZpcmUoe1xuICAgICAgICBpY29uOiAnZXJyb3InLFxuICAgICAgICB0aXRsZTogJ09vcHMuLi4nLFxuICAgICAgICB0ZXh0OiAnSW50ZXJuYWwgRXJyb3InXG4gICAgICB9KTtcbiAgICB9XG4gIH07XG5cbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPGJ1dHRvblxuICAgICAgICB0eXBlPVwiYnV0dG9uXCJcbiAgICAgICAgb25DbGljaz17b25DbGlja31cbiAgICAgICAgaWQ9XCJidXR0b25SZW1vdmVcIlxuICAgICAgICBjc3M9e1ttYXJnaW5MZWZ0MF19XG4gICAgICA+XG4gICAgICAgIFJlbW92ZVxuICAgICAgPC9idXR0b24+XG4gICAgICB7cmVtb3ZlZCAmJiA8UmVkaXJlY3QgdG89e2AvVGltZUxpbmUvJHtjdXJyZW50VXNlcn1gfSAvPn1cbiAgICA8Lz5cbiAgKTtcbn1cblxuY29uc3QgbWFyZ2luTGVmdDAgPSBjc3NgXG4gIG1hcmdpbi1sZWZ0OiAwcHg7XG5gO1xuXG4vLyBSZW1vdmUucHJvcFR5cGVzID0ge1xuLy8gICBjdXJyZW50VXNlcjogUHJvcFR5cGVzLnN0cmluZyxcbi8vICAgcG9zdGluZzogUHJvcFR5cGVzLm9uZU9mVHlwZShbUHJvcFR5cGVzLm9iamVjdCwgUHJvcFR5cGVzLmFycmF5XSksXG4vLyAgIHNldENvbW1lbnRBUEk6IFByb3BUeXBlcy5lbGVtZW50VHlwZSxcbi8vICAgaW5kZXhPZkNvbW1lbnRPblRoaXNQb3N0aW5nOiBQcm9wVHlwZXMubnVtYmVyXG4vLyB9O1xuXG4vLyBSZW1vdmUuZGVmYXVsdFByb3BzID0ge1xuLy8gICBjdXJyZW50VXNlcjogXCJcIixcbi8vICAgcG9zdGluZzoge30sXG4vLyAgIGlzQ29tbWVudDogZmFsc2Vcbi8vIH07XG5cbmV4cG9ydCBkZWZhdWx0IFJlbW92ZTtcbiJdfQ== */",
+        "name": "17l1lon-marginLeft0-Remove",
+        "next": undefined,
+        "styles": "margin-left:0px;;label:marginLeft0;;;label:Remove;/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlJlbW92ZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFtQ1EiLCJmaWxlIjoiUmVtb3ZlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgUmVkaXJlY3QgfSBmcm9tICdyZWFjdC1yb3V0ZXItZG9tJztcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuaW1wb3J0IFN3YWwgZnJvbSAnc3dlZXRhbGVydDInO1xuXG5pbXBvcnQgeyByZW1vdmVQb3N0QXBpIH0gZnJvbSAnLi4vYXBpcy9wb3N0JztcblxuZnVuY3Rpb24gUmVtb3ZlKHsgcG9zdGluZywgY3VycmVudFVzZXIgfSkge1xuICBjb25zdCBbcmVtb3ZlZCwgc2V0UmVtb3ZlZF0gPSB1c2VTdGF0ZShmYWxzZSk7XG5cbiAgY29uc3Qgb25DbGljayA9IGFzeW5jICgpID0+IHtcbiAgICB0cnkge1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCByZW1vdmVQb3N0QXBpKHBvc3RpbmcpO1xuICAgICAgaWYgKHJlc3BvbnNlLk1lc3NhZ2UgIT09IHVuZGVmaW5lZClcbiAgICAgICAgcmV0dXJuIFN3YWwuZmlyZSh7XG4gICAgICAgICAgaWNvbjogJ2Vycm9yJyxcbiAgICAgICAgICB0aXRsZTogJ09vcHMuLi4nLFxuICAgICAgICAgIHRleHQ6IGAke3Jlc3BvbnNlLk1lc3NhZ2V9YFxuICAgICAgICB9KTtcbiAgICAgIHNldFJlbW92ZWQocmVzcG9uc2UpO1xuICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgIFN3YWwuZmlyZSh7XG4gICAgICAgIGljb246ICdlcnJvcicsXG4gICAgICAgIHRpdGxlOiAnT29wcy4uLicsXG4gICAgICAgIHRleHQ6ICdJbnRlcm5hbCBFcnJvcidcbiAgICAgIH0pO1xuICAgIH1cbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uXG4gICAgICAgIHR5cGU9XCJidXR0b25cIlxuICAgICAgICBvbkNsaWNrPXtvbkNsaWNrfVxuICAgICAgICBpZD1cImJ1dHRvblJlbW92ZVwiXG4gICAgICAgIGNzcz17W21hcmdpbkxlZnQwXX1cbiAgICAgID5cbiAgICAgICAgUmVtb3ZlXG4gICAgICA8L2J1dHRvbj5cbiAgICAgIHtyZW1vdmVkICYmIDxSZWRpcmVjdCB0bz17YC9UaW1lTGluZS8ke2N1cnJlbnRVc2VyfWB9IC8+fVxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBtYXJnaW5MZWZ0MCA9IGNzc2BcbiAgbWFyZ2luLWxlZnQ6IDBweDtcbmA7XG5cbi8vIFJlbW92ZS5wcm9wVHlwZXMgPSB7XG4vLyAgIGN1cnJlbnRVc2VyOiBQcm9wVHlwZXMuc3RyaW5nLFxuLy8gICBwb3N0aW5nOiBQcm9wVHlwZXMub25lT2ZUeXBlKFtQcm9wVHlwZXMub2JqZWN0LCBQcm9wVHlwZXMuYXJyYXldKSxcbi8vICAgc2V0Q29tbWVudEFQSTogUHJvcFR5cGVzLmVsZW1lbnRUeXBlLFxuLy8gICBpbmRleE9mQ29tbWVudE9uVGhpc1Bvc3Rpbmc6IFByb3BUeXBlcy5udW1iZXJcbi8vIH07XG5cbi8vIFJlbW92ZS5kZWZhdWx0UHJvcHMgPSB7XG4vLyAgIGN1cnJlbnRVc2VyOiBcIlwiLFxuLy8gICBwb3N0aW5nOiB7fSxcbi8vICAgaXNDb21tZW50OiBmYWxzZVxuLy8gfTtcblxuZXhwb3J0IGRlZmF1bHQgUmVtb3ZlO1xuIl19 */",
+        "toString": [Function],
+      }
+    }
+    id="buttonRemove"
+    onClick={[Function]}
+    type="button"
+  >
+    <button
+      className="css-17l1lon-marginLeft0-Remove"
+      id="buttonRemove"
+      onClick={[Function]}
+      type="button"
+    >
+      Remove
+    </button>
+  </EmotionCssPropInternal>
+</Remove>
+`;

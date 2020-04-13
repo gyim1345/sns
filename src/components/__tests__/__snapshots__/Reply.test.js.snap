@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Reply /> 스냅샷 비교 1`] = `
+<Reply
+  commentAPI={
+    Array [
+      Object {
+        "_id": "5e90119435a2d94f9e08e35a",
+        "id": 1,
+        "like": Array [
+          "noone@gmail.com",
+        ],
+        "postLId": 1,
+        "replyToCommentId": null,
+        "title": "comment with postLId 1",
+        "userName": "gibong@gmail.com",
+      },
+    ]
+  }
+  currentUser="gibong@gmail.com"
+  indexOfCommentOnThisPosting={0}
+  posting={
+    Object {
+      "_id": "5e8ec52d9bb4913b5a844423",
+      "id": 1,
+      "imageUrl": "http://localhost:3000/static/images/1.jpg",
+      "like": Array [
+        "gibong@gmail.com",
+      ],
+      "tag": Array [
+        "landscape",
+      ],
+      "title": "posting with id 1",
+      "userName": "gibong@gmail.com",
+    }
+  }
+>
+  <input
+    onChange={[Function]}
+    value=""
+  />
+  <button
+    id="buttonReply"
+    onClick={[Function]}
+    type="button"
+  >
+    AddReply
+  </button>
+</Reply>
+`;

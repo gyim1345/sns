@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModalBoxSetting /> 스냅샷 비교 1`] = `
+<ModalBoxSetting
+  info={
+    Object {
+      "followerNumber": 3,
+      "introductory": "나는 기봉이",
+      "name": "gibong@gmail.com",
+      "nickName": "기봉이",
+      "postCount": 16,
+      "userURL": "http://localhost:3000/static/images/user1.png",
+    }
+  }
+>
+  <SettingSvg
+    openModal={[Function]}
+  >
+    <svg
+      aria-label="옵션"
+      fill="#262626"
+      height="24"
+      onClick={[Function]}
+      viewBox="0 0 48 48"
+      width="24"
+    >
+      <path
+        d="M46.7 20.6l-2.1-1.1c-.4-.2-.7-.5-.8-1-.5-1.6-1.1-3.2-1.9-4.7-.2-.4-.3-.8-.1-1.2l.8-2.3c.2-.5 0-1.1-.4-1.5l-2.9-2.9c-.4-.4-1-.5-1.5-.4l-2.3.8c-.4.1-.8.1-1.2-.1-1.4-.8-3-1.5-4.6-1.9-.4-.1-.8-.4-1-.8l-1.1-2.2c-.3-.5-.8-.8-1.3-.8h-4.1c-.6 0-1.1.3-1.3.8l-1.1 2.2c-.2.4-.5.7-1 .8-1.6.5-3.2 1.1-4.6 1.9-.4.2-.8.3-1.2.1l-2.3-.8c-.5-.2-1.1 0-1.5.4L5.9 8.8c-.4.4-.5 1-.4 1.5l.8 2.3c.1.4.1.8-.1 1.2-.8 1.5-1.5 3-1.9 4.7-.1.4-.4.8-.8 1l-2.1 1.1c-.5.3-.8.8-.8 1.3V26c0 .6.3 1.1.8 1.3l2.1 1.1c.4.2.7.5.8 1 .5 1.6 1.1 3.2 1.9 4.7.2.4.3.8.1 1.2l-.8 2.3c-.2.5 0 1.1.4 1.5L8.8 42c.4.4 1 .5 1.5.4l2.3-.8c.4-.1.8-.1 1.2.1 1.4.8 3 1.5 4.6 1.9.4.1.8.4 1 .8l1.1 2.2c.3.5.8.8 1.3.8h4.1c.6 0 1.1-.3 1.3-.8l1.1-2.2c.2-.4.5-.7 1-.8 1.6-.5 3.2-1.1 4.6-1.9.4-.2.8-.3 1.2-.1l2.3.8c.5.2 1.1 0 1.5-.4l2.9-2.9c.4-.4.5-1 .4-1.5l-.8-2.3c-.1-.4-.1-.8.1-1.2.8-1.5 1.5-3 1.9-4.7.1-.4.4-.8.8-1l2.1-1.1c.5-.3.8-.8.8-1.3v-4.1c.4-.5.1-1.1-.4-1.3zM24 41.5c-9.7 0-17.5-7.8-17.5-17.5S14.3 6.5 24 6.5 41.5 14.3 41.5 24 33.7 41.5 24 41.5z"
+      />
+    </svg>
+  </SettingSvg>
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ModalBoxSetting"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+    css={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsQm94U2V0dGluZy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUErQm9CIiwiZmlsZSI6Ik1vZGFsQm94U2V0dGluZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBNb2RhbCBmcm9tICdyZWFjdC1tb2RhbCc7XG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmltcG9ydCBTZXR0aW5nU3ZnIGZyb20gJy4uL3N2Z0ljb25zL1NldHRpbmdTdmcnO1xuaW1wb3J0IEFjY291bnRTZXR0aW5nIGZyb20gJy4vQWNjb3VudFNldHRpbmcnO1xuXG5mdW5jdGlvbiBNb2RhbEJveFNldHRpbmcoeyB1c2VySW5mbywgaW5mbyB9KSB7XG4gIGNvbnN0IFttb2RhbElzT3Blbiwgc2V0SXNPcGVuXSA9IFJlYWN0LnVzZVN0YXRlKGZhbHNlKTtcblxuICBjb25zdCBjbG9zZU1vZGFsID0gKCkgPT4ge1xuICAgIHNldElzT3BlbihmYWxzZSk7XG4gIH07XG5cbiAgY29uc3Qgb3Blbk1vZGFsID0gKCkgPT4ge1xuICAgIHNldElzT3Blbih0cnVlKTtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8U2V0dGluZ1N2ZyBvcGVuTW9kYWw9e29wZW5Nb2RhbH0gLz5cbiAgICAgIDxNb2RhbCBpc09wZW49e21vZGFsSXNPcGVufSBvblJlcXVlc3RDbG9zZT17Y2xvc2VNb2RhbH0gY3NzPXttb2RhbENzc30+XG4gICAgICAgIDxBY2NvdW50U2V0dGluZyBpbmZvPXtpbmZvfSB1c2VySW5mbz17dXNlckluZm99IC8+XG4gICAgICAgIDxidXR0b24gb25DbGljaz17Y2xvc2VNb2RhbH0gY3NzPXtbbWFyZ2luTGVmdDBdfSBzdHlsZT17eyBtYXJnaW46IDAgfX0+XG4gICAgICAgICAgY2xvc2VcbiAgICAgICAgPC9idXR0b24+XG4gICAgICA8L01vZGFsPlxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBtb2RhbENzcyA9IGNzc2BcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICByaWdodDogYXV0bztcbiAgYm90dG9tOiBhdXRvO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjA0LCAyMDQsIDIwNCk7XG4gIGJhY2tncm91bmQ6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XG4gIG91dGxpbmU6IG5vbmU7XG4gIG1hcmdpbi1yaWdodDogLTUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW4tcmV2ZXJzZTtcbmA7XG5cbmNvbnN0IG1hcmdpbkxlZnQwID0gY3NzYFxuICBtYXJnaW4tbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSh2YXIoLS1kMGIsIDIxOSwgMjE5LCAyMTkpLCAxKTtcbiAgY29sb3I6IHJnYmEodmFyKC0tZjA3LCAzOCwgMzgsIDM4KSwgMSk7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG5gO1xuXG5leHBvcnQgZGVmYXVsdCBNb2RhbEJveFNldHRpbmc7XG4iXX0= */",
+        "name": "102pzl3-modalCss",
+        "styles": "position:absolute;top:50%;left:50%;right:auto;bottom:auto;border:1px solid rgb(204,204,204);background:rgb(255,255,255);overflow:auto;border-radius:12px;outline:none;margin-right:-50%;transform:translate(-50%,-50%);display:flex;flex-direction:column-reverse;;label:modalCss;",
+        "toString": [Function],
+      }
+    }
+    isOpen={false}
+    onRequestClose={[Function]}
+  >
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      className="css-102pzl3-modalCss"
+      closeTimeoutMS={0}
+      isOpen={false}
+      onRequestClose={[Function]}
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      role="dialog"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+    >
+      <Portal
+        containerInfo={
+          <div
+            class="ReactModalPortal"
+          />
+        }
+      >
+        <ModalPortal
+          ariaHideApp={true}
+          bodyOpenClassName="ReactModal__Body--open"
+          className="css-102pzl3-modalCss"
+          closeTimeoutMS={0}
+          defaultStyles={
+            Object {
+              "content": Object {
+                "WebkitOverflowScrolling": "touch",
+                "background": "#fff",
+                "border": "1px solid #ccc",
+                "borderRadius": "4px",
+                "bottom": "40px",
+                "left": "40px",
+                "outline": "none",
+                "overflow": "auto",
+                "padding": "20px",
+                "position": "absolute",
+                "right": "40px",
+                "top": "40px",
+              },
+              "overlay": Object {
+                "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                "bottom": 0,
+                "left": 0,
+                "position": "fixed",
+                "right": 0,
+                "top": 0,
+              },
+            }
+          }
+          isOpen={false}
+          onRequestClose={[Function]}
+          parentSelector={[Function]}
+          portalClassName="ReactModalPortal"
+          role="dialog"
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
+          shouldFocusAfterRender={true}
+          shouldReturnFocusAfterClose={true}
+          style={
+            Object {
+              "content": Object {},
+              "overlay": Object {},
+            }
+          }
+        />
+      </Portal>
+    </Modal>
+  </EmotionCssPropInternal>
+</ModalBoxSetting>
+`;

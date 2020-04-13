@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostImagesOnly /> 스냅샷 비교 1`] = `
+<PostImagesOnly
+  imageUrl="URL"
+>
+  <div
+    className="test"
+    style={
+      Object {
+        "marginBottom": "2%",
+        "marginRight": "2%",
+        "position": "relative",
+        "width": "26vw",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundImage": "url(URL)",
+          "backgroundPosition": "center",
+          "backgroundSize": "cover",
+          "bottom": 0,
+          "left": 0,
+          "marginRight": "2%",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "paddingTop": "100%",
+        }
+      }
+    />
+  </div>
+</PostImagesOnly>
+`;

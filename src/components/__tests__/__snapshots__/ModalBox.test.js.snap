@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModalBox /> 스냅샷 비교 1`] = `
+<ModalBox
+  currentUser="gibong@gmail.com"
+  input="INPUT"
+  posting={
+    Object {
+      "_id": "5e8ec52d9bb4913b5a844423",
+      "id": 1,
+      "imageUrl": "http://localhost:3000/static/images/1.jpg",
+      "like": Array [
+        "gibong@gmail.com",
+      ],
+      "tag": Array [
+        "landscape",
+      ],
+      "title": "posting with id 1",
+      "userName": "gibong@gmail.com",
+    }
+  }
+>
+  <ThreeRoundButtonSvg
+    setIsOpen={[Function]}
+  >
+    <svg
+      aria-label="옵션 더 보기"
+      className="_8-yf5 "
+      fill="#262626"
+      height="16"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginRight": "8px",
+        }
+      }
+      viewBox="0 0 48 48"
+      width="16"
+    >
+      <circle
+        clipRule="evenodd"
+        cx="8"
+        cy="24"
+        fillRule="evenodd"
+        r="4.5"
+      />
+      <circle
+        clipRule="evenodd"
+        cx="24"
+        cy="24"
+        fillRule="evenodd"
+        r="4.5"
+      />
+      <circle
+        clipRule="evenodd"
+        cx="40"
+        cy="24"
+        fillRule="evenodd"
+        r="4.5"
+      />
+    </svg>
+  </ThreeRoundButtonSvg>
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ModalBox"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+    css={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsQm94LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQW9Db0IiLCJmaWxlIjoiTW9kYWxCb3guanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTW9kYWwgZnJvbSAncmVhY3QtbW9kYWwnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuXG5pbXBvcnQgVGhyZWVSb3VuZEJ1dHRvblN2ZyBmcm9tICcuLi9zdmdJY29ucy9UaHJlZVJvdW5kQnV0dG9uU3ZnJztcbmltcG9ydCBFZGl0IGZyb20gJy4vRWRpdCc7XG5pbXBvcnQgUmVtb3ZlIGZyb20gJy4vUmVtb3ZlJztcblxuZnVuY3Rpb24gTW9kYWxCb3goeyBwb3N0aW5nLCBzZXRQb3N0aW5nLCBjdXJyZW50VXNlciwgaW5wdXQgfSkge1xuICBjb25zdCBbbW9kYWxJc09wZW4sIHNldElzT3Blbl0gPSBSZWFjdC51c2VTdGF0ZShmYWxzZSk7XG5cbiAgZnVuY3Rpb24gY2xvc2VNb2RhbCgpIHtcbiAgICBzZXRJc09wZW4oZmFsc2UpO1xuICB9XG5cbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPFRocmVlUm91bmRCdXR0b25Tdmcgc2V0SXNPcGVuPXtzZXRJc09wZW59IC8+XG4gICAgICA8TW9kYWwgaXNPcGVuPXttb2RhbElzT3Blbn0gb25SZXF1ZXN0Q2xvc2U9e2Nsb3NlTW9kYWx9IGNzcz17bW9kYWxDc3N9PlxuICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9e2Nsb3NlTW9kYWx9IGNzcz17W21hcmdpbkxlZnQwXX0+XG4gICAgICAgICAgY2xvc2VcbiAgICAgICAgPC9idXR0b24+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPEVkaXRcbiAgICAgICAgICAgIHBvc3Rpbmc9e3Bvc3Rpbmd9XG4gICAgICAgICAgICBzZXRQb3N0aW5nPXtzZXRQb3N0aW5nfVxuICAgICAgICAgICAgY3VycmVudFVzZXI9e2N1cnJlbnRVc2VyfVxuICAgICAgICAgICAgZWRpdElucHV0PXtpbnB1dH1cbiAgICAgICAgICAvPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPFJlbW92ZSBwb3N0aW5nPXtwb3N0aW5nfSBjdXJyZW50VXNlcj17Y3VycmVudFVzZXJ9IC8+XG4gICAgICA8L01vZGFsPlxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBtb2RhbENzcyA9IGNzc2BcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICByaWdodDogYXV0bztcbiAgYm90dG9tOiBhdXRvO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjA0LCAyMDQsIDIwNCk7XG4gIGJhY2tncm91bmQ6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XG4gIG91dGxpbmU6IG5vbmU7XG4gIG1hcmdpbi1yaWdodDogLTUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW4tcmV2ZXJzZTtcbmA7XG5cbmNvbnN0IG1hcmdpbkxlZnQwID0gY3NzYFxuICBtYXJnaW4tbGVmdDogMHB4O1xuYDtcblxuZXhwb3J0IGRlZmF1bHQgTW9kYWxCb3g7XG4iXX0= */",
+        "name": "102pzl3-modalCss",
+        "styles": "position:absolute;top:50%;left:50%;right:auto;bottom:auto;border:1px solid rgb(204,204,204);background:rgb(255,255,255);overflow:auto;border-radius:12px;outline:none;margin-right:-50%;transform:translate(-50%,-50%);display:flex;flex-direction:column-reverse;;label:modalCss;",
+        "toString": [Function],
+      }
+    }
+    isOpen={false}
+    onRequestClose={[Function]}
+  >
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      className="css-102pzl3-modalCss"
+      closeTimeoutMS={0}
+      isOpen={false}
+      onRequestClose={[Function]}
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      role="dialog"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+    >
+      <Portal
+        containerInfo={
+          <div
+            class="ReactModalPortal"
+          />
+        }
+      >
+        <ModalPortal
+          ariaHideApp={true}
+          bodyOpenClassName="ReactModal__Body--open"
+          className="css-102pzl3-modalCss"
+          closeTimeoutMS={0}
+          defaultStyles={
+            Object {
+              "content": Object {
+                "WebkitOverflowScrolling": "touch",
+                "background": "#fff",
+                "border": "1px solid #ccc",
+                "borderRadius": "4px",
+                "bottom": "40px",
+                "left": "40px",
+                "outline": "none",
+                "overflow": "auto",
+                "padding": "20px",
+                "position": "absolute",
+                "right": "40px",
+                "top": "40px",
+              },
+              "overlay": Object {
+                "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                "bottom": 0,
+                "left": 0,
+                "position": "fixed",
+                "right": 0,
+                "top": 0,
+              },
+            }
+          }
+          isOpen={false}
+          onRequestClose={[Function]}
+          parentSelector={[Function]}
+          portalClassName="ReactModalPortal"
+          role="dialog"
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
+          shouldFocusAfterRender={true}
+          shouldReturnFocusAfterClose={true}
+          style={
+            Object {
+              "content": Object {},
+              "overlay": Object {},
+            }
+          }
+        />
+      </Portal>
+    </Modal>
+  </EmotionCssPropInternal>
+</ModalBox>
+`;
