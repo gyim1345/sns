@@ -1,5 +1,5 @@
-import axios from "axios";
-const TASKS_URL = "http://localhost:3000/comments/";
+import axios from 'axios';
+const TASKS_URL = 'http://localhost:3000/comments/';
 
 export const getCommentFromIdAPI = async id => {
   const { data } = await axios.get(`${TASKS_URL}${id}`, { id });
@@ -14,7 +14,8 @@ export const addCommentForPost = async (
   index,
   commentId
 ) => {
-  const { data } = await axios.post(`${TASKS_URL}${postId}`, { //path.join 을 쓰면 좋다
+  const { data } = await axios.post(`${TASKS_URL}${postId}`, {
+    //path.join 을 쓰면 좋다
     postId,
     input,
     username,

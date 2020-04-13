@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
-import { css } from "@emotion/core";
+import { css } from '@emotion/core';
 
-import { getUserInfoAPI } from "../apis/post";
-import { getRandomUser, AddFollower } from "../apis/TimeLinePageApis";
+import { getUserInfoAPI } from '../apis/post';
+import { getRandomUser, AddFollower } from '../apis/TimeLinePageApis';
 
 function UserInfo({ user }) {
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState('');
   const [randomUsers, setRandomUsers] = useState([]);
   const userInfo = async () => {
     try {
@@ -15,9 +15,9 @@ function UserInfo({ user }) {
       setInfo(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -28,9 +28,9 @@ function UserInfo({ user }) {
       setRandomUsers(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -40,16 +40,16 @@ function UserInfo({ user }) {
       const response = await AddFollower(name);
       console.log(response);
       Swal.fire({
-        icon: "success",
-        title: "Following",
+        icon: 'success',
+        title: 'Following'
         // text: "Ho"
       });
       callRandomUser();
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -70,14 +70,14 @@ function UserInfo({ user }) {
               width="50"
               css={[borderRadius]}
             />
-            <span css={[name]}>{user.substring(0, user.indexOf("@"))}</span>
+            <span css={[name]}>{user.substring(0, user.indexOf('@'))}</span>
           </div>
           <span css={[story]}>
             스토리
             <span
               style={{
-                marginTop: "10px",
-                marginBottom: "4px",
+                marginTop: '10px',
+                marginBottom: '4px',
                 fontWeight: 350
               }}
             >
@@ -100,7 +100,7 @@ function UserInfo({ user }) {
                     />
                     <div css={textBoxForfriendImageAndName}>
                       <span css={[name]}>
-                        {usera.name.substring(0, usera.name.indexOf("@"))}
+                        {usera.name.substring(0, usera.name.indexOf('@'))}
                       </span>
                       <span css={[recommendation]}>recommendation</span>
                     </div>
@@ -109,8 +109,8 @@ function UserInfo({ user }) {
                       css={[followButton]}
                       onClick={() => addClickedFollower(usera.name)}
                     >
-                      {" "}
-                      팔로우{" "}
+                      {' '}
+                      팔로우{' '}
                     </span>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const story = css`
   color: rgba(var(--f52, 153, 153, 153), 1);
   background-color: white;
   border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
 `;
 
@@ -230,7 +230,7 @@ const friends = css`
   color: rgba(var(--f52, 153, 153, 153), 1);
   background-color: white;
   border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
 `;
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-import { css } from "@emotion/core";
+import { css } from '@emotion/core';
 
-import { taggedPostsAPI } from "../apis/post";
-import PostImagesOnly from "./PostImagesOnly";
+import { taggedPostsAPI } from '../apis/post';
+import PostImagesOnly from './PostImagesOnly';
 
 function TaggedPosts({ user }) {
   const [posts, setPosts] = useState([]);
@@ -16,9 +16,9 @@ function TaggedPosts({ user }) {
       setPosts(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

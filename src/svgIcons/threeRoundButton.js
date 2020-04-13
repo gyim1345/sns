@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function threeRoundButton({ setIsOpen }) {
   const open = () => {
@@ -8,7 +8,7 @@ function threeRoundButton({ setIsOpen }) {
   return (
     <svg
       // style={{ marginLeft: "16px" }}
-      style={{ marginRight: "8px" }}
+      style={{ marginRight: '8px' }}
       aria-label="옵션 더 보기"
       className="_8-yf5 "
       fill="#262626"

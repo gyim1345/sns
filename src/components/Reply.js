@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
 
 function Reply({
   posting,
@@ -8,7 +7,7 @@ function Reply({
   addComment,
   commentAPI
 }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const onChange = e => {
     setInput(e.target.value);
@@ -18,7 +17,10 @@ function Reply({
     return addComment(
       null,
       posting.postLId,
-      `@${posting.userName.substring(0, posting.userName.indexOf("@"))} ${input}`,
+      `@${posting.userName.substring(
+        0,
+        posting.userName.indexOf('@')
+      )} ${input}`,
       currentUser,
       commentAPI[indexOfCommentOnThisPosting].id,
       posting.id

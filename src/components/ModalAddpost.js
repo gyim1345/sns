@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { addPostAPI } from "../apis/post";
-import { useParams } from "react-router-dom";
+import React, { useState } from 'react';
+import { addPostAPI } from '../apis/post';
+import { useParams } from 'react-router-dom';
 
 function ModalAddPost({ currentUser }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const { user } = useParams();
-  console.log('params',user)
 
   const onChange = e => {
     setInput(e.target.value);

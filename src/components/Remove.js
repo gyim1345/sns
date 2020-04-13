@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { css } from "@emotion/core";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { css } from '@emotion/core';
+import Swal from 'sweetalert2';
 
-import { removePostApi } from "../apis/post";
+import { removePostApi } from '../apis/post';
 
 function Remove({
   posting,
@@ -21,8 +21,8 @@ function Remove({
       );
       if (response.Message !== undefined)
         return Swal.fire({
-          icon: "error",
-          title: "Oops...",
+          icon: 'error',
+          title: 'Oops...',
           text: `${response.Message}`
         });
       indexOfCommentOnThisPosting === undefined
@@ -30,9 +30,9 @@ function Remove({
         : setCommentAPI(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

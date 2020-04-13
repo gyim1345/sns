@@ -1,10 +1,10 @@
-import React from "react";
-import Swal from "sweetalert2";
-import { css } from "@emotion/core";
+import React from 'react';
+import Swal from 'sweetalert2';
+import { css } from '@emotion/core';
 
-import { getChangeLike } from "../apis/post";
-import LikeSvg from "../svgIcons/LikeSvg";
-import LikeFilledSvg from "../svgIcons/LikeFilledSvg";
+import { getChangeLike } from '../apis/post';
+import LikeSvg from '../svgIcons/LikeSvg';
+import LikeFilledSvg from '../svgIcons/LikeFilledSvg';
 
 const Like = ({ posting, setPosting, postingAll, currentUser }) => {
   const likeTrue = posting.like.includes(currentUser);
@@ -18,9 +18,9 @@ const Like = ({ posting, setPosting, postingAll, currentUser }) => {
       setPosting(postingAll);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

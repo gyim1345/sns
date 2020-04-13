@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Redirect } from "react-router-dom";
-import { setLoginAPI } from "../apis/login";
-import { Global, css } from "@emotion/core";
-import styled from "@emotion/styled";
-import "./components.css";
-import { checkIfLoggedIn } from "../apis/check";
-import Swal from "sweetalert2";
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Redirect } from 'react-router-dom';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
+import './components.css';
+import Swal from 'sweetalert2';
+
+import { setLoginAPI } from '../apis/login';
+import { checkIfLoggedIn } from '../apis/check';
 
 // import MyFont from "<path/to/font.woff>";
 // import { injectGlobal } from 'emotion'
 
 const GlobalStyles = css`
-  @import url("https://fonts.googleapis.com/css?family=Dancing+Script&display=swap");
+  @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
   * {
     text-align: center;
@@ -20,7 +21,7 @@ const GlobalStyles = css`
 `;
 
 const SNS = styled.h1`
-  font-family: "Dancing Script";
+  font-family: 'Dancing Script';
   font-size: -webkit-xxx-large;
 `;
 
@@ -52,17 +53,17 @@ const Login = ({
       const response = await setLoginAPI(data);
       console.log(response);
       Swal.fire(
-        `WelcomeBack ${data.Id.substring(0, data.Id.indexOf("@"))}`,
-        "",
-        "success"
+        `WelcomeBack ${data.Id.substring(0, data.Id.indexOf('@'))}`,
+        '',
+        'success'
       );
       response && (setCurrentUser(data.Id), setUserOfActivePage(data.Id));
       setLoggedIn(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Check your Input"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Check your Input'
       });
     }
   };

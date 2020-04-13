@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
-import { addPostAPI } from "../apis/post";
-import { useParams } from "react-router-dom";
+import { addPostAPI } from '../apis/post';
+import { useParams } from 'react-router-dom';
 
 function AddPost({ currentUser, posting, setPosting }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const { user } = useParams();
-  console.log('params',user)
   const onChange = e => {
     setInput(e.target.value);
   };
@@ -17,9 +16,9 @@ function AddPost({ currentUser, posting, setPosting }) {
       setPosting([...posting, response]);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

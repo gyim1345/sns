@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link, Route, Switch, Redirect, Router } from "react-router-dom";
-import { css } from "@emotion/core";
-import PostGridSvg from "../svgIcons/PostGridSvg";
-import TvSvg from "../svgIcons/TvSvg";
-import TagSvg from "../svgIcons/TagSvg";
-import PostImagesOnly from "./PostImagesOnly";
-import Footer from "../components/Footer";
-import ScrappedPosts from "./ScrappedPosts";
-import TaggedPosts from "./TaggedPosts";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import { css } from '@emotion/core';
+
+import PostGridSvg from '../svgIcons/PostGridSvg';
+import TvSvg from '../svgIcons/TvSvg';
+import TagSvg from '../svgIcons/TagSvg';
+import PostImagesOnly from './PostImagesOnly';
+import Footer from '../components/Footer';
+import ScrappedPosts from './ScrappedPosts';
+import TaggedPosts from './TaggedPosts';
 
 function PostsForPostPage({
   posting,
@@ -91,7 +92,7 @@ const dayActive = css`
 `;
 
 const tabWord = css`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
   text-decoration: none;
   color: rgba(var(--f52, 153, 153, 153), 1);

@@ -1,23 +1,21 @@
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
-import { css } from "@emotion/core";
-import PostingList from "../components/PostingList";
-import { getUserTimeLinePosts } from "../apis/TimeLinePageApis";
-import { checkStatus } from "../apis/check";
-import UserInfo from "../components/UserInfo";
-import Footer from "../components/Footer";
+import React, { useState, useEffect } from 'react';
+import { css } from '@emotion/core';
+
+import PostingList from '../components/PostingList';
+import { getUserTimeLinePosts } from '../apis/TimeLinePageApis';
+import { checkStatus } from '../apis/check';
+import UserInfo from '../components/UserInfo';
+import Footer from '../components/Footer';
 function TimeLinePage({
   setUserOfActivePage,
   currentUser,
   setCurrentUser,
   setLoggedIn
 }) {
-  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-  const sizeOfPicture = { width: "600px" };
+  const sizeOfPicture = { width: '600px' };
   const [posting, setPosting] = useState([]);
   const getUserTimeLinePostsAPI = async () => {
     const { sessionUserName } = await checkStatus();
-    console.log(sessionUserName,'timelineeeeeeeeeeeeeeeeeeeeeee')
     setUserOfActivePage(sessionUserName);
     setCurrentUser(sessionUserName);
     const { posts } = await getUserTimeLinePosts(sessionUserName);

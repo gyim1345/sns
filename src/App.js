@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from "react";
-import {
-  HashRouter as Router,
-  Switch,
-  Link,
-  Route,
-  withRouter
-} from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-import PostPage from "./pages/PostPage";
-import PostPageDetail from "./pages/PostPageDetail";
-import TimeLinePage from "./pages/TimeLinePage";
-import SearchPage from "./pages/SearchPage";
-import toTop from "./components/toTop";
-import LoginPage from "./pages/LoginPage";
-import { css } from "@emotion/core";
-import { checkStatus } from "./apis/check";
-import "./App.css";
-import { deleteLoginStatus } from "./apis/login";
-import TimeLineSvg from "./svgIcons/TimeLineSvg";
-import SearchSvg from "./svgIcons/SearchSvg";
-import UserSvg from "./svgIcons/UserSvg";
-import LogoutSvg from "./svgIcons/LogoutSvg";
-import UserProfileImg from "./svgIcons/UserProfileImg";
+import PostPage from './pages/PostPage';
+import PostPageDetail from './pages/PostPageDetail';
+import TimeLinePage from './pages/TimeLinePage';
+import SearchPage from './pages/SearchPage';
+import toTop from './components/toTop';
+import LoginPage from './pages/LoginPage';
+import { css } from '@emotion/core';
+import { checkStatus } from './apis/check';
+import './App.css';
+import { deleteLoginStatus } from './apis/login';
+import TimeLineSvg from './svgIcons/TimeLineSvg';
+import SearchSvg from './svgIcons/SearchSvg';
+import UserSvg from './svgIcons/UserSvg';
+import LogoutSvg from './svgIcons/LogoutSvg';
+import UserProfileImg from './svgIcons/UserProfileImg';
 
 function App() {
   const [userOfActivePage, setUserOfActivePage] = useState(undefined);
@@ -47,9 +41,9 @@ function App() {
       await deleteLoginStatus();
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -61,8 +55,8 @@ function App() {
   const logout = () => {
     if (loggedIn === true) {
       setLoggedIn(false);
-      setCurrentUser("");
-      setUserOfActivePage("");
+      setCurrentUser('');
+      setUserOfActivePage('');
       loggingOut();
     }
   };

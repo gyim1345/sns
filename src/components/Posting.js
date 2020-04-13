@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Link, Route } from "react-router-dom";
-import Comment from "./Comment";
-import toTop from "./toTop";
-import Like from "./Like";
-import { css } from "@emotion/core";
-import Modal from "react-modal";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import { Link, Route } from 'react-router-dom';
+import Comment from './Comment';
+import toTop from './toTop';
+import Like from './Like';
+import { css } from '@emotion/core';
+import Modal from 'react-modal';
+import Swal from 'sweetalert2';
 
-import PostCommentButton from "./PostCommentButton";
-import DirectMessage from "../svgIcons/DirectMessage.js";
-import ModalBox from "./ModalBox";
-import ScrapButton from "../svgIcons/ScrapButton";
-import { getUserImage } from "../apis/post";
-import Scrap from "./Scrap";
+import PostCommentButton from './PostCommentButton';
+import DirectMessage from '../svgIcons/DirectMessage.js';
+import ModalBox from './ModalBox';
+import { getUserImage } from '../apis/post';
+import Scrap from './Scrap';
 
-if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
 function Posting({
   posting,
@@ -31,7 +30,7 @@ function Posting({
 }) {
   const [input, setInput] = useState([]);
 
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState('');
 
   const userImage = async () => {
     try {
@@ -39,9 +38,9 @@ function Posting({
       setImage(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -76,7 +75,7 @@ function Posting({
                 toTop();
               }}
             >
-              {posting.userName.substring(0, posting.userName.indexOf("@"))}
+              {posting.userName.substring(0, posting.userName.indexOf('@'))}
             </Link>
           </div>
         </div>
@@ -99,7 +98,7 @@ function Posting({
         <div
           css={[postingButtons]}
           style={{
-            position: "relative"
+            position: 'relative'
           }}
         >
           <Like
@@ -113,7 +112,10 @@ function Posting({
           <Scrap postingId={posting.id} />
         </div>
         <div css={[displayFlex]}>
-          <div css={[postUserNameBold]}> {posting.userName.substring(0, posting.userName.indexOf("@"))}</div>
+          <div css={[postUserNameBold]}>
+            {' '}
+            {posting.userName.substring(0, posting.userName.indexOf('@'))}
+          </div>
           <div css={[wordBreak]}>{posting.title}</div>
         </div>
         <div css={[commentAreaCss]}>
@@ -131,7 +133,7 @@ function Posting({
               <input
                 value={input}
                 onChange={onChange}
-                placeholder={"댓글 달기..."}
+                placeholder={'댓글 달기...'}
                 css={[commentInputBox]}
               />
               <button

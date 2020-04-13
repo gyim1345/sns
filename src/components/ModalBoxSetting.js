@@ -1,10 +1,9 @@
-import Modal from "react-modal";
-import React from "react";
+import Modal from 'react-modal';
+import React from 'react';
+import { css } from '@emotion/core';
 
-import { css } from "@emotion/core";
-
-import SettingSvg from "../svgIcons/SettingSvg";
-import AccountSetting from "./AccountSetting";
+import SettingSvg from '../svgIcons/SettingSvg';
+import AccountSetting from './AccountSetting';
 
 function ModalBoxSetting({ userInfo, info }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);

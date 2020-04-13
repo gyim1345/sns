@@ -1,8 +1,9 @@
-import Modal from "react-modal";
-import React from "react";
-import { css } from "@emotion/core";
-import CommentSvg from "./CommentSvg";
-import Reply from "./Reply";
+import Modal from 'react-modal';
+import React from 'react';
+import { css } from '@emotion/core';
+
+import CommentSvg from '../svgIcons/CommentSvg';
+import Reply from './Reply';
 
 function ModalBoxReply({
   commentAPI,

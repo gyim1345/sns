@@ -1,16 +1,16 @@
-import React, { Fragment, useState } from "react";
-import Message from "./Message";
-import axios from "axios";
-import { css } from "@emotion/core";
-import { uploadPicture, uploadUserImage } from "../apis/upload";
+import React, { Fragment, useState } from 'react';
+import { css } from '@emotion/core';
+
+import Message from './Message';
+import { uploadPicture, uploadUserImage } from '../apis/upload';
 
 const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
-  const [files, setFile] = useState("");
-  const [filename, setFilename] = useState("Choose File");
-  const [message, setMessage] = useState("");
-  const [imgURL, setImgURL] = useState("");
-  const [input, setInput] = useState("");
-  const [inputTag, setInputTag] = useState("");
+  const [files, setFile] = useState('');
+  const [filename, setFilename] = useState('Choose File');
+  const [message, setMessage] = useState('');
+  const [imgURL, setImgURL] = useState('');
+  const [input, setInput] = useState('');
+  const [inputTag, setInputTag] = useState('');
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       setImgURL(URL.createObjectURL(event.target.files[0]));
@@ -35,18 +35,18 @@ const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
   const onSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("files", files);
-    formData.append("input", input);
-    formData.append("inputTag", inputTag);
-    formData.append("user", currentUser);
+    formData.append('files', files);
+    formData.append('input', input);
+    formData.append('inputTag', inputTag);
+    formData.append('user', currentUser);
     if (posting) {
       try {
         const data = await uploadPicture(formData);
         posting && setPosting([...posting, data.posts]);
-        setMessage("File Uploaded");
+        setMessage('File Uploaded');
       } catch (err) {
         if (err.response.status === 500) {
-          setMessage("There was a problem with the server");
+          setMessage('There was a problem with the server');
         } else {
           setMessage(err.response.data.msg);
         }
@@ -55,10 +55,10 @@ const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
       try {
         const data = await uploadUserImage(formData);
         userInfo();
-        setMessage("File Uploaded");
+        setMessage('File Uploaded');
       } catch (err) {
         if (err.response.status === 500) {
-          setMessage("There was a problem with the server");
+          setMessage('There was a problem with the server');
         } else {
           setMessage(err.response.data.msg);
         }
@@ -79,11 +79,11 @@ const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
           />
         </div>
 
-        {imgURL !== "" && (
+        {imgURL !== '' && (
           <img
             id="target"
             src={imgURL}
-            style={{ maxWidth: "500px", maxHeight: "500px" }}
+            style={{ maxWidth: '500px', maxHeight: '500px' }}
           />
         )}
         <div css={[inputInputTagUpload]}>

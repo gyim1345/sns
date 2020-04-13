@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
+import { css } from '@emotion/core';
 
-import { css } from "@emotion/core";
+import { getPosts } from '../apis/SearchPage';
+import PostsForSearchPage from '../components/PostsForSearchPage';
+import { searchPosts } from '../apis/SearchPage';
+import Footer from '../components/Footer';
+import { checkStatus } from '../apis/check';
 
-import { getPosts } from "../apis/SearchPage";
-import PostsForSearchPage from "../components/PostsForSearchPage";
-import { searchPosts } from "../apis/SearchPage";
-import Footer from "../components/Footer";
-import { checkStatus } from "../apis/check";
-
-function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn, setCurrentUser }) {
-  const sizeOfPicture = { width: "600px" };
+function SearchPage({
+  setUserOfActivePage,
+  currentUser,
+  setLoggedIn,
+  setCurrentUser
+}) {
+  const sizeOfPicture = { width: '600px' };
   const [posting, setPosting] = useState([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const onChange = e => {
     setInput(e.target.value);
@@ -28,7 +32,6 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn, setCurrentU
     tryy();
   }, []);
 
-
   const onSearch = async () => {
     try {
       const response = await searchPosts(input);
@@ -36,9 +39,9 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn, setCurrentU
       setPosting(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -50,9 +53,9 @@ function SearchPage({ setUserOfActivePage, currentUser, setLoggedIn, setCurrentU
       setLoggedIn(true);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

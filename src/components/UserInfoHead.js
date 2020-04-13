@@ -1,23 +1,21 @@
-import React, { useEffect } from "react";
-import Swal from "sweetalert2";
+import React, { useEffect } from 'react';
+import Swal from 'sweetalert2';
 
-import { css } from "@emotion/core";
+import { css } from '@emotion/core';
 
-import { getUserInfoAPI } from "../apis/post";
-import ModalBoxSetting from "./ModalBoxSetting";
+import { getUserInfoAPI } from '../apis/post';
+import ModalBoxSetting from './ModalBoxSetting';
 
 function UserInfoHead({ user, info, setInfo, posting }) {
-
   const userInfo = async () => {
     try {
       const response = await getUserInfoAPI(user);
       setInfo(response);
-      console.log(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -39,24 +37,27 @@ function UserInfoHead({ user, info, setInfo, posting }) {
         </div>
         <div css={[textArea]}>
           <div css={[row1]}>
-            <span css={[location23]}> {info.name && info.name.substring(0, info.name.indexOf("@"))} </span>
+            <span css={[location23]}>
+              {' '}
+              {info.name && info.name.substring(0, info.name.indexOf('@'))}{' '}
+            </span>
             <button css={[button]}>메시지 보내기</button>
             <ModalBoxSetting info={info} userInfo={userInfo} />
           </div>
           <div css={[row2]}>
             <span css={[location33]}>
-              {" "}
-              게시물{" "}
-              <span style={{ fontWeight: "bold" }}>{info.postNumber}</span>
+              {' '}
+              게시물{' '}
+              <span style={{ fontWeight: 'bold' }}>{info.postNumber}</span>
             </span>
             <span css={[location43]}>
-              {" "}
-              팔로우{" "}
-              <span style={{ fontWeight: "bold" }}>{info.followerNumber}</span>
+              {' '}
+              팔로우{' '}
+              <span style={{ fontWeight: 'bold' }}>{info.followerNumber}</span>
             </span>
             <span css={[location43]}>
-              {" "}
-              팔로워 <span style={{ fontWeight: "bold" }}>999,999,999</span>
+              {' '}
+              팔로워 <span style={{ fontWeight: 'bold' }}>999,999,999</span>
             </span>
           </div>
           <div css={[row3]}>
@@ -90,7 +91,7 @@ const textArea = css`
   width: 600px;
   margin-top: -15px;
   padding-left: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
 `;
 
@@ -116,7 +117,7 @@ const row3 = css`
 
 const gridBoxForUserHead = css`
   display: flex;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
   justify-content: center;
 `;

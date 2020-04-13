@@ -1,8 +1,9 @@
-import React from "react";
-import Register from "../components/Register";
-import Login from "../components/Login";
-import { css } from "@emotion/core";
-import Footer from "../components/Footer";
+import React from 'react';
+
+import Register from '../components/Register';
+import Login from '../components/Login';
+import { css } from '@emotion/core';
+import Footer from '../components/Footer';
 
 const LoginPage = ({
   setUserOfActivePage,
@@ -15,9 +16,9 @@ const LoginPage = ({
     <div css={[loginPage]}>
       <div css={[pageElements]}>
         <img
-          src={"static/images/cellphone.png"}
+          src={'static/images/cellphone.png'}
           alt=""
-          style={{ paddingTop: "80px", maxWidth: "400px" }}
+          style={{ paddingTop: '80px', maxWidth: '400px' }}
         />
         <div css={[boxParent]}>
           <div css={[box]}>
@@ -30,18 +31,18 @@ const LoginPage = ({
             />
             <Register />
           </div>
-          <div style={{ paddingTop: "40px" }}>
+          <div style={{ paddingTop: '40px' }}>
             앱을 다운로드하지 마세요
             <div css={[storePicturesCss]}>
               <img
-                src={"static/images/AppStore.png"}
+                src={'static/images/AppStore.png'}
                 alt=""
-                style={{ width: "125px", height: "35px" }}
+                style={{ width: '125px', height: '35px' }}
               />
               <img
-                src={"static/images/googlestore.png"}
+                src={'static/images/googlestore.png'}
                 alt=""
-                style={{ width: "125px", height: "35px" }}
+                style={{ width: '125px', height: '35px' }}
               />
             </div>
           </div>

@@ -1,9 +1,9 @@
-import React from "react";
-import Swal from "sweetalert2";
+import React from 'react';
+import Swal from 'sweetalert2';
 
-import { useForm } from "react-hook-form";
-import { registerAPI } from "../apis/post";
-import { css } from "@emotion/core";
+import { useForm } from 'react-hook-form';
+import { registerAPI } from '../apis/post';
+import { css } from '@emotion/core';
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
@@ -11,19 +11,18 @@ const Register = () => {
   const registration = async data => {
     try {
       const response = await registerAPI(data.Id, data.Password);
-      console.log(response);
       if (response) {
         Swal.fire({
-          icon: "success",
-          title: "Registered",
+          icon: 'success',
+          title: 'Registered',
           text: `Welcome ${data.Id} to Bongstagram Please login!`
         });
       }
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Check Input"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Check Input'
       });
     }
   };

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
-import { css } from "@emotion/core";
+import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+import { css } from '@emotion/core';
 
-import { editIntroductoryApi, editNickNameApi } from "../apis/PostPage";
-import FileUpload from "./FileUpload";
+import { editIntroductoryApi, editNickNameApi } from '../apis/PostPage';
+import FileUpload from './FileUpload';
 
 function AccountSetting({ userInfo, info }) {
-  const [inputNickName, setInputNickName] = useState("");
-  const [inputIntroductory, setInputIntroductory] = useState("");
+  const [inputNickName, setInputNickName] = useState('');
+  const [inputIntroductory, setInputIntroductory] = useState('');
 
   const onChangeNickName = e => {
     setInputNickName(e.target.value);
@@ -19,9 +19,9 @@ function AccountSetting({ userInfo, info }) {
       userInfo();
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -36,9 +36,9 @@ function AccountSetting({ userInfo, info }) {
       userInfo();
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

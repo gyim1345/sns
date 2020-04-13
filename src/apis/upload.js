@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-const TASKS_URL = "http://localhost:3000/upload";
+const TASKS_URL = 'http://localhost:3000/upload';
 
 export const uploadPicture = async formData => {
   const { data } = await axios.post(`${TASKS_URL}`, formData, {
     headers: {
-      "Content-Type": "multipart/form-data"
+      'Content-Type': 'multipart/form-data'
     },
     withCredentials: true
   });
@@ -15,7 +15,7 @@ export const uploadPicture = async formData => {
 export const uploadUserImage = async formData => {
   const { data } = await axios.patch(`${TASKS_URL}/userImage`, formData, {
     headers: {
-      "Content-Type": "multipart/form-data"
+      'Content-Type': 'multipart/form-data'
     },
     withCredentials: true
   });

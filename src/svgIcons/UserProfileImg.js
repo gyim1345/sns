@@ -1,11 +1,11 @@
-import React from "react";
-import { css } from "@emotion/core";
+import React from 'react';
+import { css } from '@emotion/core';
 
 function UserProfileImg() {
   return (
     <img
       css={[imgCss]}
-      src={"static/images/user1.png"}
+      src={'static/images/user1.png'}
       alt=""
       width={28}
       height={28}

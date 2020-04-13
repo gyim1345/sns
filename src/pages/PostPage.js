@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import UserInfoHead from "../components/UserInfoHead";
-import { getUserPostOnly } from "../apis/post";
-import { css } from "@emotion/core";
-import { useParams } from "react-router-dom";
-import { checkStatus } from "../apis/check";
-import ModalBoxAdd from "../components/ModalBoxAdd";
-import PostsForPostPage from "../components/PostsForPostPage";
+import React, { useState, useEffect } from 'react';
+import { css } from '@emotion/core';
+import { useParams } from 'react-router-dom';
+
+import UserInfoHead from '../components/UserInfoHead';
+import { getUserPostOnly } from '../apis/post';
+import { checkStatus } from '../apis/check';
+import ModalBoxAdd from '../components/ModalBoxAdd';
+import PostsForPostPage from '../components/PostsForPostPage';
+
 function PostPage({
   setUserOfActivePage,
   currentUser,
@@ -14,7 +16,7 @@ function PostPage({
 }) {
   const [posting, setPosting] = useState([]);
   const { user } = useParams();
-  console.log('params',user)
+  console.log('params', user);
 
   const [info, setInfo] = useState({
     user: undefined,
@@ -26,7 +28,7 @@ function PostPage({
   });
   const getPostingOfCurrentUser = async () => {
     const { sessionUserName } = await checkStatus(currentUser, user);
-    console.log('qqqqqqqqqqqqqqqq', sessionUserName)
+    console.log('qqqqqqqqqqqqqqqq', sessionUserName);
     setUserOfActivePage(user);
     setCurrentUser(sessionUserName);
     const { posts } = await getUserPostOnly(user);

@@ -1,9 +1,10 @@
-import Modal from "react-modal";
-import React from "react";
-import { css } from "@emotion/core";
-import FileUpload from "./FileUpload";
+import Modal from 'react-modal';
+import React from 'react';
+import { css } from '@emotion/core';
 
-function ModalBoxAdd({ posting, setPosting, currentUser, input }) {
+import FileUpload from './FileUpload';
+
+function ModalBoxAdd({ posting, setPosting, currentUser }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function closeModal() {

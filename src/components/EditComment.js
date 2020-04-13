@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
-import { editPostAPI } from "../apis/post";
-import { editCommentAPI } from "../apis/comment";
+import { editCommentAPI } from '../apis/comment';
 
 function EditComment({
   posting,
@@ -28,8 +27,8 @@ function EditComment({
       );
       response.Message !== undefined
         ? Swal.fire({
-            icon: "error",
-            title: "Oops...",
+            icon: 'error',
+            title: 'Oops...',
             text: `${response.Message}`
           })
         : indexOfCommentOnThisPosting === undefined
@@ -37,9 +36,9 @@ function EditComment({
         : setCommentAPI(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

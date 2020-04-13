@@ -1,7 +1,7 @@
-import React from "react";
-import { css } from "@emotion/core";
-import ModalBoxComment from "./ModalBoxComment";
-import ModalBoxReply from "./ModalBoxReply";
+import React from 'react';
+import { css } from '@emotion/core';
+import ModalBoxComment from './ModalBoxComment';
+import ModalBoxReply from './ModalBoxReply';
 
 function Comment({
   posting,
@@ -25,7 +25,7 @@ function Comment({
             <li css={[displayFlex]}>
               {postings.isUnder && <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
               <div css={[fontBold]}>
-                {postings.userName.substring(0, posting.userName.indexOf("@"))}
+                {postings.userName.substring(0, posting.userName.indexOf('@'))}
               </div>
               <div css={[wordBreak]}>{`: ${postings.title}`}</div>
             </li>

@@ -1,25 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-const TASKS_URL = "http://localhost:3000";
+const TASKS_URL = 'http://localhost:3000';
 
 export const getPosts = async () => {
   const { data } = await axios.get(`${TASKS_URL}`, { withCredentials: true });
-  console.log(data);
   return data;
 };
-
-// export const logoutApi = async () => {
-//   const { data } = await axios.post(`${TASKS_URL}/logout`);
-//   console.log(data);
-//   return data;
-// };
-
-// export const getUserTimeLinePosts = async user => {
-//   const { data } = await axios.get(`${TASKS_URL}/TimeLine/${user}`, {
-//     withCredentials: true
-//   });
-//   return data;
-// };
 
 export const getUserPostOnly = async user => {
   const { data } = await axios.get(
@@ -67,7 +53,6 @@ export const editPostAPI = async (input, posting) => {
 };
 
 export const registerAPI = async (id, password) => {
-  console.log("asdasdregister");
   const { data } = await axios.post(`${TASKS_URL}/auth/register`, {
     id,
     password
@@ -135,6 +120,5 @@ export const taggedPostsAPI = async user => {
     { user },
     { withCredentials: true }
   );
-  console.log(data);
   return data;
 };

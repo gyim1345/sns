@@ -1,9 +1,10 @@
-import Modal from "react-modal";
-import React from "react";
-import { css } from "@emotion/core";
-import ThreeRoundButton from "../svgIcons/threeRoundButton";
-import EditComment from "./EditComment";
-import RemoveComment from "./RemoveComment";
+import Modal from 'react-modal';
+import React from 'react';
+import { css } from '@emotion/core';
+
+import ThreeRoundButton from '../svgIcons/threeRoundButton';
+import EditComment from './EditComment';
+import RemoveComment from './RemoveComment';
 
 function ModalBoxComment({
   commentAPI,

@@ -1,9 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-const TASKS_URL = "http://localhost:3000";
+const TASKS_URL = 'http://localhost:3000';
 
 export const getUserTimeLinePosts = async user => {
-  console.log("getUserTimeLinePostsgetUserTimeLinePostsgetUserTimeLinePosts");
   const { data } = await axios.get(`${TASKS_URL}/Timeline/${user}`, {
     params: {
       user: user
@@ -21,7 +20,6 @@ export const getRandomUser = async () => {
 };
 
 export const AddFollower = async name => {
-  console.log("asdasdasaddd");
   const { data } = await axios.patch(
     `${TASKS_URL}/TimeLine/AddFriend`,
     { name },

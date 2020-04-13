@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { css } from "@emotion/core";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import { css } from '@emotion/core';
+import Swal from 'sweetalert2';
 
-// import commentStorage from "../stores/commentStore";
-import Posting from "./Posting";
-import { addCommentForPost } from "../apis/comment";
+import Posting from './Posting';
+import { addCommentForPost } from '../apis/comment';
 
 function PostingList({
   posting,
@@ -16,7 +15,7 @@ function PostingList({
   commentAPI,
   setCommentAPI
 }) {
-  const [Input, setInput] = useState("");
+  const [Input, setInput] = useState('');
   // const { comments } = commentStorage;
 
   const onChangeComment = e => {
@@ -33,12 +32,12 @@ function PostingList({
         commentId
       );
       setCommentAPI(response);
-      setInput("");
+      setInput('');
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };
@@ -50,7 +49,7 @@ function PostingList({
           posting.map(posting1 => (
             <ul
               key={posting1.id}
-              style={{ marginTop: "90px", marginBottom: "-20px" }}
+              style={{ marginTop: '90px', marginBottom: '-20px' }}
             >
               <Posting
                 posting={posting1}

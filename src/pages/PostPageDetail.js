@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
+import { useParams } from 'react-router-dom';
 
-import PostingList from "../components/PostingList";
-import { getPostsFromId } from "../apis/post";
-import { getCommentFromIdAPI } from "../apis/comment";
-import { checkStatus } from "../apis/check";
+import PostingList from '../components/PostingList';
+import { getPostsFromId } from '../apis/post';
+import { getCommentFromIdAPI } from '../apis/comment';
+import { checkStatus } from '../apis/check';
 
 function PostPageDetail({
   userOfActivePage,
@@ -15,9 +15,9 @@ function PostPageDetail({
   setLoggedIn
 }) {
   const { postingId } = useParams();
-  console.log('params',postingId)
+  console.log('params', postingId);
 
-  const sizeOfPicture = { width: "100%", height: "100%" };
+  const sizeOfPicture = { width: '100%', height: '100%' };
   const [posting, setPosting] = useState([]);
   const [commentAPI, setCommentAPI] = useState([]);
   const getPosting = async () => {
@@ -34,9 +34,9 @@ function PostPageDetail({
       setCommentAPI(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

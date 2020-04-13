@@ -1,9 +1,10 @@
-import Modal from "react-modal";
-import React from "react";
-import { css } from "@emotion/core";
-import ThreeRoundButton from "../svgIcons/threeRoundButton";
-import Edit from "./Edit";
-import Remove from "./Remove";
+import Modal from 'react-modal';
+import React from 'react';
+import { css } from '@emotion/core';
+
+import ThreeRoundButton from '../svgIcons/threeRoundButton';
+import Edit from './Edit';
+import Remove from './Remove';
 
 function ModalBox({ posting, setPosting, currentUser, input }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -52,7 +53,6 @@ const modalCss = css`
 
 const marginLeft0 = css`
   margin-left: 0px;
-  
 `;
 
 export default ModalBox;

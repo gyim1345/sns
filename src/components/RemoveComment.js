@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { css } from "@emotion/core";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import { css } from '@emotion/core';
+import Swal from 'sweetalert2';
 
-import { removeCommentApi } from "../apis/comment";
+import { removeCommentApi } from '../apis/comment';
 
 function RemoveComment({
   posting,
   indexOfCommentOnThisPosting,
   setCommentAPI
 }) {
-  const [removed, setRemoved] = useState(false);
-
   const onClick = async () => {
     try {
       const response = await removeCommentApi(
@@ -20,17 +17,17 @@ function RemoveComment({
       );
       if (response.Message !== undefined)
         return Swal.fire({
-          icon: "error",
-          title: "Oops...",
+          icon: 'error',
+          title: 'Oops...',
           text: `${response.Message}`
         });
 
       setCommentAPI(response);
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Internal Error"
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
       });
     }
   };

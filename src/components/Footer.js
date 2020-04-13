@@ -1,5 +1,5 @@
-import React from "react";
-import { css } from "@emotion/core";
+import React from 'react';
+import { css } from '@emotion/core';
 
 function Footer() {
   return (
@@ -32,7 +32,7 @@ const footerBong = css`
   justify-content: center;
   display: flex;
   color: #999;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
   font-size: 14px;
   line-height: 7px;
