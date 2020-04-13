@@ -12,7 +12,7 @@ function ModalAddPost({ currentUser }) {
   const onClick = async () => {
     try {
       const response = await addPostAPI(input, currentUser);
-      setPosting([...posting, response]);
+      setPosting([...posting, response]);//이상함??작동됨????
     } catch (e) {
       console.log(e);
     }

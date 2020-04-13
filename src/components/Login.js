@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Redirect } from 'react-router-dom';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import './components.css';
+// import './components.css';
 import Swal from 'sweetalert2';
 
 import { setLoginAPI } from '../apis/login';

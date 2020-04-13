@@ -7,8 +7,8 @@ import { css } from '@emotion/core';
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
 
-import PostCommentButton from './PostCommentButton';
-import DirectMessage from '../svgIcons/DirectMessage.js';
+import PostCommentButtonSvg from '../svgIcons/PostCommentButtonSvg';
+import DirectMessageSvg from '../svgIcons/DirectMessageSvg.js';
 import ModalBox from './ModalBox';
 import { getUserImage } from '../apis/post';
 import Scrap from './Scrap';
@@ -107,8 +107,8 @@ function Posting({
             setPosting={setPosting}
             postingAll={postingAll}
           />
-          <PostCommentButton />
-          <DirectMessage />
+          <PostCommentButtonSvg />
+          <DirectMessageSvg />
           <Scrap postingId={posting.id} />
         </div>
         <div css={[displayFlex]}>

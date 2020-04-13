@@ -4,15 +4,8 @@ import { css } from '@emotion/core';
 
 import { editPostAPI } from '../apis/post';
 
-function Edit({
-  posting,
-  setPosting,
-  indexOfCommentOnThisPosting,
-  currentUser,
-  setCommentAPI
-}) {
-  const thisPost = posting[indexOfCommentOnThisPosting] || posting;
-  const [input, setInput] = useState([thisPost.title]);
+function Edit({ posting, setPosting, currentUser }) {
+  const [input, setInput] = useState([posting.title]);
 
   const onEdit = e => {
     setInput(e.target.value);
@@ -20,21 +13,14 @@ function Edit({
 
   const onClick = async () => {
     try {
-      const response = await editPostAPI(
-        input,
-        posting,
-        currentUser,
-        indexOfCommentOnThisPosting
-      );
+      const response = await editPostAPI(input, posting, currentUser);
       response.Message !== undefined
         ? Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: `${response.Message}`
           })
-        : indexOfCommentOnThisPosting === undefined
-        ? setPosting(response)
-        : setCommentAPI(response);
+        : setPosting(response);
     } catch (e) {
       Swal.fire({
         icon: 'error',
@@ -63,20 +49,5 @@ const boxHidden = css`
   border-style: hidden;
   padding-left: 12px;
 `;
-
-// Edit.propTypes = {
-//   currentUser: PropTypes.string,
-//   posting: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-//   setPosting: PropTypes.elementType,
-//   indexOfCommentOnThisPosting: PropTypes.number,
-//   setCommentAPI: PropTypes.elementType
-// };
-
-// Edit.defaultProps = {
-//   currentUser: "",
-//   posting: {},
-//   indexOfComment: undefined,
-//   cid: undefined
-// };
 
 export default Edit;

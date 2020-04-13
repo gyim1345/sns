@@ -23,7 +23,9 @@ function Comment({
         <ul key={`comment${posting.id}${postings.id}`}>
           <div>
             <li css={[displayFlex]}>
-              {postings.isUnder && <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
+              {postings.replyToCommentId && (
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              )}
               <div css={[fontBold]}>
                 {postings.userName.substring(0, posting.userName.indexOf('@'))}
               </div>
@@ -31,7 +33,7 @@ function Comment({
             </li>
           </div>
           <div>
-            {postings.isUnder && (
+            {postings.replyToCommentId && (
               <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             )}
             {postings.userName === currentUser && (
@@ -44,7 +46,7 @@ function Comment({
                 setCommentAPI={setCommentAPI}
               />
             )}
-            {postings.isUnder !== undefined || (
+            {postings.replyToCommentId !== undefined || (
               <ModalBoxReply
                 postings={postings}
                 commentAPI={commentAPI}

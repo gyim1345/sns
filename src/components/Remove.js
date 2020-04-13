@@ -5,29 +5,19 @@ import Swal from 'sweetalert2';
 
 import { removePostApi } from '../apis/post';
 
-function Remove({
-  posting,
-  currentUser,
-  indexOfCommentOnThisPosting,
-  setCommentAPI
-}) {
+function Remove({ posting, currentUser }) {
   const [removed, setRemoved] = useState(false);
 
   const onClick = async () => {
     try {
-      const response = await removePostApi(
-        posting,
-        indexOfCommentOnThisPosting
-      );
+      const response = await removePostApi(posting);
       if (response.Message !== undefined)
         return Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: `${response.Message}`
         });
-      indexOfCommentOnThisPosting === undefined
-        ? setRemoved(response)
-        : setCommentAPI(response);
+      setRemoved(response);
     } catch (e) {
       Swal.fire({
         icon: 'error',

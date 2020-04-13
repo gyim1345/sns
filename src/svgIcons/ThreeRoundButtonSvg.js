@@ -1,6 +1,6 @@
 import React from 'react';
 
-function threeRoundButton({ setIsOpen }) {
+function ThreeRoundButtonSvg({ setIsOpen }) {
   const open = () => {
     setIsOpen(true);
   };
@@ -42,4 +42,4 @@ function threeRoundButton({ setIsOpen }) {
   );
 }
 
-export default threeRoundButton;
+export default ThreeRoundButtonSvg;

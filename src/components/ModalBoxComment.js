@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import React from 'react';
 import { css } from '@emotion/core';
 
-import ThreeRoundButton from '../svgIcons/threeRoundButton';
+import ThreeRoundButtonSvg from '../svgIcons/ThreeRoundButtonSvg';
 import EditComment from './EditComment';
 import RemoveComment from './RemoveComment';
 
@@ -20,7 +20,7 @@ function ModalBoxComment({
 
   return (
     <>
-      <ThreeRoundButton setIsOpen={setIsOpen} />
+      <ThreeRoundButtonSvg setIsOpen={setIsOpen} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <button onClick={closeModal} css={[marginLeft0]}>
           close

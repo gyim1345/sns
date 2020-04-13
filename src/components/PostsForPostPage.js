@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
 import { css } from '@emotion/core';
@@ -11,35 +11,13 @@ import Footer from '../components/Footer';
 import ScrappedPosts from './ScrappedPosts';
 import TaggedPosts from './TaggedPosts';
 
-function PostsForPostPage({
-  posting,
-  setUserOfActivePage,
-  currentUser,
-  setPosting
-}) {
-  const [chosen, setChosen] = useState(1);
+function PostsForPostPage({ posting }) {
   const { user } = useParams();
-  console.log('params', user);
-
-  const changeUser = () => {
-    setUserOfActivePage(posting.userName);
-  };
-
-  // const onClicka = number => {
-  //   console.log(number);
-  //   setChosen(number);
-  // };
-
-  // console.log(chosen);
 
   return (
     <>
       <div css={[tabs]}>
-        <Link
-          to={`/profile/${user}`}
-          // css={chosen === 1 ? dayActive : tabWord}
-          css={[tabWord]}
-        >
+        <Link to={`/profile/${user}`} css={[tabWord]}>
           <PostGridSvg />
           <span>게시물</span>
         </Link>

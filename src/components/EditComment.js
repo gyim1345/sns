@@ -10,7 +10,7 @@ function EditComment({
   currentUser,
   setCommentAPI
 }) {
-  const thisPost = posting[indexOfCommentOnThisPosting] || posting;
+  const thisPost = posting[indexOfCommentOnThisPosting];
   const [input, setInput] = useState([thisPost.title]);
 
   const onEdit = e => {

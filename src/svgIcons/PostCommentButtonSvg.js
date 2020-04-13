@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PostCommentButton() {
+function PostCommentButtonSvg() {
   return (
     <>
       <svg
@@ -17,4 +17,4 @@ function PostCommentButton() {
   );
 }
 
-export default PostCommentButton;
+export default PostCommentButtonSvg;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DirectMessageButton() {
+function DirectMessageSvg() {
   return (
     <svg
       aria-label="게시물 공유"
@@ -15,4 +15,4 @@ function DirectMessageButton() {
   );
 }
 
-export default DirectMessageButton;
+export default DirectMessageSvg;
