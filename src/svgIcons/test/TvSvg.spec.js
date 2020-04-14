@@ -3,8 +3,10 @@ import { mount } from 'enzyme';
 import TvSvg from '../TvSvg';
 
 describe('<TvSvg />', () => {
-  it('스냅샷 비교', () => {
+  it('renders <svg>', () => {
     const wrapper = mount(<TvSvg />);
+
+    expect(wrapper.html()).toMatch('<svg');
     expect(wrapper).toMatchSnapshot();
   });
 })

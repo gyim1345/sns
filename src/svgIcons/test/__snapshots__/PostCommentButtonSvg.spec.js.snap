@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PostCommentButtonSvg /> 스냅샷 비교 1`] = `
+exports[`<PostCommentButtonSvg /> renders <svg> 1`] = `
 <PostCommentButtonSvg>
   <svg
     aria-label="댓글 달기"

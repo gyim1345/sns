@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ScrapButton /> 스냅샷 비교 1`] = `
+exports[`<ScrapButton /> renders <svg> 1`] = `
 <ScrapButton>
   <svg
     aria-label="저장"

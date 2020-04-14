@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LogoutSvg /> 스냅샷 비교 1`] = `
+exports[`<LogoutSvg /> renders <svg> 1`] = `
 <LogoutSvg>
   <svg
     aria-hidden="true"

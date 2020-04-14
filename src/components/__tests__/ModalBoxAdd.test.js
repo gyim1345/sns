@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ModalBoxAdd from '../ModalBoxAdd';
-import { post, currentUser } from './testjs';
+import { post, currentUser } from '../../Variables';
 
 describe('<ModalBoxAdd />', () => {
   it('스냅샷 비교', () => {

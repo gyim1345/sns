@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TvSvg /> 스냅샷 비교 1`] = `
+exports[`<TvSvg /> renders <svg> 1`] = `
 <TvSvg>
   <svg
     aria-label="게시물"

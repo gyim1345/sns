@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Remove /> 스냅샷 비교 1`] = `
+exports[`<Remove /> renders <button> and "Remove" 1`] = `
 <Remove
+  currentUser="gibong@gmail.com"
   posting={
     Object {
       "_id": "5e8ec52d9bb4913b5a844423",

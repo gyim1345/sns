@@ -22,14 +22,16 @@ function AddPost({ currentUser, posting, setPosting }) {
       });
     }
   };
-
   return (
     <>
-      {user === currentUser && <input value={input} onChange={onChange} />}
+      {/* {user === currentUser && <input value={input} onChange={onChange} />} */}
       {user === currentUser && (
-        <button type="button" onClick={onClick} id="buttonAdd">
-          Add Post
-        </button>
+        <>
+          <input value={input} onChange={onChange} />
+          <button type="button" onClick={onClick} id="buttonAdd">
+            Add Post
+          </button>
+        </>
       )}
     </>
   );

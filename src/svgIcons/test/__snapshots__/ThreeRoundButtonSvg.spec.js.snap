@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ThreeRoundButtonSvg /> 스냅샷 비교 1`] = `
+exports[`<ThreeRoundButtonSvg /> renders <svg> 1`] = `
 <ThreeRoundButtonSvg>
   <svg
     aria-label="옵션 더 보기"

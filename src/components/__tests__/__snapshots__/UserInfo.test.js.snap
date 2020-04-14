@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserInfo /> 스냅샷 비교 1`] = `
+exports[`<UserInfo /> renders <div> and texts 1`] = `
 <UserInfo
   user="gibong@gmail.com"
 >

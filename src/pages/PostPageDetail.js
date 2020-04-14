@@ -15,7 +15,6 @@ function PostPageDetail({
   setLoggedIn
 }) {
   const { postingId } = useParams();
-  console.log('params', postingId);
 
   const sizeOfPicture = { width: '100%', height: '100%' };
   const [posting, setPosting] = useState([]);

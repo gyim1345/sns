@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TimeLineSvg /> 스냅샷 비교 1`] = `
+exports[`<TimeLineSvg /> renders <svg> 1`] = `
 <TimeLineSvg>
   <svg
     aria-label="사람 찾기"

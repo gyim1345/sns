@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PostGridSvg /> 스냅샷 비교 1`] = `
+exports[`<PostGridSvg /> renders <svg> 1`] = `
 <PostGridSvg>
   <svg
     aria-label="게시물"

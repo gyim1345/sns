@@ -35,7 +35,7 @@ exports[`<PostingList /> 스냅샷 비교 1`] = `
             ],
             "postLId": 1,
             "replyToCommentId": null,
-            "title": "comment with postLId 1",
+            "title": "title1",
             "userName": "gibong@gmail.com",
           },
         ]
@@ -103,7 +103,7 @@ exports[`<PostingList /> 스냅샷 비교 1`] = `
                     ],
                     "postLId": 1,
                     "replyToCommentId": null,
-                    "title": "comment with postLId 1",
+                    "title": "title1",
                     "userName": "gibong@gmail.com",
                   },
                 ]

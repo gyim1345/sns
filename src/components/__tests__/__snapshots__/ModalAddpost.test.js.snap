@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ModalAddpost /> 스냅샷 비교 1`] = `
+exports[`<ModalAddpost /> renders <input>, <button>, and "Add Post" 1`] = `
 <MemoryRouter
   initialEntries={
     Array [
@@ -43,9 +43,26 @@ exports[`<ModalAddpost /> 스냅샷 비교 1`] = `
       }
     }
   >
-    <ModalAddPost
-      currentUser="gibong@gmail.com"
-    />
+    <Route
+      exact={true}
+      path="/:user"
+    >
+      <ModalAddPost
+        currentUser="gibong@gmail.com"
+      >
+        <input
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          id="buttonAdd"
+          onClick={[Function]}
+          type="button"
+        >
+          Add Post
+        </button>
+      </ModalAddPost>
+    </Route>
   </Router>
 </MemoryRouter>
 `;

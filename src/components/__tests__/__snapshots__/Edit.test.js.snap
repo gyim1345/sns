@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Edit /> 스냅샷 비교 1`] = `
+exports[`<Edit /> renders <input>, <button>, and "Edit" 1`] = `
 <Edit
   currentUser="gibong@gmail.com"
   input="INPUT"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Posting /> 스냅샷 비교 1`] = `
+exports[`<Posting /> renders <h1> and <div> 1`] = `
 <BrowserRouter>
   <Router
     history={
@@ -35,7 +35,7 @@ exports[`<Posting /> 스냅샷 비교 1`] = `
             ],
             "postLId": 1,
             "replyToCommentId": null,
-            "title": "comment with postLId 1",
+            "title": "title1",
             "userName": "gibong@gmail.com",
           },
         ]

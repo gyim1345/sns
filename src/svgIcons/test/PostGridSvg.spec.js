@@ -3,8 +3,10 @@ import { mount } from 'enzyme';
 import PostGridSvg from '../PostGridSvg';
 
 describe('<PostGridSvg />', () => {
-  it('스냅샷 비교', () => {
+  it('renders <svg>', () => {
     const wrapper = mount(<PostGridSvg />);
+
+    expect(wrapper.html()).toMatch('<svg');
     expect(wrapper).toMatchSnapshot();
   });
 })

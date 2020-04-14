@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TagSvg /> 스냅샷 비교 1`] = `
+exports[`<TagSvg /> renders <svg> 1`] = `
 <TagSvg>
   <svg
     aria-label="태그됨"

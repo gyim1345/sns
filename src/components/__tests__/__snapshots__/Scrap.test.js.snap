@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Scrap /> 스냅샷 비교 1`] = `
+exports[`<Scrap /> renders <svg> 1`] = `
 <Scrap
-  posting={3}
+  postingId={3}
 >
   <ScrapButton
     Scrapping={[Function]}

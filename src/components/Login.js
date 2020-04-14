@@ -33,7 +33,6 @@ const Login = ({
   currentUser
 }) => {
   const { register, handleSubmit, errors } = useForm();
-
   const checkLoggedIn = async () => {
     const response = await checkIfLoggedIn();
     const { loggedIn, userName } = response;

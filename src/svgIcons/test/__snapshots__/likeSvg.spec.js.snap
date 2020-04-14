@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LikeSvg /> 스냅샷 비교 1`] = `
+exports[`<LikeSvg /> renders <svg> 1`] = `
 <LikeSvg>
   <svg
     heigth="24"

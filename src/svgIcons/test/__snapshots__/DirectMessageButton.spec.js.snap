@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DirectMessageSvg /> 스냅샷 비교 1`] = `
+exports[`<DirectMessageSvg /> renders <svg> 1`] = `
 <DirectMessageSvg>
   <svg
     aria-label="게시물 공유"

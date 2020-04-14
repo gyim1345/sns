@@ -57,7 +57,7 @@ function UserInfoHead({ user, info, setInfo, posting }) {
             </span>
             <span css={[location43]}>
               {' '}
-              팔로워 <span style={{ fontWeight: 'bold' }}>999,999,999</span>
+              팔로워 <span style={{ fontWeight: 'bold' }}>0</span>
             </span>
           </div>
           <div css={[row3]}>

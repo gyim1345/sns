@@ -3,8 +3,10 @@ import { mount } from 'enzyme';
 import UserProfileImg from '../UserProfileImg';
 
 describe('<UserProfileImg />', () => {
-  it('스냅샷 비교', () => {
+  it('renders <img>', () => {
     const wrapper = mount(<UserProfileImg />);
+
+    expect(wrapper.html()).toMatch('<img');
     expect(wrapper).toMatchSnapshot();
   });
 })

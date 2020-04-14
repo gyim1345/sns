@@ -3,8 +3,10 @@ import { mount } from 'enzyme';
 import ScrapFilledButton from '../ScrapFilledButton';
 
 describe('<ScrapFilledButton />', () => {
-  it('스냅샷 비교', () => {
+  it('renders <svg>', () => {
     const wrapper = mount(<ScrapFilledButton />);
+
+    expect(wrapper.html()).toMatch('<svg');
     expect(wrapper).toMatchSnapshot();
   });
 })

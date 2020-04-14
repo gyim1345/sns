@@ -6,10 +6,8 @@ import { editIntroductoryApi, editNickNameApi } from '../apis/PostPage';
 import FileUpload from './FileUpload';
 
 function AccountSetting({ userInfo, info }) {
-  console.log('accountSetting', userInfo, info);
   const [inputNickName, setInputNickName] = useState('');
   const [inputIntroductory, setInputIntroductory] = useState('');
-
   const onChangeNickName = e => {
     setInputNickName(e.target.value);
   };

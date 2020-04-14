@@ -30,7 +30,6 @@ const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
   };
-  console.log(files);
 
   const onSubmit = async e => {
     e.preventDefault();

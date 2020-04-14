@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserProfileImg /> 스냅샷 비교 1`] = `
+exports[`<UserProfileImg /> renders <img> 1`] = `
 <UserProfileImg>
   <EmotionCssPropInternal
     __EMOTION_LABEL_PLEASE_DO_NOT_USE__="UserProfileImg"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SearchSvg /> 스냅샷 비교 1`] = `
+exports[`<SearchSvg /> renders <svg> 1`] = `
 <SearchSvg>
   <svg
     height="28"

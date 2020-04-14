@@ -22,13 +22,15 @@ export const posts = [
 
 export const currentUser = 'gibong@gmail.com';
 
+export const currentUserName = 'gibong'
+
 export const comments = [
   {
     like: [('gibong@gmail.com', 'guy@gmail.com', 'noone@gmail.com')],
     _id: '5e90119435a2d94f9e08e35a',
     id: 1,
     postLId: 1,
-    title: 'comment with postLId 1',
+    title: 'title1',
     userName: 'gibong@gmail.com',
     replyToCommentId: null
   }

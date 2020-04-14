@@ -3,8 +3,10 @@ import { mount } from 'enzyme';
 import UserSvg from '../UserSvg';
 
 describe('<UserSvg />', () => {
-  it('스냅샷 비교', () => {
+  it('renders <svg>', () => {
     const wrapper = mount(<UserSvg />);
+
+    expect(wrapper.html()).toMatch('<svg');
     expect(wrapper).toMatchSnapshot();
   });
 })

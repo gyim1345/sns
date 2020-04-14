@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SettingSvg /> 스냅샷 비교 1`] = `
+exports[`<SettingSvg /> renders <svg> 1`] = `
 <SettingSvg>
   <svg
     aria-label="옵션"

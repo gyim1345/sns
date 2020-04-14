@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Footer /> 스냅샷 비교 1`] = `
+exports[`<Footer /> renders texts 1`] = `
 <Footer>
   <EmotionCssPropInternal
     __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Footer"

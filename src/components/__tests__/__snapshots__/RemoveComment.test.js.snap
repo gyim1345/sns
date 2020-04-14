@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RemoveComment /> 스냅샷 비교 1`] = `
+exports[`<RemoveComment /> renders <button> and "Remove" 1`] = `
 <RemoveComment
   indexOfCommentOnThisPosting={0}
   posting={
@@ -13,7 +13,7 @@ exports[`<RemoveComment /> 스냅샷 비교 1`] = `
         ],
         "postLId": 1,
         "replyToCommentId": null,
-        "title": "comment with postLId 1",
+        "title": "title1",
         "userName": "gibong@gmail.com",
       },
     ]

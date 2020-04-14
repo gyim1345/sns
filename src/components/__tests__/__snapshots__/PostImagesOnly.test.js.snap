@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PostImagesOnly /> 스냅샷 비교 1`] = `
+exports[`<PostImagesOnly /> it renders <div> 1`] = `
 <PostImagesOnly
   imageUrl="URL"
 >

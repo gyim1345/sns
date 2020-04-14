@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ModalBoxSetting /> 스냅샷 비교 1`] = `
+exports[`<ModalBoxSetting /> renders <svg> 1`] = `
 <ModalBoxSetting
   info={
     Object {

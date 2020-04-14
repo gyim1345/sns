@@ -3,8 +3,10 @@ import { mount } from 'enzyme';
 import ThreeRoundButtonSvg from '../ThreeRoundButtonSvg';
 
 describe('<ThreeRoundButtonSvg />', () => {
-  it('스냅샷 비교', () => {
+  it('renders <svg>', () => {
     const wrapper = mount(<ThreeRoundButtonSvg />);
+
+    expect(wrapper.html()).toMatch('<svg');
     expect(wrapper).toMatchSnapshot();
   });
 })
