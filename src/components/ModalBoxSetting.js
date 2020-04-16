@@ -20,6 +20,7 @@ function ModalBoxSetting({ userInfo, info }) {
     <>
       <SettingSvg openModal={openModal} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
+        <span css={[spanCss]}>Account Setting</span>
         <AccountSetting info={info} userInfo={userInfo} />
         <button onClick={closeModal} css={[marginLeft0]} style={{ margin: 0 }}>
           close
@@ -28,6 +29,20 @@ function ModalBoxSetting({ userInfo, info }) {
     </>
   );
 }
+
+const spanCss = css`
+  font-weight: bold;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  border-color: lightgray;
+  margin-top: 0;
+  padding: 10px;
+  color: rgba(var(--i1d, 38, 38, 38), 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+`;
 
 const modalCss = css`
   position: absolute;
@@ -43,7 +58,7 @@ const modalCss = css`
   margin-right: -50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 `;
 
 const marginLeft0 = css`

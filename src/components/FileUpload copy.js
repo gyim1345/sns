@@ -7,10 +7,19 @@ import AddButtonSvg from '../svgIcons/AddButtonSvg';
 import Swal from 'sweetalert2';
 import { Redirect } from 'react-router-dom';
 
-const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
+const FileUpload = ({ currentUser, posting, setPosting, userInfo }) => {
+  const [files, setFile] = useState('');
+  const [filename, setFilename] = useState('Choose File');
+  const [message, setMessage] = useState('');
+  const [imgURL, setImgURL] = useState('');
   const [input, setInput] = useState('');
   const [inputTag, setInputTag] = useState('');
   const [data, setData] = useState('');
+  const onImageChange = event => {
+    if (event.target.files && event.target.files[0]) {
+      setImgURL(URL.createObjectURL(event.target.files[0]));
+    }
+  };
 
   const onChangeInput = e => {
     setInput(e.target.value);
@@ -18,6 +27,12 @@ const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
 
   const onChangeTagInput = e => {
     setInputTag(e.target.value);
+  };
+
+  const onChange = e => {
+    onImageChange(e);
+    setFile(e.target.files[0]);
+    setFilename(e.target.files[0].name);
   };
 
   const onSubmit = async e => {
@@ -31,7 +46,7 @@ const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
 
     try {
       const fileInfo = await uploadPicture(formData);
-      setData(fileInfo);
+      setData(fileInfo)
     } catch (err) {
       console.log(err);
     }
@@ -40,77 +55,59 @@ const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
   return (
     <Fragment>
       <form onSubmit={onSubmit} css={[formCss]}>
-        <div css={[inputInputTagUpload]}>
-          <label css={[labelCss]}>
-            {imgURL !== '' ? (
-              <img
-                id="target"
-                src={imgURL}
-                alt="The official HTML5 Icon"
-                style={{
-                  maxWidth: '350px',
-                  maxHeight: '350px',
-                  minWidth: '350px',
-                  minHeight: '350px',
-                  marginBottom: '10px'
-                }}
-              />
-            ) : (
-              <div css={[emptyImageSpace]}>
-                <div css={[emptyInnerImageSpace]}>
-                  <span>사 진</span>
-                </div>
-              </div>
-            )}
-          </label>
-          <textarea
-            type="text"
-            onChange={onChangeInput}
-            placeholder="문구입력..."
-          />
-          <div css={[tagCss]}>
-            #Tag 
-            <input
-              type="text"
-              onChange={onChangeTagInput}
-              placeholder="Input Tag Here"
-              css={[inputTagCss]}
-            />
-          </div>
+      <div css={[inputInputTagUpload]}>
+          Title Of the Post
+          <textarea type="text" onChange={onChangeInput} placeholder="Title" />
+          Tag for the Post
+          <input type="text" onChange={onChangeTagInput} placeholder="Tag" />
           <input
             type="submit"
             value="Upload"
             className="btn btn-primary btn-block mt-4"
           />
         </div>
+        <label>
+          <div>
+            <input
+              type="file"
+              className="custom-file-input"
+              id="customFile"
+              onChange={onChange}
+              css={[displayNone]}
+            />
+          </div>
+
+          {imgURL !== '' ? (
+            <img
+              id="target"
+              src={imgURL}
+              style={{
+                maxWidth: '500px',
+                maxHeight: '500px',
+                minWidth: '500px',
+                minHeight: '500px'
+              }}
+            />
+          ) : (
+            <div css={[emptyImageSpace]}>
+              <div css={[emptyInnerImageSpace]}>
+                {/* <AddButtonSvg /> */}
+                사진을 선택 하십시오
+              </div>
+            </div>
+          )}
+        </label>
+
       </form>
       {data &&
         Swal.fire({
           icon: 'success',
           title: 'File Uploaded',
           text: ''
-        }) && <Redirect to={`/`} /> &&
-        closeModal()}
+        }) && <Redirect to={`/`} />}
     </Fragment>
   );
 };
-
-const inputTagCss = css`
-  border: none;
-  width: 87%;
-  outline: none;
-  text-align-last: justify;
-  padding-left: 5px;
-`;
-const tagCss = css`
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  color: rgba(var(--fe0, 0, 107, 255), 1);
-`;
-const labelCss = css`
-  display: flex;
-  justify-content: center;
-`;
 
 const formCss = css`
   display: flex;
@@ -124,17 +121,19 @@ const emptyInnerImageSpace = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  width: 80%;
+  height: 400px;
+  border-style: dotted;
 `;
 const emptyImageSpace = css`
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
-  max-width: 50px;
-  max-height: 50px;
-  min-width: 50px;
-  min-height: 50px;
+  max-width: 500px;
+  max-height: 500px;
+  min-width: 500px;
+  min-height: 500px;
 `;
 
 const inputInputTagUpload = css`

@@ -16,13 +16,15 @@ import TimeLineSvg from './svgIcons/TimeLineSvg';
 import SearchSvg from './svgIcons/SearchSvg';
 import UserSvg from './svgIcons/UserSvg';
 import LogoutSvg from './svgIcons/LogoutSvg';
+import AddButtonSvg from './svgIcons/AddButtonSvg';
 import UserProfileImg from './svgIcons/UserProfileImg';
+import UploadPage from './pages/UploadPage';
+import ModalBoxAdd from './components/ModalBoxAdd';
 
 function App() {
   const [userOfActivePage, setUserOfActivePage] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [loggedIn, setLoggedIn] = useState(false);
-
   const check = async () => {
     const { sessionUserName } = await checkStatus(
       currentUser,
@@ -72,6 +74,7 @@ function App() {
                 <Link to="/" onClick={logout}>
                   <LogoutSvg />
                 </Link>
+                <ModalBoxAdd />
                 <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
                   <TimeLineSvg />
                 </Link>
@@ -85,9 +88,9 @@ function App() {
                     toTop();
                   }}
                 >
-                  <UserSvg />
-                </Link>
+                  {/* <UserSvg /> */}
                 <UserProfileImg />
+                </Link>
               </div>
             </div>
           </div>
@@ -96,6 +99,15 @@ function App() {
       <Switch>
         <Route exact path="/">
           <LoginPage
+            setUserOfActivePage={setUserOfActivePage}
+            setCurrentUser={setCurrentUser}
+            setLoggedIn={setLoggedIn}
+            loggedIn={loggedIn}
+            currentUser={currentUser}
+          />
+        </Route>
+        <Route exact path="/uploadPage">
+          <UploadPage
             setUserOfActivePage={setUserOfActivePage}
             setCurrentUser={setCurrentUser}
             setLoggedIn={setLoggedIn}
@@ -158,8 +170,9 @@ const displayFlex = css`
 `;
 
 const fontSize = css`
+  margin-left: 40px;
+  margin-right: 280px;
   font-size: 30px;
-  margin-left: 100px;
 `;
 
 const borderCss = css`

@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import { css } from '@emotion/core';
 
 import { editIntroductoryApi, editNickNameApi } from '../apis/PostPage';
-import FileUpload from './FileUpload';
+import FileUploadProfilePicture from './FileUploadProfilePicture';
 
 function AccountSetting({ userInfo, info }) {
   const [inputNickName, setInputNickName] = useState('');
@@ -11,7 +11,6 @@ function AccountSetting({ userInfo, info }) {
   const onChangeNickName = e => {
     setInputNickName(e.target.value);
   };
-
   const editNickName = async () => {
     try {
       await editNickNameApi(inputNickName);
@@ -79,12 +78,12 @@ function AccountSetting({ userInfo, info }) {
               type="button"
               onClick={editIntroductory}
               id="editIntroductory"
-              css={[editNickNameButtonCss]}
+              css={[editIntroductoryButtonCss]}
             >
               수정
             </button>
           </div>
-          <FileUpload userInfo={userInfo} />
+          <FileUploadProfilePicture userInfo={userInfo} info={info} />
         </div>
       </div>
     </>
@@ -92,7 +91,7 @@ function AccountSetting({ userInfo, info }) {
 }
 
 const paddingTopRight = css`
-  padding-top: 36px;
+  padding-top: 45px;
   padding-right: 25px;
 `;
 
@@ -103,6 +102,16 @@ const editNickNameButtonCss = css`
   color: rgba(var(--f07, 38, 38, 38), 1);
   padding: 0.35rem 1rem;
 `;
+
+const editIntroductoryButtonCss = css`
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: #262626;
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  padding: 0.35rem 1rem;
+`;
+
 
 const paddingRight20px = css`
   padding-right: 20px;
@@ -127,15 +136,17 @@ const firstCss = css`
 
 const nickNameCss = css`
   display: flex;
-  align-items: center;
+  align-items: stretch;
 `;
 
 const introductoryCss = css`
   display: flex;
-  align-items: center;
+  align-items: stretch;
 `;
 
 const inputCss = css`
+  margin-right: 41px;
+  max-width: 135px;
   outline: none;
   padding: 8px;
   border: none;
@@ -146,14 +157,19 @@ const inputCss = css`
 const inputCssTextBox = css`
   ${inputCss}
   margin-top: 10px;
-  max-width: 163px;
-  min-width: 163px;
+  max-width: 178px;
+  min-width: 120px;
   min-height: 20px;
+  margin: 10px 0px 0px;
+  width: 135px;
+  margin-right: 41px;
+  height: 35px;
 `;
 
 const formCss = css`
   display: flex;
   flex-direction: row;
+  margin: 15px;
 `;
 const categorizeInfoCss = css`
   display: flex;
