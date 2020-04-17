@@ -6,7 +6,7 @@ function PostImagesOnly({ imageUrl }) {
       className="test"
       style={{
         position: 'relative',
-        width: '26vw',
+        width: '17vw',
         marginRight: '2%',
         marginBottom: '2%'
       }}

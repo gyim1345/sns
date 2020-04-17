@@ -8,7 +8,7 @@ function PostsForSearchPage({ posting, setUserOfActivePage }) {
   return (
     <>
       <Link to={`/posting/${posting.id}`} onClick={changeUser}>
-        <div className="test" style={{ position: 'relative', width: '26vw' }}>
+        <div className="test" style={{ position: 'relative', width: '17vw' }}>
           <div
             style={{
               position: 'absolute',

@@ -1,16 +1,47 @@
 import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 
+import { Link } from 'react-router-dom';
 import { css } from '@emotion/core';
 
+import LogoutSvg from '../svgIcons/LogoutSvg';
 import { getUserInfoAPI } from '../apis/post';
 import ModalBoxSetting from './ModalBoxSetting';
+import { deleteLoginStatus } from '../apis/login';
 
-function UserInfoHead({ user, info, setInfo, posting }) {
+function UserInfoHead({
+  user,
+  info,
+  setInfo,
+  posting,
+  setLoggedIn,
+  setCurrentUser,
+  setUserOfActivePage,
+  loggedIn
+}) {
   const userInfo = async () => {
     try {
       const response = await getUserInfoAPI(user);
       setInfo(response);
+    } catch (e) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
+      });
+    }
+  };
+
+  const logout = () => {
+    setLoggedIn(false);
+    setCurrentUser('');
+    setUserOfActivePage('');
+    loggingOut();
+  };
+
+  const loggingOut = async () => {
+    try {
+      await deleteLoginStatus();
     } catch (e) {
       Swal.fire({
         icon: 'error',
@@ -41,8 +72,11 @@ function UserInfoHead({ user, info, setInfo, posting }) {
               {' '}
               {info.name && info.name.substring(0, info.name.indexOf('@'))}{' '}
             </span>
-            <button css={[button]}>메시지 보내기</button>
+            {/* <button css={[button]}>메시지 보내기</button> */}
             <ModalBoxSetting info={info} userInfo={userInfo} />
+            <Link to="/" onClick={logout}>
+              <LogoutSvg />
+            </Link>
           </div>
           <div css={[row2]}>
             <span css={[location33]}>
@@ -116,6 +150,7 @@ const row3 = css`
 `;
 
 const gridBoxForUserHead = css`
+  margin-bottom: 45px;
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;

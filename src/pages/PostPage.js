@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/core';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 import UserInfoHead from '../components/UserInfoHead';
 import { getUserPostOnly } from '../apis/post';
 import { checkStatus } from '../apis/check';
 import ModalBoxAdd from '../components/ModalBoxAdd';
 import PostsForPostPage from '../components/PostsForPostPage';
+import LogoutSvg from '../svgIcons/LogoutSvg';
+import { deleteLoginStatus } from '../apis/login';
 
 function PostPage({
   setUserOfActivePage,
   currentUser,
   setLoggedIn,
-  setCurrentUser
+  setCurrentUser,
+  loggedIn
 }) {
   const [posting, setPosting] = useState([]);
   const { user } = useParams();
@@ -33,6 +37,28 @@ function PostPage({
     setPosting(posts);
     setLoggedIn(true);
   };
+
+  const logout = () => {
+    if (loggedIn === true) {
+      setLoggedIn(false);
+      setCurrentUser('');
+      setUserOfActivePage('');
+      loggingOut();
+    }
+  };
+
+  const loggingOut = async () => {
+    try {
+      await deleteLoginStatus();
+    } catch (e) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
+      });
+    }
+  };
+
   useEffect(() => {
     getPostingOfCurrentUser();
   }, [user]);
@@ -44,13 +70,18 @@ function PostPage({
           info={info}
           setInfo={setInfo}
           posting={posting}
+          setUserOfActivePage={setUserOfActivePage}
+          currentUser={currentUser}
+          setLoggedIn={setLoggedIn}
+          setCurrentUser={setCurrentUser}
+          loggedIn={loggedIn}
         />
         <div css={[flexCenterColumn]}>
-          <ModalBoxAdd
+          {/* <ModalBoxAdd
             posting={posting}
             setPosting={setPosting}
             currentUser={currentUser}
-          />
+          /> */}
           <PostsForPostPage
             posting={posting}
             setUserOfActivePage={setUserOfActivePage}

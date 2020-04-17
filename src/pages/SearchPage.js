@@ -133,6 +133,7 @@ const postingByThreeCss = css`
   margin-bottom: 5px;
 `;
 const inputAreaCss = css`
+  margin-bottom: 40px;
   top: 70px;
   position: relative;
   display: flex;

@@ -11,12 +11,12 @@ import LoginPage from './pages/LoginPage';
 import { css } from '@emotion/core';
 import { checkStatus } from './apis/check';
 import './App.css';
-import { deleteLoginStatus } from './apis/login';
+// import { deleteLoginStatus } from './apis/login';
 import TimeLineSvg from './svgIcons/TimeLineSvg';
 import SearchSvg from './svgIcons/SearchSvg';
-import UserSvg from './svgIcons/UserSvg';
-import LogoutSvg from './svgIcons/LogoutSvg';
-import AddButtonSvg from './svgIcons/AddButtonSvg';
+// import UserSvg from './svgIcons/UserSvg';
+// import LogoutSvg from './svgIcons/LogoutSvg';
+// import AddButtonSvg from './svgIcons/AddButtonSvg';
 import UserProfileImg from './svgIcons/UserProfileImg';
 import UploadPage from './pages/UploadPage';
 import ModalBoxAdd from './components/ModalBoxAdd';
@@ -38,30 +38,30 @@ function App() {
     check();
   }, []);
 
-  const loggingOut = async () => {
-    try {
-      await deleteLoginStatus();
-    } catch (e) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Internal Error'
-      });
-    }
-  };
+  // const loggingOut = async () => {
+  //   try {
+  //     await deleteLoginStatus();
+  //   } catch (e) {
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Oops...',
+  //       text: 'Internal Error'
+  //     });
+  //   }
+  // };
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
   };
 
-  const logout = () => {
-    if (loggedIn === true) {
-      setLoggedIn(false);
-      setCurrentUser('');
-      setUserOfActivePage('');
-      loggingOut();
-    }
-  };
+  // const logout = () => {
+  //   if (loggedIn === true) {
+  //     setLoggedIn(false);
+  //     setCurrentUser('');
+  //     setUserOfActivePage('');
+  //     loggingOut();
+  //   }
+  // };
 
   return (
     <Router>
@@ -71,9 +71,9 @@ function App() {
             <span css={[fontSize]}>Bongstagram </span>
             <div css={[displayFlex]}>
               <div css={[navIcons]}>
-                <Link to="/" onClick={logout}>
+                {/* <Link to="/" onClick={logout}>
                   <LogoutSvg />
-                </Link>
+                </Link> */}
                 <ModalBoxAdd />
                 <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
                   <TimeLineSvg />
@@ -140,6 +140,7 @@ function App() {
             currentUser={currentUser}
             setLoggedIn={setLoggedIn}
             setCurrentUser={setCurrentUser}
+            loggedIn={loggedIn}
           />
         </Route>
         <Route exact path={`/posting/:postingId`}>

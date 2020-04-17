@@ -83,7 +83,7 @@ const tabWord = css`
 const tabs = css`
   justify-content: center;
   letter-spacing: 1px;
-  width: 79%;
+  width: 51%;
   font-size: 12px;
   font-weight: 600;
   display: flex;
@@ -98,6 +98,7 @@ const searchPagePostsCss = css`
   flex-wrap: wrap;
   flex-basis: 33%;
   justify-content: center;
+  width: 52%;
 `;
 
 export default PostsForPostPage;

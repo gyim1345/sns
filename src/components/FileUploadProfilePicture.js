@@ -65,7 +65,7 @@ const FileUploadProfilePicture = ({ userInfo, info }) => {
         </label>
         <input
           type="submit"
-          value="Upload"
+          value="수정"
           className="btn btn-primary btn-block mt-4"
           css={inputUploadCss}
         />
@@ -79,13 +79,14 @@ const inputUploadCss = css`
   border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
   color: rgba(var(--f07, 38, 38, 38), 1);
   margin-bottom: 4px;
+  width: 58px;
 `;
 const imgCss = css`
   max-width: 150px;
   max-height: 150px;
   min-width: 150px;
   min-height: 150px;
-  padding-right: 45px;
+  padding-right: 44px;
 `;
 
 const formCss = css`
