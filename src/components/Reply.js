@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { css } from '@emotion/core';
+
 
 function Reply({
   posting,
@@ -33,13 +35,18 @@ function Reply({
 
   return (
     <>
-      <input value={input} onChange={onChange} />
+      <input value={input} onChange={onChange} css={[replyCss]}/>
       <button type="button" onClick={addReply} id="buttonReply">
         AddReply
       </button>
     </>
   );
 }
+
+const replyCss = css`
+border: none;
+outline: none;
+`;
 
 // Reply.propTypes = {
 //   currentUser: PropTypes.string,

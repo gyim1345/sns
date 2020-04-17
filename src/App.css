@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
+.MuiFab-primary {
+  position: fixed !important;
+  right: 25.5% !important;
+  width: 75px !important;
+  height: 75px !important;
+  bottom: 5% !important;
+  background-color: white !important;
+}
+
 .cssTop {
   background-color: white;
   /* margin: -7px -8px 0px -8px;

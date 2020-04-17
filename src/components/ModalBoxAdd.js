@@ -6,7 +6,7 @@ import FileUpload from './FileUpload';
 import AddButtonSvg from '../svgIcons/AddButtonSvg';
 import './ModalBoxAdd.css';
 
-function ModalBoxAdd({ posting, setPosting, currentUser }) {
+function ModalBoxAdd({ currentUser, height, width }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [files, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
@@ -43,7 +43,7 @@ function ModalBoxAdd({ posting, setPosting, currentUser }) {
           onChange={onChange}
           css={displayNone}
         ></input>
-        <AddButtonSvg />
+        <AddButtonSvg height={height} width={width} />
       </label>
       {/* <button onClick={openModal} css={[marginLeft0]}>
       </button> */}
@@ -52,8 +52,6 @@ function ModalBoxAdd({ posting, setPosting, currentUser }) {
         <h1 css={[h1Css]}>새 게시물</h1>
 
         <FileUpload
-          posting={posting}
-          setPosting={setPosting}
           currentUser={currentUser}
           closeModal={closeModal}
           files={files}

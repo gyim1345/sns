@@ -7,7 +7,12 @@ import AddButtonSvg from '../svgIcons/AddButtonSvg';
 import Swal from 'sweetalert2';
 import { Redirect } from 'react-router-dom';
 
-const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
+const FileUpload = ({
+  currentUser,
+  closeModal,
+  files,
+  imgURL
+}) => {
   const [input, setInput] = useState('');
   const [inputTag, setInputTag] = useState('');
   const [data, setData] = useState('');
@@ -27,8 +32,6 @@ const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
     formData.append('input', input);
     formData.append('inputTag', inputTag);
     formData.append('user', currentUser);
-    console.log(formData);
-
     try {
       const fileInfo = await uploadPicture(formData);
       setData(fileInfo);
@@ -69,7 +72,7 @@ const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
             placeholder="문구입력..."
           />
           <div css={[tagCss]}>
-            #Tag 
+            #Tag
             <input
               type="text"
               onChange={onChangeTagInput}
@@ -89,8 +92,9 @@ const FileUpload = ({ currentUser, closeModal, files, imgURL }) => {
           icon: 'success',
           title: 'File Uploaded',
           text: ''
-        }) && <Redirect to={`/`} /> &&
+        }) &&
         closeModal()}
+      {data && <Redirect to={`/`} />}
     </Fragment>
   );
 };

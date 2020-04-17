@@ -46,28 +46,30 @@ function PostingList({
     <>
       <div css={[wrap]}>
         {posting !== undefined &&
-          posting.map(posting1 => (
-            <ul
-              key={posting1.id}
-              style={{ marginTop: '90px', marginBottom: '-20px' }}
-            >
-              <Posting
-                posting={posting1}
-                postingAll={posting}
-                setPosting={setPosting}
-                // comments={comments}
-                addComment={addComment}
-                onChangeComment={onChangeComment}
-                sizeOfPicture={sizeOfPicture}
-                userOfActivePage={userOfActivePage}
-                setUserOfActivePage={setUserOfActivePage}
-                currentUser={currentUser}
-                commentAPI={commentAPI}
-                setCommentAPI={setCommentAPI}
-                setInput={Input}
-              />
-            </ul>
-          ))}
+          posting
+            .sort((a, b) => b.id - a.id)
+            .map(posting1 => (
+              <ul
+                key={posting1.id}
+                style={{ marginTop: '90px', marginBottom: '-20px' }}
+              >
+                <Posting
+                  posting={posting1}
+                  postingAll={posting}
+                  setPosting={setPosting}
+                  // comments={comments}
+                  addComment={addComment}
+                  onChangeComment={onChangeComment}
+                  sizeOfPicture={sizeOfPicture}
+                  userOfActivePage={userOfActivePage}
+                  setUserOfActivePage={setUserOfActivePage}
+                  currentUser={currentUser}
+                  commentAPI={commentAPI}
+                  setCommentAPI={setCommentAPI}
+                  setInput={Input}
+                />
+              </ul>
+            ))}
       </div>
     </>
   );

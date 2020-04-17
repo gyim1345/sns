@@ -48,6 +48,7 @@ function Edit({ posting, setPosting, currentUser }) {
 const boxHidden = css`
   border-style: hidden;
   padding-left: 12px;
+  outline: none;
 `;
 
 export default Edit;

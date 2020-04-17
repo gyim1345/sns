@@ -107,7 +107,9 @@ function Posting({
             setPosting={setPosting}
             postingAll={postingAll}
           />
-          <PostCommentButtonSvg />
+          <Link to={`/posting/${posting.id}`} onClick={toTop}>
+            <PostCommentButtonSvg postId={posting.id} />
+          </Link>
           <DirectMessageSvg />
           <Scrap postingId={posting.id} />
         </div>
@@ -155,8 +157,8 @@ function Posting({
 const commentInputButton = css`
   background-color: white;
   flex: none;
+  border: none;
 `;
-/* min-width: max-content; */
 
 const commentInputBox = css`
   padding: 15px;

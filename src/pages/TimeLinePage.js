@@ -22,6 +22,7 @@ function TimeLinePage({
     setPosting(posts);
     setLoggedIn(true);
   };
+
   useEffect(() => {
     getUserTimeLinePostsAPI();
   }, []);
@@ -39,7 +40,12 @@ function TimeLinePage({
             currentUser={currentUser}
           />
         </div>
-        <UserInfo user={currentUser} posting={posting} />
+        <UserInfo
+          user={currentUser}
+          posting={posting}
+          setUserOfActivePage={setUserOfActivePage}
+          currentUser={currentUser}
+        />
       </div>
       {/* )} */}
       <Footer />

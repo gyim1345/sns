@@ -58,6 +58,8 @@ const modalCss = css`
 
 const marginLeft0 = css`
   margin-left: 0px;
-`;
+  border: none;
+    outline: none;
+    `;
 
 export default ModalBoxReply;

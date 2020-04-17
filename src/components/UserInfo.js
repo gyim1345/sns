@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-
+import { Link } from 'react-router-dom';
 import { css } from '@emotion/core';
 
 import { getUserInfoAPI } from '../apis/post';
 import { getRandomUser, AddFollower } from '../apis/TimeLinePageApis';
 
-function UserInfo({ user }) {
+function UserInfo({ user, setUserOfActivePage, currentUser }) {
   const [info, setInfo] = useState('');
   const [randomUsers, setRandomUsers] = useState([]);
   const userInfo = async () => {
@@ -54,6 +54,10 @@ function UserInfo({ user }) {
     }
   };
 
+  const changeToCurrentUser = () => {
+    setUserOfActivePage(currentUser);
+  };
+
   useEffect(() => {
     userInfo();
     callRandomUser();
@@ -70,7 +74,15 @@ function UserInfo({ user }) {
               width="50"
               css={[borderRadius]}
             />
-            <span css={[name]}>{user.substring(0, user.indexOf('@'))}</span>
+            <Link
+              to={`/profile/${currentUser}`}
+              onClick={() => {
+                changeToCurrentUser();
+              }}
+              css={[linkCss]}
+            >
+              <span css={[name]}>{user.substring(0, user.indexOf('@'))}</span>
+            </Link>
           </div>
           <span css={[story]}>
             스토리
@@ -99,10 +111,18 @@ function UserInfo({ user }) {
                       css={[borderRadius]}
                     />
                     <div css={textBoxForfriendImageAndName}>
-                      <span css={[name]}>
-                        {usera.name.substring(0, usera.name.indexOf('@'))}
-                      </span>
-                      <span css={[recommendation]}>recommendation</span>
+                      <Link
+                        to={`/profile/${usera.name}`}
+                        onClick={() => {
+                          changeToCurrentUser();
+                        }}
+                        css={[linkCss]}
+                      >
+                        <span css={[name]}>
+                          {usera.name.substring(0, usera.name.indexOf('@'))}
+                        </span>
+                        <span css={[recommendation]}>recommendation</span>
+                      </Link>
                     </div>
 
                     <span
@@ -161,6 +181,12 @@ function UserInfo({ user }) {
   );
 }
 
+const linkCss = css`
+  text-decoration: none;
+  display: flex;
+    flex-direction: column;
+`;
+
 const fix = css`
   position: fixed;
 `;
@@ -178,10 +204,13 @@ const followButton = css`
   top: 50%;
   transform: translateY(-50%);
   color: #2196f3;
+  cursor: pointer;
 `;
 const recommendation = css`
   margin-left: 12px;
   font-size: 14px;
+  text-decoration: none;
+  color: rgba(var(--f52, 153, 153, 153), 1);
 `;
 const textBoxForfriendImageAndName = css`
   display: flex;

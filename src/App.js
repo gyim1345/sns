@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Switch, Link, Route } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { css } from '@emotion/core';
+import { checkStatus } from './apis/check';
+import './App.css';
+import Fab from '@material-ui/core/Fab';
 
 import PostPage from './pages/PostPage';
 import PostPageDetail from './pages/PostPageDetail';
@@ -8,23 +11,19 @@ import TimeLinePage from './pages/TimeLinePage';
 import SearchPage from './pages/SearchPage';
 import toTop from './components/toTop';
 import LoginPage from './pages/LoginPage';
-import { css } from '@emotion/core';
-import { checkStatus } from './apis/check';
-import './App.css';
-// import { deleteLoginStatus } from './apis/login';
 import TimeLineSvg from './svgIcons/TimeLineSvg';
 import SearchSvg from './svgIcons/SearchSvg';
-// import UserSvg from './svgIcons/UserSvg';
-// import LogoutSvg from './svgIcons/LogoutSvg';
-// import AddButtonSvg from './svgIcons/AddButtonSvg';
 import UserProfileImg from './svgIcons/UserProfileImg';
 import UploadPage from './pages/UploadPage';
 import ModalBoxAdd from './components/ModalBoxAdd';
+import { getUserImage } from './apis/post';
 
 function App() {
   const [userOfActivePage, setUserOfActivePage] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userImage, setUserImage] = useState('');
+
   const check = async () => {
     const { sessionUserName } = await checkStatus(
       currentUser,
@@ -32,65 +31,48 @@ function App() {
     );
     setUserOfActivePage(sessionUserName);
     setCurrentUser(sessionUserName);
+    const imageURL = await getUserImage(sessionUserName);
+    setUserImage(imageURL);
   };
 
   useEffect(() => {
     check();
   }, []);
 
-  // const loggingOut = async () => {
-  //   try {
-  //     await deleteLoginStatus();
-  //   } catch (e) {
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Oops...',
-  //       text: 'Internal Error'
-  //     });
-  //   }
-  // };
-
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
   };
-
-  // const logout = () => {
-  //   if (loggedIn === true) {
-  //     setLoggedIn(false);
-  //     setCurrentUser('');
-  //     setUserOfActivePage('');
-  //     loggingOut();
-  //   }
-  // };
 
   return (
     <Router>
       {loggedIn && (
         <div css={[borderCss]}>
           <div className="cssTop">
-            <span css={[fontSize]}>Bongstagram </span>
-            <div css={[displayFlex]}>
-              <div css={[navIcons]}>
-                {/* <Link to="/" onClick={logout}>
+            <div css={[topHeaderWidth]}>
+              <span css={[fontSize]}>Bongstagram </span>
+              <div css={[displayFlex]}>
+                <div css={[navIcons]}>
+                  {/* <Link to="/" onClick={logout}>
                   <LogoutSvg />
                 </Link> */}
-                <ModalBoxAdd />
-                <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
-                  <TimeLineSvg />
-                </Link>
-                <Link to={`/SearchPage`}>
-                  <SearchSvg />
-                </Link>
-                <Link
-                  to={`/profile/${currentUser}`}
-                  onClick={() => {
-                    changeToCurrentUser();
-                    toTop();
-                  }}
-                >
-                  {/* <UserSvg /> */}
-                <UserProfileImg />
-                </Link>
+                  <ModalBoxAdd height={24} width={24} />
+                  <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
+                    <TimeLineSvg />
+                  </Link>
+                  <Link to={`/SearchPage`}>
+                    <SearchSvg />
+                  </Link>
+                  <Link
+                    to={`/profile/${currentUser}`}
+                    onClick={() => {
+                      changeToCurrentUser();
+                      toTop();
+                    }}
+                  >
+                    {/* <UserSvg /> */}
+                    {userImage && <UserProfileImg userImage={userImage} />}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -153,9 +135,18 @@ function App() {
           />
         </Route>
       </Switch>
+      <Fab color="primary" aria-label="add">
+        <ModalBoxAdd height={50} width={38} />
+      </Fab>
     </Router>
   );
 }
+
+const topHeaderWidth = css`
+  display: flex;
+  width: 100%;
+  max-width: 1015px;
+`;
 
 const navIcons = css`
   display: flex;
@@ -171,9 +162,9 @@ const displayFlex = css`
 `;
 
 const fontSize = css`
-  margin-left: 40px;
-  margin-right: 280px;
+  margin-left: 45px;
   font-size: 30px;
+  flex: 1 10000 0%;
 `;
 
 const borderCss = css`
