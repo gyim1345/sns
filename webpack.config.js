@@ -37,7 +37,7 @@ module.exports = {
       {
         context: ['/login', '/SearchPage', '/TimeLine', '/:user'],
         target:
-          'http://ec2-13-209-40-94.ap-northeast-2.compute.amazonaws.com:8000/',
+          'http://ec2-13-209-40-94.ap-northeast-2.compute.amazonaws.com:8000',
         secure: false,
         changeOrigin: true
       }
