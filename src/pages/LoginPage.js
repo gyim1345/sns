@@ -16,7 +16,7 @@ const LoginPage = ({
     <div css={[loginPage]}>
       <div css={[pageElements]}>
         <img
-          src={'static/images/cellphone.png'}
+          src={'src/images/cellphone.png'}
           alt=""
           style={{ paddingTop: '80px', maxWidth: '400px' }}
         />
@@ -35,12 +35,12 @@ const LoginPage = ({
             앱을 다운로드하지 마세요
             <div css={[storePicturesCss]}>
               <img
-                src={'static/images/AppStore.png'}
+                src={'src/images/AppStore.png'}
                 alt=""
                 style={{ width: '125px', height: '35px' }}
               />
               <img
-                src={'static/images/googlestore.png'}
+                src={'src/images/googlestore.png'}
                 alt=""
                 style={{ width: '125px', height: '35px' }}
               />

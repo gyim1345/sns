@@ -5,8 +5,12 @@ import Posting from './Posting';
 import Comment from './Comment';
 import Remove from './Remove';
 import Edit from './Edit';
+Access key ID
 
+AKIAZMMYAG7ZWMFAZW7C
+Secret access key
 
+XwfUKxNfSSULJJ2iS/FFTrBokzN9ul1HqZQtDYv1
 
 
 function PostingList({ state, setState }) {
