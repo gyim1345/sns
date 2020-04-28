@@ -60,7 +60,7 @@ exports[`<PostsForSearchPage /> renders <div> 1`] = `
               style={
                 Object {
                   "position": "relative",
-                  "width": "26vw",
+                  "width": "17vw",
                 }
               }
             >

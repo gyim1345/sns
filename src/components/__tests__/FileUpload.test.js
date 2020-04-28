@@ -11,7 +11,7 @@ describe('<FileUpload />', () => {
 
     expect(wrapper.props().currentUser).toBe(currentUser);
     expect(wrapper.props().posting).toBe(post);
-    expect(wrapper.html()).toMatch('<form>');
+    expect(wrapper.html()).toMatch('<form');
     expect(wrapper).toMatchSnapshot();
   });
 });

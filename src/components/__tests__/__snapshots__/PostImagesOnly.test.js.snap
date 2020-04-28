@@ -11,7 +11,7 @@ exports[`<PostImagesOnly /> it renders <div> 1`] = `
         "marginBottom": "2%",
         "marginRight": "2%",
         "position": "relative",
-        "width": "26vw",
+        "width": "17vw",
       }
     }
   >

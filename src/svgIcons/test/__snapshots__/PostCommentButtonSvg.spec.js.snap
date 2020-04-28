@@ -6,11 +6,6 @@ exports[`<PostCommentButtonSvg /> renders <svg> 1`] = `
     aria-label="댓글 달기"
     fill="#262626"
     height="24"
-    style={
-      Object {
-        "paddingRight": "16px",
-      }
-    }
     viewBox="0 0 48 48"
     width="24"
   >
