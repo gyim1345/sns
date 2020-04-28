@@ -58,6 +58,7 @@ function Posting({
   };
 
   const addToComment = () => {
+    setInput('');
     return addComment(null, posting.id, input, currentUser);
   };
 
@@ -84,6 +85,7 @@ function Posting({
           setPosting={setPosting}
           currentUser={currentUser}
           editInput={input}
+          postingAll={postingAll}
         />
       </h1>
       <div css={[title]}>
