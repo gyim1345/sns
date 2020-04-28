@@ -1,17 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import { css } from '@emotion/core';
 
-import Message from './Message';
 import { uploadPicture, uploadUserImage } from '../apis/upload';
 import AddButtonSvg from '../svgIcons/AddButtonSvg';
 import Swal from 'sweetalert2';
-import { Redirect } from 'react-router-dom';
 
 const FileUpload = ({
   currentUser,
   closeModal,
   files,
-  imgURL
+  imgURL,
+  posting,
+  setPosting
 }) => {
   const [input, setInput] = useState('');
   const [inputTag, setInputTag] = useState('');
@@ -34,6 +34,8 @@ const FileUpload = ({
     formData.append('user', currentUser);
     try {
       const fileInfo = await uploadPicture(formData);
+      const { posts } = fileInfo;
+      setPosting([...posting, posts]);
       setData(fileInfo);
     } catch (err) {
       console.log(err);
@@ -94,7 +96,7 @@ const FileUpload = ({
           text: ''
         }) &&
         closeModal()}
-      {data && <Redirect to={`/`} />}
+      {/* {data && <Redirect to={`/`} />} */}
     </Fragment>
   );
 };

@@ -2,12 +2,11 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    filename: 'main.js',
+    filename: 'main.js'
     // publicPath: 'https://image123.com'
   },
   module: {
@@ -36,8 +35,7 @@ module.exports = {
     proxy: [
       {
         context: ['/login', '/SearchPage', '/TimeLine', '/:user'],
-        target:
-          'http://ec2-15-164-93-251.ap-northeast-2.compute.amazonaws.com:8000/',
+        target: 'http://localhost:3000/',
         secure: false,
         changeOrigin: true
       }
@@ -48,14 +46,11 @@ module.exports = {
     //   historyApiFallback: true
     // }
   },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: './index.html',
-        filename: 'index.html'
-      }),
-      new CopyPlugin([
-        { from: 'src/images', to: './src/images' },
-      ]),
-   
-    ]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: 'index.html'
+    }),
+    new CopyPlugin([{ from: 'src/images', to: './src/images' }])
+  ]
 };

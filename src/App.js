@@ -52,9 +52,6 @@ function App() {
               <span css={[fontSize]}>Bongstagram </span>
               <div css={[displayFlex]}>
                 <div css={[navIcons]}>
-                  {/* <Link to="/" onClick={logout}>
-                  <LogoutSvg />
-                </Link> */}
                   <ModalBoxAdd height={24} width={24} />
                   <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
                     <TimeLineSvg />
@@ -69,7 +66,6 @@ function App() {
                       toTop();
                     }}
                   >
-                    {/* <UserSvg /> */}
                     {userImage && <UserProfileImg userImage={userImage} />}
                   </Link>
                 </div>
@@ -135,9 +131,6 @@ function App() {
           />
         </Route>
       </Switch>
-      <Fab color="primary" aria-label="add">
-        <ModalBoxAdd height={50} width={38} />
-      </Fab>
     </Router>
   );
 }
