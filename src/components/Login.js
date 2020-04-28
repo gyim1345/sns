@@ -48,9 +48,9 @@ const Login = ({
   }, []);
 
   const onSubmit = async data => {
+    Swal.fire(`please wait`, '', 'info');
     try {
       const response = await setLoginAPI(data);
-      console.log(response);
       Swal.fire(
         `WelcomeBack ${data.Id.substring(0, data.Id.indexOf('@'))}`,
         '',
@@ -85,6 +85,7 @@ const Login = ({
             css={[inputBoxCss]}
           />
           <input
+            type="password"
             name="Password"
             defaultValue=""
             ref={register({ required: true, maxLength: 10 })}
