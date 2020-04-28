@@ -37,6 +37,7 @@ const buttonCss = css`
   width: 300px;
   height: 48px;
   font-size: 14px;
+  font-weight: bold;
 `;
 
 const boxHidden = css`

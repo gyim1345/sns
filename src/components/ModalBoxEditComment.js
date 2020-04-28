@@ -4,17 +4,21 @@ import { css } from '@emotion/core';
 import Swal from 'sweetalert2';
 
 import { editPostAPI } from '../apis/post';
+import { editCommentAPI } from '../apis/comment';
 
-function ModalBoxEdit({
+
+function ModalBoxEditComment({
   clicked,
   posting,
   setPosting,
   currentUser,
   setIsOpenModalBox,
-  postingAll
+  setCommentAPI,
+  indexOfCommentOnThisPosting
 }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [input, setInput] = useState([posting.title]);
+  const thisPost = posting[indexOfCommentOnThisPosting];
+  const [input, setInput] = useState([thisPost.title]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -36,19 +40,19 @@ function ModalBoxEdit({
   const onClick = async () => {
     closeModal();
     try {
-      const response = await editPostAPI(input, posting, currentUser);
-      const index = postingAll.findIndex(x => x === posting);
+      const response = await editCommentAPI(
+        input,
+        posting,
+        currentUser,
+        indexOfCommentOnThisPosting
+      );
       response.Message !== undefined
         ? Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: `${response.Message}`
           })
-        : setPosting([
-            ...postingAll.slice(0, index),
-            ...response,
-            ...postingAll.slice(index + 1)
-          ]);
+        : setCommentAPI(response);
     } catch (e) {
       Swal.fire({
         icon: 'error',
@@ -63,7 +67,7 @@ function ModalBoxEdit({
       {/* <SettingSvg openModal={openModal} /> */}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <div css={[outerBoxCss]}>
-          <div css={[innerHeaderCss]}>Edit Title of Your Post</div>
+          <div css={[innerHeaderCss]}>Edit Title of Your Comment</div>
           <textarea
             type="text"
             value={input}
@@ -173,4 +177,4 @@ const modalCss = css`
   flex-direction: column;
 `;
 
-export default ModalBoxEdit;
+export default ModalBoxEditComment;

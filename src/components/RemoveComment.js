@@ -38,7 +38,7 @@ function RemoveComment({
         type="button"
         onClick={onClick}
         id="buttonRemove"
-        css={[marginLeft0]}
+        css={[removeButtonCss]}
       >
         Remove
       </button>
@@ -46,8 +46,14 @@ function RemoveComment({
   );
 }
 
-const marginLeft0 = css`
-  margin-left: 0px;
+const removeButtonCss = css`
+border: 1px solid rgba(var(--d0b,219,219,219),1);
+color: rgba(var(--f07,38,38,38),1);
+background-color: white;
+width: 300px;
+height: 48px;
+font-size: 14px;
+font-weight: bold;
 `;
 
 // Remove.propTypes = {

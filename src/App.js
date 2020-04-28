@@ -52,7 +52,7 @@ function App() {
               <span css={[fontSize]}>Bongstagram </span>
               <div css={[displayFlex]}>
                 <div css={[navIcons]}>
-                  <ModalBoxAdd height={24} width={24} />
+                  {/* <ModalBoxAdd height={24} width={24} /> */}
                   <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
                     <TimeLineSvg />
                   </Link>

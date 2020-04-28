@@ -77,7 +77,7 @@ const FileUploadProfilePicture = ({ userInfo, info }) => {
 const inputUploadCss = css`
   background-color: white;
   border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
-  color: rgba(var(--f07, 38, 38, 38), 1);
+  color: #0275d8;
   margin-bottom: 4px;
   width: 58px;
 `;

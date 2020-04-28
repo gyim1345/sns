@@ -22,23 +22,22 @@ function ModalBoxComment({
     <>
       <ThreeRoundButtonSvg setIsOpen={setIsOpen} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
+        <RemoveComment
+          posting={commentAPI}
+          currentUser={currentUser}
+          indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
+          setCommentAPI={setCommentAPI}
+        />
+        <EditComment
+          posting={commentAPI}
+          indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
+          currentUser={currentUser}
+          setCommentAPI={setCommentAPI}
+          setIsOpen={setIsOpen}
+        />
         <button onClick={closeModal} css={[marginLeft0]}>
           close
         </button>
-        <div>
-          <EditComment
-            posting={commentAPI}
-            indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
-            currentUser={currentUser}
-            setCommentAPI={setCommentAPI}
-          />
-          <RemoveComment
-            posting={commentAPI}
-            currentUser={currentUser}
-            indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
-            setCommentAPI={setCommentAPI}
-          />
-        </div>
       </Modal>
     </>
   );
@@ -58,11 +57,17 @@ const modalCss = css`
   margin-right: -50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 `;
 
 const marginLeft0 = css`
-  margin-left: 0px;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  background-color: white;
+  width: 300px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 export default ModalBoxComment;

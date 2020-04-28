@@ -98,20 +98,18 @@ const paddingTopRight = css`
 const editNickNameButtonCss = css`
   background-color: white;
   border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
-  color: #262626;
   color: rgba(var(--f07, 38, 38, 38), 1);
   padding: 0.35rem 1rem;
+  color: #0275d8;
 `;
 
 const editIntroductoryButtonCss = css`
   margin-top: 10px;
   background-color: white;
   border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
-  color: #262626;
-  color: rgba(var(--f07, 38, 38, 38), 1);
   padding: 0.35rem 1rem;
+  color: #0275d8;
 `;
-
 
 const paddingRight20px = css`
   padding-right: 20px;

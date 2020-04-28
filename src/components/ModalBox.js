@@ -18,7 +18,7 @@ function ModalBox({ posting, setPosting, currentUser, input, postingAll }) {
       <ThreeRoundButtonSvg setIsOpen={setIsOpen} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <button onClick={closeModal} css={[buttonCss]}>
-          close
+          Close
         </button>
         <Edit
           posting={posting}
@@ -46,6 +46,7 @@ const buttonCss = css`
   width: 300px;
   height: 48px;
   font-size: 14px;
+  font-weight: bold;
 `;
 
 const modalCss = css`

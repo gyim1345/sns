@@ -22,22 +22,42 @@ function ModalBoxReply({
     <>
       <CommentSvg setIsOpen={setIsOpen} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
-        <button onClick={closeModal} css={[marginLeft0]}>
-          close
-        </button>
-        <div>
-          <Reply
-            posting={postings}
-            commentAPI={commentAPI}
-            currentUser={currentUser}
-            indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
-            addComment={addComment}
-          />
+        <div css={[outerBoxCss]}>
+          <div css={[innerHeaderCss]}>Edit Title of Your Reply</div>
+          <div>
+            <Reply
+              posting={postings}
+              commentAPI={commentAPI}
+              currentUser={currentUser}
+              indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
+              addComment={addComment}
+              closeModal={closeModal}
+            />
+          </div>
         </div>
       </Modal>
     </>
   );
 }
+
+const outerBoxCss = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+const innerHeaderCss = css`
+  font-weight: bold;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+  border-color: lightgray;
+  margin-top: 0;
+  padding: 10px;
+  color: rgba(var(--i1d, 38, 38, 38), 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+`;
 
 const modalCss = css`
   position: absolute;
@@ -57,9 +77,13 @@ const modalCss = css`
 `;
 
 const marginLeft0 = css`
-  margin-left: 0px;
-  border: none;
-    outline: none;
-    `;
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  background-color: white;
+  width: 300px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: bold;
+`;
 
 export default ModalBoxReply;

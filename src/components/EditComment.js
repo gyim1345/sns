@@ -1,57 +1,58 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { css } from '@emotion/core';
 
 import { editCommentAPI } from '../apis/comment';
+import ModalBoxEditComment from './ModalBoxEditComment';
 
 function EditComment({
   posting,
   setPosting,
   indexOfCommentOnThisPosting,
   currentUser,
-  setCommentAPI
+  setCommentAPI,
+  setIsOpen
 }) {
-  const thisPost = posting[indexOfCommentOnThisPosting];
-  const [input, setInput] = useState([thisPost.title]);
-
-  const onEdit = e => {
-    setInput(e.target.value);
-  };
+  const [clicked, setClicked] = useState(false);
 
   const onClick = async () => {
-    try {
-      const response = await editCommentAPI(
-        input,
-        posting,
-        currentUser,
-        indexOfCommentOnThisPosting
-      );
-      response.Message !== undefined
-        ? Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: `${response.Message}`
-          })
-        : indexOfCommentOnThisPosting === undefined
-        ? setPosting(response)
-        : setCommentAPI(response);
-    } catch (e) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Internal Error'
-      });
-    }
+    setClicked(true);
   };
 
   return (
     <>
-      <input type="text" value={input} onChange={e => onEdit(e)} />
-      <button type="button" onClick={onClick} id="buttonEdit">
+      {clicked && (
+        <ModalBoxEditComment
+          clicked={clicked}
+          posting={posting}
+          setPosting={setPosting}
+          currentUser={currentUser}
+          setIsOpenModalBox={setIsOpen}
+          setCommentAPI={setCommentAPI}
+          indexOfCommentOnThisPosting={indexOfCommentOnThisPosting}
+        />
+      )}
+      <button
+        type="button"
+        onClick={onClick}
+        id="buttonEdit"
+        css={editButtonCss}
+      >
         Edit
       </button>
     </>
   );
 }
+
+const editButtonCss = css`
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  background-color: white;
+  width: 300px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: bold;
+`;
 
 // Edit.propTypes = {
 //   currentUser: PropTypes.string,

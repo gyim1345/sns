@@ -3,5 +3,5 @@ node_modules
 /dist
 dist/
 dist
-/workspace/Project/sns/dist/main.js
+/workspace/Project/sns/dist/
 dist/main.js
