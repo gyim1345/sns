@@ -1,6 +1,7 @@
 import axios from 'axios';
+import TASK_URL from './taskurl';
 
-const TASKS_URL = 'http://ec2-15-164-93-251.ap-northeast-2.compute.amazonaws.com:8000/auth';
+const TASKS_URL = `${TASK_URL}/auth`;
 
 export const checkStatus = async (currentUser, userOfActivePage) => {
   const { data } = await axios.post(
@@ -11,7 +12,6 @@ export const checkStatus = async (currentUser, userOfActivePage) => {
     },
     { withCredentials: true }
   );
-  console.log(data);
   return data;
 };
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
+import TASK_URL from './taskurl';
 
-const TASKS_URL =
-  'http://ec2-15-164-93-251.ap-northeast-2.compute.amazonaws.com:8000/upload';
+const TASKS_URL = `${TASK_URL}/upload`;
 
 export const uploadPicture = async formData => {
   const { data } = await axios.post(`${TASKS_URL}`, formData, {

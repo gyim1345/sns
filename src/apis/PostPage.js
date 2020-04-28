@@ -1,7 +1,7 @@
 import axios from 'axios';
+import TASK_URL from './taskurl';
 
-const TASKS_URL =
-  'http://ec2-15-164-93-251.ap-northeast-2.compute.amazonaws.com:8000';
+const TASKS_URL = TASK_URL;
 
 export const getUserInfoAPI = async user => {
   const { data } = await axios.post(

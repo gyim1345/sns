@@ -1,14 +1,16 @@
 import axios from 'axios';
+import TASK_URL from './taskurl';
 
-const TASKS_URL =
-  'http://ec2-15-164-93-251.ap-northeast-2.compute.amazonaws.com:8000/auth/login';
+const TASKS_URL = `${TASK_URL}/auth/login`;
 
 export const setLoginAPI = async ({ Id, Password }) => {
-  const { data } = await axios.post(
+  const response = await axios.post(
     TASKS_URL,
     { Id, Password },
     { withCredentials: true }
   );
+  console.log(response)
+  const { data } = response;
   return data;
 };
 
