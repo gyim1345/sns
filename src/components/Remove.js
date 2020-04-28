@@ -5,9 +5,7 @@ import Swal from 'sweetalert2';
 
 import { removePostApi } from '../apis/post';
 
-function Remove({ posting, currentUser }) {
-  const [removed, setRemoved] = useState(false);
-
+function Remove({ posting, setPosting, postingAll }) {
   const onClick = async () => {
     try {
       const response = await removePostApi(posting);
@@ -17,7 +15,7 @@ function Remove({ posting, currentUser }) {
           title: 'Oops...',
           text: `${response.Message}`
         });
-      setRemoved(response);
+      setPosting(postingAll.filter(x => x !== posting));
     } catch (e) {
       Swal.fire({
         icon: 'error',
@@ -33,14 +31,22 @@ function Remove({ posting, currentUser }) {
         type="button"
         onClick={onClick}
         id="buttonRemove"
-        css={[marginLeft0]}
+        css={[buttonCss]}
       >
         Remove
       </button>
-      {removed && <Redirect to={`/TimeLine/${currentUser}`} />}
     </>
   );
 }
+
+const buttonCss = css`
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  background-color: white;
+  width: 300px;
+  height: 48px;
+  font-size: 14px;
+`;
 
 const marginLeft0 = css`
   margin-left: 0px;
