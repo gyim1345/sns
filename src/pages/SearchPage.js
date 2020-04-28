@@ -7,6 +7,8 @@ import PostsForSearchPage from '../components/PostsForSearchPage';
 import { searchPosts } from '../apis/SearchPage';
 import Footer from '../components/Footer';
 import { checkStatus } from '../apis/check';
+import Fab from '@material-ui/core/Fab';
+import ModalBoxAdd from '../components/ModalBoxAdd';
 
 function SearchPage({
   setUserOfActivePage,
@@ -108,6 +110,14 @@ function SearchPage({
           </ul>
         ))}
       </div>
+      <Fab color="primary" aria-label="add">
+          <ModalBoxAdd
+            height={50}
+            width={38}
+            posting={posting}
+            setPosting={setPosting}
+          />
+        </Fab>
       <Footer />
     </>
   );

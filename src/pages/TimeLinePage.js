@@ -6,6 +6,8 @@ import { getUserTimeLinePosts } from '../apis/TimeLinePageApis';
 import { checkStatus } from '../apis/check';
 import UserInfo from '../components/UserInfo';
 import Footer from '../components/Footer';
+import Fab from '@material-ui/core/Fab';
+import ModalBoxAdd from '../components/ModalBoxAdd';
 function TimeLinePage({
   setUserOfActivePage,
   currentUser,
@@ -46,6 +48,14 @@ function TimeLinePage({
           setUserOfActivePage={setUserOfActivePage}
           currentUser={currentUser}
         />
+        <Fab color="primary" aria-label="add">
+          <ModalBoxAdd
+            height={50}
+            width={38}
+            posting={posting}
+            setPosting={setPosting}
+          />
+        </Fab>
       </div>
       {/* )} */}
       <Footer />

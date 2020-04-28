@@ -10,6 +10,7 @@ import ModalBoxAdd from '../components/ModalBoxAdd';
 import PostsForPostPage from '../components/PostsForPostPage';
 import LogoutSvg from '../svgIcons/LogoutSvg';
 import { deleteLoginStatus } from '../apis/login';
+import Fab from '@material-ui/core/Fab';
 
 function PostPage({
   setUserOfActivePage,
@@ -88,6 +89,14 @@ function PostPage({
             currentUser={currentUser}
           />
         </div>
+        <Fab color="primary" aria-label="add">
+          <ModalBoxAdd
+            height={50}
+            width={38}
+            posting={posting}
+            setPosting={setPosting}
+          />
+        </Fab>
       </div>
     </>
   );
