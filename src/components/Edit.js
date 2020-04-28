@@ -3,47 +3,41 @@ import Swal from 'sweetalert2';
 import { css } from '@emotion/core';
 
 import { editPostAPI } from '../apis/post';
+import ModalBoxEdit from './ModalBoxEdit';
 
-function Edit({ posting, setPosting, currentUser }) {
-  const [input, setInput] = useState([posting.title]);
-
-  const onEdit = e => {
-    setInput(e.target.value);
-  };
+function Edit({ posting, setPosting, currentUser, setIsOpenModalBox, postingAll }) {
+  const [clicked, setClicked] = useState(false);
 
   const onClick = async () => {
-    try {
-      const response = await editPostAPI(input, posting, currentUser);
-      response.Message !== undefined
-        ? Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: `${response.Message}`
-          })
-        : setPosting(response);
-    } catch (e) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Internal Error'
-      });
-    }
+    setClicked(true);
   };
 
   return (
     <>
-      <input
-        type="text"
-        value={input}
-        onChange={e => onEdit(e)}
-        css={[boxHidden]}
-      />
-      <button type="button" onClick={onClick} id="buttonEdit">
+      {clicked && (
+        <ModalBoxEdit
+          clicked={clicked}
+          posting={posting}
+          setPosting={setPosting}
+          currentUser={currentUser}
+          setIsOpenModalBox={setIsOpenModalBox}
+          postingAll={postingAll}
+        />
+      )}
+      <button type="button" onClick={onClick} id="buttonEdit" css={buttonCss}>
         Edit
       </button>
     </>
   );
 }
+const buttonCss = css`
+  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
+  color: rgba(var(--f07, 38, 38, 38), 1);
+  background-color: white;
+  width: 300px;
+  height: 48px;
+  font-size: 14px;
+`;
 
 const boxHidden = css`
   border-style: hidden;

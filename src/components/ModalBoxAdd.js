@@ -6,7 +6,7 @@ import FileUpload from './FileUpload';
 import AddButtonSvg from '../svgIcons/AddButtonSvg';
 import './ModalBoxAdd.css';
 
-function ModalBoxAdd({ currentUser, height, width }) {
+function ModalBoxAdd({ currentUser, height, width, posting, setPosting }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [files, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
@@ -37,8 +37,7 @@ function ModalBoxAdd({ currentUser, height, width }) {
       <label css={[labelCss]}>
         <input
           type="file"
-          className="custom-file-input"
-          id="customFile"
+          name="files"
           onClick={openModal}
           onChange={onChange}
           css={displayNone}
@@ -57,6 +56,8 @@ function ModalBoxAdd({ currentUser, height, width }) {
           files={files}
           filename={filename}
           imgURL={imgURL}
+          posting={posting}
+          setPosting={setPosting}
         />
         <button onClick={closeModal} css={[marginLeft0]} style={{ margin: 0 }}>
           close
