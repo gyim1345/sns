@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { css } from '@emotion/core';
 
 import { uploadPicture, uploadUserImage } from '../apis/upload';
@@ -15,7 +15,6 @@ const FileUpload = ({
 }) => {
   const [input, setInput] = useState('');
   const [inputTag, setInputTag] = useState('');
-  const [data, setData] = useState('');
 
   const onChangeInput = e => {
     setInput(e.target.value);
@@ -36,11 +35,24 @@ const FileUpload = ({
       const fileInfo = await uploadPicture(formData);
       const { posts } = fileInfo;
       setPosting([...posting, posts]);
-      setData(fileInfo);
+      closeModal();
+      Swal.fire({
+        icon: 'success',
+        title: 'File Uploaded',
+        text: ''
+      });
     } catch (err) {
-      console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Internal Error'
+      });
     }
   };
+
+  // useEffect(() => {
+  //   closeModal()
+  // }, [])
 
   return (
     <Fragment>
@@ -89,14 +101,6 @@ const FileUpload = ({
           />
         </div>
       </form>
-      {data &&
-        Swal.fire({
-          icon: 'success',
-          title: 'File Uploaded',
-          text: ''
-        }) &&
-        closeModal()}
-      {/* {data && <Redirect to={`/`} />} */}
     </Fragment>
   );
 };
@@ -120,10 +124,6 @@ const labelCss = css`
 
 const formCss = css`
   display: flex;
-`;
-
-const displayNone = css`
-  display: none;
 `;
 
 const emptyInnerImageSpace = css`
