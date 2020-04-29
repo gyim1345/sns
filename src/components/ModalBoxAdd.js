@@ -60,7 +60,7 @@ function ModalBoxAdd({ currentUser, height, width, posting, setPosting }) {
           setPosting={setPosting}
         />
         <button onClick={closeModal} css={[marginLeft0]} style={{ margin: 0 }}>
-          close
+          닫기
         </button>
       </Modal>
     </>

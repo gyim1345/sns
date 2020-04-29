@@ -15,10 +15,12 @@ function ModalBox({ posting, setPosting, currentUser, input, postingAll }) {
 
   return (
     <>
-      <ThreeRoundButtonSvg setIsOpen={setIsOpen} />
+      {currentUser === posting.userName && (
+        <ThreeRoundButtonSvg setIsOpen={setIsOpen} />
+      )}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <button onClick={closeModal} css={[buttonCss]}>
-          Close
+          닫기
         </button>
         <Edit
           posting={posting}

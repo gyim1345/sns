@@ -24,10 +24,10 @@ function ModalBoxSetting({ userInfo, info }) {
       </button>
       {/* <SettingSvg openModal={openModal} /> */}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
-        <span css={[spanCss]}>Account Setting</span>
+        <span css={[spanCss]}>계정 설정</span>
         <AccountSetting info={info} userInfo={userInfo} />
         <button onClick={closeModal} css={[marginLeft0]} style={{ margin: 0 }}>
-          close
+          닫기
         </button>
       </Modal>
     </>

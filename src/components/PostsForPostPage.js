@@ -63,10 +63,7 @@ const tabTag = css`
 
 const tabTv = css`
   min-height: 500px;
-`;
-
-const dayActive = css`
-  font-size: 500px;
+  width: 52%;
 `;
 
 const tabWord = css`

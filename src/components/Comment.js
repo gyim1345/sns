@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
+import { Link } from 'react-router-dom';
 import ModalBoxComment from './ModalBoxComment';
 import ModalBoxReply from './ModalBoxReply';
 
@@ -8,7 +9,8 @@ function Comment({
   currentUser,
   commentAPI,
   setCommentAPI,
-  addComment
+  addComment,
+  setUserOfActivePage
 }) {
   commentAPI.sort((a, b) => {
     return (
@@ -16,6 +18,10 @@ function Comment({
       (b.replyToCommentId !== undefined ? b.replyToCommentId : b.id)
     );
   });
+
+  const changeToUserPage = username => {
+    setUserOfActivePage(username);
+  };
 
   return (
     <>
@@ -27,7 +33,18 @@ function Comment({
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               )}
               <div css={[fontBold]}>
-                {postings.userName.substring(0, posting.userName.indexOf('@'))}
+                <Link
+                  to={`/profile/${postings.userName}`}
+                  onClick={() => {
+                    changeToUserPage(postings.userName);
+                  }}
+                  css={[linkCss]}
+                >
+                  {postings.userName.substring(
+                    0,
+                    postings.userName.indexOf('@')
+                  )}
+                </Link>
               </div>
               <div css={[wordBreak]}>{`: ${postings.title}`}</div>
             </li>
@@ -62,6 +79,14 @@ function Comment({
     </>
   );
 }
+
+const linkCss = css`
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  color: black;
+`;
+
 const displayFlex = css`
   display: flex;
 `;

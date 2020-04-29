@@ -23,7 +23,7 @@ function ModalBoxReply({
       <CommentSvg setIsOpen={setIsOpen} />
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <div css={[outerBoxCss]}>
-          <div css={[innerHeaderCss]}>Add Reply to Comment</div>
+          <div css={[innerHeaderCss]}>대댓글 달기</div>
           <div>
             <Reply
               posting={postings}

@@ -63,7 +63,6 @@ const FileUpload = ({
               <img
                 id="target"
                 src={imgURL}
-                alt="The official HTML5 Icon"
                 style={{
                   maxWidth: '350px',
                   maxHeight: '350px',
@@ -75,7 +74,17 @@ const FileUpload = ({
             ) : (
               <div css={[emptyImageSpace]}>
                 <div css={[emptyInnerImageSpace]}>
-                  <span>사 진</span>
+                  <img
+                    id="target"
+                    src={'src/images/emptyImage.jpg'}
+                    style={{
+                      maxWidth: '350px',
+                      maxHeight: '350px',
+                      minWidth: '350px',
+                      minHeight: '350px',
+                      marginBottom: '10px'
+                    }}
+                  />
                 </div>
               </div>
             )}
@@ -84,20 +93,22 @@ const FileUpload = ({
             type="text"
             onChange={onChangeInput}
             placeholder="문구입력..."
+            css={[textAreaCss]}
           />
           <div css={[tagCss]}>
-            #Tag
+            #태그
             <input
               type="text"
               onChange={onChangeTagInput}
-              placeholder="Input Tag Here"
+              placeholder="태그를 입력 해주세요"
               css={[inputTagCss]}
             />
           </div>
           <input
             type="submit"
-            value="Upload"
+            value="업로드"
             className="btn btn-primary btn-block mt-4"
+            css={[uploadBoxCss]}
           />
         </div>
       </form>
@@ -105,6 +116,13 @@ const FileUpload = ({
   );
 };
 
+const uploadBoxCss = css`
+background-color: transparent;
+`;
+
+const textAreaCss = css`
+  outline: none;
+`;
 const inputTagCss = css`
   border: none;
   width: 87%;
@@ -137,15 +155,14 @@ const emptyImageSpace = css`
   justify-content: center;
   align-items: center;
   background: white;
-  max-width: 50px;
-  max-height: 50px;
-  min-width: 50px;
-  min-height: 50px;
+  max-width: 350px;
+    max-height: 350px;
+    min-width: 350px;
+    min-height: 350px;
 `;
 
 const inputInputTagUpload = css`
   display: flex;
-  text-align-last: center;
   flex-direction: column;
 `;
 

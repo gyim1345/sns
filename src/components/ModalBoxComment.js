@@ -36,7 +36,7 @@ function ModalBoxComment({
           setIsOpen={setIsOpen}
         />
         <button onClick={closeModal} css={[marginLeft0]}>
-          close
+          닫기
         </button>
       </Modal>
     </>

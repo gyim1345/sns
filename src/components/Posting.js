@@ -70,7 +70,7 @@ function Posting({
           <div css={[nameSize]}>
             <Link
               to={`/profile/${posting.userName}`}
-              css={[fuck]}
+              css={[linkCss]}
               onClick={() => {
                 changeUser();
                 toTop();
@@ -126,7 +126,7 @@ function Posting({
           <Route exact path={`/posting/${posting.id}`}>
             <Comment
               posting={posting}
-              // comments={comments}
+              setUserOfActivePage={setUserOfActivePage}
               userOfActivePage={userOfActivePage}
               currentUser={currentUser}
               commentAPI={commentAPI}
@@ -203,7 +203,7 @@ const nameSize = css`
   margin-left: 16px;
 `;
 
-const fuck = css`
+const linkCss = css`
   text-decoration: none;
   font-size: 14px;
   color: black;
@@ -212,7 +212,7 @@ const fuck = css`
   align-items: center;
 `;
 
-// const fuck = css`
+// const linkCss = css`
 //   text-decoration: none;
 //   display: grid;
 //   grid-template-columns: 10% 15% 75%;
@@ -228,7 +228,7 @@ const h1 = css`
   border-right: solid 1px;
   background-color: white;
   border-color: lightgrey;
-  padding: 12px 12px 12px 12px;
+  padding: 12px 13px 12px 12px;
   margin: 0;
   justify-content: space-between;
   align-items: center;

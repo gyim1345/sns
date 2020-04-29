@@ -5,7 +5,6 @@ const TASKS_URL = `${TASK_URL}/comments/`;
 
 export const getCommentFromIdAPI = async id => {
   const { data } = await axios.get(`${TASKS_URL}${id}`, { id });
-  console.log(data);
   return data;
 };
 

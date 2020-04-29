@@ -121,7 +121,7 @@ function UserInfo({ user, setUserOfActivePage, currentUser }) {
                         <span css={[name]}>
                           {usera.name.substring(0, usera.name.indexOf('@'))}
                         </span>
-                        <span css={[recommendation]}>recommendation</span>
+                        <span css={[recommendation]}>추천</span>
                       </Link>
                     </div>
 
@@ -136,7 +136,7 @@ function UserInfo({ user, setUserOfActivePage, currentUser }) {
                 </div>
               ))}
               {/* test */}
-              <div css={[friendImageAndName]}>
+              {/* <div css={[friendImageAndName]}>
                 <img
                   src={info.userURL}
                   alt="Smiley face"
@@ -166,7 +166,7 @@ function UserInfo({ user, setUserOfActivePage, currentUser }) {
                 </div>
 
                 <span css={[followButton]}> 팔로우 </span>
-              </div>
+              </div> */}
 
               {/* test */}
             </div>

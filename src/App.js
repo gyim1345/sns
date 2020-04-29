@@ -3,7 +3,6 @@ import { HashRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import { css } from '@emotion/core';
 import { checkStatus } from './apis/check';
 import './App.css';
-import Fab from '@material-ui/core/Fab';
 
 import PostPage from './pages/PostPage';
 import PostPageDetail from './pages/PostPageDetail';
@@ -48,7 +47,11 @@ function App() {
         <div css={[borderCss]}>
           <div className="cssTop">
             <div css={[topHeaderWidth]}>
+              <div css={leftHeaderCss}>
+            <Link to={`/TimeLine/${currentUser}`} onClick={toTop} css={[linkDecoration]}>
               <span css={[fontSize]}>Bongstagram </span>
+              </Link>
+              </div>
               <div css={[displayFlex]}>
                 <div css={[navIcons]}>
                   <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
@@ -133,6 +136,13 @@ function App() {
   );
 }
 
+const leftHeaderCss = css`
+flex: 1 10000 0%;
+`;
+const linkDecoration = css`
+  text-decoration: none;
+`;
+
 const topHeaderWidth = css`
   display: flex;
   width: 100%;
@@ -155,7 +165,7 @@ const displayFlex = css`
 const fontSize = css`
   margin-left: 45px;
   font-size: 30px;
-  flex: 1 10000 0%;
+  color: black;
 `;
 
 const borderCss = css`

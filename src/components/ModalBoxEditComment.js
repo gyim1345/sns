@@ -78,7 +78,7 @@ function ModalBoxEditComment({
           <div css={[innerButtonBoxCss]}>
             <div css={innerColumnButtonBoxCss}>
               <button type="button" onClick={onClick} css={[buttonSave]}>
-                Save
+                저장
               </button>
               {/* <AccountSetting info={info} userInfo={userInfo} /> */}
               <button
@@ -86,7 +86,7 @@ function ModalBoxEditComment({
                 css={[buttonCancel]}
                 style={{ margin: 0 }}
               >
-                close
+                닫기
               </button>
             </div>
           </div>

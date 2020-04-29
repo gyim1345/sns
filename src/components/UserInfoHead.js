@@ -104,14 +104,6 @@ function UserInfoHead({
   );
 }
 
-const button = css`
-  background-color: transparent;
-  border: 1px solid rgba(var(--d0b, 219, 219, 219), 1);
-  color: rgba(var(--f07, 38, 38, 38), 1);
-  padding: 0px 12px;
-  margin-right: 25px;
-`;
-
 const introductory = css`
   margin-bottom: 5px;
 `;

@@ -65,7 +65,7 @@ function ModalBoxEdit({
       {/* <SettingSvg openModal={openModal} /> */}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} css={modalCss}>
         <div css={[outerBoxCss]}>
-          <div css={[innerHeaderCss]}>Edit Title of Your Post</div>
+          <div css={[innerHeaderCss]}>포스트 타이틀 수정</div>
           <textarea
             type="text"
             value={input}
@@ -75,7 +75,7 @@ function ModalBoxEdit({
           <div css={[innerButtonBoxCss]}>
             <div css={innerColumnButtonBoxCss}>
               <button type="button" onClick={onClick} css={[buttonSave]}>
-                Save
+                저장
               </button>
               {/* <AccountSetting info={info} userInfo={userInfo} /> */}
               <button
@@ -83,7 +83,7 @@ function ModalBoxEdit({
                 css={[buttonCancel]}
                 style={{ margin: 0 }}
               >
-                close
+                닫기
               </button>
             </div>
           </div>
