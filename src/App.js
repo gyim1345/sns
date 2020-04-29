@@ -15,7 +15,6 @@ import TimeLineSvg from './svgIcons/TimeLineSvg';
 import SearchSvg from './svgIcons/SearchSvg';
 import UserProfileImg from './svgIcons/UserProfileImg';
 import UploadPage from './pages/UploadPage';
-import ModalBoxAdd from './components/ModalBoxAdd';
 import { getUserImage } from './apis/post';
 
 function App() {
@@ -37,7 +36,7 @@ function App() {
 
   useEffect(() => {
     check();
-  }, []);
+  }, [userImage]);
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
@@ -52,7 +51,6 @@ function App() {
               <span css={[fontSize]}>Bongstagram </span>
               <div css={[displayFlex]}>
                 <div css={[navIcons]}>
-                  {/* <ModalBoxAdd height={24} width={24} /> */}
                   <Link to={`/TimeLine/${currentUser}`} onClick={toTop}>
                     <TimeLineSvg />
                   </Link>
