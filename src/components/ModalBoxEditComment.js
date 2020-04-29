@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 import { editPostAPI } from '../apis/post';
 import { editCommentAPI } from '../apis/comment';
 
-
 function ModalBoxEditComment({
   clicked,
   posting,
@@ -39,26 +38,28 @@ function ModalBoxEditComment({
 
   const onClick = async () => {
     closeModal();
-    try {
-      const response = await editCommentAPI(
-        input,
-        posting,
-        currentUser,
-        indexOfCommentOnThisPosting
-      );
-      response.Message !== undefined
-        ? Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: `${response.Message}`
-          })
-        : setCommentAPI(response);
-    } catch (e) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Internal Error'
-      });
+    if (thisPost.title !== input[0]) {
+      try {
+        const response = await editCommentAPI(
+          input,
+          posting,
+          currentUser,
+          indexOfCommentOnThisPosting
+        );
+        response.Message !== undefined
+          ? Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `${response.Message}`
+            })
+          : setCommentAPI(response);
+      } catch (e) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Internal Error'
+        });
+      }
     }
   };
 

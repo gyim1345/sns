@@ -35,26 +35,28 @@ function ModalBoxEdit({
 
   const onClick = async () => {
     closeModal();
-    try {
-      const response = await editPostAPI(input, posting, currentUser);
-      const index = postingAll.findIndex(x => x === posting);
-      response.Message !== undefined
-        ? Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: `${response.Message}`
-          })
-        : setPosting([
-            ...postingAll.slice(0, index),
-            ...response,
-            ...postingAll.slice(index + 1)
-          ]);
-    } catch (e) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Internal Error'
-      });
+    if (posting.title !== input[0]) {
+      try {
+        const response = await editPostAPI(input, posting, currentUser);
+        const index = postingAll.findIndex(x => x === posting);
+        response.Message !== undefined
+          ? Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `${response.Message}`
+            })
+          : setPosting([
+              ...postingAll.slice(0, index),
+              ...response,
+              ...postingAll.slice(index + 1)
+            ]);
+      } catch (e) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Internal Error'
+        });
+      }
     }
   };
 
