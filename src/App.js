@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Link, Route, Redirect } from 'react-router-dom';
 import { css } from '@emotion/core';
 import { checkStatus } from './apis/check';
 import './App.css';
@@ -32,6 +32,7 @@ function App() {
     const imageURL = await getUserImage(sessionUserName);
     setUserImage(imageURL);
   };
+  console.log(posts);
 
   useEffect(() => {
     check();
@@ -132,6 +133,7 @@ function App() {
           />
         </Route>
       </Switch>
+      {!loggedIn && <Redirect to="/" />}
     </Router>
   );
 }

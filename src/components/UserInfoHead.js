@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { css } from '@emotion/core';
 
 import LogoutSvg from '../svgIcons/LogoutSvg';
@@ -77,6 +77,7 @@ function UserInfoHead({
             <Link to="/" onClick={logout}>
               <LogoutSvg />
             </Link>
+            {!loggedIn && <Redirect to="/" />}
           </div>
           <div css={[row2]}>
             <span css={[location33]}>
