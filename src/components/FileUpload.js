@@ -14,21 +14,22 @@ const FileUpload = ({
   setPosting
 }) => {
   const [input, setInput] = useState('');
-  const [inputTag, setInputTag] = useState('');
+  // const [inputTag, setInputTag] = useState('');
 
   const onChangeInput = e => {
     setInput(e.target.value);
   };
 
-  const onChangeTagInput = e => {
-    setInputTag(e.target.value);
-  };
+  // const onChangeTagInput = e => {
+  //   setInputTag(e.target.value);
+  // };
 
   const onSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('files', files);
     formData.append('input', input);
+    let inputTag = input.split(' ').filter(x=> x.includes('#')).map(x=> x.replace(/#/g,''));
     formData.append('inputTag', inputTag);
     formData.append('user', currentUser);
     try {
@@ -95,15 +96,15 @@ const FileUpload = ({
             placeholder="문구입력..."
             css={[textAreaCss]}
           />
-          <div css={[tagCss]}>
+          {/* <div css={[tagCss]}>
             #태그
             <input
               type="text"
               onChange={onChangeTagInput}
               placeholder="태그를 입력 해주세요"
               css={[inputTagCss]}
-            />
-          </div>
+            /> */}
+          {/* </div> */}
           <input
             type="submit"
             value="업로드"

@@ -12,6 +12,8 @@ import DirectMessageSvg from '../svgIcons/DirectMessageSvg.js';
 import ModalBox from './ModalBox';
 import { getUserImage } from '../apis/post';
 import Scrap from './Scrap';
+import TitleTag from './TitleTag';
+import Title from './Title';
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
@@ -120,7 +122,17 @@ function Posting({
             {' '}
             {posting.userName.substring(0, posting.userName.indexOf('@'))}
           </div>
-          <div css={[wordBreak]}>{posting.title}</div>
+          <div css={[wordBreak]}>
+            {posting.title.split(' ').map(word => (
+              <div key={`${word}${Date.now()}`}>
+                {word.includes('#') ? (
+                  <TitleTag word={word} />
+                ) : (
+                  <Title word={word} />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
         <div css={[commentAreaCss]}>
           <Route exact path={`/posting/${posting.id}`}>
@@ -193,6 +205,7 @@ const leftElement = css`
 `;
 
 const wordBreak = css`
+  display: flex;
   word-break: break-all;
   margin-left: 6px;
   margin-bottom: 16px;
