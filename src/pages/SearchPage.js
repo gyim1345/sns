@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { css } from '@emotion/core';
+import { useParams } from 'react-router-dom';
 
 import { getPosts } from '../apis/SearchPage';
 import PostsForSearchPage from '../components/PostsForSearchPage';
@@ -19,6 +20,7 @@ function SearchPage({
   const sizeOfPicture = { width: '600px' };
   const [posting, setPosting] = useState([]);
   const [input, setInput] = useState('');
+  const { tag } = useParams();
 
   const onChange = e => {
     setInput(e.target.value);
@@ -37,7 +39,6 @@ function SearchPage({
   const onSearch = async () => {
     try {
       const response = await searchPosts(input);
-      console.log(response);
       setPosting(response);
     } catch (e) {
       Swal.fire({
@@ -45,6 +46,22 @@ function SearchPage({
         title: 'Oops...',
         text: 'Internal Error'
       });
+    }
+  };
+
+  const redirected = async () => {
+    if (tag) {
+      try {
+        const response = await searchPosts(tag);
+        console.log(response);
+        setPosting(response);
+      } catch (e) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Internal Error'
+        });
+      }
     }
   };
 
@@ -63,7 +80,7 @@ function SearchPage({
   };
 
   useEffect(() => {
-    getPostss();
+    input ? getPostss() : redirected();
   }, []);
 
   let postingByThree = posting
@@ -111,13 +128,13 @@ function SearchPage({
         ))}
       </div>
       <Fab color="primary" aria-label="add">
-          <ModalBoxAdd
-            height={50}
-            width={38}
-            posting={posting}
-            setPosting={setPosting}
-          />
-        </Fab>
+        <ModalBoxAdd
+          height={50}
+          width={38}
+          posting={posting}
+          setPosting={setPosting}
+        />
+      </Fab>
       <Footer />
     </>
   );
