@@ -34,15 +34,16 @@ const Register = () => {
         name="Id"
         defaultValue=""
         ref={register}
-        placeholder="가입 원하는 아이디"
+        placeholder="이메일"
         css={[inputButtonCss]}
       />
       {/* <label>password:</label> */}
       <input
+        type="Password"
         name="Password"
         defaultValue=""
         ref={register({ required: true, maxLength: 10 })}
-        placeholder="비밀번호"
+        placeholder="비밀번호 9자 이하"
         css={[inputButtonCss]}
       />
       <input type="submit" css={[submitButtonCss]} value="가입하기" />
