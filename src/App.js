@@ -27,16 +27,19 @@ function App() {
       currentUser,
       userOfActivePage
     );
-    setUserOfActivePage(sessionUserName);
+    !userOfActivePage && setUserOfActivePage(sessionUserName);
     setCurrentUser(sessionUserName);
     const imageURL = await getUserImage(sessionUserName);
     setUserImage(imageURL);
   };
-  console.log(posts);
 
   useEffect(() => {
     check();
   }, [userImage]);
+
+  
+  // useEffect(() => {
+  // }, [loggedIn]);
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
@@ -102,9 +105,20 @@ function App() {
             currentUser={currentUser}
             setCurrentUser={setCurrentUser}
             setLoggedIn={setLoggedIn}
+            loggedIn={loggedIn}
+
           />
         </Route>
         <Route exact path={`/SearchPage`}>
+          <SearchPage
+            userOfActivePage={userOfActivePage}
+            setUserOfActivePage={setUserOfActivePage}
+            currentUser={currentUser}
+            setLoggedIn={setLoggedIn}
+            setCurrentUser={setCurrentUser}
+          />
+        </Route>
+        <Route exat path={`/SearchPage/:tag`}>
           <SearchPage
             userOfActivePage={userOfActivePage}
             setUserOfActivePage={setUserOfActivePage}
@@ -133,7 +147,7 @@ function App() {
           />
         </Route>
       </Switch>
-      {!loggedIn && <Redirect to="/" />}
+      {/* {!loggedIn && <Redirect to="/" />} */}
     </Router>
   );
 }

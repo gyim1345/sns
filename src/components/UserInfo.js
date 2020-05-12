@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/core';
 
-import { getUserInfoAPI } from '../apis/post';
+import { getUserInfoAPI } from '../apis/PostPage';
 import { getRandomUser, AddFollower } from '../apis/TimeLinePageApis';
 
 function UserInfo({ user, setUserOfActivePage, currentUser }) {
@@ -38,7 +38,6 @@ function UserInfo({ user, setUserOfActivePage, currentUser }) {
   const addClickedFollower = async name => {
     try {
       const response = await AddFollower(name);
-      console.log(response);
       Swal.fire({
         icon: 'success',
         title: 'Following'

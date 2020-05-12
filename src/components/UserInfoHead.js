@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { css } from '@emotion/core';
 
 import LogoutSvg from '../svgIcons/LogoutSvg';
-import { getUserInfoAPI } from '../apis/post';
+import { getUserInfoAPI } from '../apis/PostPage';
 import ModalBoxSetting from './ModalBoxSetting';
 import { deleteLoginStatus } from '../apis/login';
 
@@ -77,7 +77,7 @@ function UserInfoHead({
             <Link to="/" onClick={logout}>
               <LogoutSvg />
             </Link>
-            {!loggedIn && <Redirect to="/" />}
+            {/* {!loggedIn && <Redirect to="/" />} */}
           </div>
           <div css={[row2]}>
             <span css={[location33]}>

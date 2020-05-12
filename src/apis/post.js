@@ -84,21 +84,34 @@ export const removePostApi = async (posting, indexOfCommentOnThisPosting) => {
   return data;
 };
 
-export const getUserInfoAPI = async user => {
-  const { data } = await axios.get(
-    `${TASKS_URL}/user/Info`,
-    {
-      params: {
-        user: user
-      }
-    },
-    { withCredentials: true }
-  );
-  return data;
-};
+// export const getUserInfoAPI = async user => {
+//   const { data } = await axios.get(
+//     `${TASKS_URL}/profile`,
+//     {
+//       params: {
+//         user: user
+//       }
+//     },
+//     { withCredentials: true }
+//   );
+//   return data;
+// };
+
+// export const getUserInfoAPI = async user => {
+//   const { data } = await axios.get(
+//     `${TASKS_URL}/user/Info`,
+//     {
+//       params: {
+//         user: user
+//       }
+//     },
+//     { withCredentials: true }
+//   );
+//   return data;
+// };
 
 export const getUserImage = async user => {
-  const { data } = await axios.get(`${TASKS_URL}/user/image`, {
+  const { data } = await axios.get(`${TASKS_URL}/profile/image`, {
     params: {
       user: user
     }

@@ -21,7 +21,6 @@ function SearchPage({
   const [posting, setPosting] = useState([]);
   const [input, setInput] = useState('');
   const { tag } = useParams();
-
   const onChange = e => {
     setInput(e.target.value);
   };
@@ -34,6 +33,8 @@ function SearchPage({
   };
   useEffect(() => {
     tryy();
+    getPostss();
+    !tag && !input ? getPostss() : redirected();
   }, []);
 
   const onSearch = async () => {
@@ -53,7 +54,6 @@ function SearchPage({
     if (tag) {
       try {
         const response = await searchPosts(tag);
-        console.log(response);
         setPosting(response);
       } catch (e) {
         Swal.fire({
@@ -80,8 +80,8 @@ function SearchPage({
   };
 
   useEffect(() => {
-    input ? getPostss() : redirected();
-  }, []);
+    redirected();
+  }, [tag]);
 
   let postingByThree = posting
     .map(

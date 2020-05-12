@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LogoutSvg() {
+function LogoutSvg({logout}) {
   return (
     <svg
       width="24px"
@@ -13,6 +13,7 @@ function LogoutSvg() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 524 524  "
       className="svg-inline--fa fa-sign-out-alt fa-w-16 fa-3x"
+      onClick={logout}
     >
       <path
         fill="black"

@@ -4,9 +4,13 @@ import TASK_URL from './taskurl';
 const TASKS_URL = TASK_URL;
 
 export const getUserInfoAPI = async user => {
-  const { data } = await axios.post(
-    `${TASKS_URL}/user/Info`,
-    { user },
+  const { data } = await axios.get(
+    `${TASKS_URL}/profile/Info`,
+    {
+      params: {
+        user: user
+      }
+    },
     { withCredentials: true }
   );
   return data;
@@ -14,7 +18,7 @@ export const getUserInfoAPI = async user => {
 
 export const editNickNameApi = async input => {
   const { data } = await axios.patch(
-    `${TASKS_URL}/user/Info/NickName`,
+    `${TASKS_URL}/profile/Info/NickName`,
     { input },
     { withCredentials: true }
   );
@@ -23,7 +27,7 @@ export const editNickNameApi = async input => {
 
 export const editIntroductoryApi = async input => {
   const { data } = await axios.patch(
-    `${TASKS_URL}/user/Info/Introductory`,
+    `${TASKS_URL}/profile/Info/Introductory`,
     { input },
     { withCredentials: true }
   );

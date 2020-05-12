@@ -6,14 +6,13 @@ import { getUserTimeLinePosts } from '../apis/TimeLinePageApis';
 import { checkStatus } from '../apis/check';
 import UserInfo from '../components/UserInfo';
 import Footer from '../components/Footer';
-import { getUserInfoAPI } from '../apis/post';
+import { getUserInfoAPI } from '../apis/PostPage';
 import FileUpload from '../components/FileUpload';
 
 function UploadPage({ currentUser, setCurrentUser, setLoggedIn }) {
   const [image, setImage] = useState('');
   const check = async () => {
     const { sessionUserName } = await checkStatus(currentUser);
-    console.log(sessionUserName);
     const response = await getUserInfoAPI(sessionUserName);
     setCurrentUser(sessionUserName);
     setImage(response.userURL);
@@ -28,7 +27,6 @@ function UploadPage({ currentUser, setCurrentUser, setLoggedIn }) {
   //     }
   //   };
 
-  console.log('aaaaaaaaaaaaa', image);
 
   useEffect(() => {
     check();
