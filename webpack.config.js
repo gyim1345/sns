@@ -10,16 +10,13 @@ module.exports = {
     filename: 'main.js'
     // publicPath: 'https://image123.com'
   },
-  resolve: {
-    extensions: ['.ts', '.js']
-  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-        resolve: { extensions: ['.js', '.jsx'] }
+        resolve: { extensions: ['.js', '.jsx', '.ts'] }
       },
       {
         test: /\.css$/,
