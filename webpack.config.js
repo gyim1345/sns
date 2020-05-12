@@ -10,6 +10,9 @@ module.exports = {
     filename: 'main.js'
     // publicPath: 'https://image123.com'
   },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
   module: {
     rules: [
       {
