@@ -14,7 +14,6 @@ const Like = ({ posting, setPosting, postingAll, currentUser }) => {
       setPosting([response]);
       const index = postingAll.findIndex(it => posting.id === it.id);
       postingAll[index] = response;
-      console.log(posting);
       setPosting(postingAll);
     } catch (e) {
       Swal.fire({

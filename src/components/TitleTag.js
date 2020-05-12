@@ -16,7 +16,7 @@ const TitleTag = ({ word }) => {
 
 const paddingCss = `
 padding-right: 6px;
-
+color: cornflowerblue;
 `
 
 // Message.propTypes = {

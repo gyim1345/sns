@@ -27,7 +27,6 @@ const FileUploadProfilePicture = ({ userInfo, info }) => {
     formData.append('files', files);
     formData.append('input', input);
     formData.append('inputTag', inputTag);
-    console.log(formData);
 
     try {
       const data = await uploadUserImage(formData);
