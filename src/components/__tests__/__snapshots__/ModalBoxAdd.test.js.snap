@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModalBoxAdd /> 스냅샷 비교 1`] = `
+<ModalBoxAdd
+  currentUser="gibong@gmail.com"
+  posting={
+    Object {
+      "_id": "5e8ec52d9bb4913b5a844423",
+      "id": 1,
+      "imageUrl": "http://localhost:3000/static/images/1.jpg",
+      "like": Array [
+        "gibong@gmail.com",
+      ],
+      "tag": Array [
+        "landscape",
+      ],
+      "title": "posting with id 1",
+      "userName": "gibong@gmail.com",
+    }
+  }
+>
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ModalBoxAdd"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__="button"
+    css={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsQm94QWRkLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXFEdUIiLCJmaWxlIjoiTW9kYWxCb3hBZGQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTW9kYWwgZnJvbSAncmVhY3QtbW9kYWwnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuXG5pbXBvcnQgRmlsZVVwbG9hZCBmcm9tICcuL0ZpbGVVcGxvYWQnO1xuXG5mdW5jdGlvbiBNb2RhbEJveEFkZCh7IHBvc3RpbmcsIHNldFBvc3RpbmcsIGN1cnJlbnRVc2VyIH0pIHtcbiAgY29uc3QgW21vZGFsSXNPcGVuLCBzZXRJc09wZW5dID0gUmVhY3QudXNlU3RhdGUoZmFsc2UpO1xuXG4gIGZ1bmN0aW9uIGNsb3NlTW9kYWwoKSB7XG4gICAgc2V0SXNPcGVuKGZhbHNlKTtcbiAgfVxuXG4gIGZ1bmN0aW9uIG9wZW5Nb2RhbCgpIHtcbiAgICBzZXRJc09wZW4odHJ1ZSk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIG9uQ2xpY2s9e29wZW5Nb2RhbH0gY3NzPXtbbWFyZ2luTGVmdDBdfT5cbiAgICAgICAgQWRkQm9uZ1xuICAgICAgPC9idXR0b24+XG4gICAgICA8TW9kYWwgaXNPcGVuPXttb2RhbElzT3Blbn0gb25SZXF1ZXN0Q2xvc2U9e2Nsb3NlTW9kYWx9IGNzcz17bW9kYWxDc3N9PlxuICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9e2Nsb3NlTW9kYWx9IGNzcz17W21hcmdpbkxlZnQwXX0gc3R5bGU9e3sgbWFyZ2luOiAwIH19PlxuICAgICAgICAgIGNsb3NlXG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8RmlsZVVwbG9hZFxuICAgICAgICAgIHBvc3Rpbmc9e3Bvc3Rpbmd9XG4gICAgICAgICAgc2V0UG9zdGluZz17c2V0UG9zdGluZ31cbiAgICAgICAgICBjdXJyZW50VXNlcj17Y3VycmVudFVzZXJ9XG4gICAgICAgIC8+XG4gICAgICA8L01vZGFsPlxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBtb2RhbENzcyA9IGNzc2BcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICByaWdodDogYXV0bztcbiAgYm90dG9tOiBhdXRvO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjA0LCAyMDQsIDIwNCk7XG4gIGJhY2tncm91bmQ6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XG4gIG91dGxpbmU6IG5vbmU7XG4gIG1hcmdpbi1yaWdodDogLTUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW4tcmV2ZXJzZTtcbmA7XG5cbmNvbnN0IG1hcmdpbkxlZnQwID0gY3NzYFxuICBtYXJnaW4tbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSh2YXIoLS1kMGIsIDIxOSwgMjE5LCAyMTkpLCAxKTtcbiAgY29sb3I6IHJnYmEodmFyKC0tZjA3LCAzOCwgMzgsIDM4KSwgMSk7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG5gO1xuXG5leHBvcnQgZGVmYXVsdCBNb2RhbEJveEFkZDtcbiJdfQ== */",
+        "name": "148pk4b-marginLeft0-ModalBoxAdd",
+        "next": undefined,
+        "styles": "margin-left:0px;background-color:transparent;border:1px solid rgba(var(--d0b,219,219,219),1);color:rgba(var(--f07,38,38,38),1);margin-top:50px;margin-bottom:50px;;label:marginLeft0;;;label:ModalBoxAdd;/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsQm94QWRkLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQW1Ca0MiLCJmaWxlIjoiTW9kYWxCb3hBZGQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTW9kYWwgZnJvbSAncmVhY3QtbW9kYWwnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuXG5pbXBvcnQgRmlsZVVwbG9hZCBmcm9tICcuL0ZpbGVVcGxvYWQnO1xuXG5mdW5jdGlvbiBNb2RhbEJveEFkZCh7IHBvc3RpbmcsIHNldFBvc3RpbmcsIGN1cnJlbnRVc2VyIH0pIHtcbiAgY29uc3QgW21vZGFsSXNPcGVuLCBzZXRJc09wZW5dID0gUmVhY3QudXNlU3RhdGUoZmFsc2UpO1xuXG4gIGZ1bmN0aW9uIGNsb3NlTW9kYWwoKSB7XG4gICAgc2V0SXNPcGVuKGZhbHNlKTtcbiAgfVxuXG4gIGZ1bmN0aW9uIG9wZW5Nb2RhbCgpIHtcbiAgICBzZXRJc09wZW4odHJ1ZSk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIG9uQ2xpY2s9e29wZW5Nb2RhbH0gY3NzPXtbbWFyZ2luTGVmdDBdfT5cbiAgICAgICAgQWRkQm9uZ1xuICAgICAgPC9idXR0b24+XG4gICAgICA8TW9kYWwgaXNPcGVuPXttb2RhbElzT3Blbn0gb25SZXF1ZXN0Q2xvc2U9e2Nsb3NlTW9kYWx9IGNzcz17bW9kYWxDc3N9PlxuICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9e2Nsb3NlTW9kYWx9IGNzcz17W21hcmdpbkxlZnQwXX0gc3R5bGU9e3sgbWFyZ2luOiAwIH19PlxuICAgICAgICAgIGNsb3NlXG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8RmlsZVVwbG9hZFxuICAgICAgICAgIHBvc3Rpbmc9e3Bvc3Rpbmd9XG4gICAgICAgICAgc2V0UG9zdGluZz17c2V0UG9zdGluZ31cbiAgICAgICAgICBjdXJyZW50VXNlcj17Y3VycmVudFVzZXJ9XG4gICAgICAgIC8+XG4gICAgICA8L01vZGFsPlxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBtb2RhbENzcyA9IGNzc2BcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICByaWdodDogYXV0bztcbiAgYm90dG9tOiBhdXRvO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjA0LCAyMDQsIDIwNCk7XG4gIGJhY2tncm91bmQ6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XG4gIG91dGxpbmU6IG5vbmU7XG4gIG1hcmdpbi1yaWdodDogLTUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW4tcmV2ZXJzZTtcbmA7XG5cbmNvbnN0IG1hcmdpbkxlZnQwID0gY3NzYFxuICBtYXJnaW4tbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSh2YXIoLS1kMGIsIDIxOSwgMjE5LCAyMTkpLCAxKTtcbiAgY29sb3I6IHJnYmEodmFyKC0tZjA3LCAzOCwgMzgsIDM4KSwgMSk7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG5gO1xuXG5leHBvcnQgZGVmYXVsdCBNb2RhbEJveEFkZDtcbiJdfQ== */",
+        "toString": [Function],
+      }
+    }
+    onClick={[Function]}
+  >
+    <button
+      className="css-148pk4b-marginLeft0-ModalBoxAdd"
+      onClick={[Function]}
+    >
+      AddBong
+    </button>
+  </EmotionCssPropInternal>
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ModalBoxAdd"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__={[Function]}
+    css={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk1vZGFsQm94QWRkLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQW9Db0IiLCJmaWxlIjoiTW9kYWxCb3hBZGQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTW9kYWwgZnJvbSAncmVhY3QtbW9kYWwnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IGNzcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuXG5pbXBvcnQgRmlsZVVwbG9hZCBmcm9tICcuL0ZpbGVVcGxvYWQnO1xuXG5mdW5jdGlvbiBNb2RhbEJveEFkZCh7IHBvc3RpbmcsIHNldFBvc3RpbmcsIGN1cnJlbnRVc2VyIH0pIHtcbiAgY29uc3QgW21vZGFsSXNPcGVuLCBzZXRJc09wZW5dID0gUmVhY3QudXNlU3RhdGUoZmFsc2UpO1xuXG4gIGZ1bmN0aW9uIGNsb3NlTW9kYWwoKSB7XG4gICAgc2V0SXNPcGVuKGZhbHNlKTtcbiAgfVxuXG4gIGZ1bmN0aW9uIG9wZW5Nb2RhbCgpIHtcbiAgICBzZXRJc09wZW4odHJ1ZSk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICA8YnV0dG9uIG9uQ2xpY2s9e29wZW5Nb2RhbH0gY3NzPXtbbWFyZ2luTGVmdDBdfT5cbiAgICAgICAgQWRkQm9uZ1xuICAgICAgPC9idXR0b24+XG4gICAgICA8TW9kYWwgaXNPcGVuPXttb2RhbElzT3Blbn0gb25SZXF1ZXN0Q2xvc2U9e2Nsb3NlTW9kYWx9IGNzcz17bW9kYWxDc3N9PlxuICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9e2Nsb3NlTW9kYWx9IGNzcz17W21hcmdpbkxlZnQwXX0gc3R5bGU9e3sgbWFyZ2luOiAwIH19PlxuICAgICAgICAgIGNsb3NlXG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8RmlsZVVwbG9hZFxuICAgICAgICAgIHBvc3Rpbmc9e3Bvc3Rpbmd9XG4gICAgICAgICAgc2V0UG9zdGluZz17c2V0UG9zdGluZ31cbiAgICAgICAgICBjdXJyZW50VXNlcj17Y3VycmVudFVzZXJ9XG4gICAgICAgIC8+XG4gICAgICA8L01vZGFsPlxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBtb2RhbENzcyA9IGNzc2BcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICByaWdodDogYXV0bztcbiAgYm90dG9tOiBhdXRvO1xuICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjA0LCAyMDQsIDIwNCk7XG4gIGJhY2tncm91bmQ6IHJnYigyNTUsIDI1NSwgMjU1KTtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XG4gIG91dGxpbmU6IG5vbmU7XG4gIG1hcmdpbi1yaWdodDogLTUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW4tcmV2ZXJzZTtcbmA7XG5cbmNvbnN0IG1hcmdpbkxlZnQwID0gY3NzYFxuICBtYXJnaW4tbGVmdDogMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSh2YXIoLS1kMGIsIDIxOSwgMjE5LCAyMTkpLCAxKTtcbiAgY29sb3I6IHJnYmEodmFyKC0tZjA3LCAzOCwgMzgsIDM4KSwgMSk7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG5gO1xuXG5leHBvcnQgZGVmYXVsdCBNb2RhbEJveEFkZDtcbiJdfQ== */",
+        "name": "102pzl3-modalCss",
+        "styles": "position:absolute;top:50%;left:50%;right:auto;bottom:auto;border:1px solid rgb(204,204,204);background:rgb(255,255,255);overflow:auto;border-radius:12px;outline:none;margin-right:-50%;transform:translate(-50%,-50%);display:flex;flex-direction:column-reverse;;label:modalCss;",
+        "toString": [Function],
+      }
+    }
+    isOpen={false}
+    onRequestClose={[Function]}
+  >
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      className="css-102pzl3-modalCss"
+      closeTimeoutMS={0}
+      isOpen={false}
+      onRequestClose={[Function]}
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      role="dialog"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+    >
+      <Portal
+        containerInfo={
+          <div
+            class="ReactModalPortal"
+          />
+        }
+      >
+        <ModalPortal
+          ariaHideApp={true}
+          bodyOpenClassName="ReactModal__Body--open"
+          className="css-102pzl3-modalCss"
+          closeTimeoutMS={0}
+          defaultStyles={
+            Object {
+              "content": Object {
+                "WebkitOverflowScrolling": "touch",
+                "background": "#fff",
+                "border": "1px solid #ccc",
+                "borderRadius": "4px",
+                "bottom": "40px",
+                "left": "40px",
+                "outline": "none",
+                "overflow": "auto",
+                "padding": "20px",
+                "position": "absolute",
+                "right": "40px",
+                "top": "40px",
+              },
+              "overlay": Object {
+                "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                "bottom": 0,
+                "left": 0,
+                "position": "fixed",
+                "right": 0,
+                "top": 0,
+              },
+            }
+          }
+          isOpen={false}
+          onRequestClose={[Function]}
+          parentSelector={[Function]}
+          portalClassName="ReactModalPortal"
+          role="dialog"
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
+          shouldFocusAfterRender={true}
+          shouldReturnFocusAfterClose={true}
+          style={
+            Object {
+              "content": Object {},
+              "overlay": Object {},
+            }
+          }
+        />
+      </Portal>
+    </Modal>
+  </EmotionCssPropInternal>
+</ModalBoxAdd>
+`;

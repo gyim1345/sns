@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditComment /> 스냅샷 비교 1`] = `
+<EditComment
+  currentUser="gibong@gmail.com"
+  indexOfCommentOnThisPosting={0}
+  posting={
+    Array [
+      Object {
+        "_id": "5e90119435a2d94f9e08e35a",
+        "id": 1,
+        "like": Array [
+          "noone@gmail.com",
+        ],
+        "postLId": 1,
+        "replyToCommentId": null,
+        "title": "title1",
+        "userName": "gibong@gmail.com",
+      },
+    ]
+  }
+>
+  <input
+    onChange={[Function]}
+    type="text"
+    value={
+      Array [
+        "title1",
+      ]
+    }
+  />
+  <button
+    id="buttonEdit"
+    onClick={[Function]}
+    type="button"
+  >
+    Edit
+  </button>
+</EditComment>
+`;

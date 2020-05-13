@@ -1,0 +1,104 @@
+{
+  "name": "sns",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./webpack.config.js",
+    "start": "webpack-dev-server",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "@types/jest": "^24.0.18",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "fileloader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
+    "jest-serializer-vue": "^2.0.2",
+    "mutation-observer": "^1.0.3",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.19.1",
+    "react-test-renderer": "^16.13.1",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "@material-ui/core": "^4.9.10",
+    "acorn": "^7.1.1",
+    "axios": "^0.19.2",
+    "customize-cra": "^0.9.1",
+    "emotion": "^10.0.27",
+    "express": "^4.17.1",
+    "glamor": "^2.20.40",
+    "glamorous": "^5.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.9.0",
+    "react-hook-form": "^4.4.3",
+    "react-modal": "^3.11.1",
+    "react-router-dom": "^5.1.2",
+    "styled-react-modal": "^2.0.0",
+    "sweetalert2": "^9.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyim1345/sns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gyim1345/sns/issues"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/jsx-one-expression-per-line": 0
+    }
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
+  },
+  "homepage": "https://github.com/gyim1345/sns#readme",
+  "description": ""
+}

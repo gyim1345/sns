@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostsForSearchPage /> renders <div> 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <PostsForSearchPage
+      posting={
+        Object {
+          "_id": "5e8ec52d9bb4913b5a844423",
+          "id": 1,
+          "imageUrl": "http://localhost:3000/static/images/1.jpg",
+          "like": Array [
+            "gibong@gmail.com",
+          ],
+          "tag": Array [
+            "landscape",
+          ],
+          "title": "posting with id 1",
+          "userName": "gibong@gmail.com",
+        }
+      }
+      setUserOfActivePage="gibong@gmail.com"
+    >
+      <Link
+        onClick={[Function]}
+        to="/posting/1"
+      >
+        <LinkAnchor
+          href="/posting/1"
+          navigate={[Function]}
+          onClick={[Function]}
+        >
+          <a
+            href="/posting/1"
+            onClick={[Function]}
+          >
+            <div
+              className="test"
+              style={
+                Object {
+                  "position": "relative",
+                  "width": "17vw",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "backgroundImage": "url(http://localhost:3000/static/images/1.jpg)",
+                    "backgroundPosition": "center",
+                    "backgroundSize": "cover",
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "paddingTop": "100%",
+                  }
+                }
+              />
+            </div>
+          </a>
+        </LinkAnchor>
+      </Link>
+    </PostsForSearchPage>
+  </Router>
+</BrowserRouter>
+`;
