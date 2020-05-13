@@ -4,26 +4,33 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'none',
   output: {
-    path: path.resolve( __dirname, 'dist/'),
+    path: path.resolve(__dirname, 'dist/'),
     filename: 'main.js'
+    // publicPath: 'https://image123.com'
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: ['babel-loader'],
+        resolve: { extensions: ['.js', '.jsx', '.ts'] }
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader', // creates style nodes from JS strings
+          'css-loader' // translates CSS into CommonJS
+        ],
+        exclude: /node_modules/
       },
       {
-        test: /\.(jpe?g|png|gif|ttf|otf)$/,
-        use: 'file-loader',
-      },
-    ],
+        test: /\.(jpg|png)$/,
+        use: 'file-loader'
+      }
+    ]
   },
   devServer: {
     proxy: [
