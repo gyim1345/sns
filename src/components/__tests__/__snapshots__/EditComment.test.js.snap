@@ -20,21 +20,29 @@ exports[`<EditComment /> 스냅샷 비교 1`] = `
     ]
   }
 >
-  <input
-    onChange={[Function]}
-    type="text"
-    value={
-      Array [
-        "title1",
-      ]
+  <EmotionCssPropInternal
+    __EMOTION_LABEL_PLEASE_DO_NOT_USE__="EditComment"
+    __EMOTION_TYPE_PLEASE_DO_NOT_USE__="button"
+    css={
+      Object {
+        "map": "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkVkaXRDb21tZW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQThDeUIiLCJmaWxlIjoiRWRpdENvbW1lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgU3dhbCBmcm9tICdzd2VldGFsZXJ0Mic7XG5pbXBvcnQgeyBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuaW1wb3J0IHsgZWRpdENvbW1lbnRBUEkgfSBmcm9tICcuLi9hcGlzL2NvbW1lbnQnO1xuaW1wb3J0IE1vZGFsQm94RWRpdENvbW1lbnQgZnJvbSAnLi9Nb2RhbEJveEVkaXRDb21tZW50JztcblxuZnVuY3Rpb24gRWRpdENvbW1lbnQoe1xuICBwb3N0aW5nLFxuICBzZXRQb3N0aW5nLFxuICBpbmRleE9mQ29tbWVudE9uVGhpc1Bvc3RpbmcsXG4gIGN1cnJlbnRVc2VyLFxuICBzZXRDb21tZW50QVBJLFxuICBzZXRJc09wZW5cbn0pIHtcbiAgY29uc3QgW2NsaWNrZWQsIHNldENsaWNrZWRdID0gdXNlU3RhdGUoZmFsc2UpO1xuXG4gIGNvbnN0IG9uQ2xpY2sgPSBhc3luYyAoKSA9PiB7XG4gICAgc2V0Q2xpY2tlZCh0cnVlKTtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICB7Y2xpY2tlZCAmJiAoXG4gICAgICAgIDxNb2RhbEJveEVkaXRDb21tZW50XG4gICAgICAgICAgY2xpY2tlZD17Y2xpY2tlZH1cbiAgICAgICAgICBwb3N0aW5nPXtwb3N0aW5nfVxuICAgICAgICAgIHNldFBvc3Rpbmc9e3NldFBvc3Rpbmd9XG4gICAgICAgICAgY3VycmVudFVzZXI9e2N1cnJlbnRVc2VyfVxuICAgICAgICAgIHNldElzT3Blbk1vZGFsQm94PXtzZXRJc09wZW59XG4gICAgICAgICAgc2V0Q29tbWVudEFQST17c2V0Q29tbWVudEFQSX1cbiAgICAgICAgICBpbmRleE9mQ29tbWVudE9uVGhpc1Bvc3Rpbmc9e2luZGV4T2ZDb21tZW50T25UaGlzUG9zdGluZ31cbiAgICAgICAgLz5cbiAgICAgICl9XG4gICAgICA8YnV0dG9uXG4gICAgICAgIHR5cGU9XCJidXR0b25cIlxuICAgICAgICBvbkNsaWNrPXtvbkNsaWNrfVxuICAgICAgICBpZD1cImJ1dHRvbkVkaXRcIlxuICAgICAgICBjc3M9e2VkaXRCdXR0b25Dc3N9XG4gICAgICA+XG4gICAgICAgIEVkaXRcbiAgICAgIDwvYnV0dG9uPlxuICAgIDwvPlxuICApO1xufVxuXG5jb25zdCBlZGl0QnV0dG9uQ3NzID0gY3NzYFxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKHZhcigtLWQwYiwgMjE5LCAyMTksIDIxOSksIDEpO1xuICBjb2xvcjogcmdiYSh2YXIoLS1mMDcsIDM4LCAzOCwgMzgpLCAxKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gIHdpZHRoOiAzMDBweDtcbiAgaGVpZ2h0OiA0OHB4O1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuYDtcblxuLy8gRWRpdC5wcm9wVHlwZXMgPSB7XG4vLyAgIGN1cnJlbnRVc2VyOiBQcm9wVHlwZXMuc3RyaW5nLFxuLy8gICBwb3N0aW5nOiBQcm9wVHlwZXMub25lT2ZUeXBlKFtQcm9wVHlwZXMub2JqZWN0LCBQcm9wVHlwZXMuYXJyYXldKSxcbi8vICAgc2V0UG9zdGluZzogUHJvcFR5cGVzLmVsZW1lbnRUeXBlLFxuLy8gICBpbmRleE9mQ29tbWVudE9uVGhpc1Bvc3Rpbmc6IFByb3BUeXBlcy5udW1iZXIsXG4vLyAgIHNldENvbW1lbnRBUEk6IFByb3BUeXBlcy5lbGVtZW50VHlwZVxuLy8gfTtcblxuLy8gRWRpdC5kZWZhdWx0UHJvcHMgPSB7XG4vLyAgIGN1cnJlbnRVc2VyOiBcIlwiLFxuLy8gICBwb3N0aW5nOiB7fSxcbi8vICAgaW5kZXhPZkNvbW1lbnQ6IHVuZGVmaW5lZCxcbi8vICAgY2lkOiB1bmRlZmluZWRcbi8vIH07XG5cbmV4cG9ydCBkZWZhdWx0IEVkaXRDb21tZW50O1xuIl19 */",
+        "name": "1oozu6r-editButtonCss",
+        "styles": "border:1px solid rgba(var(--d0b,219,219,219),1);color:rgba(var(--f07,38,38,38),1);background-color:white;width:300px;height:48px;font-size:14px;font-weight:bold;;label:editButtonCss;",
+        "toString": [Function],
+      }
     }
-  />
-  <button
     id="buttonEdit"
     onClick={[Function]}
     type="button"
   >
-    Edit
-  </button>
+    <button
+      className="css-1oozu6r-editButtonCss"
+      id="buttonEdit"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit
+    </button>
+  </EmotionCssPropInternal>
 </EditComment>
 `;

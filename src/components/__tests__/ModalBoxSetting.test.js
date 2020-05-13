@@ -8,7 +8,7 @@ describe('<ModalBoxSetting />', () => {
     const wrapper = mount(<ModalBoxSetting info={info} />);
 
     expect(wrapper.props().info).toBe(info)
-    expect(wrapper.html()).toMatch('<svg')
+    expect(wrapper.html()).toMatch('<button')
     expect(wrapper).toMatchSnapshot();
   });
 });

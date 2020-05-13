@@ -18,9 +18,9 @@ describe('<Reply />', () => {
     expect(wrapper.props().commentAPI).toBe(comments);
     expect(wrapper.props().indexOfCommentOnThisPosting).toBe(0);
     expect(wrapper.props().currentUser).toBe(currentUser);
-    expect(wrapper.html()).toMatch('<input');
+    expect(wrapper.html()).toMatch('<textarea');
     expect(wrapper.html()).toMatch('<button');
-    expect(wrapper.text()).toMatch('AddReply');
+    expect(wrapper.text()).toMatch('Add Replyclose');
     expect(wrapper).toMatchSnapshot();
   });
 });
