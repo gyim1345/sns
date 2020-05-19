@@ -47,9 +47,9 @@ function Posting({
     }
   };
 
-  useEffect(() => {
-    userImage();
-  }, []);
+  // useEffect(() => {
+  //   userImage();
+  // }, []);
 
   const changeUser = () => {
     setUserOfActivePage(posting.userName);
@@ -68,7 +68,7 @@ function Posting({
     <>
       <h1 css={[h1]}>
         <div css={[leftElement]}>
-          <img css={[imgCss]} src={image} alt="" width={35} />
+          <img css={[imgCss]} src={posting.userImageUrl} alt="" width={35} />
           <div css={[nameSize]}>
             <Link
               to={`/profile/${posting.userName}`}

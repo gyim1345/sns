@@ -58,6 +58,9 @@ const Login = ({
       );
       response && (setCurrentUser(data.Id), setUserOfActivePage(data.Id));
       setLoggedIn(response);
+      setCurrentUser(data.Id);
+      setUserOfActivePage(data.Id);
+      setLoggedIn(true);
     } catch (e) {
       Swal.fire({
         icon: 'error',

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Switch, Link, Route, Redirect } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Switch,
+  Link,
+  Route,
+  Redirect
+} from 'react-router-dom';
 import { css } from '@emotion/core';
 import { checkStatus } from './apis/check';
 import './App.css';
@@ -20,26 +26,22 @@ function App() {
   const [userOfActivePage, setUserOfActivePage] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userImage, setUserImage] = useState('');
+  const [userImage, setUserImage] = useState(undefined);
 
   const check = async () => {
     const { sessionUserName } = await checkStatus(
       currentUser,
       userOfActivePage
     );
-    !userOfActivePage && setUserOfActivePage(sessionUserName);
-    setCurrentUser(sessionUserName);
     const imageURL = await getUserImage(sessionUserName);
     setUserImage(imageURL);
+    !userOfActivePage && setUserOfActivePage(sessionUserName);
+    setCurrentUser(sessionUserName);
   };
 
   useEffect(() => {
     check();
-  }, [userImage]);
-
-  
-  // useEffect(() => {
-  // }, [loggedIn]);
+  }, [loggedIn]);
 
   const changeToCurrentUser = () => {
     setUserOfActivePage(currentUser);
@@ -52,9 +54,13 @@ function App() {
           <div className="cssTop">
             <div css={[topHeaderWidth]}>
               <div css={leftHeaderCss}>
-            <Link to={`/TimeLine/${currentUser}`} onClick={toTop} css={[linkDecoration]}>
-              <span css={[fontSize]}>Bongstagram </span>
-              </Link>
+                <Link
+                  to={`/TimeLine/${currentUser}`}
+                  onClick={toTop}
+                  css={[linkDecoration]}
+                >
+                  <span css={[fontSize]}>Bongstagram </span>
+                </Link>
               </div>
               <div css={[displayFlex]}>
                 <div css={[navIcons]}>
@@ -71,7 +77,9 @@ function App() {
                       toTop();
                     }}
                   >
-                    {userImage && <UserProfileImg userImage={userImage} />}
+                    {/* {userImage &&  */}
+                    <UserProfileImg userImage={userImage} />
+                    {/* // } */}
                   </Link>
                 </div>
               </div>
@@ -106,7 +114,6 @@ function App() {
             setCurrentUser={setCurrentUser}
             setLoggedIn={setLoggedIn}
             loggedIn={loggedIn}
-
           />
         </Route>
         <Route exact path={`/SearchPage`}>
@@ -153,7 +160,7 @@ function App() {
 }
 
 const leftHeaderCss = css`
-flex: 1 10000 0%;
+  flex: 1 10000 0%;
 `;
 const linkDecoration = css`
   text-decoration: none;
